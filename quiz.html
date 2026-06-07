@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đường Lên Đỉnh Tư Tưởng Hồ Chí Minh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-attachment: fixed;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+        .option-btn {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .option-btn:hover:not(:disabled) {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .option-btn.selected {
+            background-color: #e0f2fe; 
+            border-color: #7dd3fc;
+            color: #0369a1;
+        }
+        .option-btn.correct {
+            background-color: #dcfce7; 
+            border-color: #86efac;
+            color: #15803d;
+        }
+        .option-btn.wrong {
+            background-color: #fee2e2; 
+            border-color: #fca5a5;
+            color: #b91c1c;
+        }
+        .option-btn.hidden-option {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.95);
+        }
+
+        #screen-game {
+            height: 100vh;
+            max-height: 100vh;
+            overflow: hidden;
+        }
+        #screen-game .game-board {
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        #screen-game .game-card {
+            flex: 1;
+            min-height: 0;
+            display: grid;
+            grid-template-rows: auto minmax(0, 1fr) auto auto auto;
+            overflow: hidden;
+        }
+        #screen-game .game-question-wrap {
+            max-height: 32vh;
+            overflow: hidden;
+        }
+        #screen-game #question-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        #screen-game #options-container {
+            min-height: 0;
+            overflow: hidden;
+            align-content: center;
+        }
+        #screen-game .option-btn {
+            min-height: 0;
+            padding: 0.65rem 0.75rem;
+            font-size: 0.8rem;
+            line-height: 1.35;
+        }
+        @media (min-width: 768px) {
+            #screen-game .option-btn {
+                padding: 0.85rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+        #screen-game .option-letter {
+            width: 1.75rem;
+            height: 1.75rem;
+            font-size: 0.75rem;
+        }
+        #screen-game #game-answer-panel {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.25s ease, opacity 0.2s ease, padding 0.25s ease;
+            padding: 0 1rem;
+        }
+        #screen-game #game-answer-panel.is-visible {
+            max-height: 9rem;
+            opacity: 1;
+            padding: 0.75rem 1rem 0.25rem;
+        }
+        #screen-game #hint-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        #screen-game #game-action-bar {
+            flex-shrink: 0;
+            min-height: 3.25rem;
+        }
+        body.game-active {
+            overflow: hidden;
+        }
+
+        #spaced-grade-bar .grade-btn {
+            transition: all 0.15s ease;
+        }
+        #spaced-grade-bar .grade-btn:hover:not(:disabled) {
+            transform: translateY(-1px);
+        }
+
+        #btn-review-hub {
+            box-shadow: 0 8px 24px rgba(236, 72, 153, 0.25);
+        }
+        #btn-review-hub:hover {
+            transform: scale(1.05);
+        }
+
+        #group-buttons .group-progress-track {
+            height: 0.35rem;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 9999px;
+            overflow: hidden;
+            border: 1px solid #fed7aa;
+        }
+        #group-buttons .group-progress-fill {
+            height: 100%;
+            border-radius: 9999px;
+            transition: width 0.4s ease;
+        }
+
+        /* Home: vừa 1 viewport, không scrollbar */
+        body.home-active {
+            overflow: hidden;
+            height: 100vh;
+        }
+        body.home-active #app {
+            height: 100vh;
+            min-height: unset;
+            max-height: 100vh;
+            overflow: hidden;
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+        #screen-home {
+            height: 100%;
+            max-height: 100%;
+            overflow: hidden;
+            justify-content: center;
+        }
+        #screen-home .home-panel {
+            max-height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1.25rem 1.5rem;
+        }
+        @media (min-width: 768px) {
+            #screen-home .home-panel {
+                padding: 1.75rem 2.5rem;
+            }
+        }
+        #screen-home .home-hero-icon {
+            padding: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+        #screen-home .home-hero-icon i {
+            font-size: 2.5rem;
+        }
+        @media (min-width: 768px) {
+            #screen-home .home-hero-icon i { font-size: 3.25rem; }
+        }
+        #screen-home .home-title {
+            font-size: clamp(1.35rem, 4.5vw, 2.75rem);
+            margin-bottom: 0.5rem;
+            line-height: 1.15;
+        }
+        #screen-home .home-subtitle {
+            font-size: clamp(0.8rem, 2vw, 1.05rem);
+            margin-bottom: 1rem;
+        }
+        #screen-home .home-features {
+            gap: 0.65rem;
+        }
+        #screen-home .home-feature-btn {
+            padding: 0.85rem 0.65rem;
+        }
+        @media (min-width: 768px) {
+            #screen-home .home-feature-btn { padding: 1rem 0.75rem; }
+        }
+        #screen-home .home-feature-btn .feature-icon-wrap {
+            padding: 0.65rem;
+            margin-bottom: 0.5rem;
+        }
+        #screen-home .home-feature-btn .feature-icon-wrap i {
+            font-size: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            #screen-home .home-feature-btn .feature-icon-wrap i { font-size: 1.75rem; }
+        }
+        #screen-home .home-feature-btn h3 {
+            font-size: 0.95rem;
+        }
+        #screen-home .home-feature-btn p {
+            font-size: 0.7rem;
+        }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+        
+        script[src="https://cdn.tailwindcss.com"] + style { display: none; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-100 via-yellow-50 to-blue-100 min-h-screen text-slate-800">
+
+    <div id="app" class="container mx-auto px-4 py-6 md:py-10 max-w-5xl min-h-screen flex flex-col relative">
+        
+        <div id="screen-home" class="flex-1 flex flex-col items-center text-center animate-fade-in relative w-full">
+            <!-- Icon góc: mở modal Thống kê & Spaced Repetition -->
+            <button id="btn-review-hub" onclick="openReviewHubModal()" title="Tiến độ & Ôn tập thông minh"
+                class="fixed top-5 right-5 z-30 w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-orange-400 text-white flex items-center justify-center transition-all border-2 border-white/50">
+                <i class="fa-solid fa-chart-line text-xl"></i>
+                <span id="hub-badge" class="absolute -top-1.5 -right-1.5 bg-red-500 text-white text-[10px] font-black min-w-[1.25rem] h-5 px-1 rounded-full hidden shadow-sm border-2 border-white flex items-center justify-center">0</span>
+            </button>
+
+            <div class="home-panel glass-panel rounded-3xl shadow-xl w-full max-w-4xl mx-auto">
+                <div class="home-hero-icon inline-block bg-white rounded-full shadow-sm border border-pink-50">
+                    <i class="fa-solid fa-graduation-cap text-pink-400 drop-shadow-sm"></i>
+                </div>
+                <h1 class="home-title font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-orange-400 to-blue-500 drop-shadow-sm tracking-tight">
+                    ĐƯỜNG LÊN ĐỈNH<br>TƯ TƯỞNG HỒ CHÍ MINH
+                </h1>
+                <p class="home-subtitle text-slate-600 font-semibold max-w-2xl mx-auto">Hệ thống ôn tập thông minh - Lưu trữ đám mây tự động!</p>
+
+                <div class="home-features grid grid-cols-3 w-full max-w-3xl mx-auto">
+                    <button onclick="openGroupSelection()" class="home-feature-btn group relative bg-white border-2 border-pink-200 rounded-2xl shadow-sm hover:shadow-md hover:border-pink-300 transition-all flex flex-col items-center text-center">
+                        <div class="feature-icon-wrap text-pink-400 bg-pink-50 rounded-full"><i class="fa-solid fa-route"></i></div>
+                        <h3 class="font-bold text-slate-700 mb-0.5">Học Theo Nhóm</h3>
+                        <p class="text-slate-500 leading-tight">20 câu/nhóm</p>
+                    </button>
+                    <button onclick="startGame('exam')" class="home-feature-btn group relative bg-white border-2 border-blue-200 rounded-2xl shadow-sm hover:shadow-md hover:border-blue-300 transition-all flex flex-col items-center text-center">
+                        <div class="feature-icon-wrap text-blue-400 bg-blue-50 rounded-full"><i class="fa-solid fa-stopwatch"></i></div>
+                        <h3 class="font-bold text-slate-700 mb-0.5">Thi Thử</h3>
+                        <p class="text-slate-500 leading-tight">25 câu ngẫu nhiên</p>
+                    </button>
+                    <button id="btn-review-marked" onclick="startReviewFromHome()" class="home-feature-btn group relative bg-white border-2 border-orange-200 rounded-2xl shadow-sm hover:shadow-md hover:border-orange-300 transition-all flex flex-col items-center text-center opacity-50 cursor-not-allowed">
+                        <div class="feature-icon-wrap text-orange-400 bg-orange-50 rounded-full relative">
+                            <i class="fa-solid fa-bookmark"></i>
+                            <span id="marked-badge" class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-black px-1.5 py-0.5 rounded-full hidden shadow-sm border border-white">0</span>
+                        </div>
+                        <h3 class="font-bold text-slate-700 mb-0.5">Ôn Lại</h3>
+                        <p class="text-slate-500 leading-tight">Chưa thuộc</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal: Thống kê & Spaced Repetition -->
+        <div id="modal-review-hub" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+            <div class="glass-panel w-full max-w-2xl p-6 md:p-8 rounded-3xl shadow-2xl relative animate-fade-in bg-white/95 max-h-[90vh] overflow-y-auto">
+                <button onclick="closeReviewHubModal()" class="absolute top-5 right-5 w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-200 transition-colors z-10">
+                    <i class="fa-solid fa-times text-xl"></i>
+                </button>
+                <h3 class="text-2xl font-black text-slate-800 mb-1 pr-12">📊 Tiến Độ Ôn Tập</h3>
+                <p class="text-sm text-slate-500 mb-5">Thống kê & Spaced Repetition</p>
+
+                <div id="review-dashboard" class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6 text-left">
+                    <div class="bg-white rounded-2xl p-4 border-2 border-slate-100 shadow-sm">
+                        <div class="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-wide">Tổng câu hỏi</div>
+                        <div id="stat-total" class="text-xl md:text-2xl font-black text-slate-700">0</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-4 border-2 border-green-100 shadow-sm">
+                        <div class="text-[10px] md:text-xs font-bold text-green-500 uppercase tracking-wide">Đã học</div>
+                        <div id="stat-learned" class="text-xl md:text-2xl font-black text-green-600">0</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-4 border-2 border-purple-100 shadow-sm">
+                        <div class="text-[10px] md:text-xs font-bold text-purple-500 uppercase tracking-wide">Mastery</div>
+                        <div id="stat-mastery" class="text-xl md:text-2xl font-black text-purple-600">0%</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-4 border-2 border-orange-100 shadow-sm">
+                        <div class="text-[10px] md:text-xs font-bold text-orange-500 uppercase tracking-wide">Đến hạn hôm nay</div>
+                        <div id="stat-due" class="text-xl md:text-2xl font-black text-orange-600">0</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-4 border-2 border-pink-100 shadow-sm">
+                        <div class="text-[10px] md:text-xs font-bold text-pink-500 uppercase tracking-wide">Streak</div>
+                        <div id="stat-streak" class="text-xl md:text-2xl font-black text-pink-600">0 🔥</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-4 border-2 border-blue-100 shadow-sm">
+                        <div class="text-[10px] md:text-xs font-bold text-blue-500 uppercase tracking-wide">Accuracy</div>
+                        <div id="stat-accuracy" class="text-xl md:text-2xl font-black text-blue-600">0%</div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <button id="btn-spaced-review" onclick="startSpacedReview()" class="group relative bg-white border-2 border-red-200 p-5 rounded-2xl shadow-sm hover:shadow-md hover:border-red-300 transition-all flex flex-col items-center text-center">
+                        <div class="text-red-500 mb-3 bg-red-50 p-3 rounded-full relative">
+                            <i class="fa-solid fa-fire text-2xl"></i>
+                            <span id="due-badge" class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-black px-1.5 py-0.5 rounded-full hidden shadow-sm border border-white">0</span>
+                        </div>
+                        <h4 class="font-bold text-slate-700 text-sm">🔥 Ôn Hôm Nay</h4>
+                        <p class="text-xs text-slate-500 mt-0.5">Anki-lite</p>
+                    </button>
+                    <button onclick="openHandbookFromHub()" class="group relative bg-white border-2 border-yellow-200 p-5 rounded-2xl shadow-sm hover:shadow-md hover:border-yellow-300 transition-all flex flex-col items-center text-center">
+                        <div class="text-yellow-400 mb-3 bg-yellow-50 p-3 rounded-full">
+                            <i class="fa-solid fa-book-open text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-700 text-sm">Sổ Tay</h4>
+                        <p class="text-xs text-slate-500 mt-0.5">Tra cứu & Giải mã</p>
+                    </button>
+                    <button id="btn-reviewed" onclick="openReviewedHandbook()" class="group relative bg-white border-2 border-green-200 p-5 rounded-2xl shadow-sm hover:shadow-md hover:border-green-300 transition-all flex flex-col items-center text-center opacity-50 cursor-not-allowed">
+                        <div class="text-green-500 mb-3 bg-green-50 p-3 rounded-full relative">
+                            <i class="fa-solid fa-circle-check text-2xl"></i>
+                            <span id="reviewed-badge" class="absolute -top-1 -right-1 bg-green-600 text-white text-[10px] font-black px-1.5 py-0.5 rounded-full hidden shadow-sm border border-white">0</span>
+                        </div>
+                        <h4 class="font-bold text-slate-700 text-sm">✅ Đã Ôn</h4>
+                        <p id="reviewed-subtitle" class="text-xs text-slate-500 mt-0.5">Chưa có</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-group" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+            <div class="glass-panel w-full max-w-lg p-8 rounded-3xl shadow-2xl relative animate-fade-in bg-white/95">
+                <button onclick="closeGroupSelection()" class="absolute top-5 right-5 w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center text-slate-500 hover:bg-slate-200 transition-colors">
+                    <i class="fa-solid fa-times text-xl"></i>
+                </button>
+                <h3 class="text-2xl font-black text-slate-800 mb-2">Chọn nhóm ôn tập</h3>
+                <div id="group-buttons" class="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-[60vh] overflow-y-auto pr-2 mt-4"></div>
+            </div>
+        </div>
+
+        <div id="screen-game" class="hidden fixed inset-0 z-40 flex flex-col animate-fade-in max-w-3xl mx-auto px-3 py-3 md:px-4 md:py-4">
+            <div class="glass-panel rounded-2xl px-3 py-2.5 md:px-4 md:py-3 shadow-sm flex items-center justify-between gap-3 border-b-4 border-b-blue-100 shrink-0">
+                <div class="flex items-center gap-3 min-w-0">
+                    <button onclick="showHome()" class="w-10 h-10 shrink-0 bg-white rounded-full flex items-center justify-center text-slate-500 hover:text-pink-500 shadow-sm transition-colors border border-slate-100">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <div class="min-w-0">
+                        <h2 id="game-mode-title" class="font-black text-slate-700 text-base md:text-lg tracking-tight truncate">Đang tải...</h2>
+                        <div id="game-progress" class="text-xs text-slate-500 font-bold">Câu 1/10</div>
+                    </div>
+                </div>
+                <div class="flex gap-2 items-center shrink-0">
+                    <div id="timer-container" class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-xl shadow-sm border-2 border-blue-100 text-blue-600 font-black text-base md:text-lg">
+                        <i class="fa-regular fa-clock text-sm"></i>
+                        <span id="timer">15:00</span>
+                    </div>
+                    <div id="score-container" class="hidden flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-xl shadow-sm border-2 border-yellow-100 text-yellow-600 font-black text-base md:text-lg">
+                        <i class="fa-solid fa-star text-yellow-400 text-sm"></i>
+                        <span id="score">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="helpers-container" class="flex justify-center gap-2 py-2 shrink-0">
+                <button id="btn-help-5050" onclick="useHelp('5050')" class="px-3 py-1.5 bg-white text-blue-600 rounded-full font-bold hover:bg-blue-50 shadow-sm border-2 border-blue-100 text-xs md:text-sm">
+                    <i class="fa-solid fa-divide mr-1"></i>50/50
+                </button>
+                <button id="btn-help-freeze" onclick="useHelp('freeze')" class="px-3 py-1.5 bg-white text-pink-600 rounded-full font-bold hover:bg-pink-50 shadow-sm border-2 border-pink-100 text-xs md:text-sm">
+                    <i class="fa-regular fa-snowflake mr-1"></i>Đóng băng
+                </button>
+                <button id="btn-help-hint" onclick="useHelp('hint')" class="px-3 py-1.5 bg-white text-yellow-600 rounded-full font-bold hover:bg-yellow-50 shadow-sm border-2 border-yellow-100 text-xs md:text-sm">
+                    <i class="fa-solid fa-lightbulb mr-1"></i>Giải mã
+                </button>
+            </div>
+
+            <div class="game-board min-h-0">
+                <div class="game-card glass-panel rounded-3xl shadow-lg relative bg-white/95 overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-slate-100 z-10">
+                        <div id="progress-bar" class="h-full bg-gradient-to-r from-orange-400 via-pink-400 to-blue-400 w-0 transition-all duration-500 rounded-r-full"></div>
+                    </div>
+
+                    <div class="game-question-wrap flex items-center justify-center px-10 pt-5 pb-2 relative shrink-0">
+                        <button id="btn-mark-ingame" onclick="toggleMarkCurrentQuestion()" class="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center text-slate-300 hover:text-orange-500 hover:bg-orange-50 transition-all text-lg" title="Đánh dấu câu chưa thuộc">
+                            <i class="fa-solid fa-bookmark"></i>
+                        </button>
+                        <h3 id="question-text" class="text-sm md:text-base lg:text-lg font-black text-slate-800 text-center leading-snug tracking-tight">
+                            Đang tải câu hỏi...
+                        </h3>
+                    </div>
+
+                    <div id="options-container" class="grid grid-cols-2 gap-2 md:gap-3 px-3 md:px-4"></div>
+
+                    <div id="game-answer-panel" class="border-t border-slate-100 bg-gradient-to-r from-yellow-50/80 to-amber-50/50">
+                        <div class="flex items-start gap-2">
+                            <i id="answer-panel-icon" class="fa-solid fa-key text-yellow-600 mt-0.5 shrink-0"></i>
+                            <div class="min-w-0 flex-1">
+                                <p id="answer-panel-label" class="text-[10px] md:text-xs font-black text-yellow-700 uppercase tracking-wide">Giải mã</p>
+                                <p id="hint-text" class="text-xs md:text-sm text-yellow-900 leading-snug line-clamp-2"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="game-action-bar" class="px-3 pb-3 pt-1 md:px-4 md:pb-4 flex gap-2">
+                        <button id="btn-next" onclick="nextQuestion()" class="hidden flex-1 py-2.5 md:py-3 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-xl font-black text-sm md:text-base hover:from-blue-500 hover:to-blue-600 shadow-md transition-all">
+                            TIẾP TỤC <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                        <button id="btn-finish" onclick="finishGame()" class="hidden flex-1 py-2.5 md:py-3 bg-gradient-to-r from-pink-400 to-orange-400 text-white rounded-xl font-black text-sm md:text-base hover:shadow-md transition-all">
+                            HOÀN THÀNH <i class="fa-solid fa-flag-checkered ml-1"></i>
+                        </button>
+                    </div>
+
+                    <!-- 4 mức ghi nhớ (chỉ hiện ở chế độ Spaced Review) -->
+                    <div id="spaced-grade-bar" class="hidden px-3 pb-3 md:px-4 md:pb-4 grid grid-cols-2 gap-2">
+                        <button onclick="handleSpacedGrade('again')" class="grade-btn py-2.5 rounded-xl border-2 border-red-200 bg-red-50 text-red-700 font-bold text-xs md:text-sm hover:bg-red-100">
+                            😵 Quên hoàn toàn
+                        </button>
+                        <button onclick="handleSpacedGrade('hard')" class="grade-btn py-2.5 rounded-xl border-2 border-orange-200 bg-orange-50 text-orange-700 font-bold text-xs md:text-sm hover:bg-orange-100">
+                            🤔 Khó nhớ
+                        </button>
+                        <button onclick="handleSpacedGrade('good')" class="grade-btn py-2.5 rounded-xl border-2 border-green-200 bg-green-50 text-green-700 font-bold text-xs md:text-sm hover:bg-green-100">
+                            🙂 Nhớ được
+                        </button>
+                        <button onclick="handleSpacedGrade('easy')" class="grade-btn py-2.5 rounded-xl border-2 border-blue-200 bg-blue-50 text-blue-700 font-bold text-xs md:text-sm hover:bg-blue-100">
+                            😎 Rất dễ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="screen-result" class="hidden flex-1 flex flex-col items-center justify-center text-center animate-fade-in">
+            <div class="glass-panel p-10 md:p-14 rounded-3xl shadow-2xl w-full max-w-2xl relative overflow-hidden bg-white/95">
+                <div id="fireworks" class="absolute inset-0 pointer-events-none opacity-60"></div>
+                <div class="inline-block p-4 bg-yellow-50 rounded-full mb-4">
+                    <i class="fa-solid fa-trophy text-6xl text-yellow-400 drop-shadow-md"></i>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500 mb-4 tracking-tight uppercase">Chúc Mừng!</h2>
+                <div class="flex justify-center gap-6 md:gap-10 mb-10">
+                    <div class="text-center p-6 bg-blue-50 rounded-3xl shadow-sm border border-blue-100 min-w-[140px]">
+                        <div class="text-xs text-slate-500 font-bold mb-2 tracking-widest uppercase">Điểm số</div>
+                        <div id="result-score" class="text-4xl font-black text-blue-500">10</div>
+                    </div>
+                    <div class="text-center p-6 bg-pink-50 rounded-3xl shadow-sm border border-pink-100 min-w-[140px]">
+                        <div class="text-xs text-slate-500 font-bold mb-2 tracking-widest uppercase">Thời gian</div>
+                        <div id="result-time" class="text-2xl font-black text-pink-500 mt-4">12:34</div>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row gap-4 justify-center relative z-10">
+                    <button onclick="showHome()" class="px-8 py-4 bg-slate-100 text-slate-700 rounded-xl font-bold hover:bg-slate-200 transition-colors">Về trang chủ</button>
+                    <button onclick="openHandbook()" class="px-8 py-4 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-xl font-bold hover:shadow-lg transition-all hover:-translate-y-1">Xem Sổ tay</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="screen-handbook" class="hidden flex-1 flex flex-col bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl p-5 md:p-8 max-h-[90vh] overflow-hidden border border-slate-100">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 border-b border-slate-100 pb-5 gap-4">
+                <h2 class="text-3xl font-black text-slate-800 flex items-center gap-3">
+                    <div class="bg-pink-100 p-2.5 rounded-xl text-pink-500"><i class="fa-solid fa-book-open"></i></div> 
+                    Sổ Tay Ghi Nhớ
+                </h2>
+                <div class="flex gap-3">
+                    <button onclick="exportData()" class="px-4 py-2 bg-blue-50 text-blue-600 rounded-xl hover:bg-blue-100 font-bold text-sm border border-blue-200 flex items-center gap-2"><i class="fa-solid fa-download"></i> Sao lưu</button>
+                    <button onclick="document.getElementById('import-file').click()" class="px-4 py-2 bg-green-50 text-green-600 rounded-xl hover:bg-green-100 font-bold text-sm border border-green-200 flex items-center gap-2"><i class="fa-solid fa-upload"></i> Phục hồi</button>
+                    <input type="file" id="import-file" class="hidden" accept=".json" onchange="importData(event)">
+                    <button onclick="showHome()" class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-slate-600 hover:bg-red-100 hover:text-red-600 transition-colors"><i class="fa-solid fa-times text-xl"></i></button>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-4 mb-6">
+                <select id="handbook-group-select" onchange="filterHandbook()" class="px-5 py-3.5 rounded-xl border-2 border-slate-200 focus:border-blue-400 focus:outline-none bg-white text-slate-700 font-bold min-w-[200px]">
+                    <option value="all">Tất cả câu hỏi</option>
+                    <option value="marked">📌 Câu Chưa Thuộc (Ôn Lại)</option>
+                    <option value="reviewed">✅ Đã Ôn</option>
+                </select>
+                <div class="relative flex-1">
+                    <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="search-input" placeholder="Tìm kiếm từ khóa..." class="w-full pl-11 pr-4 py-3.5 rounded-xl border-2 border-slate-200 focus:border-blue-400 focus:outline-none bg-white text-slate-700 transition-colors shadow-sm" onkeyup="filterHandbook()">
+                </div>
+            </div>
+            <div id="handbook-list" class="flex-1 overflow-y-auto pr-3 space-y-5 pb-10"></div>
+        </div>
+
+    </div>
+
+    <!-- START FIREBASE INTEGRATION -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <!-- END FIREBASE INTEGRATION -->
+
+    <script>
+        // --- NGÂN HÀNG DỮ LIỆU ĐÃ ĐƯỢC USER CUNG CẤP VÀ TỐI ƯU ---
+        const questionBank = [
+            { id: 1, text: '"Đảng có vững thì cách mệnh mới thành công, cũng như người cầm lái có vững thuyền mới chạy". Luận điểm này được trích trong tác phẩm nào của Bác?', options: ['Bản án chế độ thực dân Pháp.', 'Đường Kách mệnh.', 'Chánh cương vắn tắt của Đảng.', 'Thường thức chính trị.'], answer: 1, explanation: 'Tác phẩm Đường Kách mệnh (1927).' },
+            { id: 2, text: 'Theo Hồ Chí Minh, vì sao giai cấp nông dân không thể lãnh đạo được cách mạng Việt Nam?', options: ['Lực lượng đông nhưng không có tiền đề tư tưởng, lý luận cách mạng triệt để.', 'Không có tư tưởng độc lập, không đại diện cho phương thức sản xuất tiên tiến.', 'Không có chính đảng, không thực hiện được đoàn kết giai cấp, tầng lớp khác.', 'Không có phương tiện tổ chức chiến tranh hiện đại, không có đường lối đúng.'], answer: 1, explanation: 'Giai cấp nông dân không đại diện cho phương thức sản xuất tiên tiến.' },
+            { id: 3, text: 'Bầu cử các đại biểu Quốc hội và Hội đồng Nhân dân các cấp vào các cơ quan quyền lực nhà nước thuộc loại hình dân chủ:', options: ['Trực tiếp và gián tiếp.', 'Dân chủ gián tiếp.', 'Tự do tập trung.', 'Dân chủ trực tiếp.'], answer: 1, explanation: 'Dân bầu đại biểu thay mặt mình quản lý là dân chủ gián tiếp.' },
+            { id: 4, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Nước ta là nước […], nghĩa là nhà nước do nhân dân […]".', options: ['Vô sản; Quản lý.', 'Vì dân; Kiểm soát.', 'Dân chủ; Làm chủ.', 'Dân chủ; Quản lý.'], answer: 2, explanation: 'Dân chủ; Làm chủ.' },
+            { id: 5, text: '"Việc gì có lợi cho dân, ta phải hết sức làm. Việc gì có hại cho dân, ta phải hết sức tránh"… Được trích trong tác phẩm nào của Bác?', options: ['Thư gửi các đồng chí Tỉnh nhà.', 'Thư gửi các đồng chí Bắc bộ.', 'Thư gửi Ủy ban nhân dân các Kỳ, Tỉnh, Huyện và Làng.', 'Lời kêu gọi toàn quốc kháng chiến.'], answer: 2, explanation: 'Thư gửi Ủy ban nhân dân các Kỳ, Tỉnh, Huyện và Làng (10/1945).' },
+            { id: 6, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Chế độ ta là chế độ dân chủ, nghĩa là […] làm chủ".', options: ['Công nhân.', 'Công- Nông.', 'Công dân.', 'Nhân dân.'], answer: 3, explanation: 'Nhân dân làm chủ.' },
+            { id: 7, text: 'Chọn đáp án đúng nhất. Để tranh thủ sự giúp đỡ của các nước XHCN trong đấu tranh cách mạng, cần coi trọng nhân tố nào?', options: ['Có sự lãnh đạo đúng đắn của Đảng Cộng sản.', 'Đường lối đấu tranh theo cách mạng vô sản.', 'Tự lực cánh sinh, dựa vào sức mình là chính.', 'Có đường lối đấu tranh độc lập, tự chủ.'], answer: 2, explanation: 'Tự lực cánh sinh, dựa vào sức mình là chính.' },
+            { id: 8, text: '"Mục đích của Đảng Lao động Việt Nam có thể gộp trong tám chữ…", Hồ Chí Minh tuyên bố này trong sự kiện nào? Thời gian nào?', options: ['Kết thúc buổi ra mắt của Đảng Lao động Việt Nam, ngày 03/02/1930.', 'Lời kết thúc buổi ra mắt của Đảng Lao động Việt Nam, ngày 03/03/1951.', 'Kết thúc buổi ra mắt của Đảng Lao động Việt Nam, ngày 07/02/1930.', 'Lời mở đầu buổi ra mắt của Đảng Lao động Việt Nam, ngày 03/03/1951.'], answer: 3, explanation: 'Lời mở đầu buổi ra mắt ĐLVN, 03/03/1951.' },
+            { id: 9, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Việt Nam muốn làm bạn với […], không gây thù oán với một ai"', options: ['Mọi nước dân chủ.', 'Các nước phát triển cao.', 'Tất cả các nước dân chủ.', 'Các nước xã hội chủ nghĩa.'], answer: 0, explanation: 'Mọi nước dân chủ.' },
+            { id: 10, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Làm cách mệnh rồi thì quyền trao cho […] chớ để trong tay một bọn ít người".', options: ['Giai cấp công nhân.', 'Dân chúng số nhiều.', 'Quần chúng nhân dân.', 'Người dân lao động.'], answer: 2, explanation: 'Quần chúng nhân dân.' },
+            { id: 11, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Mục đích phê bình cốt để […], giúp nhau tiến bộ".', options: ['Giúp nhau sữa chữa.', 'Giúp nhau cải tạo.', 'Sửa chữa sai lầm.', 'Chỉ ra khuyết điểm.'], answer: 0, explanation: 'Giúp nhau sửa chữa.' },
+            { id: 12, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Việc gì có lợi cho […], ta phải hết sức làm; việc gì có hại cho […], ta phải hết sức tránh".', options: ['Nhà nước.', 'Công dân.', 'Dân.', 'Đảng.'], answer: 2, explanation: 'Bác luôn coi trọng lợi ích của Dân.' },
+            { id: 13, text: 'Theo Hồ Chí Minh, chế độ chính trị mà chúng ta xây dựng là chế độ do:', options: ['Giai cấp công nhân và nhân dân lao động làm chủ.', 'Giai cấp nông dân và các tầng lớp nhân dân làm chủ.', 'Giai cấp công nhân và giai cấp nông dân làm chủ.', 'Đảng Cộng sản của giai cấp công nhân làm chủ.'], answer: 0, explanation: 'Giai cấp công nhân và nhân dân lao động làm chủ.' },
+            { id: 14, text: 'Đảng Cộng sản Việt Nam trở thành Đảng cầm quyền ở Việt Nam từ thời gian nào?', options: ['Ngày 03/02/1930.', 'Ngày 30/04/1975.', 'Ngày 24/02/1930.', 'Ngày 06/01/1946.'], answer: 3, explanation: 'Thời điểm tổ chức Tổng tuyển cử đầu tiên.' },
+            { id: 15, text: 'Theo tư tưởng Hồ Chí Minh, mọi việc thành công hay thất bại là do:', options: ['Đường lối lãnh đạo đúng hay sai.', 'Đường lối đúng hay sai.', 'Cán bộ tốt hay kém.', 'Công tác hoạch định cán bộ.'], answer: 2, explanation: 'Cán bộ là cái gốc của mọi công việc.' },
+            { id: 16, text: 'Theo Hồ Chí Minh, yêu cầu cơ bản nhất để xây dựng nhà nước pháp quyền có hiệu lực pháp lý mạnh mẽ là gì?', options: ['Nhà nước phải chịu sự lãnh đạo của Đảng Cộng sản Việt Nam.', 'Đẩy mạnh quan hệ quốc tế, tuân thủ hệ thống pháp luật quốc tế.', 'Nhà nước phải quản lý đất nước bằng Hiến pháp và pháp luật.', 'Nhà nước phải chịu sự kiểm tra, giám sát chặt chẽ của nhân dân.'], answer: 2, explanation: 'Quản lý đất nước bằng Hiến pháp và pháp luật.' },
+            { id: 17, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh: "Chống […] và bệnh quan liêu cũng quan trọng và cần thiết như việc đánh giặc trên mặt trận".', options: ['Tham ô, lãng phí.', 'Lãng phí, bè phái.', 'Tham nhũng, lãng phí.', 'Phá hoại của công.'], answer: 0, explanation: 'Tham ô, lãng phí và bệnh quan liêu.' },
+            { id: 18, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Đảng có vững, [...] mới thành công, cũng như người cầm lái có vững thì […]".', options: ['Cách mệnh; thuyền có thể chạy.', 'Cách mệnh; thuyền mới chạy.', 'Cách mạng; thuyền có thể chạy.', 'Cách mạng; thuyền mới chạy.'], answer: 1, explanation: 'Cách mệnh; thuyền mới chạy.' },
+            { id: 19, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Tất cả các cơ quan nhà nước đều phải dựa vào […], liên hệ chặt chẽ với […], lắng nghe ý kiến và chịu sự kiểm soát của […]".', options: ['Công dân.', 'Nhân dân.', 'Quốc hội.', 'Chính phủ.'], answer: 1, explanation: 'Dựa vào Nhân dân.' },
+            { id: 20, text: 'Theo Hồ Chí Minh, chủ nghĩa cộng sản ra đời dễ dàng hơn ở đâu?', options: ['Châu Á, phương Đông.', 'Châu Âu, Tây Âu.', 'Châu Á, phương Tây Nam.', 'Châu Âu, Đông Âu.'], answer: 0, explanation: 'Phương Đông có truyền thống cộng đồng, đoàn kết.' },
+            { id: 21, text: 'Luận điểm sáng tạo của Hồ Chí minh về con đường cách mạng Việt Nam được hình thành về cơ bản vào năm nào?', options: ['Năm 1920.', 'Năm 1930.', 'Năm 1941.', 'Năm 1925.'], answer: 1, explanation: 'Năm 1930.' },
+            { id: 22, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Tôi chỉ có một ham muốn, ham muốn tột bậc, là làm sao cho nước ta được […]".', options: ['Nhanh chóng độc lập.', 'Hoàn toàn độc lập.', 'Thắng lợi nhanh chóng.', 'Hoàn toàn giải phóng.'], answer: 1, explanation: 'Hoàn toàn độc lập.' },
+            { id: 23, text: 'Khi làm việc tại New York, Hồ Chí Minh đã thấy được điều quan trọng ảnh hưởng đến tư tưởng của Người là gì?', options: ['Nhiều dân tộc nhập cư cùng sinh sống với nhau, đoàn kết giúp nhau cùng phát triển.', 'Những người dân nhập cư mặc nhiên được hưởng những quyền hợp pháp mà người Việt Nam phải đi xin của Pháp.', 'Không có sự phân biệt chủng tộc ở đây, Vàng, Đỏ, Trắng, Đen đều là anh em.', 'Một khu phố ngự trị bởi người dân nhập cư.'], answer: 1, explanation: 'Quyền con người là cái vốn có, không phải đi xin.' },
+            { id: 24, text: 'Theo Hồ Chí Minh, cách mạng giải phóng dân tộc là sự nghiệp của:', options: ['Đảng Cộng sản Việt Nam.', 'Giai cấp công nhân.', 'Mặt trận dân tộc.', 'Quần chúng nhân dân.'], answer: 3, explanation: 'Cách mạng là sự nghiệp của quần chúng.' },
+            { id: 25, text: 'Trong tư tưởng Hồ Chí Minh, bạo lực cách mạng luôn thống nhất với:', options: ['Tư tưởng đấu tranh ngoại giao.', 'Tư tưởng cách mạng không ngừng.', 'Tư tưởng đấu tranh hòa bình.', 'Tư tưởng nhân đạo hòa bình.'], answer: 3, explanation: 'Nhân đạo hòa bình.' },
+            { id: 26, text: 'Các cuộc cách mạng đấu tranh chống Pháp giai đoạn cuối thế kỷ XIX đầu thế kỷ XX có đặc điểm chung là gì?', options: ['Theo con đường phong kiến.', 'Không đến nơi đến chốn.', 'Theo con đường dân chủ tư sản.', 'Tất cả đều thất bại.'], answer: 3, explanation: 'Thất bại do thiếu đường lối đúng.' },
+            { id: 27, text: 'Để chỉ chủ nghĩa tư bản, Hồ Chí Minh sử dụng hình tượng nào?', options: ['Con bạch tuộc.', 'Con chim đại bàng.', 'Con đĩa hai vòi.', 'Hai cánh của con chim.'], answer: 2, explanation: 'Con đĩa hai vòi hút máu chính quốc và thuộc địa.' },
+            { id: 28, text: 'Theo Hồ Chí Minh mối quan hệ giữa vấn đề dân tộc và vấn đề giai cấp ở các nước thuộc địa là:', options: ['Giải phóng dân tộc và giải phóng giai cấp cần được tiến hành song song.', 'Giải phóng giai cấp là tiền đề để giải phóng dân tộc.', 'Giải phóng dân tộc không liên quan đến giải phóng giai cấp.', 'Giải phóng dân tộc là tiền đề để giải phóng giai cấp.'], answer: 3, explanation: 'Giải phóng dân tộc trước, giai cấp sau.' },
+            { id: 29, text: 'Chọn đáp án KHÔNG đúng. Theo Hồ Chí Minh, kẻ thù cần phải đánh đổ trong cách mạng giải phóng là gì?', options: ['Đế quốc, thực dân và tay sai của chúng.', 'Chủ nghĩa cá nhân.', 'Chủ nghĩa tư bản, chủ nghĩa đế quốc.', 'Nghèo nàn, dốt nát, lạc hậu.'], answer: 1, explanation: 'Chủ nghĩa cá nhân là kẻ thù của đạo đức mới/CNXH.' },
+            { id: 30, text: 'Theo Hồ Chí Minh, cách mạng bạo lực là đấu tranh:', options: ['Kết hợp chính trị quần chúng với vũ trang nhân dân.', 'Kết hợp đấu tranh quân sự với đấu tranh ngoại giao.', 'Kết hợp chính trị quần chúng với đấu tranh ngoại giao.', 'Kết hợp vũ trang nhân dân với mặt trận ngoại giao.'], answer: 0, explanation: 'Chính trị quần chúng và vũ trang nhân dân.' },
+            { id: 31, text: 'Mối quan hệ giữa nội lực và ngoại lực trong thời kỳ quá độ lên CNXH theo quan điểm của Hồ Chí Minh là gì?', options: ['Nội lực là quan trọng nhất, không cần ngoại lực.', 'Nội lực là chính, ngoại lực là quan trọng.', 'Ngoại lực trong thời kì đầu là cần thiết.', 'Nội lực và ngoại lực quan trọng như nhau.'], answer: 1, explanation: 'Nội lực quyết định, ngoại lực hỗ trợ.' },
+            { id: 32, text: 'Theo Hồ Chí Minh, cách mạng giải phóng dân tộc thuộc địa muốn giành được thắng lợi triệt để phải:', options: ['Dựa vào sự thắng lợi của cách mạng vô sản ở chính quốc.', 'Dựa trên phương pháp cách mạng của chủ nghĩa Mác – Lênin.', 'Thực hiện bằng con đường bạo lực cách mạng.', 'Kết hợp đấu tranh quân sự với đấu tranh ngoại giao.'], answer: 2, explanation: 'Bạo lực cách mạng.' },
+            { id: 33, text: 'Câu nói "Dù phải đốt cháy cả dãy Trường Sơn cũng phải giành cho được độc lập" của Hồ Chí Minh vào thời gian nào?', options: ['Tháng 05/1941.', 'Tháng 08/1945.', 'Tháng 08/1942.', 'Tháng 12/1944.'], answer: 1, explanation: 'Tháng 8/1945.' },
+            { id: 34, text: 'Theo Hồ Chí Minh, kẻ thù hung ác nhất của chủ nghĩa xã hội là gì?', options: ['Chủ nghĩa cá nhân.', 'Lạm dụng chức quyền.', 'Tham ô, lãng phí.', 'Các thế lực phản động.'], answer: 0, explanation: 'Chủ nghĩa cá nhân là mẹ đẻ mọi thói hư.' },
+            { id: 35, text: 'Để mô tả mối quan hệ giữa cách mạng giải phóng dân và cách mạng vô sản, Hồ Chí Minh sử dụng hình tượng:', options: ['Hai cánh của một con chim.', 'Con bạch tuộc.', 'Con đĩa có hai vòi.', 'Hai con chim đại bàng.'], answer: 0, explanation: 'Hai cánh của một con chim.' },
+            { id: 36, text: 'Theo Hồ Chí Minh, cách mạng giải phóng dân tộc là sự nghiệp đoàn kết của:', options: ['Toàn dân, trên cơ sở liên minh công – nông.', 'Nhân dân các nước thuộc địa trên thế giới.', 'Giai cấp vô sản, nông dân và tầng lớp trí thức.', 'Công nhân, nông dân và tầng lớp trí thức.'], answer: 0, explanation: 'Toàn dân, liên minh công-nông.' },
+            { id: 37, text: 'Theo Hồ Chí Minh, cách mạng giải phóng dân tộc muốn giành được thắng lợi cần phải:', options: ['Dựa vào sự thắng lợi của cách mạng vô sản ở chính quốc.', 'Được tiến hành chủ động và sáng tạo.', 'Dựa vào sự thắng lợi của cách mạng ở các nước thuộc địa khác.', 'Dựa vào sự giúp đỡ của các nước xã hội chủ nghĩa.'], answer: 1, explanation: 'Chủ động và sáng tạo.' },
+            { id: 38, text: 'Vấn đề dân tộc trong tư tưởng Hồ Chí Minh là sự kết hợp nhuần nhuyễn giữa:', options: ['Vấn đề dân tộc và vấn đề giai cấp.', 'Chủ nghĩa dân tộc và chủ nghĩa xã hội.', 'Độc lập dân tộc với tự do, hạnh phúc.', 'Chủ nghĩa yêu nước và chủ nghĩa quốc tế.'], answer: 3, explanation: 'Yêu nước chân chính và quốc tế vô sản.' },
+            { id: 39, text: '"Chiến tranh có thể kéo dài 5 năm, 10 năm, 20 năm hoặc lâu hơn nữa… song nhân dân Việt Nam quyết không sợ, không có gì quí hơn độc lập tự do". Câu nói được trích trong tác phẩm nào của Hồ Chí Minh?', options: ['Lời kêu gọi toàn quốc kháng chiến, ngày 19/12/1946.', 'Lời kêu gọi, ngày 17/7/1966.', 'Di chúc, năm 1969.', 'Thư chúc Tết, năm 1968.'], answer: 1, explanation: 'Ngày 17/7/1966.' },
+            { id: 40, text: 'Cách mạng giải phóng dân tộc phải đi theo con đường:', options: ['Con đường cách mạng dân chủ tư sản.', 'Con đường cách mạng vô sản.', 'Con đường cách mạng tư sản.', 'Con đường cách mạng phong kiến.'], answer: 1, explanation: 'Cách mạng vô sản.' },
+            { id: 41, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Toàn thể dân tộc Việt Nam quyết đem […] để giữ vững quyền tự do, độc lập ấy".', options: ['Tất cả tinh thần và lực lượng, tính mạng và của cải.', 'Toàn bộ sinh mệnh và quyết tâm cao nhất.', 'Tất cả tinh thần và lực lượng đang có và sẽ có.', 'Toàn bộ sức lực và của cải, tinh thần và lực lượng.'], answer: 0, explanation: 'Trích Tuyên ngôn độc lập.' },
+            { id: 42, text: 'Người khởi xướng và lãnh đạo phong trào Đông Du (1905 -1909) là ai?', options: ['Phan Chu Trinh.', 'Phan Bội Châu.', 'Lương Văn Can.', 'Nguyễn Thái Học.'], answer: 1, explanation: 'Cụ Phan Bội Châu.' },
+            { id: 43, text: '"Ỷ Pháp cầu tiến bộ chẳng khác nào xin giặc rủ lòng thương" là câu Nguyễn Ái Quốc nhận xét về chủ trương cứu nước của ai?', options: ['Phan Bội Châu.', 'Phan Chu Trinh.', 'Hoàng Hoa Thám.', 'Nguyễn Thái Học.'], answer: 1, explanation: 'Cụ Phan Chu Trinh.' },
+            { id: 44, text: '"Toàn quốc đồng bào hãy đứng dậy […] mà tự giải phóng cho ta". Chọn phương án đúng nhất điền vào […].', options: ['Dựa vào sự giúp đỡ quốc tế.', 'Dựa vào sự đoàn kết toàn dân.', 'Dưới sự lãnh đạo của Đảng.', 'Đem sức ta.'], answer: 3, explanation: 'Đem sức ta mà tự giải phóng cho ta.' },
+            { id: 45, text: 'Người khởi xướng và lãnh đạo phong trào Đông kinh nghĩa thục (1907) là:', options: ['Phan Chu Trinh.', 'Phan Bội Châu.', 'Lương Văn Can.', 'Nguyễn Thái Học.'], answer: 2, explanation: 'Cụ Lương Văn Can.' },
+            { id: 46, text: 'Nội dung bản sắc văn hóa dân tộc được nhìn nhận qua hai lớp quan hệ, đó là:', options: ['Tinh thần yêu nước, thương dân và tinh thần quốc tế trong sáng.', 'Tinh thần yêu nước và tinh thần dũng cảm, hy sinh vì độc lập dân tộc.', 'Lòng yêu nước, thương nòi và tinh thần độc lập, tự tôn dân tộc.', 'Tinh thần yêu nước, thương dân và tinh thần tự lập, tự ti dân tộc.'], answer: 2, explanation: 'Lòng yêu nước, thương nòi và tinh thần độc lập, tự tôn dân tộc.' },
+            { id: 47, text: 'Cuối thế kỷ XIX đầu thế kỷ XX ở thế giới, chủ nghĩa tư bản phát triển như thế nào?', options: ['Phát triển mạnh thành các mạng lưới xuyên quốc gia.', 'Phát triển từ tự do cạnh tranh sang đế quốc chủ nghĩa.', 'Phát triển thành các loại hình: cacten, xanhdica, congxoocxiom.', 'Phát triển thành các tổ chức độc quyền nhà nước.'], answer: 1, explanation: 'Từ tự do cạnh tranh sang đế quốc chủ nghĩa.' },
+            { id: 48, text: 'Bầu cử các đại biểu Quốc hội và Hội đồng Nhân dân các cấp vào các cơ quan quyền lực nhà nước thuộc loại hình dân chủ:', options: ['Trực tiếp và gián tiếp.', 'Dân chủ gián tiếp.', 'Tự do tập trung.', 'Dân chủ trực tiếp.'], answer: 1, explanation: 'Dân chủ gián tiếp.' },
+            { id: 49, text: 'Trong câu nói: "Dân chủ là khát vọng muôn đời của con người". Hồ Chí Minh đã nêu lên quan điểm dân chủ có nghĩa là:', options: ['Dân là chủ.', 'Dân làm chủ.', 'Dân kiểm soát.', 'Dân điều hành.'], answer: 1, explanation: 'Dân làm chủ.' },
+            { id: 50, text: 'Lô-gíc phát triển của tư tưởng Hồ Chí Minh là:', options: ['Giải phóng xã hội, giải phóng dân tộc, giải phóng con người.', 'Giải phóng dân tộc, giải phóng giai cấp, giải phóng con người.', 'Giải phóng xã hội, giải phóng con người, giải phóng dân tộc.', 'Giải phóng con người, giải phóng dân tộc, giải phóng xã hội.'], answer: 1, explanation: 'Dân tộc, giai cấp, con người.' },
+            { id: 55, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Chính sách ngoại giao của Chính phủ thì chỉ có một điều tức là thân thiện với […] trên thế giới để giữ gìn hòa bình".', options: ['Các nước xã hội chủ nghĩa.', 'Tất cả các nước dân chủ.', 'Các nước cộng sản chủ nghĩa.', 'Mọi nước dân chủ.'], answer: 1, explanation: 'Tất cả các nước dân chủ.' },
+            { id: 64, text: 'Trong môn học tư tưởng Hồ Chí Minh nêu bao nhiêu phương pháp nghiên cứu?', options: ['Ba phương pháp.', 'Sáu phương pháp.', 'Bốn phương pháp.', 'Năm phương pháp.'], answer: 1, explanation: 'Sáu phương pháp.' },
+            { id: 66, text: 'Khái niệm "Tư tưởng Hồ Chí Minh" không bao gồm nội dung nào sau đây?', options: ['Hệ thống các quan điểm lý luận, phản ánh những vấn đề có tính quy luật của cách mạng Việt Nam.', 'Nguồn gốc tư tưởng, lý luận của tư tưởng Hồ Chí Minh: chủ nghĩa Mác – Lênin; giá trị văn hoá dân tộc, tinh hoa văn hoá nhân loại.', 'Nội dung cơ bản nhất của tư tưởng Hồ Chí Minh, bao gồm những vấn đề có liên quan trực tiếp đến cách mạng Việt Nam.', 'Bao gồm những vấn đề có liên quan đến cách mạng thế giới, tài sản tinh thần cho cách mạng thế giới.'], answer: 3, explanation: 'Phần không bao gồm theo định nghĩa hẹp trung tâm.' },
+            { id: 68, text: 'Tiêu chí của đạo đức là gì?', options: ['Ý thức đạo đức – Hành vi đạo đức – Quan hệ đạo đức.', 'Hiểu đạo đức – Hành vi đạo đức – Quan hệ đạo đức.', 'Nhận thức đạo đức – Hành vi đạo đức – Quan hệ đạo đức.', 'Có đạo đức – Hành vi đạo đức – Quan hệ đạo đức.'], answer: 0, explanation: 'Ý thức – Hành vi – Quan hệ.' },
+            { id: 71, text: 'Dưới góc nhìn và phân tích của các nhà nghiên cứu, Hồ Chí Minh có chiều cao và cân nặng bao nhiêu?', options: ['Cao 1,5 m; Nặng 45 kg.', 'Cao 1,5 m; Nặng 55 kg.', 'Cao 1,52 m; Nặng 45,5 kg.', 'Cao 1,55 m; Nặng 46 kg.'], answer: 0, explanation: 'Cao 1,5 m; Nặng 45 kg.' },
+            { id: 72, text: 'Đạo đức nghề nghiệp là gì?', options: ['Đạo đức nghề nghiệp là những chuẩn mực về nhận thức và hành vi phù hợp với đặc thù của từng lĩnh vực.', 'Đạo đức nghề nghiệp là những chuẩn mực về nhận thức và hành vi phù hợp với đặc thù của từng lĩnh vực trong hoạt động nghề nghiệp do cơ quan, tổ chức có thẩm quyền quy định.', 'Đạo đức nghề nghiệp là những chuẩn mực về nhận thức và hành vi phù hợp với đặc thù của từng lĩnh vực trong hoạt động nghề nghiệp do tổ chức có thẩm quyền quy định.', 'Đạo đức nghề nghiệp là những chuẩn mực về nhận thức trong hoạt động nghề nghiệp do cơ quan, tổ chức có thẩm quyền quy định.'], answer: 1, explanation: 'Chuẩn mực do cơ quan có thẩm quyền quy định.' },
+            { id: 73, text: 'Đâu là phạm trù cơ bản của đạo đức?', options: ['Lẽ sống, thiện ác.', 'Lẽ sống, hạnh phúc, trách nhiệm.', 'Lẽ sống, thiện ác, hạnh phúc, trách nhiệm, lương tâm.', 'Lẽ sống, thiện ác, hạnh phúc.'], answer: 2, explanation: 'Lẽ sống, thiện ác, hạnh phúc, trách nhiệm, lương tâm.' },
+            { id: 74, text: 'Câu nói "Dù phải đốt cháy cả dãy Trường Sơn cũng phải giành cho được độc lập" của Hồ Chí Minh vào thời gian nào?', options: ['Tháng 05/1941.', 'Tháng 08/1945.', 'Tháng 08/1942.', 'Tháng 12/1944.'], answer: 1, explanation: 'Tháng 8/1945.' },
+            { id: 75, text: 'Theo Hồ Chí Minh, nguyên tắc cơ bản nhất tổ chức và sinh hoạt Đảng là gì?', options: ['Thiểu số phục tùng đa số.', 'Cấp dưới phục tùng cấp trên.', 'Tập trung dân chủ.', 'Tự phê bình và phê bình.'], answer: 2, explanation: 'Tập trung dân chủ.' },
+            { id: 76, text: 'Nguyễn ái Quốc viết câu mở đầu: "Dân ta phải biết sử ta. Cho tường gốc tích nước nhà Việt Nam", vào thời gian nào?', options: ['Năm 1925.', 'Năm 1941.', 'Năm 1930.', 'Năm 1943.'], answer: 1, explanation: 'Năm 1941.' },
+            { id: 77, text: 'Trong khối đại đoàn kết dân tộc, vì sao phải đặc biệt chú trọng yếu tố "hạt nhân"?', options: ['Vì đó là cơ sở phát huy cho sự đoàn kết.', 'Vì đó là điều kiện cho sự đoàn kết ngoài xã hội.', 'Vì đó là điều kiện cho thành công của đoàn kết.', 'Vì đó là mong muốn của đại đa số người dân.'], answer: 1, explanation: 'Điều kiện cho sự đoàn kết ngoài xã hội.' },
+            { id: 78, text: 'Chọn đáp án đúng nhất. Theo Hồ Chí Minh, nhà nước vì dân là nhà nước:', options: ['Phục vụ quần chúng nhân dân lao động.', 'Chăm lo mọi mặt đời sống cho nhân dân.', 'Do quần chúng nhân dân lao động làm chủ.', 'Tất cả đều vì lợi ích của nhân dân.'], answer: 3, explanation: 'Tất cả đều vì lợi ích của nhân dân.' },
+            { id: 79, text: 'Phương thức xây dựng khối đại đoàn kết dân tộc là làm tốt công tác vận động quần chúng. Đây là phương thức công tác:', options: ['Tuyên giáo.', 'Tuyên truyền.', 'Dân vận.', 'Tuyên vận.'], answer: 1, explanation: 'Tuyên truyền.' },
+            { id: 80, text: 'Cơ chế vận hành của hệ thống chính trị nước ta là:', options: ['Đảng lãnh đạo, nhà nước quản lý, nhân dân làm chủ.', 'Nhà nước làm chủ, Đảng lãnh đạo, nhân dân quản lý.', 'Đảng và nhà nước lãnh đạo, quản lý, nhân dân làm chủ.', 'Nhà nước lãnh đạo, Đảng quản lý, nhân dân làm chủ.'], answer: 0, explanation: 'Đảng lãnh đạo, nhà nước quản lý, nhân dân làm chủ.' },
+            { id: 81, text: 'Mâu thuẫn cơ bản và chủ yếu ở Việt Nam đầu thế kỷ XX là mâu thuẫn giữa:', options: ['Giai cấp nông dân với giai cấp địa chủ phong kiến, tư sản Việt Nam và tư sản Pháp.', 'Giai cấp công nhân và nông dân với đế quốc phong kiến và chính quyền thực dân.', 'Giai cấp công nhân với giai cấp tư sản Pháp và tay sai của chúng.', 'Dân tộc Việt Nam với đế quốc xâm lược và tay sai của chúng.'], answer: 3, explanation: 'Dân tộc Việt Nam với đế quốc xâm lược.' },
+            { id: 82, text: 'Chọn đáp đúng nhất theo Hồ Chí Minh. "Kiệm" nghĩa là:', options: ['Tiết kiệm của cải.', 'Tiết kiệm cho nhân dân.', 'Keo kiệt.', 'Không lãng phí.'], answer: 3, explanation: 'Không lãng phí.' },
+            { id: 86, text: 'Nguyễn ái Quốc viết câu mở đầu: "Dân ta phải biết sử ta. Cho tường gốc tích nước nhà Việt Nam", trong tác phẩm nào?', options: ['Bài ca du kích.', 'Lịch sử nước nhà.', 'Đường kách mệnh.', 'Lịch sử nước ta.'], answer: 3, explanation: 'Lịch sử nước ta.' },
+            { id: 87, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Nước ta là nước […], nghĩa là nhà nước do nhân dân […]".', options: ['Vô sản; Quản lý.', 'Vì dân; Kiểm soát.', 'Dân chủ; Làm chủ.', 'Dân chủ; Quản lý.'], answer: 2, explanation: 'Dân chủ; Làm chủ.' },
+            { id: 91, text: '"Toàn Đảng hãy ra sức học tập đường lối chính trị, tác phong và đạo đức cách mạng của Hồ Chủ tịch…" được viết trong văn kiện tại:', options: ['Đại hội đại biểu toàn quốc lần thứ II của Đảng.', 'Đại hội đại biểu toàn quốc lần thứ XI của Đảng.', 'Đại hội đại biểu toàn quốc lần thứ IV của Đảng.', 'Đại hội đại biểu toàn quốc lần thứ V của Đảng.'], answer: 0, explanation: 'Đại hội II (1951).' },
+            { id: 92, text: '"Trước hết phải có Đảng cách mệnh để trong thì vận động và tổ chức dân chúng, ngoài thì liên lạc với dân tộc bị áp bức và vô sản giai cấp mọi nơi". Câu được trích trong:', options: ['Tác phẩm "Con Rồng tre".', 'Tác phẩm "Sửa đổi lối làm việc".', 'Tác phẩm "Đường kách mệnh".', 'Tác phẩm "Bản án chế độ thực dân Pháp".'], answer: 2, explanation: 'Đường Kách mệnh.' },
+            { id: 109, text: 'Người khởi xướng và lãnh đạo phong trào Duy Tân (1906 -1908) là:', options: ['Phan Chu Trinh.', 'Phan Bội Châu.', 'Lương Văn Can.', 'Nguyễn Thái Học.'], answer: 1, explanation: 'Cụ Phan Bội Châu.' },
+            { id: 117, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh. Trong đoàn kết quốc tế, "Muốn người ta giúp cho thì trước hết mình phải […]".', options: ['Giúp người ta trước.', 'Kêu gọi sự giúp đỡ.', 'Tự cố gắng đứng dậy.', 'Tự giúp lấy mình đã.'], answer: 3, explanation: 'Tự giúp lấy mình đã.' },
+            { id: 118, text: 'Theo Hồ Chí Minh, khát vọng lớn nhất của dân tộc thuộc địa là gì?', options: ['Ruộng đất cho dân cày.', 'Quyền bình đẳng.', 'Hòa bình và ruộng đất.', 'Độc lập và tự do.'], answer: 3, explanation: 'Độc lập và tự do.' },
+            { id: 120, text: 'Chọn cụm từ đúng với tư tưởng Hồ Chí Minh: "Nông dân giàu thì nước ta giàu, […] thịnh thì nước ta thịnh"', options: ['Công nghiệp.', 'Nhân tài.', 'Thương nghiệp.', 'Nông nghiệp.'], answer: 3, explanation: 'Nông nghiệp.' },
+            { id: 123, text: 'Theo Hồ Chí Minh, mối quan hệ giữa văn hóa với các lĩnh vực khác là gì?', options: ['Văn hóa là một trong bốn lĩnh vực đời sống: chính trị, kinh tế, văn hóa, xã hội.', 'Văn hóa là một mặt trận, cùng góp phần thắng lợi mặt trận chính trị, kinh tế, xã hội.', 'Văn hóa với các lĩnh vực chính trị, kinh tế, xã hội có sự tác động qua lại lẫn nhau.', 'Văn hóa không thể đứng ngoài mà phải đứng trong chính trị, kinh tế, xã hội.'], answer: 3, explanation: 'Văn hóa phải đứng trong chính trị, kinh tế, xã hội.' },
+            { id: 124, text: 'Theo tư tưởng Hồ Chí Minh, quan điểm: "Xác lập tất cả mọi quyền lực trong Nhà nước và trong xã hội đều thuộc về nhân dân" được thể hiện trong hiến pháp nào?', options: ['Hiến pháp 1959 và Hiến pháp 1976.', 'Hiến pháp 1946 và Hiến pháp 1959.', 'Hiến pháp 1976 và Hiến pháp 1980.', 'Hiến pháp 1980 và Hiến pháp 1992.'], answer: 1, explanation: 'Hiến pháp 1946 và 1959.' },
+            { id: 125, text: 'Chọn đáp án KHÔNG đúng. Hồ Chí Minh đề cập đến đạo đức trong mối quan hệ giữa:', options: ['Con người với con người.', 'Con người với xã hội.', 'Con người với việc làm.', 'Con người với thói quen.'], answer: 3, explanation: 'Không đề cập mối quan hệ với thói quen.' },
+            { id: 126, text: 'Hồ Chí Minh tiếp thu tư tưởng văn hoá phương Đông chủ yếu từ đâu?', options: ['Nho giáo và Phật giáo.', 'Chủ nghĩa Mác – Lênin.', 'Nho giáo và Thiên Chúa giáo.', 'Phật giáo và Thiên Chúa giáo.'], answer: 0, explanation: 'Nho giáo và Phật giáo.' },
+            { id: 127, text: 'Yếu tố KHÔNG nằm trong cơ cấu Mặt trận Dân tộc thống nhất là gì?', options: ['Đảng Cộng sản Việt Nam.', 'Nhà nước xã hội chủ nghĩa.', 'Các tổ chức chính trị - xã hội.', 'Đoàn Thanh niên Cộng sản Hồ Chí Minh.'], answer: 1, explanation: 'Nhà nước XHCN không nằm trong cơ cấu MTDTT.' },
+            { id: 128, text: 'Chọn đáp án đúng điền vào chỗ trống, theo Hồ Chí Minh: "[…] mà không tiết kiệm thì khác nào gió vào nhà trống".', options: ['Cần cù.', 'Xây dựng chủ nghĩa xã hội.', 'Tăng gia sản xuất.', 'Sản xuất.'], answer: 3, explanation: 'Sản xuất.' },
+            { id: 131, text: 'Xác định lẽ sống để làm gì?', options: ['Chọn cho mình lý do để sống.', 'Chọn cho mình nghề nghiệp.', 'Chọn cho mình ý nghĩa của cuộc sống.', 'Chọn cho mình hướng đi.'], answer: 2, explanation: 'Chọn ý nghĩa cuộc sống.' },
+            { id: 134, text: 'Hạnh phúc đích thực của con người là gì?', options: ['Sống và hoạt động để tạo ra giá trị vật chất.', 'Sống và hoạt động để tạo ra giá trị vật chất, tinh thần nhằm thoả mãn nhu cầu cá nhân.', 'Sống và hoạt động để tạo ra giá trị tinh thần.', 'Sống và hoạt động để tạo ra giá trị vật chất, tinh thần nhằm thoả mãn nhu cầu xã hội.'], answer: 3, explanation: 'Vì xã hội.' },
+            { id: 135, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Việt Nam muốn làm bạn với […], không gây thù oán với một ai"', options: ['Mọi nước dân chủ.', 'Các nước phát triển cao.', 'Tất cả các nước dân chủ.', 'Các nước xã hội chủ nghĩa.'], answer: 0, explanation: 'Mọi nước dân chủ.' },
+            { id: 136, text: 'Theo Hồ Chí Minh, kẻ thù hung ác nhất của chủ nghĩa xã hội là gì?', options: ['Chủ nghĩa cá nhân.', 'Lạm dụng chức quyền.', 'Tham ô, lãng phí.', 'Các thế lực phản động.'], answer: 0, explanation: 'Chủ nghĩa cá nhân.' },
+            { id: 137, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Làm cách mệnh rồi thì quyền trao cho […] chớ để trong tay một bọn ít người".', options: ['Giai cấp công nhân.', 'Dân chúng số nhiều.', 'Quần chúng nhân dân.', 'Người dân lao động.'], answer: 2, explanation: 'Quần chúng nhân dân.' },
+            { id: 138, text: 'Chọn đáp án đúng nhất theo tư tưởng Hồ Chí Minh về Nhà nước Việt Nam?', options: ['Mang bản chất giai cấp công nhân.', 'Mang tính dân tộc.', 'Có tính dân tộc và tính nhân dân sâu sắc.', 'Có sự thống nhất bản chất giai cấp công nhân với tính nhân dân và tính dân tộc.'], answer: 3, explanation: 'Thống nhất 3 tính chất.' },
+            { id: 139, text: 'Chọn phương án trả lời đúng theo tư tưởng Hồ Chí Minh:', options: ['Pháp luật đúng là pháp luật thể hiện bảo vệ được quyền lợi ích của dân.', 'Pháp luật đúng là pháp luật bảo vệ lợi ích của giai cấp cầm quyền.', 'Pháp luật đúng là pháp luật duy trì sự cầm quyền của Đảng.', 'Pháp luật đúng là công cụ thống trị của thế lực cầm quyền.'], answer: 0, explanation: 'Bảo vệ quyền lợi dân.' },
+            { id: 140, text: 'Cơ quan ngôn luận của tổ chức Việt Nam Thanh niên cách mạng đồng chí Hội là tờ báo tên là gì?', options: ['Báo Người cùng khổ.', 'Báo Người cùng khổ.', 'Báo Thanh niên.', 'Báo Đời sống, xã hội.'], answer: 2, explanation: 'Báo Thanh niên.' },
+            { id: 141, text: 'Theo Hồ Chí Minh, mục đích tiếp thu của văn hoá nhân loại là để:', options: ['Làm giàu cho văn hoá Việt Nam, xây dựng nó phù hợp với tinh thần dân chủ.', 'Mở rộng giá trị cho văn hoá Việt Nam, tiếp thu chọn lọc những nét tiến bộ mới.', 'Làm giàu cho Việt Nam, xây dựng nền văn hoá phù hợp với tinh thần dân chủ.', 'Làm giàu cho văn hoá Việt Nam, xây dựng nó phù hợp với tinh thần cách mạng.'], answer: 0, explanation: 'Làm giàu văn hóa VN, tinh thần dân chủ.' },
+            { id: 143, text: 'Chọn đáp án KHÔNG đúng. Theo Hồ Chí Minh, các lĩnh vực chính của văn hóa là:', options: ['Văn hóa giáo dục.', 'Văn hóa văn nghệ.', 'Văn hoá du lịch.', 'Văn hóa đời sống.'], answer: 2, explanation: 'Văn hóa du lịch không phải lĩnh vực chính.' },
+            { id: 149, text: 'Xét về tính giá trị, sự khác nhau giữa văn hóa và văn minh là:', options: ['Văn hóa gắn với phương Đông nông nghiệp, văn minh gắn với phương tây đô thị.', 'Văn hóa mang tính dân tộc còn văn minh mang tính quốc tế.', 'Văn minh có trình độ phát triển còn văn hóa có bề dày lịch sử.', 'Văn minh thiên về vật chất - kỹ thuật còn văn hóa thiên về vật chất tinh thần.'], answer: 3, explanation: 'Văn minh: vật chất-kỹ thuật; văn hóa: tinh thần.' },
+            { id: 150, text: 'Chuẩn mực xã hội là gì?', options: ['Quy tắc (tường minh/ hàm ẩn) nhằm xác định kiểu hành vi nào là được chấp nhận trong một xã hội/cộng đồng/nhóm.', 'Quy tắc ứng xử chung của xã hội.', 'Chuẩn mực đạo đức trong đời sống.', 'Những hành vi được chấp nhận.'], answer: 0, explanation: 'Quy tắc xác định hành vi được chấp nhận.' },
+            { id: 151, text: 'Quan điểm nào sau đây không phải của Hồ Chí Minh?', options: ['Trong cuộc đấu tranh chống chủ nghĩa đế quốc, chủ nghĩa thực dân, cách mạng thuộc địa có tầm quan trọng đặc biệt.', 'Sự giải phóng của giai cấp công nhân phải là sự nghiệp của bản thân giai cấp công nhân.', 'Công cuộc giải phóng anh em chỉ có thể thực hiện được bằng sự nỗ lực của bản thân anh em.', 'Cuộc đấu tranh của công nhân ở tất cả các nước chỉ có thể thành công nếu công nhân cùng nhau đấu tranh chống lại tư bản quốc tế.'], answer: 0, explanation: 'Không phải quan điểm của HCM.' },
+            { id: 158, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Việc gì có lợi cho […], ta phải hết sức làm; việc gì có hại cho […], ta phải hết sức tránh".', options: ['Nhà nước.', 'Công dân.', 'Dân.', 'Đảng.'], answer: 2, explanation: 'Vì Dân.' },
+            { id: 160, text: 'Trong tư tưởng Hồ Chí Minh, nhiệm vụ hàng đầu, trên hết, trước hết của cách mạng Việt Nam là gì?', options: ['Giải phóng giai cấp công nhân.', 'Người cày phải có ruộng.', 'Giải phóng dân tộc.', 'Giải phóng con người.'], answer: 2, explanation: 'Giải phóng dân tộc.' },
+            { id: 161, text: 'Chọn đáp án KHÔNG đúng. Nguyên tắc xây dựng Đảng Cộng sản Việt Nam theo tư tưởng Hồ Chí Minh là:', options: ['Thiểu số phục tùng đa số.', 'Kỷ luật nghiêm minh, tự giác.', 'Đoàn kết, thống nhất trong Đảng.', 'Tự phê bình và phê bình.'], answer: 0, explanation: 'Thiểu số phục tùng đa số không phải nguyên tắc xây dựng Đảng.' },
+            { id: 162, text: 'Đặc trưng nào cho phép phân biệt văn hóa như một hiện tượng xã hội do con người tạo ra với các giá trị tự nhiên do thiên nhiên tạo ra?', options: ['Tính lịch sử.', 'Tính hệ thống.', 'Tính giá trị.', 'Tính nhân sinh.'], answer: 3, explanation: 'Tính nhân sinh.' },
+            { id: 163, text: 'Các luồng tư tưởng dân chủ tư sản, tư tưởng Mác-Lênin được truyền vào Việt Nam vào giai đoạn văn hóa nào?', options: ['Giai đoạn văn hóa thời kì Bắc thuộc.', 'Giai đoạn văn hóa hiện đại.', 'Giai đoạn văn hóa Đại Việt.', 'Giai đoạn văn hóa thời kì Pháp thuộc.'], answer: 3, explanation: 'Thời kì Pháp thuộc.' },
+            { id: 164, text: '"Đưa hổ cửa trước, rước beo cửa sau" là câu đánh giá của ai?', options: ['Phan Chu Trinh.', 'Phan Bội Châu.', 'Hồ Chí Minh.', 'Giai đoạn văn hóa thời kì Pháp thuộc.'], answer: 1, explanation: 'Phan Bội Châu.' },
+            { id: 168, text: 'Hồ Chí Minh có bao nhiêu cách tiếp cận chủ yếu về văn hoá?', options: ['Hai cách: Theo nghĩa rộng; Theo nghĩa hẹp.', 'Năm cách.', 'Ba cách.', 'Bốn cách: Theo nghĩa rộng; hẹp; hẹp hơn; phương thức sử dụng công cụ sinh hoạt.'], answer: 3, explanation: 'Bốn cách tiếp cận.' },
+            { id: 169, text: 'Đảng Cộng sản Việt Nam trở thành Đảng cầm quyền ở Việt Nam từ thời gian nào?', options: ['Ngày 03/02/1930.', 'Ngày 30/04/1975.', 'Ngày 24/02/1930.', 'Ngày 06/01/1946.'], answer: 0, explanation: 'Ngày 03/02/1930.' },
+            { id: 172, text: 'Cống hiến lý luận lớn đầu tiên của Hồ Chí Minh là:', options: ['Về cách mạng ruộng đất.', 'Về cách mạng dân chủ.', 'Về cách mạng giải phóng dân tộc.', 'Về cách mạng XHCN.'], answer: 2, explanation: 'Cách mạng giải phóng dân tộc.' },
+            { id: 173, text: 'Quan niệm thiện, ác được hình thành từ đâu?', options: ['Từ những quan hệ kinh tế, xã hội, giai cấp con người.', 'Từ quan hệ kinh tế, xã hội.', 'Từ giai cấp con người.', 'Từ quan hệ kinh tế.'], answer: 0, explanation: 'Quan hệ KTXH, giai cấp.' },
+            { id: 175, text: '"Mọi việc thành hay bại, chủ chốt là do cán bộ có thấm nhuần đạo đức cách mạng, hay là không", câu nói của Hồ Chí Minh viết trong thời gian nào?', options: ['Năm 1955.', 'Năm 1969.', 'Năm 1947.', 'Năm 1958.'], answer: 3, explanation: 'Năm 1958.' },
+            { id: 179, text: '"Ỷ Pháp cầu tiến bộ chẳng khác nào xin giặc rủ lòng thương" là câu Nguyễn Ái Quốc nhận xét về chủ trương cứu nước của ai?', options: ['Phan Bội Châu.', 'Phan Chu Trinh.', 'Hoàng Hoa Thám.', 'Nguyễn Thái Học.'], answer: 1, explanation: 'Phan Chu Trinh.' },
+            { id: 182, text: 'Nguyễn Ái Quốc đọc "Sơ thảo lần thứ nhất vấn đề dân tộc và thuộc địa" vào thời gian nào? Ở đâu?', options: ['Tháng 07/1920 tại Moscow.', 'Tháng 07/1920 tại London.', 'Tháng 07/1920 tại Paris.', 'Tháng 02/1917 tại New York.'], answer: 2, explanation: 'Tháng 07/1920 tại Paris.' },
+            { id: 183, text: 'Theo tư tưởng Hồ Chí Minh, mọi việc thành công hay thất bại là do:', options: ['Đường lối lãnh đạo đúng hay sai.', 'Đường lối đúng hay sai.', 'Cán bộ tốt hay kém.', 'Công tác hoạch định cán bộ.'], answer: 2, explanation: 'Cán bộ tốt hay kém.' },
+            { id: 185, text: 'Chức năng điều chỉnh xã hội tương ứng với đặc trưng nào của văn hóa?', options: ['Tính lịch sử.', 'Tính hệ thống.', 'Tính giá trị.', 'Tính nhân sinh.'], answer: 2, explanation: 'Tính giá trị.' },
+            { id: 187, text: 'Chọn đáp đúng nhất theo Hồ Chí Minh. "Cần" nghĩa là:', options: ['Cần cù, chăm chỉ, ham học hỏi.', 'Chăm chỉ, siêng năng, nhiệt tình công việc, ham học hỏi.', 'Cần cù, chăm chỉ, chăm học, chăm làm.', 'Cần cù, chăm chỉ, năng động, sáng tạo, làm việc có kế hoạch.'], answer: 3, explanation: 'Cần cù, chăm chỉ, năng động, sáng tạo.' },
+            { id: 189, text: 'Khi học trường Quốc tế Lênin, Hồ Chí Minh đã lấy bí danh là gì?', options: ['Victor Lebon.', 'Polopxki.', 'Lin.', 'Nilopxki.'], answer: 2, explanation: 'Bí danh Lin.' },
+            { id: 190, text: '"Công nông là gốc của cách mệnh, còn học trò, nhà buôn nhỏ, điền chủ nhỏ là bầu bạn cách mệnh của công nông" được Nguyễn Ái Quốc đưa ra để xác định:', options: ['Phương pháp cách mạng.', 'Vai trò của đoàn kết.', 'Nhiệm vụ của cách mạng.', 'Lực lượng cách mạng.'], answer: 2, explanation: 'Nhiệm vụ của cách mạng.' },
+            { id: 191, text: '"Muốn người ta giúp cho thì trước hết mình phải tự giúp lấy mình đã". Luận điểm trên được trích trong tác phẩm nào của Bác?', options: ['Đường Kách mệnh.', 'Bản án chế độ thực dân Pháp.', 'Chánh cương vắn tắt của Đảng.', 'Tuyên ngôn độc lập.'], answer: 0, explanation: 'Đường Kách mệnh.' },
+            { id: 198, text: 'Nguyễn Tất Thành tham dự Đại hội lần thứ 18 của Đảng Xã hội Pháp tại Tours (25-30/12/1920) với tư cách là:', options: ['Đại biểu duy nhất của các nước thuộc địa Đông Dương.', 'Đại biểu đầu tiên là người Việt Nam tham dự một Đại hội.', 'Đại biểu duy nhất của các nước thuộc địa châu Á.', 'Đại biểu duy nhất cho Đảng xã hội Pháp tại Paris.'], answer: 0, explanation: 'Đại biểu duy nhất Đông Dương.' },
+            { id: 199, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh: "Chống […] và bệnh quan liêu cũng quan trọng và cần thiết như việc đánh giặc trên mặt trận".', options: ['Tham ô, lãng phí.', 'Lãng phí, bè phái.', 'Tham nhũng, lãng phí.', 'Phá hoại của công.'], answer: 0, explanation: 'Tham ô, lãng phí.' },
+            { id: 200, text: 'Trong tư tưởng Hồ Chí Minh, đại đoàn kết dân tộc là:', options: ['Đoàn kết giai cấp công nhân – nông dân – lao động trí óc.', 'Đoàn kết toàn bộ các tộc người trên một lãnh thổ.', 'Đoàn kết công – nông và các tầng lớp khác trong xã hội.', 'Đoàn kết giai cấp công nhân – nông dân.'], answer: 2, explanation: 'Công-nông và các tầng lớp khác.' },
+            { id: 201, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Văn hóa phải […] cho quốc dân đi".', options: ['Dẫn đường.', 'Dẫn lối.', 'Chỉ đường.', 'Soi đường.'], answer: 3, explanation: 'Soi đường.' },
+            { id: 202, text: 'Theo giáo trình Tư tưởng Hồ Chí Minh, nguyên tắc phân phối chủ yếu trong CNXH là gì?', options: ['Làm theo năng lực, hưởng theo nhu cầu.', 'Làm theo năng lực, hưởng theo đóng góp.', 'Làm theo năng lực, hưởng theo lao động.', 'Phân phối bình quân cho tất cả mọi người.'], answer: 2, explanation: 'Làm theo năng lực, hưởng theo lao động.' },
+            { id: 203, text: 'Trong tư tưởng Hồ Chí Minh, bạo lực cách mạng luôn thống nhất với:', options: ['Tư tưởng đấu tranh ngoại giao.', 'Tư tưởng cách mạng không ngừng.', 'Tư tưởng đấu tranh hòa bình.', 'Tư tưởng nhân đạo hòa bình.'], answer: 3, explanation: 'Nhân đạo hòa bình.' },
+            { id: 204, text: 'Cách mạng giải phóng dân tộc trong thời đại mới phải do Đảng của ai lãnh đạo?', options: ['Giai cấp vô sản bần cùng.', 'Tầng lớp trí thức.', 'Giai cấp công nhân.', 'Giai cấp nông dân.'], answer: 2, explanation: 'Đảng của giai cấp công nhân.' },
+            { id: 205, text: 'Theo Hồ Chí Minh, nguyên tắc cơ bản nhất trong đoàn kết quốc tế là gì?', options: ['Đoàn kết trên cơ sở không dùng vũ lực và đe doạ dùng vũ lực.', 'Đoàn kết trên cơ sở thống nhất mục tiêu và lợi ích, có lý, có tình.', 'Đoàn kết trên cơ sở hợp tác đa phương và các bên cùng có lợi.', 'Đoàn kết trên cơ sở đảm bảo sự bình đẳng quốc gia; có đi, có lại.'], answer: 1, explanation: 'Thống nhất mục tiêu, lợi ích, có lý có tình.' },
+            { id: 206, text: 'Nhận định: "Đạo đức là pháp luật tối đa, pháp luật là đạo đức tối thiểu", muốn đề cập đến điều gì?', options: ['Phạm vi điều chỉnh của pháp luật rộng hơn.', 'Tính quyết định của đạo đức đối với pháp luật.', 'Phạm vi điều chỉnh của đạo đức rộng hơn.', 'Tính phụ thuộc của đạo đức đối với pháp luật.'], answer: 2, explanation: 'Đạo đức có phạm vi rộng hơn.' },
+            { id: 207, text: 'Hồ Chí Minh được UNESCO ra quyết định công nhận vào thời gian nào?', options: ['Ngày 30/4/1987 đến 01/5/1987.', 'Ngày 20/11/1987 đến 22/12/1987.', 'Ngày 19/5/1987 đến 20/6/1987.', 'Ngày 20/10/1987 đến 20/11/1987.'], answer: 3, explanation: '20/10-20/11/1987.' },
+            { id: 208, text: '"Đại đoàn kết dân tộc là đường lối chiến lược của cách mạng Việt Nam...", được trích trong văn kiện:', options: ['Đại hội Đảng lần thứ IX.', 'Đại hội Đảng lần thứ XII.', 'Đại hội Đảng lần thứ X.', 'Đại hội Đảng lần thứ XI.'], answer: 1, explanation: 'Đại hội XII.' },
+            { id: 209, text: 'Trong tư tưởng Hồ Chí Minh, giải phóng con người trước hết là:', options: ['Giải phóng giai cấp công nhân.', 'Giải phóng giai cấp vô sản.', 'Giải phóng giai cấp nông dân.', 'Giải phóng quần chúng lao động.'], answer: 3, explanation: 'Giải phóng quần chúng lao động.' },
+            { id: 210, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Đảng có vững, [...] mới thành công, cũng như người cầm lái có vững thì […]".', options: ['Cách mệnh; thuyền có thể chạy.', 'Cách mệnh; thuyền mới chạy.', 'Cách mạng; thuyền có thể chạy.', 'Cách mạng; thuyền mới chạy.'], answer: 1, explanation: 'Cách mệnh; thuyền mới chạy.' },
+            { id: 211, text: 'Người thầy giáo đầu tiên của Nguyễn Sinh Cung là ai?', options: ['Vương Thúc Quý.', 'Nguyễn Sinh Sắc.', 'Lê Văn Miến.', 'Phan Bội Châu.'], answer: 1, explanation: 'Nguyễn Sinh Sắc.' },
+            { id: 212, text: 'Nguyễn Tất Thành dạy học ở trường Dục Thanh trong khoảng thời gian từ:', options: ['Từ 09/1908 đến 09/1909.', 'Từ 09/1910 đến 02/1911.', 'Từ 11/1908 đến 02/1909.', 'Từ 09/1909 đến 02/1910.'], answer: 1, explanation: '09/1910 - 02/1911.' },
+            { id: 213, text: 'Theo Hồ Chí Minh, cách mạng giải phóng dân tộc muốn giành được thắng lợi cần phải:', options: ['Dựa vào sự thắng lợi của cách mạng vô sản ở chính quốc.', 'Được tiến hành chủ động và sáng tạo.', 'Dựa vào sự thắng lợi của cách mạng ở các nước thuộc địa khác.', 'Dựa vào sự giúp đỡ của các nước xã hội chủ nghĩa.'], answer: 1, explanation: 'Chủ động và sáng tạo.' },
+            { id: 214, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Tất cả các cơ quan nhà nước đều phải dựa vào […], liên hệ chặt chẽ với […], lắng nghe ý kiến và chịu sự kiểm soát của […]".', options: ['Công dân.', 'Nhân dân.', 'Quốc hội.', 'Chính phủ.'], answer: 1, explanation: 'Nhân dân.' },
+            { id: 215, text: 'Theo Hồ Chí Minh, đặc trưng kinh tế nổi bật nhất của CNXH là:', options: ['Nhân dân lao động làm chủ.', 'Sở hữu xã hội về tư liệu sản xuất.', 'Khoa học - Kỹ thuật phát triển.', 'Cơ cấu Công - Nông nghiệp hợp lý.'], answer: 1, explanation: 'Sở hữu xã hội về TLSX.' },
+            { id: 216, text: 'Luận điểm sáng tạo của Hồ Chí minh về con đường cách mạng Việt Nam được hình thành về cơ bản vào năm nào?', options: ['Năm 1920.', 'Năm 1930.', 'Năm 1941.', 'Năm 1925.'], answer: 1, explanation: 'Năm 1930.' },
+            { id: 226, text: 'Động lực chủ đạo của sự phát triển đất nước ta hiện nay là gì?', options: ['Sự ủng hộ quốc tế.', 'Đại đoàn kết dân tộc.', 'Khoa học công nghệ.', 'Nguồn vốn đầu tư.'], answer: 1, explanation: 'Đại đoàn kết dân tộc.' },
+            { id: 227, text: '"Chúng ta tranh được tự do, độc lập rồi mà dân cứ chết đói, chết rét, thì tự do, độc lập cũng không làm gì" nói lên quan điểm nào của Hồ Chí Minh về độc lập dân tộc?', options: ['Độc lập dân tộc phải là nền độc lập thật sự, hoàn toàn và triệt để.', 'Độc lập dân tộc gắn liền với hòa bình, thống nhất và toàn vẹn lãnh thổ.', 'Độc lập dân tộc phải gắn liền tự do và hạnh phúc của nhân dân.', 'Độc lập dân tộc phải gắn liền tự do và tiến lên xây dựng CNXH.'], answer: 2, explanation: 'Gắn với tự do và hạnh phúc nhân dân.' },
+            { id: 228, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Toàn quốc đồng bào hãy đứng dậy […] mà tự giải phóng cho ta".', options: ['Dựa vào sự đoàn kết.', 'Dựa vào sự giúp đỡ quốc tế.', 'Đem sức ta.', 'Dưới sự lãnh đạo của Đảng.'], answer: 2, explanation: 'Đem sức ta.' },
+            { id: 229, text: 'Theo Hồ Chí Minh, Đảng Cộng sản Việt Nam là sản phẩm của sự kết hợp của 3 yếu tố, là xác định:', options: ['Nhiệm vụ lịch sử của Đảng.', 'Bản chất ra đời của Đảng.', 'Nguồn gốc ra đời của Đảng.', 'Tiêu chuẩn ra đời của Đảng.'], answer: 2, explanation: 'Nguồn gốc ra đời.' },
+            { id: 230, text: 'Chọn đáp án KHÔNG đúng. Cống hiến của Hồ Chí Minh trong lĩnh vực văn hoá được thể hiện:', options: ['Xây dựng con người mới.', 'Xây dựng nền văn hoá mới Việt Nam.', 'Sáng tạo văn hoá văn nghệ.', 'Xác lập hệ thống quan điểm về văn hoá.'], answer: 0, explanation: 'Xây dựng con người mới không phải cống hiến văn hóa.' },
+            { id: 231, text: '"Chiến tranh có thể kéo dài 5 năm, 10 năm, 20 năm hoặc lâu hơn nữa… song nhân dân Việt Nam quyết không sợ, không có gì quí hơn độc lập tự do". Câu nói được trích trong tác phẩm nào của Hồ Chí Minh?', options: ['Lời kêu gọi toàn quốc kháng chiến, ngày 19/12/1946.', 'Lời kêu gọi, ngày 17/7/1966.', 'Di chúc, năm 1969.', 'Thư chúc Tết, năm 1968.'], answer: 1, explanation: '17/7/1966.' },
+            { id: 232, text: 'Theo Hồ Chí Minh, ưu điểm lớn nhất của tôn giáo GiêSu là gì?', options: ['Đức hy sinh.', 'Lòng từ bi bác ái.', 'Lòng cao thượng.', 'Lòng nhân ái cao cả.'], answer: 3, explanation: 'Lòng nhân ái cao cả.' },
+            { id: 233, text: 'Sau khi học trường Quốc tế Lênin, Hồ Chí Minh đã viết thư muốn ngoỏ ý cống hiến cho Quốc tế Cộng sản. Lá thư được viết vào thời gian nào?', options: ['Tháng 01/1938.', 'Tháng 12/1939.', 'Tháng 06/1938.', 'Tháng 10/1938.'], answer: 0, explanation: 'Tháng 01/1938.' },
+            { id: 234, text: 'Nguyễn Ái Quốc tán thành Quốc tế III, tham gia thành lập Đảng Cộng sản Pháp vào thời gian nào?', options: ['Tháng 02 năm 1919.', 'Tháng 02 năm 1921.', 'Tháng 12 năm 1919.', 'Tháng 12 năm 1920.'], answer: 3, explanation: 'Tháng 12/1920.' },
+            { id: 235, text: 'Chọn đáp án KHÔNG đúng. Nguyên tắc xây dựng và hoạt động của Mặt trận Dân tộc thống nhất là:', options: ['Lấy lợi ích tối cao của giai cấp công nhân, giai cấp vô sản làm mục tiêu phấn đấu.', 'Đoàn kết lâu dài, chặt chẽ, đoàn kết thực sự, chân thành, thân ái giúp đỡ nhau tiến bộ.', 'Xây dựng trên nền tảng liên minh công – nông – trí, dưới sự lãnh đạo của Đảng.', 'Xuất phát từ mục tiêu vì nước, vì dân; hoạt động theo nguyên tắc hiệp thương dân chủ.'], answer: 0, explanation: 'Phải lấy lợi ích tối cao của Dân tộc.' },
+            { id: 236, text: 'Trong môn học tư tưởng Hồ Chí Minh nêu bao nhiêu cơ sở phương pháp luận nghiên cứu?', options: ['Bốn phương pháp luận.', 'Bảy phương pháp luận.', 'Năm phương pháp luận.', 'Sáu phương pháp luận.'], answer: 3, explanation: 'Sáu cơ sở phương pháp luận.' },
+            { id: 238, text: 'Chọn đáp án không đúng, tư tưởng Hồ Chí Minh đối với sự phát triển cách mạng thế giới:', options: ['Phản ánh khát vọng thời đại.', 'Tìm ra các giải pháp đấu tranh giải phóng các nước thuộc địa.', 'Cổ vũ các dân tộc đấu tranh vì những mục tiêu cao cả.', 'Giải phóng các nước thuộc địa.'], answer: 3, explanation: 'Không thể giải phóng thay được.' },
+            { id: 240, text: 'Chọn đáp án đúng nhất. Lý do chính của việc Nguyễn Ái Quốc đến Pháp là gì?', options: ['Muốn được thấy tư tưởng nhân quyền và dân quyền được thực hiện như thế nào tại Pháp và tại Việt Nam.', 'Vì mong muốn một nền giáo dục tốt hơn ở Pháp.', 'Để vận động nhân dân Pháp ủng hộ cách mạng Việt Nam.', 'Vì nguồn gốc mọi đau khổ của nhân dân Việt Nam là ở tại chính quốc.'], answer: 0, explanation: 'Muốn thấy nhân quyền dân quyền thực hiện thế nào.' },
+            { id: 241, text: 'Theo Hồ Chí Minh, vai trò lãnh đạo của Đảng đối với Nhà nước được quy định bởi:', options: ['Hiến pháp.', 'Ý chí giai cấp công nhân.', 'Mong muốn nhân dân.', 'Điều lệ Đảng.'], answer: 0, explanation: 'Hiến pháp.' },
+            { id: 242, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Nông dân giàu thì nước ta giàu, […] thịnh thì nước ta thịnh".', options: ['Công nghiệp.', 'Du lịch.', 'Nông nghiệp.', 'Thương nghiệp.'], answer: 2, explanation: 'Nông nghiệp.' },
+            { id: 244, text: '"Đảng viên đi trước, làng nước theo sau", câu nói trên của Hồ Chí Minh được trích trong tác phẩm nào?', options: ['Nâng cao đạo đức cách mạng, quét sạch chủ nghĩa cá nhân.', 'Đạo đức cách mạng.', 'Đường kách mệnh.', 'Sửa đổi lối làm việc.'], answer: 0, explanation: 'Nâng cao đạo đức cách mạng...' },
+            { id: 245, text: '"Cũng như ngọc càng mài càng sáng, vàng càng luyện càng trong". Luận điểm này được Hồ Chí Minh viết vào thời gian nào?', options: ['17/12/1958.', '17/12/1967.', '17/12/1959.', '17/12/1969.'], answer: 0, explanation: '17/12/1958.' },
+            { id: 246, text: 'Theo Hồ Chí Minh, mỗi bước phát triển của kinh tế, chính trị, xã hội đều có:', options: ['Sự soi đường của văn hoá.', 'Sự khai sáng của văn hoá.', 'Sự soi sáng của văn hoá.', 'Sự đóng góp của văn hoá.'], answer: 1, explanation: 'Sự khai sáng của văn hóa.' },
+            { id: 247, text: 'Theo Hồ Chí Minh, để thực hiện đại đoàn kết thì đối với những đồng bào lạc lối làm đường, ta phải:', options: ['Có lòng khoan dung đối với họ.', 'Kiên quyết loại ra khỏi đại đoàn kết.', 'Giáo dục để họ biết sửa chữa sai lầm.', 'Lấy tình thân ái mà cảm hóa họ.'], answer: 3, explanation: 'Lấy tình thân ái mà cảm hóa.' },
+            { id: 249, text: 'Chọn đáp án KHÔNG đúng. Giải phóng dân tộc theo tư tưởng Hồ Chí Minh là:', options: ['Đánh đổ ách áp bức, thống trị của đế quốc thực dân giành độc lập dân tộc.', 'Lựa chọn con đường phát triển của dân tộc phù hợp với xu thế của thời đại.', 'Đánh đổ địa chủ phong kiến đem lại ruộng đất cho nhân dân.', 'Hình thành nhà nước dân tộc độc lập của dân, do dân, vì dân.'], answer: 2, explanation: 'Đánh đổ địa chủ không phải nội dung GPDT.' },
+            { id: 250, text: 'Theo luật Việt Nam quy định, công dân có quyền ứng cử vào đại biểu Quốc hội khi:', options: ['Đủ 18 tuổi.', 'Đủ 21 tuổi.', 'Đủ 19 tuổi.', 'Đủ 20 tuổi.'], answer: 1, explanation: 'Đủ 21 tuổi.' },
+            { id: 251, text: 'Mục tiêu của tư tưởng Hồ Chí Minh là gì?', options: ['Giải phóng giai cấp.', 'Giải phóng giai cấp, giải phóng con người.', 'Giải phóng dân tộc thuộc địa.', 'Giải phóng dân tộc, giải phóng giai cấp, giải phóng con người.'], answer: 3, explanation: 'GPDT, GP giai cấp, GP con người.' },
+            { id: 252, text: 'Hồ Chí Minh đã tiếp thu giá trị tích cực nào của văn hóa phương Tây?', options: ['Tư tưởng dân tộc độc lập, dân quyền tự do, dân sinh hạnh phúc.', 'Triết lý nhân sinh, tu thân, tề gia.', 'Tư tưởng vị tha, từ bi, bác ái.', 'Giá trị về quyền sống, quyền tự do và quyền mưu cầu hạnh phúc.'], answer: 3, explanation: 'Quyền sống, tự do, mưu cầu hạnh phúc.' },
+            { id: 253, text: 'Vấn đề dân tộc trong tư tưởng Hồ Chí Minh là sự kết hợp nhuần nhuyễn giữa:', options: ['Vấn đề dân tộc và vấn đề giai cấp.', 'Chủ nghĩa dân tộc và chủ nghĩa xã hội.', 'Độc lập dân tộc với tự do, hạnh phúc.', 'Chủ nghĩa yêu nước và chủ nghĩa quốc tế.'], answer: 0, explanation: 'Vấn đề dân tộc và giai cấp.' },
+            { id: 254, text: 'Chức năng nào của văn hóa giúp xã hội định hướng các chuẩn mực và làm động lực cho sự phát triển?', options: ['Chức năng tổ chức.', 'Chức năng giáo dục.', 'Chức năng điều chỉnh xã hội.', 'Chức năng giao tiếp.'], answer: 2, explanation: 'Điều chỉnh xã hội.' },
+            { id: 256, text: 'Cuốn "Đường kách mệnh" của Nguyễn Ái Quốc được tái xuất bản tại:', options: ['Pháp.', 'Trung Quốc.', 'Việt Nam.', 'Liên Xô.'], answer: 1, explanation: 'Trung Quốc.' },
+            { id: 257, text: 'Chọn đáp án KHÔNG đúng. Ý nghĩa học tập môn học Tư tưởng Hồ Chí Minh:', options: ['Góp phần nâng cao năng lực tư duy lý luận.', 'Xây dựng bản lĩnh cách mạng, đấu tranh chống giặc ngoại xâm.', 'Giáo dục và thực hành đạo đức cách mạng, củng cố niềm tin vào khoa học, bồi dưỡng lòng yêu nước.', 'Xây dựng, rèn luyện phương pháp và phong cách công tác.'], answer: 1, explanation: 'Mục tiêu hiện nay rộng hơn chống giặc ngoại xâm.' },
+            { id: 258, text: 'Chọn đáp án đúng nhất. Theo Hồ Chí Minh, biện pháp nào là quan trọng nhất trong xây dựng CNXH?', options: ['Tranh thủ tối đa sự giúp đỡ, viện trợ quốc tế.', 'Kết hợp xây dựng và bảo vệ đất nước.', 'Huy động các nguồn lực sẵn có trong nhân dân.', 'Kết hợp cải tạo xã hội cũ với xây dựng xã hội mới.'], answer: 2, explanation: 'Huy động nguồn lực trong nhân dân.' },
+            { id: 259, text: 'Người khởi xướng và lãnh đạo phong trào Đông kinh nghĩa thục (1907) là:', options: ['Phan Chu Trinh.', 'Phan Bội Châu.', 'Lương Văn Can.', 'Nguyễn Thái Học.'], answer: 2, explanation: 'Lương Văn Can.' },
+            { id: 260, text: 'Chọn đáp án đúng nhất. Theo Hồ Chí Minh, đạo đức là:', options: ['Gốc của người cách mạng.', 'Phẩm chất của Đảng viên.', 'Gốc rễ của con người.', 'Yêu cầu của người cách mạng.'], answer: 0, explanation: 'Gốc của người cách mạng.' },
+            { id: 261, text: 'Tư tưởng cốt lõi trong tư tưởng Hồ Chí Minh về cách mạng Việt Nam là gì?', options: ['Giải phóng dân tộc, giải phóng giai cấp.', 'Độc lập dân tộc gắn liền với chủ nghĩa xã hội.', 'Giải phóng dân tộc, giải phóng con người.', 'Kết hợp sức mạnh dân tộc với sức mạnh thời đại.'], answer: 1, explanation: 'Độc lập dân tộc gắn CNXH.' },
+            { id: 262, text: 'Chọn đáp án đúng nhất. Truyền thống gia đình ông Nguyễn Sinh Sắc là gì?', options: ['Gia đình cần cù, chăm chỉ, ham học hỏi.', 'Gia đình nhà nho yêu nước, hiếu học, giàu truyền thống cách mạng.', 'Gia đình nề nếp, tuân theo chuẩn mực đạo đức xã hội.', 'Gia đình cần cù, truyền thống làm nông nghiệp.'], answer: 1, explanation: 'Nhà nho yêu nước, hiếu học.' },
+            { id: 263, text: 'Hồ Chí Minh thành lập "Hội Liên hiệp các dân tộc bị áp bức" năm nào? Tại đâu?', options: ['Năm 1925, tại Quảng Châu (Trung Quốc).', 'Năm 1923, tại Mátxcơva (Liên Xô).', 'Năm 1926, tại Xiêm (Thái Lan).', 'Năm 1920, tại Paris (Pháp).'], answer: 1, explanation: '1923 tại Mátxcơva.' },
+            { id: 264, text: 'Tinh thần quốc tế trong sáng trong tư tưởng đạo đức của Hồ Chí Minh đã tạo ra một kiểu quan hệ quốc tế mới, đó là:', options: ['Đa phương hóa, đa dạng hóa các quan hệ hữu nghị.', 'Giải quyết tranh chấp bằng hội nghị hiệp thương.', 'Chủ nghĩa yêu nước chân chính kết hợp chủ nghĩa quốc tế vô sản.', 'Đối thoại thay cho đối đầu.'], answer: 2, explanation: 'Yêu nước chân chính + quốc tế vô sản.' },
+            { id: 265, text: 'Chọn đáp án đúng nhất. Từ cuối năm 1911 đến 1917, khi quay lại tàu làm việc Hồ Chí Minh đã đi qua những đâu?', options: ['Châu Á; Châu Phi; Châu Âu; Châu Mỹ.', 'Châu Á; Châu Phi; Châu Âu.', 'Châu Á; Châu Phi; Châu Mỹ.', 'Châu Phi; Nam Mỹ; Hoa Kỳ.'], answer: 0, explanation: 'Á, Phi, Âu, Mỹ.' },
+            { id: 266, text: 'Chọn đáp án đúng nhất. Theo Hồ Chí Minh, đại đoàn kết toàn dân tộc chỉ có sức mạnh khi được tập hợp, tổ chức thành:', options: ['Mặt trận dân tộc thống nhất.', 'Mặt trận nhân dân thống nhất.', 'Mặt trận Tổ quốc Việt Nam.', 'Mặt trận dân chủ Đông Dương.'], answer: 0, explanation: 'Mặt trận dân tộc thống nhất.' },
+            { id: 267, text: 'Nhận định: "Toàn Đảng, toàn dân ta đoàn kết phấn đấu, xây dựng một nước Việt Nam hòa bình, thống nhất, độc lập, dân chủ và giàu mạnh..." trong tác phẩm nào?', options: ['Di chúc (1965-1969).', 'Ba mươi năm hoạt động của Đảng (1960).', 'Đạo đức cách mạng (1958).', 'Đường cách mệnh (1927).'], answer: 0, explanation: 'Di chúc.' },
+            { id: 271, text: 'Trong khối đại đoàn kết toàn dân tộc, dân là chỗ dựa vững chắc đồng thời là:', options: ['Nhân tố quyết định sức mạnh khối đại đoàn kết.', 'Nguồn sức mạnh vô địch của khối đại đoàn kết.', 'Nhân tố quan trọng của khối đại đoàn kết.', 'Cội nguồn sức mạnh của khối đại đoàn kết.'], answer: 1, explanation: 'Nguồn sức mạnh vô địch.' },
+            { id: 273, text: 'Sau khi lên tàu đi tìm đường cứu nước Hồ Chí Minh đến nước nào đầu tiên? Thời gian nào?', options: ['Nước Pháp, ngày 05/06/1911.', 'Nam Phi, ngày 25/06/1911.', 'Nước Pháp, ngày 06/07/1911.', 'Châu Phi, ngày 06/07/1911.'], answer: 2, explanation: 'Pháp, 06/07/1911.' },
+            { id: 274, text: '"Tự do cho đồng bào tôi, độc lập cho tổ quốc tôi..." Câu nói được trích trong tác phẩm nào của Hồ Chí Minh?', options: ['Đời sống mới.', 'Phát biểu với kiều bào ở Pháp.', 'Tuyên ngôn độc lập.', 'Những mẩu chuyện về đời hoạt động của Hồ Chủ tịch.'], answer: 3, explanation: 'Những mẩu chuyện...' },
+            { id: 275, text: 'Theo Hồ Chí Minh, Đảng Cộng sản Việt Nam là nhân tố quyết định hàng đầu thắng lợi cách mạng Việt Nam, là xác định:', options: ['Vai trò lãnh đạo của Đảng.', 'Nhiệm vụ lịch sử của Đảng.', 'Vị thế cầm quyền của Đảng.', 'Bản chất của Đảng cầm quyền.'], answer: 0, explanation: 'Vai trò lãnh đạo.' },
+            { id: 276, text: 'Câu nói: "Người mà không liêm, không bằng súc vật", là của ai?', options: ['Hồ Chí Minh.', 'Lão Tử.', 'Mạnh tử.', 'Khổng Tử.'], answer: 3, explanation: 'Khổng Tử.' },
+            { id: 277, text: 'Câu nói: "Ai cũng tham lợi, thì nước sẽ nguy", là của ai?', options: ['Tất Đạt Đa.', 'Lão Tử.', 'Mạnh tử.', 'Khổng Tử.'], answer: 2, explanation: 'Mạnh tử.' },
+            { id: 278, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Người cách mạng phải có [...] thì mới gánh được nặng và đi được xa".', options: ['Trí tuệ và tài năng.', 'Tài năng và đạo đức.', 'Đạo đức cách mạng.', 'Phương pháp cách mạng.'], answer: 2, explanation: 'Đạo đức cách mạng.' },
+            { id: 279, text: '"Thắng lợi tuy lớn nhưng mới là bắt đầu..." Đoạn trích trong thư khen ngợi của Hồ Chí Minh gửi cho bộ đội và đồng bào Tây Bắc sau chiến thắng nào?', options: ['Chiến thắng Hòa Bình.', 'Chiến thắng Tây Bắc.', 'Chiến thắng Điện Biên Phủ.', 'Chiến thắng Biên giới.'], answer: 2, explanation: 'Điện Biên Phủ.' },
+            { id: 280, text: 'Khẳng định: "Nhà nước là một tổ chức quyền lực đặc biệt, nó là tổ chức bạo lực dùng để trấn áp một giai cấp nào đó", là của ai?', options: ['Ănghen, Lênin.', 'Ănghen, Hồ Chí Minh.', 'Lênin, Hồ Chí Minh.', 'C. Mác, Ănghen.'], answer: 0, explanation: 'Ănghen, Lênin.' },
+            { id: 281, text: 'Cuốn Đường kách mệnh được xuất bản đầu tiên ở đâu? Thời gian nào?', options: ['Quảng Châu – Trung Quốc, năm 1927.', 'Bắc Bộ – Việt Nam, năm 1927.', 'Hương Cảng – Trung Quốc năm 1927.', 'Quảng Châu – Trung Quốc, năm 1925.'], answer: 0, explanation: 'Quảng Châu 1927.' },
+            { id: 282, text: 'Hồ Chí Minh sáng lập "Hội Việt Nam cách mạng thanh niên" vào thời gian nào?', options: ['Tháng 06/1925.', 'Tháng 08/1929.', 'Tháng 05/1926.', 'Tháng 06/1927.'], answer: 0, explanation: 'Tháng 06/1925.' },
+            { id: 284, text: 'Pháp luật được hình thành trên cơ sở nào?', options: ['Các quan hệ chính trị - đạo đức.', 'Các quan điểm chính trị và kinh tế.', 'Các quan hệ kinh tế - xã hội.', 'Các quy tắc xử sự trong đời sống xã hội.'], answer: 2, explanation: 'Quan hệ kinh tế - xã hội.' },
+            { id: 285, text: 'Từ sau Cách mạng tháng Tám năm 1945, văn hóa được Hồ Chí Minh xác định là:', options: ['Tổng hợp mọi phương thức sản xuất của con người.', 'Các trường học, số người đi học, biết đọc, biết viết.', 'Đời sống tinh thần của xã hội, thuộc về kiến trúc thượng tầng.', 'Đời sống vật chất của xã hội, thuộc về cơ sở hạ tầng.'], answer: 2, explanation: 'Đời sống tinh thần, thượng tầng.' },
+            { id: 286, text: 'Các quy tắc, chuẩn mực đạo đức luôn biến đổi theo:', options: ['Sự vận động.', 'Sự vận động và phát triển của con người.', 'Sự phát triển của xã hội.', 'Đời sống con người.'], answer: 1, explanation: 'Vận động và phát triển con người.' },
+            { id: 289, text: 'Chọn đáp án KHÔNG đúng. Theo Hồ Chí Minh, chức năng cơ bản của văn hóa là:', options: ['Bồi dưỡng tư tưởng đúng đắn và tình cảm cao đẹp của con người.', 'Bồi dưỡng lý luận chính trị, rèn luyện tác phong công tác, tư duy tự chủ.', 'Bồi dưỡng những phẩm chất tốt đẹp, hướng con người đến chân, thiện, mỹ.', 'Mở rộng hiểu biết của con người, nâng cao dân trí, xoá mù chữ cho dân.'], answer: 1, explanation: 'Bồi dưỡng lý luận CT không phải chức năng cơ bản văn hóa.' },
+            { id: 290, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Năm ngón tay cũng có […]. Nhưng đều hợp nhau nơi bàn tay".', options: ['Ngón ngắn, ngón dài.', 'Ngắn, dài không đều.', 'Ngón vắn, ngón dài.', 'Dài, ngắn khác nhau.'], answer: 2, explanation: 'Ngón vắn, ngón dài.' },
+            { id: 291, text: 'Điền vào chỗ trống theo Hồ Chí Minh: "Cuối thế kỷ XIX chủ nghĩa đế quốc Pháp xâm lược Việt Nam. Bọn […] đê tiện và hèn nhát đầu hàng..."', options: ['Vua quan và thực dân.', 'Phong kiến và thực dân.', 'Vua quan và phong kiến.', 'Phong kiến và địa chủ.'], answer: 2, explanation: 'Vua quan và phong kiến.' },
+            { id: 292, text: 'Theo tư tưởng Hồ Chí Minh, ai là người chủ tương lai của nước nhà?', options: ['Công nhân.', 'Thanh niên.', 'Thiếu niên.', 'Nhi đồng.'], answer: 1, explanation: 'Thanh niên.' },
+            { id: 294, text: 'Điền vào chỗ trống đúng theo Hồ Chí Minh, "Tôi chỉ có một ham muốn, ham muốn tột bậc, là làm sao cho nước ta được […]".', options: ['Nhanh chóng độc lập.', 'Hoàn toàn độc lập.', 'Thắng lợi nhanh chóng.', 'Hoàn toàn giải phóng.'], answer: 1, explanation: 'Hoàn toàn độc lập.' },
+            { id: 295, text: '"Toàn thể dân tộc Việt Nam quyết đem […] để giữ vững quyền tự do, độc lập ấy". Điền vào chỗ trống đúng với tư tưởng HCM.', options: ['Tất cả tinh thần và lực lượng.', 'Lực lượng quần chúng được huy động.', 'Toàn bộ sức lực.', 'Tất cả tinh thần và lực lượng, tính mạng và của cải.'], answer: 3, explanation: 'Tinh thần, lực lượng, tính mạng, của cải.' },
+            { id: 297, text: 'Theo Hồ Chí Minh, chủ nghĩa cộng sản ra đời dễ dàng hơn ở đâu?', options: ['Châu Á, phương Đông.', 'Châu Âu, Tây Âu.', 'Châu Á, phương Tây Nam.', 'Châu Âu, Đông Âu.'], answer: 0, explanation: 'Châu Á, phương Đông.' },
+            { id: 298, text: 'Chọn đáp án đúng nhất. Bản chất con người theo tư tưởng Hồ Chí Minh là gì?', options: ['Tổng hợp các quan hệ xã hội từ rộng đến hẹp.', 'Tổng hòa các mối quan hệ trong xã hội.', 'Sản phẩm của sự tiến hóa tự nhiên.', 'Sự thống nhất cả hai mặt tự nhiên và xã hội.'], answer: 1, explanation: 'Tổng hòa các mối quan hệ trong xã hội.' },
+            { id: 299, text: 'Theo Hồ Chí Minh, cách mạng bạo lực là đấu tranh:', options: ['Kết hợp chính trị quần chúng với vũ trang nhân dân.', 'Kết hợp đấu tranh quân sự với đấu tranh ngoại giao.', 'Kết hợp chính trị quần chúng với đấu tranh ngoại giao.', 'Kết hợp vũ trang nhân dân với mặt trận ngoại giao.'], answer: 0, explanation: 'Chính trị quần chúng + vũ trang nhân dân.' },
+            { id: 300, text: 'Chọn đáp án KHÔNG đúng. Theo Hồ Chí Minh, muốn tăng cường đoàn kết quốc tế, các đảng cộng sản trên thế giới phải:', options: ['Kiên trì chống lại khuynh hướng sai lầm của chủ nghĩa cơ hội.', 'Kiên trì chống lại khuynh hướng sai lầm của chủ nghĩa sovanh.', 'Kiên trì chống lại khuynh hướng sai lầm của chủ nghĩa xét lại.', 'Kiên trì chống lại khuynh hướng sai lầm của chủ nghĩa vị kỷ dân tộc.'], answer: 3, explanation: 'Vị kỷ dân tộc không phải khuynh hướng cần chống.' }
+        ];
+
+        // --- HỆ THỐNG TOAST MESSAGES TỰ ĐỘNG ---
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            const bgColor = type === 'success' ? 'bg-gradient-to-r from-green-500 to-emerald-500' : 'bg-gradient-to-r from-red-500 to-rose-500';
+            const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+            toast.className = `fixed bottom-6 right-6 md:bottom-10 md:right-10 flex items-center gap-3 px-6 py-4 rounded-2xl text-white font-bold shadow-2xl z-[100] animate-fade-in ${bgColor} border-2 border-white/20 backdrop-blur-md`;
+            toast.innerHTML = `<i class="fa-solid ${icon} text-2xl drop-shadow-md"></i> <span class="drop-shadow-md text-base md:text-lg">${message}</span>`;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                toast.style.opacity = '0'; toast.style.transform = 'translateY(20px)';
+                setTimeout(() => toast.remove(), 500);
+            }, 3000);
+        }
+
+        const GROUP_SIZE = 20;
+        const totalGroups = Math.ceil(questionBank.length / GROUP_SIZE);
+        const STORAGE_KEY = 'tthcm_marked_questions_ultimate';
+        const REVIEWED_STORAGE_KEY = 'tthcm_reviewed_questions_v1';
+        const GROUP_MASTERY_KEY = 'tthcm_group_mastery_v1';
+        let markedQuestions = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+        /** Câu đã trả lời đúng trong chế độ Ôn Lại — tách khỏi bookmark */
+        let reviewedQuestions = JSON.parse(localStorage.getItem(REVIEWED_STORAGE_KEY)) || [];
+        /** Câu đã trả lời đúng khi học theo nhóm { questionId: true } */
+        let groupMastery = JSON.parse(localStorage.getItem(GROUP_MASTERY_KEY)) || {};
+        let reviewLastCorrect = false;
+
+        function getGroupQuestions(groupIndex) {
+            const start = groupIndex * GROUP_SIZE;
+            return questionBank.slice(start, start + GROUP_SIZE);
+        }
+
+        function isQuestionMastered(questionId) {
+            return reviewedQuestions.includes(questionId) || !!groupMastery[questionId];
+        }
+
+        function getGroupCompletionPercent(groupIndex) {
+            const questions = getGroupQuestions(groupIndex);
+            if (questions.length === 0) return 0;
+            const done = questions.filter(q => isQuestionMastered(q.id)).length;
+            return Math.round((done / questions.length) * 100);
+        }
+
+        function markGroupQuestionMastered(questionId) {
+            if (!groupMastery[questionId]) {
+                groupMastery[questionId] = true;
+                saveGroupMastery();
+            }
+        }
+
+        function saveGroupMastery() {
+            localStorage.setItem(GROUP_MASTERY_KEY, JSON.stringify(groupMastery));
+            if (typeof window.saveUserData === 'function') {
+                window.saveUserData(window.getAppDataForCloud());
+            }
+        }
+
+        function renderGroupButtons() {
+            const groupContainer = document.getElementById('group-buttons');
+            groupContainer.innerHTML = '';
+            for (let i = 0; i < totalGroups; i++) {
+                const pct = getGroupCompletionPercent(i);
+                const btn = document.createElement('button');
+                btn.className = 'py-3 px-3 bg-gradient-to-br from-pink-50 to-orange-50 border-2 border-orange-100 text-orange-700 font-bold rounded-2xl hover:border-orange-300 transition-all text-left w-full';
+                const fillClass = pct === 100 ? 'bg-green-500' : pct > 0 ? 'bg-gradient-to-r from-orange-400 to-pink-400' : 'bg-slate-200';
+                const pctClass = pct === 100 ? 'text-green-600' : 'text-orange-600';
+                btn.innerHTML = `
+                    <div class="text-xs text-slate-400 font-normal">Câu ${i * GROUP_SIZE + 1}-${Math.min((i + 1) * GROUP_SIZE, questionBank.length)}</div>
+                    <div class="flex items-center justify-between gap-2 mt-0.5">
+                        <span class="text-base font-black">Chặng ${i + 1}</span>
+                        <span class="text-xs font-black ${pctClass}">${pct}%</span>
+                    </div>
+                    <div class="group-progress-track mt-2">
+                        <div class="group-progress-fill ${fillClass}" style="width:${pct}%"></div>
+                    </div>
+                `;
+                btn.onclick = () => { closeGroupSelection(); startGame('campaign', i); };
+                groupContainer.appendChild(btn);
+            }
+        }
+
+        // =============================================================================
+        // SPACED REPETITION — Helpers ngày tháng (dùng chung bởi storage & engine)
+        // =============================================================================
+        const REVIEW_STORAGE_KEY = 'tthcm_review_data_v1';
+        const REVIEW_META_KEY = 'tthcm_review_meta_v1';
+        const DEFAULT_EASE_FACTOR = 2.5;
+
+        const reviewDateUtils = {
+            todayKey(date = new Date()) {
+                return date.toISOString().slice(0, 10);
+            },
+            addDaysToKey(dateKey, days) {
+                const d = new Date(dateKey + 'T12:00:00');
+                d.setDate(d.getDate() + days);
+                return d.toISOString().slice(0, 10);
+            },
+            createDefaultEntry(questionId, dueDate = null) {
+                const today = dueDate || this.todayKey();
+                return {
+                    questionId: Number(questionId),
+                    repetition: 0,
+                    interval: 1,
+                    easeFactor: DEFAULT_EASE_FACTOR,
+                    dueDate: today,
+                    lastReview: null,
+                    totalReview: 0,
+                    correctCount: 0
+                };
+            }
+        };
+
+        // =============================================================================
+        // MODULE: reviewStorage
+        // -----------------------------------------------------------------------------
+        // Luồng dữ liệu:
+        //   1. reviewData lưu local (localStorage) — key theo questionId
+        //   2. Khi cập nhật → ghi local ngay → đồng bộ Firestore subcollection reviewData
+        //   3. Khi đăng nhập Firebase → merge cloud vào local (cloud mới hơn theo lastReview)
+        //   4. reviewMeta (streak, lastReviewDay) lưu trong doc users/{uid}
+        // =============================================================================
+
+        /** @type {Record<number, ReviewEntry>} */
+        let reviewData = {};
+        /** @type {{ streak: number, lastReviewDay: string|null }} */
+        let reviewMeta = { streak: 0, lastReviewDay: null };
+
+        /**
+         * @typedef {Object} ReviewEntry
+         * @property {number} questionId
+         * @property {number} repetition
+         * @property {number} interval - ngày
+         * @property {number} easeFactor
+         * @property {string} dueDate - ISO date (start of day)
+         * @property {string|null} lastReview - ISO datetime
+         * @property {number} totalReview
+         * @property {number} correctCount
+         */
+
+        const reviewStorage = {
+            loadLocal() {
+                try {
+                    const raw = localStorage.getItem(REVIEW_STORAGE_KEY);
+                    reviewData = raw ? JSON.parse(raw) : {};
+                    const metaRaw = localStorage.getItem(REVIEW_META_KEY);
+                    reviewMeta = metaRaw ? JSON.parse(metaRaw) : { streak: 0, lastReviewDay: null };
+                } catch (e) {
+                    console.error('reviewStorage.loadLocal:', e);
+                    reviewData = {};
+                    reviewMeta = { streak: 0, lastReviewDay: null };
+                }
+            },
+
+            saveLocal() {
+                localStorage.setItem(REVIEW_STORAGE_KEY, JSON.stringify(reviewData));
+                localStorage.setItem(REVIEW_META_KEY, JSON.stringify(reviewMeta));
+            },
+
+            getEntry(questionId) {
+                return reviewData[questionId] || null;
+            },
+
+            setEntry(entry) {
+                reviewData[entry.questionId] = entry;
+                this.saveLocal();
+            },
+
+            getAllEntries() {
+                return Object.values(reviewData);
+            },
+
+            /** Chuyển đổi cho Firestore (Timestamp → ISO khi đọc, ISO → Date khi ghi) */
+            entryToFirestore(entry) {
+                return {
+                    questionId: entry.questionId,
+                    repetition: entry.repetition,
+                    interval: entry.interval,
+                    easeFactor: entry.easeFactor,
+                    dueDate: entry.dueDate,
+                    lastReview: entry.lastReview || null,
+                    totalReview: entry.totalReview,
+                    correctCount: entry.correctCount
+                };
+            },
+
+            entryFromFirestore(data) {
+                if (!data || data.questionId == null) return null;
+                const dueDate = data.dueDate?.toDate ? data.dueDate.toDate().toISOString().slice(0, 10)
+                    : (typeof data.dueDate === 'string' ? data.dueDate.slice(0, 10) : reviewDateUtils.todayKey());
+                const lastReview = data.lastReview?.toDate ? data.lastReview.toDate().toISOString()
+                    : (data.lastReview || null);
+                return {
+                    questionId: Number(data.questionId),
+                    repetition: data.repetition ?? 0,
+                    interval: data.interval ?? 1,
+                    easeFactor: data.easeFactor ?? DEFAULT_EASE_FACTOR,
+                    dueDate,
+                    lastReview,
+                    totalReview: data.totalReview ?? 0,
+                    correctCount: data.correctCount ?? 0
+                };
+            },
+
+            mergeCloudEntries(cloudEntries) {
+                if (!Array.isArray(cloudEntries)) return;
+                cloudEntries.forEach(raw => {
+                    const cloud = this.entryFromFirestore(raw);
+                    if (!cloud) return;
+                    const local = reviewData[cloud.questionId];
+                    if (!local) {
+                        reviewData[cloud.questionId] = cloud;
+                        return;
+                    }
+                    const localTime = local.lastReview ? new Date(local.lastReview).getTime() : 0;
+                    const cloudTime = cloud.lastReview ? new Date(cloud.lastReview).getTime() : 0;
+                    if (cloudTime >= localTime) reviewData[cloud.questionId] = cloud;
+                });
+                this.saveLocal();
+            },
+
+            /**
+             * Migrate bookmark → reviewData (một lần):
+             * Câu đã bookmark nhưng chưa có reviewData → repetition=0, interval=1, dueDate=hôm nay
+             */
+            migrateBookmarksToReviewData() {
+                const today = reviewDateUtils.todayKey();
+                let migrated = 0;
+                markedQuestions.forEach(id => {
+                    if (!reviewData[id]) {
+                        reviewData[id] = reviewDateUtils.createDefaultEntry(id, today);
+                        migrated++;
+                    }
+                });
+                if (migrated > 0) {
+                    this.saveLocal();
+                    console.log(`[reviewStorage] Đã migrate ${migrated} bookmark → reviewData`);
+                    this.syncAllToCloud();
+                }
+            },
+
+            async syncEntryToCloud(questionId) {
+                const entry = reviewData[questionId];
+                if (!entry || typeof window.saveReviewDataDoc !== 'function') return;
+                await window.saveReviewDataDoc(String(questionId), this.entryToFirestore(entry));
+            },
+
+            async syncAllToCloud() {
+                if (typeof window.saveReviewDataBatch !== 'function') return;
+                const entries = Object.values(reviewData).map(e => ({
+                    id: String(e.questionId),
+                    data: this.entryToFirestore(e)
+                }));
+                await window.saveReviewDataBatch(entries);
+                if (typeof window.updateUserField === 'function') {
+                    await window.updateUserField('reviewMeta', reviewMeta);
+                }
+            },
+
+            updateStreak(reviewDate = new Date()) {
+                const today = reviewDateUtils.todayKey(reviewDate);
+                const yesterday = reviewDateUtils.addDaysToKey(today, -1);
+                if (reviewMeta.lastReviewDay === today) return;
+                if (reviewMeta.lastReviewDay === yesterday) {
+                    reviewMeta.streak += 1;
+                } else {
+                    reviewMeta.streak = 1;
+                }
+                reviewMeta.lastReviewDay = today;
+                this.saveLocal();
+            }
+        };
+
+        // =============================================================================
+        // MODULE: reviewEngine
+        // -----------------------------------------------------------------------------
+        // Thuật toán scheduling Anki-lite (đơn giản):
+        //
+        //   Again (quên):  repetition = 0,  interval = 1 ngày
+        //   Hard (khó):    repetition += 1, interval = 3 ngày
+        //   Good (nhớ):    repetition += 1, interval = 7 ngày
+        //   Easy (rất dễ): repetition += 1, interval = 14 ngày
+        //
+        //   dueDate = hôm nay + interval (ngày)
+        //   easeFactor giữ mặc định 2.5 (dự phòng mở rộng SM-2 sau này)
+        //
+        // getDueQuestions(): lọc câu có dueDate <= hôm nay
+        // calculateMastery(): trung bình điểm thuộc (repetition + interval) trên câu đã học
+        // =============================================================================
+        const reviewEngine = {
+            todayKey: reviewDateUtils.todayKey.bind(reviewDateUtils),
+            addDaysToKey: reviewDateUtils.addDaysToKey.bind(reviewDateUtils),
+            createDefaultEntry: reviewDateUtils.createDefaultEntry.bind(reviewDateUtils),
+
+            /** Trả về danh sách questionId đến hạn ôn (dueDate <= hôm nay) */
+            getDueQuestions() {
+                const today = reviewDateUtils.todayKey();
+                return reviewStorage.getAllEntries()
+                    .filter(e => e.dueDate <= today)
+                    .sort((a, b) => a.dueDate.localeCompare(b.dueDate))
+                    .map(e => e.questionId);
+            },
+
+            /**
+             * Cập nhật lịch ôn sau khi người dùng chọn mức ghi nhớ.
+             * @param {number} questionId
+             * @param {'again'|'hard'|'good'|'easy'} grade
+             */
+            updateReviewSchedule(questionId, grade) {
+                const now = new Date();
+                const today = reviewDateUtils.todayKey(now);
+                let entry = reviewStorage.getEntry(questionId) || reviewDateUtils.createDefaultEntry(questionId, today);
+
+                switch (grade) {
+                    case 'again':
+                        entry.repetition = 0;
+                        entry.interval = 1;
+                        break;
+                    case 'hard':
+                        entry.repetition += 1;
+                        entry.interval = 3;
+                        break;
+                    case 'good':
+                        entry.repetition += 1;
+                        entry.interval = 7;
+                        entry.correctCount += 1;
+                        break;
+                    case 'easy':
+                        entry.repetition += 1;
+                        entry.interval = 14;
+                        entry.correctCount += 1;
+                        break;
+                }
+
+                entry.dueDate = reviewDateUtils.addDaysToKey(today, entry.interval);
+                entry.lastReview = now.toISOString();
+                entry.totalReview += 1;
+
+                reviewStorage.setEntry(entry);
+                reviewStorage.updateStreak(now);
+                reviewStorage.syncEntryToCloud(questionId);
+                if (typeof window.updateUserField === 'function') {
+                    window.updateUserField('reviewMeta', reviewMeta);
+                }
+                // Cập nhật dashboard ngay sau mỗi lần chấm điểm (realtime local)
+                reviewUI.updateDashboard();
+                return entry;
+            },
+
+            /** % thuộc bài: trung bình điểm từng câu đã review ít nhất 1 lần */
+            calculateMastery() {
+                const learned = reviewStorage.getAllEntries().filter(e => e.totalReview > 0);
+                if (learned.length === 0) return 0;
+                const scores = learned.map(e => {
+                    const repPart = Math.min(e.repetition / 5, 1) * 50;
+                    const intPart = Math.min(e.interval / 14, 1) * 50;
+                    return repPart + intPart;
+                });
+                return Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
+            },
+
+            getDashboardStats() {
+                const total = questionBank.length;
+                const entries = reviewStorage.getAllEntries();
+                const learned = entries.filter(e => e.totalReview > 0).length;
+                const dueToday = this.getDueQuestions().length;
+                const totalReviews = entries.reduce((s, e) => s + e.totalReview, 0);
+                const totalCorrect = entries.reduce((s, e) => s + e.correctCount, 0);
+                const accuracy = totalReviews > 0 ? Math.round((totalCorrect / totalReviews) * 100) : 0;
+                return {
+                    total,
+                    learned,
+                    mastery: this.calculateMastery(),
+                    dueToday,
+                    streak: reviewMeta.streak || 0,
+                    accuracy
+                };
+            },
+
+            ensureInReviewDeck(questionId) {
+                if (!reviewStorage.getEntry(questionId)) {
+                    reviewStorage.setEntry(reviewDateUtils.createDefaultEntry(questionId, reviewDateUtils.todayKey()));
+                    reviewStorage.syncEntryToCloud(questionId);
+                }
+            }
+        };
+
+        // =============================================================================
+        // MODULE: reviewUI
+        // -----------------------------------------------------------------------------
+        // UI layer: dashboard Home, badge đến hạn, chế độ Spaced Review + 4 nút ghi nhớ
+        // =============================================================================
+        const reviewUI = {
+            updateDashboard() {
+                const stats = reviewEngine.getDashboardStats();
+                document.getElementById('stat-total').innerText = stats.total;
+                document.getElementById('stat-learned').innerText = stats.learned;
+                document.getElementById('stat-mastery').innerText = stats.mastery + '%';
+                document.getElementById('stat-due').innerText = stats.dueToday;
+                document.getElementById('stat-streak').innerText = stats.streak + ' 🔥';
+                document.getElementById('stat-accuracy').innerText = stats.accuracy + '%';
+
+                const dueBadge = document.getElementById('due-badge');
+                const btnSpaced = document.getElementById('btn-spaced-review');
+                if (stats.dueToday > 0) {
+                    dueBadge.innerText = stats.dueToday;
+                    dueBadge.classList.remove('hidden');
+                    btnSpaced.classList.remove('opacity-50', 'cursor-not-allowed');
+                    btnSpaced.disabled = false;
+                } else {
+                    dueBadge.classList.add('hidden');
+                    btnSpaced.classList.add('opacity-50', 'cursor-not-allowed');
+                    btnSpaced.disabled = true;
+                }
+
+                const hubBadge = document.getElementById('hub-badge');
+                const hubCount = stats.dueToday > 0 ? stats.dueToday : markedQuestions.length;
+                if (hubBadge) {
+                    if (hubCount > 0) {
+                        hubBadge.innerText = hubCount;
+                        hubBadge.classList.remove('hidden');
+                    } else {
+                        hubBadge.classList.add('hidden');
+                    }
+                }
+                updateHomeReviewButton();
+            },
+
+            showSpacedGradeBar(show) {
+                document.getElementById('spaced-grade-bar').classList.toggle('hidden', !show);
+            },
+
+            setGameModeUI(mode) {
+                const isSpaced = mode === 'spaced';
+                document.getElementById('helpers-container').classList.toggle('hidden', isSpaced);
+                document.getElementById('timer-container').classList.toggle('hidden', isSpaced);
+                document.getElementById('score-container').classList.add('hidden');
+                this.showSpacedGradeBar(false);
+            }
+        };
+
+        function initReviewSystem() {
+            reviewStorage.loadLocal();
+            reviewStorage.migrateBookmarksToReviewData();
+            reviewUI.updateDashboard();
+        }
+
+        function openReviewHubModal() {
+            reviewUI.updateDashboard();
+            document.getElementById('modal-review-hub').classList.remove('hidden');
+        }
+
+        function closeReviewHubModal() {
+            document.getElementById('modal-review-hub').classList.add('hidden');
+        }
+
+        function startReviewFromHome() {
+            if (markedQuestions.length === 0) {
+                showToast('Chưa có câu nào cần ôn lại!', 'error');
+                return;
+            }
+            startGame('review');
+        }
+
+        function openHandbookFromHub() {
+            closeReviewHubModal();
+            openHandbook();
+        }
+
+        function startSpacedReview() {
+            const dueIds = reviewEngine.getDueQuestions();
+            if (dueIds.length === 0) {
+                showToast('Không có câu nào đến hạn hôm nay!', 'error');
+                return;
+            }
+            closeReviewHubModal();
+            startGame('spaced');
+        }
+
+        let spacedAnswerRevealed = false;
+
+        function handleSpacedGrade(grade) {
+            if (!spacedAnswerRevealed || currentMode !== 'spaced') return;
+            const q = currentQuestions[currentQuestionIndex];
+            updateReviewSchedule(q.id, grade);
+            spacedAnswerRevealed = false;
+            reviewUI.showSpacedGradeBar(false);
+            if (currentQuestionIndex >= currentQuestions.length - 1) {
+                finishSpacedSession();
+            } else {
+                currentQuestionIndex++;
+                loadQuestion();
+            }
+        }
+
+        function finishSpacedSession() {
+            clearInterval(timerInterval);
+            reviewUI.updateDashboard();
+            hideAllScreens();
+            const dueLeft = reviewEngine.getDueQuestions().length;
+            showToast(`Hoàn thành ${currentQuestions.length} câu ôn hôm nay!`);
+            document.getElementById('screen-result').classList.remove('hidden');
+            document.getElementById('result-score').innerText = 'Ôn xong';
+            document.getElementById('result-time').innerText = dueLeft > 0 ? `${dueLeft} câu còn đến hạn` : 'Đã hết câu đến hạn';
+        }
+
+        // API công khai theo yêu cầu
+        function getDueQuestions() { return reviewEngine.getDueQuestions(); }
+        function updateReviewSchedule(questionId, grade) { return reviewEngine.updateReviewSchedule(questionId, grade); }
+        function calculateMastery() { return reviewEngine.calculateMastery(); }
+
+        // START FIREBASE INTEGRATION
+        window.applyCloudData = function (data) {
+            if (!data || typeof data !== 'object') return;
+            const marks = Array.isArray(data.markedQuestions)
+                ? data.markedQuestions
+                : (Array.isArray(data.bookmarks) ? data.bookmarks : null);
+            if (marks) {
+                markedQuestions.length = 0;
+                markedQuestions.push(...marks);
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(markedQuestions));
+                reviewStorage.migrateBookmarksToReviewData();
+                updateHomeReviewButton();
+                if (!document.getElementById('screen-handbook').classList.contains('hidden')) filterHandbook();
+            }
+            if (Array.isArray(data.reviewedQuestions)) {
+                reviewedQuestions.length = 0;
+                reviewedQuestions.push(...data.reviewedQuestions);
+                localStorage.setItem(REVIEWED_STORAGE_KEY, JSON.stringify(reviewedQuestions));
+            }
+            if (data.groupMastery && typeof data.groupMastery === 'object') {
+                groupMastery = data.groupMastery;
+                localStorage.setItem(GROUP_MASTERY_KEY, JSON.stringify(groupMastery));
+            }
+            if (data.reviewMeta) {
+                reviewMeta = { ...reviewMeta, ...data.reviewMeta };
+                reviewStorage.saveLocal();
+            }
+            reviewUI.updateDashboard();
+        };
+
+        window.applyCloudReviewData = function (cloudEntries) {
+            reviewStorage.mergeCloudEntries(cloudEntries);
+            reviewStorage.migrateBookmarksToReviewData();
+            reviewUI.updateDashboard();
+        };
+
+        window.getAppDataForCloud = function () {
+            return {
+                score: 0,
+                bookmarks: markedQuestions,
+                markedQuestions: markedQuestions,
+                reviewedQuestions: reviewedQuestions,
+                groupMastery: groupMastery,
+                reviewMeta: reviewMeta,
+                settings: {},
+                progress: {}
+            };
+        };
+        // END FIREBASE INTEGRATION
+
+        function saveMarked() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(markedQuestions));
+            updateHomeReviewButton();
+            // START FIREBASE INTEGRATION
+            if (typeof window.saveUserData === 'function') {
+                window.saveUserData(window.getAppDataForCloud());
+            }
+            // END FIREBASE INTEGRATION
+        }
+
+        function saveReviewed() {
+            localStorage.setItem(REVIEWED_STORAGE_KEY, JSON.stringify(reviewedQuestions));
+            updateHomeReviewButton();
+            if (typeof window.saveUserData === 'function') {
+                window.saveUserData(window.getAppDataForCloud());
+            }
+        }
+
+        /**
+         * Ôn Lại — trả lời đúng → bỏ bookmark, chuyển sang Đã Ôn, cập nhật lịch SR (Good)
+         */
+        function markQuestionAsReviewed(questionId) {
+            const idx = markedQuestions.indexOf(questionId);
+            if (idx > -1) markedQuestions.splice(idx, 1);
+            if (!reviewedQuestions.includes(questionId)) reviewedQuestions.push(questionId);
+            markGroupQuestionMastered(questionId);
+            updateReviewSchedule(questionId, 'good');
+            saveMarked();
+            saveReviewed();
+            reviewUI.updateDashboard();
+        }
+
+        function toggleMark(id) {
+            const index = markedQuestions.indexOf(id);
+            if (index > -1) {
+                markedQuestions.splice(index, 1);
+            } else {
+                markedQuestions.push(id);
+                const reviewedIdx = reviewedQuestions.indexOf(id);
+                if (reviewedIdx > -1) reviewedQuestions.splice(reviewedIdx, 1);
+                saveReviewed();
+                reviewEngine.ensureInReviewDeck(id);
+            }
+            saveMarked();
+            reviewUI.updateDashboard();
+        }
+
+        function updateHomeReviewButton() {
+            const btnMarked = document.getElementById('btn-review-marked');
+            const badgeMarked = document.getElementById('marked-badge');
+            if (markedQuestions.length > 0) {
+                btnMarked.classList.remove('opacity-50', 'cursor-not-allowed');
+                btnMarked.disabled = false;
+                badgeMarked.innerText = markedQuestions.length;
+                badgeMarked.classList.remove('hidden');
+            } else {
+                btnMarked.classList.add('opacity-50', 'cursor-not-allowed');
+                btnMarked.disabled = true;
+                badgeMarked.classList.add('hidden');
+            }
+
+            const btnReviewed = document.getElementById('btn-reviewed');
+            const badgeReviewed = document.getElementById('reviewed-badge');
+            const subtitleReviewed = document.getElementById('reviewed-subtitle');
+            if (reviewedQuestions.length > 0) {
+                btnReviewed.classList.remove('opacity-50', 'cursor-not-allowed');
+                btnReviewed.disabled = false;
+                badgeReviewed.innerText = reviewedQuestions.length;
+                badgeReviewed.classList.remove('hidden');
+                if (subtitleReviewed) subtitleReviewed.innerText = `${reviewedQuestions.length} câu đã thuộc`;
+            } else {
+                btnReviewed.classList.add('opacity-50', 'cursor-not-allowed');
+                btnReviewed.disabled = true;
+                badgeReviewed.classList.add('hidden');
+                if (subtitleReviewed) subtitleReviewed.innerText = 'Chưa có câu nào';
+            }
+        }
+
+        function openReviewedHandbook() {
+            if (reviewedQuestions.length === 0) {
+                showToast('Chưa có câu Đã Ôn!', 'error');
+                return;
+            }
+            closeReviewHubModal();
+            hideAllScreens();
+            document.getElementById('screen-handbook').classList.remove('hidden');
+            document.getElementById('handbook-group-select').value = 'reviewed';
+            filterHandbook();
+        }
+
+        function exportData() {
+            if(markedQuestions.length === 0) { showToast("Bạn chưa đánh dấu câu hỏi nào!", "error"); return; }
+            const dataStr = JSON.stringify(markedQuestions);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', 'TienDo_DuongLenDinhTTHCM.json');
+            linkElement.click();
+            showToast("Đã tải tiến độ về máy!");
+        }
+
+        function importData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const imported = JSON.parse(e.target.result);
+                    if (Array.isArray(imported)) {
+                        markedQuestions = imported;
+                        saveMarked();
+                        reviewStorage.migrateBookmarksToReviewData();
+                        reviewUI.updateDashboard();
+                        showToast('Đã phục hồi tiến độ thành công!');
+                        if (!document.getElementById('screen-handbook').classList.contains('hidden')) filterHandbook();
+                    }
+                } catch (err) { showToast('File bị lỗi!', "error"); }
+            };
+            reader.readAsText(file);
+            event.target.value = ''; 
+        }
+
+        // Logic Game cơ bản
+        let currentMode = ''; let currentQuestions = []; let currentQuestionIndex = 0;
+        let score = 0; let timerInterval; let timeLeft = 0;
+        let helps = { '5050': true, 'freeze': true, 'hint': true };
+
+        function advanceAfterReviewCorrect() {
+            const q = currentQuestions[currentQuestionIndex];
+            markQuestionAsReviewed(q.id);
+            currentQuestions.splice(currentQuestionIndex, 1);
+            reviewLastCorrect = false;
+            if (currentQuestions.length === 0) {
+                finishGame();
+                return true;
+            }
+            if (currentQuestionIndex >= currentQuestions.length) currentQuestionIndex = 0;
+            loadQuestion();
+            return true;
+        }
+
+        function showHome() {
+            clearInterval(timerInterval);
+            hideAllScreens();
+            reviewUI.updateDashboard();
+            document.getElementById('screen-home').classList.remove('hidden');
+            document.getElementById('btn-review-hub').classList.remove('hidden');
+            document.body.classList.add('home-active');
+            document.body.classList.remove('game-active');
+        }
+        function hideAllScreens() {
+            ['screen-home', 'screen-game', 'screen-result', 'screen-handbook', 'modal-group', 'modal-review-hub'].forEach(id => document.getElementById(id).classList.add('hidden'));
+            document.getElementById('btn-review-hub').classList.add('hidden');
+            document.getElementById('fireworks').innerHTML = '';
+            document.body.classList.remove('game-active');
+            document.body.classList.remove('home-active');
+            spacedAnswerRevealed = false;
+            reviewUI.showSpacedGradeBar(false);
+        }
+
+        function resetAnswerPanel() {
+            const panel = document.getElementById('game-answer-panel');
+            panel.classList.remove('is-visible');
+            document.getElementById('hint-text').innerText = '';
+            document.getElementById('btn-next').classList.add('hidden');
+            document.getElementById('btn-finish').classList.add('hidden');
+            if (currentMode !== 'spaced') reviewUI.showSpacedGradeBar(false);
+        }
+
+        function showAnswerPanel(text, label = 'Giải mã', iconClass = 'fa-key') {
+            document.getElementById('answer-panel-label').innerText = label;
+            document.getElementById('answer-panel-icon').className = `fa-solid ${iconClass} text-yellow-600 mt-0.5 shrink-0`;
+            document.getElementById('hint-text').innerText = text;
+            document.getElementById('game-answer-panel').classList.add('is-visible');
+        }
+
+        window.onload = () => {
+            renderGroupButtons();
+            for (let i = 0; i < totalGroups; i++) {
+                const opt = document.createElement('option');
+                opt.value = i;
+                opt.innerText = `Chặng ${i + 1}`;
+                document.getElementById('handbook-group-select').appendChild(opt);
+            }
+            initReviewSystem();
+            updateHomeReviewButton();
+            document.body.classList.add('home-active');
+        };
+
+        function openGroupSelection() { document.getElementById('modal-group').classList.remove('hidden'); }
+        function closeGroupSelection() { document.getElementById('modal-group').classList.add('hidden'); }
+
+        function startGame(mode, groupIndex = 0) {
+            currentMode = mode;
+            hideAllScreens();
+            document.getElementById('screen-game').classList.remove('hidden');
+            document.body.classList.add('game-active');
+            score = 0;
+            currentQuestionIndex = 0;
+            reviewLastCorrect = false;
+            spacedAnswerRevealed = false;
+            document.getElementById('score').innerText = '0';
+            resetAnswerPanel();
+            reviewUI.setGameModeUI(mode);
+            helps = { '5050': true, 'freeze': true, 'hint': true };
+            ['5050', 'freeze', 'hint'].forEach(h => {
+                document.getElementById(`btn-help-${h}`).classList.remove('opacity-50', 'cursor-not-allowed');
+                document.getElementById(`btn-help-${h}`).disabled = false;
+            });
+
+            if (mode === 'spaced') {
+                document.getElementById('game-mode-title').innerText = '🔥 Ôn Hôm Nay';
+                const dueIds = reviewEngine.getDueQuestions();
+                const idSet = new Set(dueIds);
+                currentQuestions = questionBank.filter(q => idSet.has(q.id));
+                currentQuestions.sort((a, b) => dueIds.indexOf(a.id) - dueIds.indexOf(b.id));
+            } else if (mode === 'campaign') {
+                document.getElementById('game-mode-title').innerText = `Chặng ${groupIndex + 1}`;
+                currentQuestions = questionBank.slice(groupIndex * GROUP_SIZE, groupIndex * GROUP_SIZE + GROUP_SIZE);
+                startTimer(currentQuestions.length * 45);
+            } else if (mode === 'exam') {
+                document.getElementById('game-mode-title').innerText = 'Thi Thử';
+                document.getElementById('score-container').classList.remove('hidden');
+                document.getElementById('timer-container').classList.remove('hidden');
+                currentQuestions = [...questionBank].sort(() => Math.random() - 0.5).slice(0, 25);
+                startTimer(900);
+            } else {
+                document.getElementById('game-mode-title').innerText = 'Ôn Tập';
+                document.getElementById('timer-container').classList.remove('hidden');
+                currentQuestions = questionBank.filter(q => markedQuestions.includes(q.id)).sort(() => Math.random() - 0.5);
+                startTimer(currentQuestions.length * 45);
+            }
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            if (currentQuestionIndex >= currentQuestions.length) { finishGame(); return; }
+            resetAnswerPanel();
+            const q = currentQuestions[currentQuestionIndex];
+            if (currentMode === 'spaced') {
+                const dueLeft = reviewEngine.getDueQuestions().length;
+                document.getElementById('game-progress').innerText =
+                    `Câu ${currentQuestionIndex + 1}/${currentQuestions.length} · ${dueLeft} đến hạn`;
+            } else if (currentMode === 'review') {
+                document.getElementById('game-progress').innerText =
+                    `Câu ${currentQuestionIndex + 1}/${currentQuestions.length} · ${currentQuestions.length} cần ôn`;
+            } else {
+                document.getElementById('game-progress').innerText =
+                    `Câu ${currentQuestionIndex + 1}/${currentQuestions.length}`;
+            }
+            document.getElementById('question-text').innerText = q.text;
+            document.getElementById('progress-bar').style.width = `${(currentQuestionIndex / currentQuestions.length) * 100}%`;
+            document.getElementById('btn-mark-ingame').style.color = markedQuestions.includes(q.id) ? '#f97316' : '#cbd5e1';
+            const optsContainer = document.getElementById('options-container');
+            optsContainer.innerHTML = '';
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn w-full text-left rounded-2xl border-2 border-slate-100 bg-white hover:border-blue-200 text-slate-700 font-semibold shadow-sm flex items-center gap-2';
+                btn.innerHTML = `<span class='option-letter bg-blue-50 text-blue-500 rounded-full flex items-center justify-center shrink-0 font-black'>${String.fromCharCode(65+idx)}</span><span class='line-clamp-3'>${opt}</span>`;
+                btn.onclick = () => selectAnswer(idx, btn);
+                btn.dataset.idx = idx; optsContainer.appendChild(btn);
+            });
+        }
+
+        function toggleMarkCurrentQuestion() { toggleMark(currentQuestions[currentQuestionIndex].id); document.getElementById('btn-mark-ingame').style.color = markedQuestions.includes(currentQuestions[currentQuestionIndex].id) ? '#f97316' : '#cbd5e1'; }
+
+        function selectAnswer(selectedIndex, btnElement) {
+            const q = currentQuestions[currentQuestionIndex];
+            const isCorrect = selectedIndex === q.answer;
+            const btns = document.querySelectorAll('#options-container .option-btn');
+            btns.forEach(b => b.disabled = true);
+            if (isCorrect) {
+                btnElement.classList.add('correct');
+                if (currentMode === 'exam') {
+                    score += 0.4;
+                    document.getElementById('score').innerText = score.toFixed(1);
+                }
+                if (currentMode === 'campaign') markGroupQuestionMastered(q.id);
+                if (currentMode === 'review') reviewLastCorrect = true;
+            } else {
+                btnElement.classList.add('wrong');
+                reviewLastCorrect = false;
+                if (currentMode !== 'spaced' && currentMode !== 'review' && !markedQuestions.includes(q.id)) toggleMarkCurrentQuestion();
+                btns.forEach(b => { if (parseInt(b.dataset.idx) === q.answer) b.classList.add('correct'); });
+            }
+
+            if (currentMode === 'spaced') {
+                showAnswerPanel(q.explanation, isCorrect ? 'Chính xác' : 'Đáp án đúng', isCorrect ? 'fa-circle-check' : 'fa-key');
+                spacedAnswerRevealed = true;
+                reviewUI.showSpacedGradeBar(true);
+                return;
+            }
+
+            if (!isCorrect || currentMode !== 'exam') {
+                showAnswerPanel(q.explanation, isCorrect ? 'Chính xác' : 'Giải mã', isCorrect ? 'fa-circle-check' : 'fa-key');
+            }
+            if (currentQuestionIndex === currentQuestions.length - 1) document.getElementById('btn-finish').classList.remove('hidden');
+            else document.getElementById('btn-next').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            if (currentMode === 'review' && reviewLastCorrect) {
+                advanceAfterReviewCorrect();
+                return;
+            }
+            currentQuestionIndex++;
+            loadQuestion();
+        }
+
+        function startTimer(seconds) { clearInterval(timerInterval); timeLeft = seconds; updateTimerDisplay(); timerInterval = setInterval(() => { timeLeft--; updateTimerDisplay(); if (timeLeft <= 0) finishGame(); }, 1000); }
+        function updateTimerDisplay() { const m = Math.floor(timeLeft/60).toString().padStart(2,'0'); const s = (timeLeft%60).toString().padStart(2,'0'); document.getElementById('timer').innerText = `${m}:${s}`; }
+
+        function finishGame() {
+            if (currentMode === 'review' && reviewLastCorrect) {
+                markQuestionAsReviewed(currentQuestions[currentQuestionIndex].id);
+                reviewLastCorrect = false;
+            }
+            clearInterval(timerInterval);
+            hideAllScreens();
+            updateHomeReviewButton();
+            document.getElementById('screen-result').classList.remove('hidden');
+            document.getElementById('result-score').innerText = currentMode === 'exam' ? score.toFixed(1) : 'Đạt';
+            document.getElementById('result-time').innerText = document.getElementById('timer').innerText;
+        }
+
+        function openHandbook() { hideAllScreens(); document.getElementById('screen-handbook').classList.remove('hidden'); renderHandbook(questionBank); }
+        function renderHandbook(data) {
+            const list = document.getElementById('handbook-list'); list.innerHTML = '';
+            data.forEach(q => {
+                const isMarked = markedQuestions.includes(q.id);
+                const isReviewed = reviewedQuestions.includes(q.id);
+                const statusBadge = isReviewed
+                    ? `<span class='absolute top-5 left-5 text-xs font-black bg-green-100 text-green-700 px-2 py-1 rounded-lg'>✅ Đã Ôn</span>`
+                    : (isMarked ? `<span class='absolute top-5 left-5 text-xs font-black bg-orange-100 text-orange-700 px-2 py-1 rounded-lg'>📌 Chưa thuộc</span>` : '');
+                list.innerHTML += `<div class='bg-white rounded-2xl p-6 shadow-sm border-2 ${isReviewed ? "border-green-100" : "border-slate-100"} relative'>${statusBadge}<button onclick='toggleMarkHandbook(${q.id}, this)' class='absolute top-5 right-5 text-2xl ${isMarked ? "text-orange-500" : "text-slate-200"}'><i class='fa-solid fa-bookmark'></i></button><h4 class='font-black mb-4 ${statusBadge ? "mt-6" : ""}'>Câu ${q.id}: ${q.text}</h4><div class='text-slate-600 border-l-4 border-pink-200 pl-4 mb-4'>${q.options.map((o,i)=>`<div class='${i===q.answer?"text-green-700 font-bold":""}'>${String.fromCharCode(65+i)}. ${o}</div>`).join('')}</div><div class='bg-yellow-50 p-4 rounded-xl text-yellow-800 text-sm italic'>Giải mã: ${q.explanation}</div></div>`;
+            });
+        }
+        function toggleMarkHandbook(id, btn) { toggleMark(id); btn.style.color = markedQuestions.includes(id) ? '#f97316' : '#e2e8f0'; }
+        function filterHandbook() {
+            const text = document.getElementById('search-input').value.toLowerCase();
+            const group = document.getElementById('handbook-group-select').value;
+            let res = questionBank;
+            if (group === 'marked') res = res.filter(q => markedQuestions.includes(q.id));
+            else if (group === 'reviewed') res = res.filter(q => reviewedQuestions.includes(q.id));
+            else if (group !== 'all') res = res.slice(group*GROUP_SIZE, group*GROUP_SIZE + GROUP_SIZE);
+            if (text) res = res.filter(q => q.text.toLowerCase().includes(text));
+            renderHandbook(res);
+        }
+        function useHelp(type) {
+            const q = currentQuestions[currentQuestionIndex];
+            if (type === '5050') {
+                let count = 0;
+                document.querySelectorAll('#options-container .option-btn').forEach((b, i) => {
+                    if (i !== q.answer && count < 2) { b.classList.add('hidden-option'); count++; }
+                });
+            } else if (type === 'freeze') {
+                clearInterval(timerInterval);
+                setTimeout(() => startTimer(timeLeft), 10000);
+            } else {
+                showAnswerPanel(q.explanation, 'Gợi ý', 'fa-lightbulb');
+            }
+            document.getElementById(`btn-help-${type}`).disabled = true;
+            document.getElementById(`btn-help-${type}`).classList.add('opacity-50');
+        }
+
+        // START FIREBASE INTEGRATION
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        let fbAuth = null;
+        let fbDb = null;
+        let authReadyResolve;
+        const authReady = new Promise((resolve) => { authReadyResolve = resolve; });
+
+        async function waitForAuth() {
+            return await authReady;
+        }
+
+        if (firebaseConfig.apiKey !== "YOUR_API_KEY" && typeof firebase !== "undefined") {
+            try {
+                firebase.initializeApp(firebaseConfig);
+                fbAuth = firebase.auth();
+                fbDb = firebase.firestore();
+            } catch (error) {
+                console.error("Lỗi khởi tạo Firebase:", error);
+                authReadyResolve(null);
+            }
+        } else {
+            console.warn("Firebase chưa cấu hình. Ứng dụng chạy chế độ local.");
+            authReadyResolve(null);
+        }
+
+        window.saveUserData = async (data) => {
+            try {
+                if (!fbDb) return;
+                const user = await waitForAuth();
+                if (!user) return;
+                await fbDb.collection("users").doc(user.uid).set(data, { merge: true });
+            } catch (e) {
+                console.error("Lỗi saveUserData:", e);
+            }
+        };
+
+        window.loadUserData = async () => {
+            try {
+                if (!fbDb) return {};
+                const user = await waitForAuth();
+                if (!user) return {};
+                const snap = await fbDb.collection("users").doc(user.uid).get();
+                return snap.exists ? snap.data() : {};
+            } catch (e) {
+                console.error("Lỗi loadUserData:", e);
+                return {};
+            }
+        };
+
+        window.updateUserField = async (field, value) => {
+            try {
+                if (!fbDb) return;
+                const user = await waitForAuth();
+                if (!user) return;
+                await fbDb.collection("users").doc(user.uid).set({ [field]: value }, { merge: true });
+            } catch (e) {
+                console.error("Lỗi updateUserField:", e);
+            }
+        };
+
+        /** Ghi 1 document vào subcollection users/{uid}/reviewData/{questionId} */
+        window.saveReviewDataDoc = async (docId, entryData) => {
+            try {
+                if (!fbDb) return;
+                const user = await waitForAuth();
+                if (!user) return;
+                const payload = {
+                    questionId: entryData.questionId,
+                    repetition: entryData.repetition,
+                    interval: entryData.interval,
+                    easeFactor: entryData.easeFactor,
+                    dueDate: firebase.firestore.Timestamp.fromDate(new Date(entryData.dueDate + 'T12:00:00')),
+                    lastReview: entryData.lastReview
+                        ? firebase.firestore.Timestamp.fromDate(new Date(entryData.lastReview))
+                        : null,
+                    totalReview: entryData.totalReview,
+                    correctCount: entryData.correctCount
+                };
+                await fbDb.collection("users").doc(user.uid)
+                    .collection("reviewData").doc(docId).set(payload, { merge: true });
+            } catch (e) {
+                console.error("Lỗi saveReviewDataDoc:", e);
+            }
+        };
+
+        /** Đồng bộ hàng loạt reviewData lên Firestore */
+        window.saveReviewDataBatch = async (entries) => {
+            try {
+                if (!fbDb || !entries?.length) return;
+                const user = await waitForAuth();
+                if (!user) return;
+                const batch = fbDb.batch();
+                const colRef = fbDb.collection("users").doc(user.uid).collection("reviewData");
+                entries.forEach(({ id, data }) => {
+                    batch.set(colRef.doc(id), {
+                        questionId: data.questionId,
+                        repetition: data.repetition,
+                        interval: data.interval,
+                        easeFactor: data.easeFactor,
+                        dueDate: firebase.firestore.Timestamp.fromDate(new Date(data.dueDate + 'T12:00:00')),
+                        lastReview: data.lastReview
+                            ? firebase.firestore.Timestamp.fromDate(new Date(data.lastReview))
+                            : null,
+                        totalReview: data.totalReview,
+                        correctCount: data.correctCount
+                    }, { merge: true });
+                });
+                await batch.commit();
+            } catch (e) {
+                console.error("Lỗi saveReviewDataBatch:", e);
+            }
+        };
+
+        /** Đọc toàn bộ subcollection reviewData từ Firestore */
+        window.loadReviewDataCollection = async () => {
+            try {
+                if (!fbDb) return [];
+                const user = await waitForAuth();
+                if (!user) return [];
+                const snap = await fbDb.collection("users").doc(user.uid).collection("reviewData").get();
+                return snap.docs.map(d => d.data());
+            } catch (e) {
+                console.error("Lỗi loadReviewDataCollection:", e);
+                return [];
+            }
+        };
+
+        if (fbAuth) {
+            fbAuth.onAuthStateChanged(async (user) => {
+                if (!user) return;
+                if (authReadyResolve) {
+                    authReadyResolve(user);
+                    authReadyResolve = null;
+                }
+                try {
+                    const snap = await fbDb.collection("users").doc(user.uid).get();
+                    const cloudData = snap.exists ? snap.data() : {};
+                    if (typeof window.applyCloudData === "function") {
+                        window.applyCloudData(cloudData);
+                    }
+                    const reviewDocs = await window.loadReviewDataCollection();
+                    if (typeof window.applyCloudReviewData === "function") {
+                        window.applyCloudReviewData(reviewDocs);
+                    }
+                    reviewStorage.migrateBookmarksToReviewData();
+                    reviewUI.updateDashboard();
+                    console.log("Firebase: đã khôi phục dữ liệu cloud + reviewData, UID:", user.uid);
+                } catch (e) {
+                    console.error("Lỗi khôi phục dữ liệu cloud:", e);
+                }
+            });
+            fbAuth.signInAnonymously().catch((e) => {
+                console.error("Firebase Anonymous Auth thất bại:", e);
+                if (authReadyResolve) {
+                    authReadyResolve(null);
+                    authReadyResolve = null;
+                }
+            });
+        }
+        // END FIREBASE INTEGRATION
+    </script>
+    </body>
+</html>

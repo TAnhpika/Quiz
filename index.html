@@ -75,6 +75,10 @@
                 max-height: 32vh;
                 overflow: hidden;
             }
+            #screen-game #btn-mark-ingame {
+                top: 0.3rem;
+                right: 0.15rem;
+            }
             #screen-game #question-text {
                 display: -webkit-box;
                 -webkit-line-clamp: 5;
@@ -136,12 +140,12 @@
             #screen-game #btn-next,
             #screen-game #btn-finish {
                 min-height: 3rem;
+                flex: 1 1 100%;
+                width: 100%;
             }
             #screen-game #btn-next.hidden,
             #screen-game #btn-finish.hidden {
-                display: flex !important;
-                visibility: hidden;
-                pointer-events: none;
+                display: none !important;
             }
             body.game-active {
                 overflow: hidden;
@@ -831,7 +835,7 @@
                             <button
                                 id="btn-mark-ingame"
                                 onclick="toggleMarkCurrentQuestion()"
-                                class="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center text-slate-300 hover:text-orange-500 hover:bg-orange-50 transition-all text-lg"
+                                class="absolute w-9 h-9 rounded-full flex items-center justify-center text-slate-300 hover:text-orange-500 hover:bg-orange-50 transition-all text-lg"
                                 title="Đánh dấu câu chưa thuộc"
                             >
                                 <i class="fa-solid fa-bookmark"></i>
@@ -853,18 +857,18 @@
                             </div>
                         </div>
 
-                        <div id="game-action-bar" class="px-3 pb-3 pt-1 md:px-4 md:pb-4 flex gap-2">
+                        <div id="game-action-bar" class="px-3 pb-3 pt-1 md:px-4 md:pb-4 flex w-full">
                             <button
                                 id="btn-next"
                                 onclick="nextQuestion()"
-                                class="hidden flex-1 py-2.5 md:py-3 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-xl font-black text-sm md:text-base hover:from-blue-500 hover:to-blue-600 shadow-md transition-all"
+                                class="hidden w-full py-2.5 md:py-3 bg-gradient-to-r from-blue-400 to-blue-500 text-white rounded-xl font-black text-sm md:text-base hover:from-blue-500 hover:to-blue-600 shadow-md transition-all"
                             >
                                 TIẾP TỤC <i class="fa-solid fa-arrow-right ml-1"></i>
                             </button>
                             <button
                                 id="btn-finish"
                                 onclick="finishGame()"
-                                class="hidden flex-1 py-2.5 md:py-3 bg-gradient-to-r from-pink-400 to-orange-400 text-white rounded-xl font-black text-sm md:text-base hover:shadow-md transition-all"
+                                class="hidden w-full py-2.5 md:py-3 bg-gradient-to-r from-pink-400 to-orange-400 text-white rounded-xl font-black text-sm md:text-base hover:shadow-md transition-all"
                             >
                                 HOÀN THÀNH <i class="fa-solid fa-flag-checkered ml-1"></i>
                             </button>

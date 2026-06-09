@@ -104,19 +104,24 @@
                 font-size: 0.75rem;
             }
             #screen-game #game-answer-panel {
-                max-height: 0;
+                flex-shrink: 0;
+                min-height: 4.5rem;
+                max-height: 4.5rem;
                 opacity: 0;
+                visibility: hidden;
                 overflow: hidden;
+                padding: 0.45rem 1rem 0.2rem;
+                background: transparent !important;
+                border-top-color: transparent !important;
                 transition:
-                    max-height 0.25s ease,
                     opacity 0.2s ease,
-                    padding 0.25s ease;
-                padding: 0 1rem;
+                    visibility 0.2s ease;
             }
             #screen-game #game-answer-panel.is-visible {
-                max-height: 9rem;
                 opacity: 1;
-                padding: 0.75rem 1rem 0.25rem;
+                visibility: visible;
+                background: linear-gradient(to right, rgba(254, 252, 232, 0.8), rgba(255, 251, 235, 0.5)) !important;
+                border-top-color: rgb(241 245 249) !important;
             }
             #screen-game #hint-text {
                 display: -webkit-box;
@@ -126,7 +131,17 @@
             }
             #screen-game #game-action-bar {
                 flex-shrink: 0;
-                min-height: 3.25rem;
+                min-height: 4.25rem;
+            }
+            #screen-game #btn-next,
+            #screen-game #btn-finish {
+                min-height: 3rem;
+            }
+            #screen-game #btn-next.hidden,
+            #screen-game #btn-finish.hidden {
+                display: flex !important;
+                visibility: hidden;
+                pointer-events: none;
             }
             body.game-active {
                 overflow: hidden;
@@ -407,20 +422,22 @@
                     height: 2rem;
                     font-size: 0.82rem;
                 }
-                #screen-game #game-answer-panel.is-visible {
-                    max-height: 9.5rem;
-                    padding: 0.6rem 0.85rem 0.25rem;
+                #screen-game #game-answer-panel {
+                    min-height: 4.75rem;
+                    max-height: 4.75rem;
+                    padding: 0.45rem 0.85rem 0.2rem;
                 }
                 #screen-game #answer-panel-label {
-                    font-size: 0.72rem !important;
+                    font-size: 0.65rem !important;
+                    margin-bottom: 0.1rem;
                 }
                 #screen-game #hint-text {
-                    font-size: 0.9rem !important;
-                    line-height: 1.4;
-                    -webkit-line-clamp: 3;
+                    font-size: 0.85rem !important;
+                    line-height: 1.35;
+                    -webkit-line-clamp: 2;
                 }
                 #screen-game #game-action-bar {
-                    min-height: 3.75rem;
+                    min-height: 4.5rem;
                     padding-top: 0.35rem !important;
                 }
                 #screen-game #btn-next,

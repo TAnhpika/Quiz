@@ -7332,7 +7332,9 @@
                     markedQuestions = JSON.parse(localStorage.getItem(this.storageKey(subjectId, "marked")) || "[]");
                     reviewedQuestions = JSON.parse(localStorage.getItem(this.storageKey(subjectId, "reviewed")) || "[]");
                     groupMastery = JSON.parse(localStorage.getItem(this.storageKey(subjectId, "group_mastery")) || "{}");
+                    groupLastResult = JSON.parse(localStorage.getItem(this.storageKey(subjectId, "group_last_result")) || "{}");
                     reviewStorage.loadLocal(subjectId);
+                    migrateGroupLastResultFromMastery();
                 },
 
                 persistCurrentSubjectState() {
@@ -7340,6 +7342,7 @@
                     localStorage.setItem(subjectManager.storageKey(currentSubjectId, "marked"), JSON.stringify(markedQuestions));
                     localStorage.setItem(subjectManager.storageKey(currentSubjectId, "reviewed"), JSON.stringify(reviewedQuestions));
                     localStorage.setItem(subjectManager.storageKey(currentSubjectId, "group_mastery"), JSON.stringify(groupMastery));
+                    localStorage.setItem(subjectManager.storageKey(currentSubjectId, "group_last_result"), JSON.stringify(groupLastResult));
                     reviewStorage.saveLocal(currentSubjectId);
                 },
 
@@ -7361,6 +7364,7 @@
                         markedQuestions: JSON.parse(localStorage.getItem(this.storageKey(subjectId, "marked")) || "[]"),
                         reviewedQuestions: JSON.parse(localStorage.getItem(this.storageKey(subjectId, "reviewed")) || "[]"),
                         groupMastery: JSON.parse(localStorage.getItem(this.storageKey(subjectId, "group_mastery")) || "{}"),
+                        groupLastResult: JSON.parse(localStorage.getItem(this.storageKey(subjectId, "group_last_result")) || "{}"),
                         reviewMeta: JSON.parse(localStorage.getItem(this.storageKey(subjectId, "review_meta")) || '{"streak":0,"lastReviewDay":null}'),
                     };
                 },
@@ -7375,6 +7379,9 @@
                     }
                     if (data.groupMastery) {
                         localStorage.setItem(this.storageKey(subjectId, "group_mastery"), JSON.stringify(data.groupMastery));
+                    }
+                    if (data.groupLastResult) {
+                        localStorage.setItem(this.storageKey(subjectId, "group_last_result"), JSON.stringify(data.groupLastResult));
                     }
                     if (data.reviewMeta) {
                         localStorage.setItem(this.storageKey(subjectId, "review_meta"), JSON.stringify(data.reviewMeta));
@@ -7424,6 +7431,10 @@
             let reviewedQuestions = [];
             /** Câu đã trả lời đúng khi học theo nhóm { questionId: true } */
             let groupMastery = {};
+            /** Kết quả lần làm gần nhất mỗi chặng { "0": { correct, total, percent } } */
+            let groupLastResult = {};
+            /** Phiên campaign hiện tại { groupIndex, correctIds: Set } */
+            let campaignRun = null;
             let reviewLastCorrect = false;
 
             function getGroupQuestions(groupIndex) {
@@ -7431,15 +7442,35 @@
                 return questionBank.slice(start, start + GROUP_SIZE);
             }
 
-            function isQuestionMastered(questionId) {
-                return reviewedQuestions.includes(questionId) || !!groupMastery[questionId];
+            function migrateGroupLastResultFromMastery() {
+                if (Object.keys(groupLastResult).length > 0) return;
+                if (Object.keys(groupMastery).length === 0) return;
+                for (let i = 0; i < totalGroups; i++) {
+                    const questions = getGroupQuestions(i);
+                    const correct = questions.filter((q) => !!groupMastery[q.id]).length;
+                    if (correct > 0) {
+                        groupLastResult[String(i)] = {
+                            correct,
+                            total: questions.length,
+                            percent: Math.round((correct / questions.length) * 100),
+                        };
+                    }
+                }
+                if (Object.keys(groupLastResult).length > 0) saveGroupLastResult();
             }
 
             function getGroupCompletionPercent(groupIndex) {
-                const questions = getGroupQuestions(groupIndex);
-                if (questions.length === 0) return 0;
-                const done = questions.filter((q) => isQuestionMastered(q.id)).length;
-                return Math.round((done / questions.length) * 100);
+                const last = groupLastResult[String(groupIndex)];
+                if (last) return last.percent;
+                return 0;
+            }
+
+            function saveGroupLastResult() {
+                if (!currentSubjectId) return;
+                localStorage.setItem(subjectManager.storageKey(currentSubjectId, "group_last_result"), JSON.stringify(groupLastResult));
+                if (typeof window.saveUserData === "function") {
+                    window.saveUserData(window.getAppDataForCloud());
+                }
             }
 
             function markGroupQuestionMastered(questionId) {
@@ -7955,6 +7986,7 @@
                         markedQuestions: Array.isArray(data.markedQuestions) ? data.markedQuestions : Array.isArray(data.bookmarks) ? data.bookmarks : null,
                         reviewedQuestions: data.reviewedQuestions,
                         groupMastery: data.groupMastery,
+                        groupLastResult: data.groupLastResult,
                         reviewMeta: data.reviewMeta,
                     });
                 }
@@ -7985,6 +8017,7 @@
                         markedQuestions,
                         reviewedQuestions,
                         groupMastery,
+                        groupLastResult,
                         reviewMeta,
                     };
                 }
@@ -8200,6 +8233,7 @@
 
             function startGame(mode, groupIndex = 0) {
                 currentMode = mode;
+                campaignRun = null;
                 hideAllScreens();
                 document.getElementById("screen-game").classList.remove("hidden");
                 document.body.classList.add("game-active");
@@ -8225,6 +8259,7 @@
                 } else if (mode === "campaign") {
                     document.getElementById("game-mode-title").innerText = `Chặng ${groupIndex + 1}`;
                     currentQuestions = questionBank.slice(groupIndex * GROUP_SIZE, groupIndex * GROUP_SIZE + GROUP_SIZE);
+                    campaignRun = { groupIndex, correctIds: new Set() };
                     startTimer(currentQuestions.length * 45);
                 } else if (mode === "exam") {
                     document.getElementById("game-mode-title").innerText = "Thi Thử";
@@ -8288,11 +8323,12 @@
                         score += 0.4;
                         document.getElementById("score").innerText = score.toFixed(1);
                     }
-                    if (currentMode === "campaign") markGroupQuestionMastered(q.id);
+                    if (currentMode === "campaign" && campaignRun) campaignRun.correctIds.add(q.id);
                     if (currentMode === "review") reviewLastCorrect = true;
                 } else {
                     btnElement.classList.add("wrong");
                     reviewLastCorrect = false;
+                    if (currentMode === "campaign" && campaignRun) campaignRun.correctIds.delete(q.id);
                     if (currentMode !== "spaced" && currentMode !== "review" && !markedQuestions.includes(q.id)) toggleMarkCurrentQuestion();
                     btns.forEach((b) => {
                         if (parseInt(b.dataset.idx) === q.answer) b.classList.add("correct");
@@ -8383,11 +8419,23 @@
                     markQuestionAsReviewed(currentQuestions[currentQuestionIndex].id);
                     reviewLastCorrect = false;
                 }
+                let campaignResultText = null;
+                if (currentMode === "campaign" && campaignRun) {
+                    const total = currentQuestions.length;
+                    const correct = campaignRun.correctIds.size;
+                    const percent = Math.round((correct / total) * 100);
+                    groupLastResult[String(campaignRun.groupIndex)] = { correct, total, percent };
+                    saveGroupLastResult();
+                    renderGroupButtons();
+                    campaignResultText = `${percent}% (${correct}/${total})`;
+                    campaignRun = null;
+                }
                 clearInterval(timerInterval);
                 hideAllScreens();
                 updateHomeReviewButton();
                 document.getElementById("screen-result").classList.remove("hidden");
-                document.getElementById("result-score").innerText = currentMode === "exam" ? score.toFixed(1) : "Đạt";
+                document.getElementById("result-score").innerText =
+                    currentMode === "exam" ? score.toFixed(1) : campaignResultText || "Đạt";
                 document.getElementById("result-time").innerText = document.getElementById("timer").innerText;
             }
 

@@ -8333,8 +8333,8 @@
                 if (isCorrect) {
                     btnElement.classList.add("correct");
                     if (currentMode === "exam") {
-                        score += 0.4;
-                        document.getElementById("score").innerText = score.toFixed(1);
+                        score += 1;
+                        document.getElementById("score").innerText = ((score / currentQuestions.length) * 10).toFixed(1);
                     }
                     if (currentMode === "campaign" && campaignRun) campaignRun.correctIds.add(q.id);
                     if (currentMode === "review") reviewLastCorrect = true;
@@ -8448,7 +8448,9 @@
                 updateHomeReviewButton();
                 document.getElementById("screen-result").classList.remove("hidden");
                 document.getElementById("result-score").innerText =
-                    currentMode === "exam" ? score.toFixed(1) : campaignResultText || "Đạt";
+                    currentMode === "exam"
+                        ? `${((score / currentQuestions.length) * 10).toFixed(1)}/10`
+                        : campaignResultText || "Đạt";
                 document.getElementById("result-time").innerText = document.getElementById("timer").innerText;
             }
 

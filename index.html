@@ -7401,7 +7401,8 @@
 
             function rebuildHandbookGroupOptions() {
                 const select = document.getElementById("handbook-group-select");
-                while (select.options.length > 2) select.remove(2);
+                // Giữ 3 option cố định: Tất cả, Chưa thuộc, Đã Ôn — chỉ xóa các Chặng cũ
+                while (select.options.length > 3) select.remove(3);
                 for (let i = 0; i < totalGroups; i++) {
                     const opt = document.createElement("option");
                     opt.value = i;
@@ -8052,6 +8053,7 @@
              * Ôn Lại — trả lời đúng → bỏ bookmark, chuyển sang Đã Ôn, cập nhật lịch SR (Good)
              */
             function markQuestionAsReviewed(questionId) {
+                if (currentMode !== "review") return;
                 const idx = markedQuestions.indexOf(questionId);
                 if (idx > -1) markedQuestions.splice(idx, 1);
                 if (!reviewedQuestions.includes(questionId)) reviewedQuestions.push(questionId);
@@ -8117,6 +8119,7 @@
                 hideAllScreens();
                 document.getElementById("screen-handbook").classList.remove("hidden");
                 document.getElementById("handbook-group-select").value = "reviewed";
+                document.getElementById("search-input").value = "";
                 filterHandbook();
             }
 
@@ -8182,9 +8185,14 @@
             }
 
             function showHome() {
+                if (currentMode === "review" && reviewLastCorrect) {
+                    markQuestionAsReviewed(currentQuestions[currentQuestionIndex].id);
+                    reviewLastCorrect = false;
+                }
                 clearInterval(timerInterval);
                 hideAllScreens();
                 reviewUI.updateDashboard();
+                updateHomeReviewButton();
                 document.getElementById("screen-home").classList.remove("hidden");
                 document.getElementById("btn-review-hub").classList.remove("hidden");
                 document.body.classList.add("home-active");
@@ -8267,6 +8275,11 @@
                     document.getElementById("timer-container").classList.remove("hidden");
                     currentQuestions = [...questionBank].sort(() => Math.random() - 0.5).slice(0, 25);
                     startTimer(900);
+                } else if (mode === "review") {
+                    document.getElementById("game-mode-title").innerText = "Ôn Lại";
+                    document.getElementById("timer-container").classList.remove("hidden");
+                    currentQuestions = questionBank.filter((q) => markedQuestions.includes(q.id)).sort(() => Math.random() - 0.5);
+                    startTimer(currentQuestions.length * 45);
                 } else {
                     document.getElementById("game-mode-title").innerText = "Ôn Tập";
                     document.getElementById("timer-container").classList.remove("hidden");
@@ -8468,7 +8481,7 @@
                 let res = questionBank;
                 if (group === "marked") res = res.filter((q) => markedQuestions.includes(q.id));
                 else if (group === "reviewed") res = res.filter((q) => reviewedQuestions.includes(q.id));
-                else if (group !== "all") res = res.slice(group * GROUP_SIZE, group * GROUP_SIZE + GROUP_SIZE);
+                else if (group !== "all") res = res.slice(Number(group) * GROUP_SIZE, Number(group) * GROUP_SIZE + GROUP_SIZE);
                 if (text) res = res.filter((q) => q.text.toLowerCase().includes(text));
                 renderHandbook(res);
             }

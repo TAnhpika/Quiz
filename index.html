@@ -939,7 +939,7 @@
                             <i class="fa-regular fa-circle-question text-lg"></i>
                             <span id="flashcard-guide-tip" class="flashcard-guide-tip pointer-events-none" role="tooltip">
                                 <span class="flashcard-guide-tip-label"><i class="fa-regular fa-lightbulb mr-1"></i>Hướng dẫn</span> 
-                                Lần đầu hãy nhấn <kbd>Space</kbd> để ghi nhớ keywords. Lần sau hãy thử tự trả lời nha?
+                                Lần đầu hãy nhấn <kbd>Space</kbd> để ghi nhớ keywords. Lần sau hãy thử tự trả lời nha!
                             </span>
                         </button>
                         <div
@@ -2519,6 +2519,7 @@
 
             function hideAllScreens() {
                 closeGuideTip("result-guide-tip");
+                closeGuideTip("flashcard-guide-tip");
                 ["screen-subject", "screen-home", "screen-game", "screen-result", "screen-handbook", "modal-group", "modal-review-hub"].forEach((id) =>
                     document.getElementById(id).classList.add("hidden"),
                 );
@@ -2781,6 +2782,11 @@
                     startTimer(currentQuestions.length * 45);
                 }
                 loadQuestion();
+                if (mode === "flashcard" && getFlashcardCompletionCount(groupIndex) === 0) {
+                    requestAnimationFrame(() =>
+                        openGuideTip("flashcard-guide-tip", { autoCloseMs: 3000, closeOnButtonClick: true })
+                    );
+                }
             }
 
             function loadQuestion() {

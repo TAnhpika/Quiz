@@ -1120,6 +1120,7 @@
                     cardIconBg: "bg-pink-50",
                     cardIconColor: "text-pink-400",
                     questionCount: 300,
+                    keywordsEnabled: false,
                 },
                 thml: {
                     id: "thml",
@@ -1134,6 +1135,7 @@
                     cardIconBg: "bg-red-50",
                     cardIconColor: "text-red-500",
                     questionCount: 361,
+                    keywordsEnabled: false,
                 },
                 swt_pt1: {
                     id: "swt_pt1",
@@ -1148,11 +1150,15 @@
                     cardIconBg: "bg-blue-50",
                     cardIconColor: "text-blue-500",
                     questionCount: 166,
+                    keywordsEnabled: true,
                 },
             };
 
             const GROUP_SIZE = 20;
-            const KEYWORDS_ENABLED = false;
+
+            function isKeywordsEnabled(subjectId = currentSubjectId) {
+                return !!(subjectId && SUBJECTS[subjectId]?.keywordsEnabled);
+            }
 
             /** Load banks/{subjectId}.js on demand — chỉ tải môn đang chọn */
             const bankLoader = {
@@ -1269,6 +1275,7 @@
                         document.body.classList.add("home-active");
                         document.body.classList.remove("subject-active");
                         document.title = `Đường Lên Đỉnh - ${SUBJECTS[subjectId].name}`;
+                        applyKeywordsSettings();
                     } catch (err) {
                         console.error("bankLoader:", err);
                         showToast("Không tải được ngân hàng câu hỏi", "error");
@@ -2434,14 +2441,15 @@
             }
 
             function applyKeywordsSettings() {
-                document.getElementById("btn-help-hint").classList.toggle("hidden", !KEYWORDS_ENABLED);
-                document.getElementById("game-answer-panel").classList.toggle("hidden", !KEYWORDS_ENABLED);
+                const enabled = isKeywordsEnabled();
+                document.getElementById("btn-help-hint").classList.toggle("hidden", !enabled);
+                document.getElementById("game-answer-panel").classList.toggle("hidden", !enabled);
                 const hintText = document.getElementById("flashcard-space-hint-text");
-                if (hintText) hintText.innerText = KEYWORDS_ENABLED ? "để xem Keywords" : "để xem đáp án";
+                if (hintText) hintText.innerText = enabled ? "để xem Keywords" : "để xem đáp án";
             }
 
             function showAnswerPanel(text, label = "Keywords", iconClass = "fa-tags") {
-                if (!KEYWORDS_ENABLED || !text?.trim()) return;
+                if (!isKeywordsEnabled() || !text?.trim()) return;
                 document.getElementById("answer-panel-label").innerText = label;
                 document.getElementById("answer-panel-icon").className = `fa-solid ${iconClass} text-yellow-600 mt-0.5 shrink-0`;
                 document.getElementById("hint-text").innerText = text;
@@ -2801,7 +2809,7 @@
                         : isMarked
                           ? `<span class='text-xs font-black bg-orange-100 text-orange-700 px-2 py-1 rounded-lg'>📌 Chưa thuộc</span>`
                           : "";
-                    list.innerHTML += `<div class='bg-white rounded-2xl p-4 sm:p-6 shadow-sm border-2 ${isReviewed ? "border-green-100" : "border-slate-100"}'><div class='flex items-center justify-between gap-2 mb-2 sm:mb-3 min-h-[1.75rem]'>${statusBadge || "<span></span>"}<button onclick='toggleMarkHandbook(${q.id}, this)' class='shrink-0 text-xl sm:text-2xl ${isMarked ? "text-orange-500" : "text-slate-200"}'><i class='fa-solid fa-bookmark'></i></button></div><h4 class='font-black mb-3 sm:mb-4 text-sm sm:text-base'>Câu ${q.id}: ${q.text}</h4><div class='text-slate-600 border-l-4 border-pink-200 pl-3 sm:pl-4 text-sm sm:text-base'>${q.options.map((o, i) => `<div class='${i === q.answer ? "text-green-700 font-bold" : ""}'>${String.fromCharCode(65 + i)}. ${o}</div>`).join("")}</div>${KEYWORDS_ENABLED && getQuestionKeywords(q) ? `<div class='bg-yellow-50 p-3 sm:p-4 rounded-xl text-yellow-800 text-xs sm:text-sm italic mt-3 sm:mt-4'>Keywords: ${getQuestionKeywords(q)}</div>` : ""}</div>`;
+                    list.innerHTML += `<div class='bg-white rounded-2xl p-4 sm:p-6 shadow-sm border-2 ${isReviewed ? "border-green-100" : "border-slate-100"}'><div class='flex items-center justify-between gap-2 mb-2 sm:mb-3 min-h-[1.75rem]'>${statusBadge || "<span></span>"}<button onclick='toggleMarkHandbook(${q.id}, this)' class='shrink-0 text-xl sm:text-2xl ${isMarked ? "text-orange-500" : "text-slate-200"}'><i class='fa-solid fa-bookmark'></i></button></div><h4 class='font-black mb-3 sm:mb-4 text-sm sm:text-base'>Câu ${q.id}: ${q.text}</h4><div class='text-slate-600 border-l-4 border-pink-200 pl-3 sm:pl-4 text-sm sm:text-base'>${q.options.map((o, i) => `<div class='${i === q.answer ? "text-green-700 font-bold" : ""}'>${String.fromCharCode(65 + i)}. ${o}</div>`).join("")}</div>${isKeywordsEnabled() && getQuestionKeywords(q) ? `<div class='bg-yellow-50 p-3 sm:p-4 rounded-xl text-yellow-800 text-xs sm:text-sm italic mt-3 sm:mt-4'>Keywords: ${getQuestionKeywords(q)}</div>` : ""}</div>`;
                 });
             }
             function toggleMarkHandbook(id, btn) {
@@ -2832,7 +2840,7 @@
                     clearInterval(timerInterval);
                     setTimeout(() => startTimer(timeLeft), 10000);
                 } else if (type === "hint") {
-                    if (!KEYWORDS_ENABLED) return;
+                    if (!isKeywordsEnabled()) return;
                     showAnswerPanel(getQuestionKeywords(q));
                 }
                 document.getElementById(`btn-help-${type}`).disabled = true;

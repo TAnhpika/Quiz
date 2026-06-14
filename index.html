@@ -2039,10 +2039,11 @@
                 if (currentMode !== "flashcard" || flashcardFlipped || flashcardQueue.length === 0) return;
 
                 const q = flashcardQueue[0];
+                const displayQ = prepareDisplayQuestion(q);
                 const btns = document.querySelectorAll("#options-container .option-btn");
                 btns.forEach((b) => (b.disabled = true));
 
-                if (selectedIndex === q.answer) {
+                if (selectedIndex === displayQ.answer) {
                     btnElement.classList.add("correct");
                     flashcardFlipped = true;
                     flashcardAwaitContinue = true;
@@ -2053,7 +2054,7 @@
 
                 btnElement.classList.add("wrong");
                 btns.forEach((b) => {
-                    if (parseInt(b.dataset.idx, 10) === q.answer) b.classList.add("correct");
+                    if (parseInt(b.dataset.idx, 10) === displayQ.answer) b.classList.add("correct");
                 });
                 flashcardFlipped = true;
                 document.getElementById("flashcard-front-panel").classList.add("hidden");
@@ -2069,7 +2070,8 @@
                 if (currentMode !== "flashcard" || flashcardFlipped || flashcardQueue.length === 0) return;
                 flashcardFlipped = true;
                 const q = flashcardQueue[0];
-                renderFlashcardOptions(q, true);
+                const displayQ = prepareDisplayQuestion(q);
+                renderFlashcardOptions(displayQ, true);
                 document.getElementById("flashcard-front-panel").classList.add("hidden");
                 showAnswerPanel(getQuestionKeywords(q));
                 reviewUI.showSpacedGradeBar(true);
@@ -2340,6 +2342,35 @@
             let timerInterval;
             let timeLeft = 0;
             let helps = { 5050: true, freeze: true, hint: true };
+            let currentDisplay = null;
+
+            function shuffleOptions(options, answerIndex) {
+                const order = options.map((_, i) => i);
+                for (let i = order.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [order[i], order[j]] = [order[j], order[i]];
+                }
+                return {
+                    options: order.map((i) => options[i]),
+                    answer: order.indexOf(answerIndex),
+                };
+            }
+
+            function prepareDisplayQuestion(q) {
+                if (!currentDisplay || currentDisplay.questionId !== q.id) {
+                    const shuffled = shuffleOptions(q.options, q.answer);
+                    currentDisplay = {
+                        questionId: q.id,
+                        options: shuffled.options,
+                        answer: shuffled.answer,
+                    };
+                }
+                return { ...q, options: currentDisplay.options, answer: currentDisplay.answer };
+            }
+
+            function clearDisplayQuestion() {
+                currentDisplay = null;
+            }
 
             function advanceAfterReviewCorrect() {
                 const q = currentQuestions[currentQuestionIndex];
@@ -2391,6 +2422,7 @@
                 flashcardQueue = [];
                 flashcardInitialCount = 0;
                 flashcardEasyCount = 0;
+                clearDisplayQuestion();
                 reviewUI.showSpacedGradeBar(false);
                 document.getElementById("flashcard-front-panel").classList.add("hidden");
                 document.getElementById("options-container").classList.remove("flashcard-hidden");
@@ -2501,6 +2533,7 @@
                 resetAnswerPanel();
                 reviewUI.setGameModeUI(mode);
                 helps = { 5050: true, freeze: true, hint: true };
+                clearDisplayQuestion();
                 ["5050", "freeze", "hint"].forEach((h) => {
                     document.getElementById(`btn-help-${h}`).classList.remove("opacity-50", "cursor-not-allowed");
                     document.getElementById(`btn-help-${h}`).disabled = false;
@@ -2552,18 +2585,20 @@
                     }
                     resetAnswerPanel();
                     const q = flashcardQueue[0];
+                    clearDisplayQuestion();
+                    const displayQ = prepareDisplayQuestion(q);
                     document.getElementById("game-progress").innerText = `Còn ${flashcardQueue.length} thẻ · Chặng ${flashcardInitialCount} câu`;
                     document.getElementById("progress-bar").style.width =
                         flashcardInitialCount > 0 ? `${Math.min(100, (flashcardEasyCount / flashcardInitialCount) * 100)}%` : "0%";
                     document.getElementById("question-text").innerText = q.text;
                     document.getElementById("btn-mark-ingame").style.color = markedQuestions.includes(q.id) ? "#f97316" : "#cbd5e1";
                     if (!flashcardFlipped) {
-                        renderFlashcardOptions(q, false);
+                        renderFlashcardOptions(displayQ, false);
                         document.getElementById("flashcard-front-panel").classList.remove("hidden");
                         return;
                     }
                     document.getElementById("flashcard-front-panel").classList.add("hidden");
-                    renderFlashcardOptions(q, true);
+                    renderFlashcardOptions(displayQ, true);
                     showAnswerPanel(getQuestionKeywords(q));
                     reviewUI.showSpacedGradeBar(true);
                     return;
@@ -2574,7 +2609,9 @@
                     return;
                 }
                 resetAnswerPanel();
+                clearDisplayQuestion();
                 const q = currentQuestions[currentQuestionIndex];
+                const displayQ = prepareDisplayQuestion(q);
                 if (currentMode === "spaced") {
                     const dueLeft = reviewEngine.getDueQuestions().length;
                     document.getElementById("game-progress").innerText = `Câu ${currentQuestionIndex + 1}/${currentQuestions.length} · ${dueLeft} đến hạn`;
@@ -2590,7 +2627,7 @@
 
                 optsContainer.classList.remove("flashcard-hidden");
                 optsContainer.innerHTML = "";
-                q.options.forEach((opt, idx) => {
+                displayQ.options.forEach((opt, idx) => {
                     const btn = document.createElement("button");
                     btn.className =
                         "option-btn w-full text-left rounded-2xl border-2 border-slate-100 bg-white hover:border-blue-200 text-slate-700 font-semibold shadow-sm flex items-center gap-2";
@@ -2608,7 +2645,8 @@
 
             function selectAnswer(selectedIndex, btnElement) {
                 const q = currentQuestions[currentQuestionIndex];
-                const isCorrect = selectedIndex === q.answer;
+                const displayQ = prepareDisplayQuestion(q);
+                const isCorrect = selectedIndex === displayQ.answer;
                 const btns = document.querySelectorAll("#options-container .option-btn");
                 btns.forEach((b) => (b.disabled = true));
                 if (isCorrect) {
@@ -2625,7 +2663,7 @@
                     if (currentMode === "campaign" && campaignRun) campaignRun.correctIds.delete(q.id);
                     if (currentMode !== "spaced" && currentMode !== "review" && !markedQuestions.includes(q.id)) toggleMarkCurrentQuestion();
                     btns.forEach((b) => {
-                        if (parseInt(b.dataset.idx) === q.answer) b.classList.add("correct");
+                        if (parseInt(b.dataset.idx) === displayQ.answer) b.classList.add("correct");
                     });
                 }
 
@@ -2829,10 +2867,11 @@
             }
             function useHelp(type) {
                 const q = currentQuestions[currentQuestionIndex];
+                const displayQ = prepareDisplayQuestion(q);
                 if (type === "5050") {
                     let count = 0;
                     document.querySelectorAll("#options-container .option-btn").forEach((b, i) => {
-                        if (i !== q.answer && count < 2) {
+                        if (i !== displayQ.answer && count < 2) {
                             b.classList.add("hidden-option");
                             count++;
                         }

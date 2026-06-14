@@ -3637,7 +3637,7 @@
                 "Mạnh tử.",
                 "Khổng Tử."
             ],
-            "answer": 0,
+            "answer": 3,
             "explanation": "Hồ Chí Minh.",
             "keywords": "Q: Câu nói: “Người mà không liêm, không bằng | A: Hồ Chí Minh"
         },

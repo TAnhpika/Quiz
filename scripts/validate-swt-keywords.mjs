@@ -1,5 +1,5 @@
 /**
- * Validate keywords in banks/swt_pt1.js against authoring rules.
+ * Validate Q|A keywords in banks/swt_pt1.js
  * Usage: node scripts/validate-swt-keywords.mjs
  */
 import fs from "fs";
@@ -9,11 +9,11 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BANK_PATH = path.join(__dirname, "..", "banks", "swt_pt1.js");
 
-const GENERIC_ALONE = new Set([
-    "ensure", "helps", "help", "must", "define", "may", "lead", "according",
-    "managing", "setting", "regularly", "leverages", "evaluate", "possibility",
-    "flaw", "implement", "conduct", "perform", "provide", "identify",
-]);
+const Q_FORMAT = /^Q:\s(.+?)\s\|\sA:\s(.+)$/s;
+const GENERIC_Q = [
+    "main concept", "testing topic", "general idea", "important thing",
+    "software testing", "test process", "key component",
+];
 
 function loadBank() {
     const src = fs.readFileSync(BANK_PATH, "utf8");
@@ -32,37 +32,17 @@ function normalize(str) {
         .trim();
 }
 
-function isAnswerRepeat(keywords, correct) {
-    const hook = keywords.split("≠")[0].replace(/^⚠\s*NOT\s*·\s*/i, "").trim();
-    const p = normalize(hook);
-    const c = normalize(correct.replace(/\.$/, ""));
-    if (!p || !c) return false;
-    if (p === c) return true;
-    const shorter = p.length <= c.length ? p : c;
-    const longer = p.length <= c.length ? c : p;
-    return longer.includes(shorter) && shorter.length >= longer.length * 0.85;
+function countWords(s) {
+    return s.split(/\s+/).filter(Boolean).length;
 }
 
-function countHookWords(keywords) {
-    const hook = keywords.split("≠")[0].replace(/^⚠\s*NOT\s*·\s*/i, "").trim();
-    return hook.split(/\s+/).filter(Boolean).length;
-}
-
-function hasContrast(keywords) {
-    return keywords.includes("≠");
-}
-
-function genericHookWarning(keywords) {
-    const hook = keywords
-        .split("≠")[0]
-        .replace(/^⚠\s*NOT\s*·\s*/i, "")
-        .trim()
-        .toLowerCase();
-    const words = hook.split(/\s+/).filter(Boolean);
-    if (words.length === 1 && GENERIC_ALONE.has(words[0])) return "single generic word";
-    if (words.length === 2 && GENERIC_ALONE.has(words[0]) && words[1].length < 5)
-        return "weak two-word hook";
-    return null;
+function fragmentInSource(fragment, sources) {
+    const f = normalize(fragment);
+    if (!f) return false;
+    return sources.some((src) => {
+        const n = normalize(src.replace(/\.$/, ""));
+        return n.includes(f);
+    });
 }
 
 function validateQuestion(q) {
@@ -71,20 +51,41 @@ function validateQuestion(q) {
     const warnings = [];
 
     if (!kw) errors.push("missing keywords");
+    if (kw.includes("≠")) errors.push("old format (contains ≠)");
 
-    const wc = countHookWords(kw);
-    if (wc < 3) errors.push(`hook has ${wc} words (min 3)`);
-    if (wc > 8) errors.push(`hook has ${wc} words (max 8)`);
+    const match = kw.match(Q_FORMAT);
+    if (!match) {
+        errors.push("invalid format (expected Q: ... | A: ...)");
+        return { id: q.id, keywords: kw, errors, warnings };
+    }
 
+    const qCue = match[1].trim();
+    const aPart = match[2].trim();
     const correct = q.options[q.answer];
-    if (isAnswerRepeat(kw, correct)) errors.push("repeats correct answer");
+    const expl = q.explanation || correct;
+    const sources = [correct, expl];
 
-    if (!hasContrast(kw)) warnings.push("missing ≠ contrast");
+    const qWords = countWords(qCue);
+    if (qWords < 2) errors.push(`Q has ${qWords} words (min 2)`);
+    if (qWords > 6) errors.push(`Q has ${qWords} words (max 6)`);
 
-    const gw = genericHookWarning(kw);
-    if (gw) warnings.push(gw);
+    const fragments = aPart.split(/\s*·\s*/).map((f) => f.trim()).filter(Boolean);
+    if (fragments.length < 1) errors.push("A has no fragments");
+    if (fragments.length > 4) errors.push(`A has ${fragments.length} fragments (max 4)`);
 
-    return { id: q.id, keywords: kw, wc, errors, warnings };
+    for (const frag of fragments) {
+        if (!fragmentInSource(frag, sources)) {
+            errors.push(`A fragment not verbatim: "${frag}"`);
+        }
+        if (countWords(frag) > 8) warnings.push(`long fragment: "${frag}"`);
+    }
+
+    const qLower = qCue.toLowerCase();
+    for (const g of GENERIC_Q) {
+        if (qLower === g) warnings.push(`generic Q cue: "${qCue}"`);
+    }
+
+    return { id: q.id, keywords: kw, qWords, fragCount: fragments.length, errors, warnings };
 }
 
 function main() {
@@ -93,7 +94,7 @@ function main() {
     const failed = results.filter((r) => r.errors.length);
     const warned = results.filter((r) => r.warnings.length && !r.errors.length);
 
-    console.log(`Validated ${bank.length} questions\n`);
+    console.log(`Validated ${bank.length} SWT questions (Q|A format)\n`);
     if (failed.length) {
         console.log(`ERRORS (${failed.length}):`);
         failed.forEach((r) => {
@@ -108,9 +109,7 @@ function main() {
         });
         if (warned.length > 20) console.log(`  ... and ${warned.length - 20} more`);
     }
-    if (!failed.length) {
-        console.log("All questions passed blocking checks.");
-    }
+    if (!failed.length) console.log("All questions passed blocking checks.");
     process.exit(failed.length ? 1 : 0);
 }
 

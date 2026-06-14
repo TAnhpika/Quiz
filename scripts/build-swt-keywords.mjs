@@ -1,4 +1,15 @@
-{
+/**
+ * Build swt_pt1-keywords.json from curated Q|A map and validate verbatim.
+ */
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const DUMP = path.join(__dirname, "swt-questions-dump.json");
+const OUT = path.join(__dirname, "swt_pt1-keywords.json");
+
+const KEYWORDS = {
   "1": "Q: high-level test planning | A: overall scope · objectives of testing",
   "2": "Q: ready for release | A: exit criteria · objectives",
   "3": "Q: checking against requirements | A: Verification",
@@ -164,5 +175,53 @@
   "163": "Q: acceptance testing responsible | A: End-users or clients",
   "164": "Q: defines software testing | A: evaluating a software application · identify defects",
   "165": "Q: exit criteria purpose | A: when a test phase can be concluded",
-  "166": "Q: system testing functionality | A: system functions conform · specified requirements"
+  "166": "Q: system testing functionality | A: system functions conform · specified requirements",
+};
+
+function normalize(str) {
+  return (str || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s]/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
+
+function fragmentInSource(fragment, sources) {
+  const f = normalize(fragment);
+  if (!f) return false;
+  return sources.some((src) => normalize(src.replace(/\.$/, "")).includes(f));
+}
+
+const dump = JSON.parse(fs.readFileSync(DUMP, "utf8"));
+const failures = [];
+
+for (const q of dump) {
+  const kw = KEYWORDS[String(q.id)];
+  if (!kw) {
+    failures.push({ id: q.id, err: "missing keyword entry" });
+    continue;
+  }
+  const m = kw.match(/^Q:\s(.+?)\s\|\sA:\s(.+)$/s);
+  if (!m) {
+    failures.push({ id: q.id, err: "bad format", kw });
+    continue;
+  }
+  const sources = [q.answer, q.expl || q.answer];
+  const frags = m[2].split(/\s*·\s*/).map((f) => f.trim()).filter(Boolean);
+  for (const frag of frags) {
+    if (!fragmentInSource(frag, sources)) {
+      failures.push({ id: q.id, err: `not verbatim: "${frag}"`, answer: q.answer });
+    }
+  }
+}
+
+if (failures.length) {
+  console.error("FAILURES:", failures.length);
+  failures.forEach((f) => console.error(JSON.stringify(f)));
+  process.exit(1);
+}
+
+fs.writeFileSync(OUT, JSON.stringify(KEYWORDS, null, 2) + "\n", "utf8");
+console.log(`Wrote ${Object.keys(KEYWORDS).length} keywords to ${OUT}`);

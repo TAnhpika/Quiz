@@ -2429,6 +2429,7 @@
                 const correct = (q.options[q.answer] || "").replace(/\.$/, "").trim();
                 const raw = q.keywords?.trim();
                 if (raw) {
+                    if (/^Q:\s/i.test(raw)) return raw;
                     const filtered = raw
                         .split(/\s*·\s*/)
                         .map((p) => p.trim())

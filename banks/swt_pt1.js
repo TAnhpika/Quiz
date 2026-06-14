@@ -12,7 +12,7 @@
             ],
             "answer": 0,
             "explanation": "Defining the overall scope and objectives of testing",
-            "keywords": "define scope test objectives · ≠ debugging/unit/cases"
+            "keywords": "Q: high-level test planning | A: overall scope · objectives of testing"
         },
         {
             "id": 2,
@@ -25,7 +25,7 @@
             ],
             "answer": 0,
             "explanation": "According to specified exit criteria and objectives",
-            "keywords": "exit criteria before release · ≠ deadlines/no-plan/complex-only"
+            "keywords": "Q: ready for release | A: exit criteria · objectives"
         },
         {
             "id": 3,
@@ -38,7 +38,7 @@
             ],
             "answer": 2,
             "explanation": "Verification",
-            "keywords": "build matches specified requirements · ≠ validation/fixing/analysis"
+            "keywords": "Q: checking against requirements | A: Verification"
         },
         {
             "id": 4,
@@ -51,7 +51,7 @@
             ],
             "answer": 3,
             "explanation": "Managing resources and responsibilities",
-            "keywords": "manage resources responsibilities · ≠ scripts/outcomes/conditions"
+            "keywords": "Q: test planning and control | A: Managing resources · responsibilities"
         },
         {
             "id": 5,
@@ -64,7 +64,7 @@
             ],
             "answer": 0,
             "explanation": "They define what is to be tested in terms of test objectives.",
-            "keywords": "define what test objectives · ≠ environments/results/reporting"
+            "keywords": "Q: test conditions role | A: define what is to be tested · test objectives"
         },
         {
             "id": 6,
@@ -77,7 +77,7 @@
             ],
             "answer": 2,
             "explanation": "Test implementation and execution",
-            "keywords": "develop prioritize execute tests · ≠ closure/planning/reporting"
+            "keywords": "Q: test cases developed prioritized | A: Test implementation and execution"
         },
         {
             "id": 7,
@@ -90,7 +90,7 @@
             ],
             "answer": 2,
             "explanation": "It may lead to conflicts and inefficiencies in the testing process.",
-            "keywords": "ignored psychology causes conflict · ≠ reliability/no-impact/fewer-resources"
+            "keywords": "Q: psychological factors ignored | A: conflicts · inefficiencies · testing process"
         },
         {
             "id": 8,
@@ -103,7 +103,7 @@
             ],
             "answer": 0,
             "explanation": "Setting up test environments and configuring test tools",
-            "keywords": "setup environments configure tools · ≠ strategy/scenarios/post-mortem"
+            "keywords": "Q: implementation execution activity | A: test environments · configuring test tools"
         },
         {
             "id": 9,
@@ -116,7 +116,7 @@
             ],
             "answer": 2,
             "explanation": "Regularly update and introduce new tests to uncover more defects.",
-            "keywords": "vary tests find new defects · ≠ same-tests/prev-areas/limit-count"
+            "keywords": "Q: pesticide paradox practice | A: update and introduce new tests · uncover more defects"
         },
         {
             "id": 10,
@@ -129,7 +129,7 @@
             ],
             "answer": 1,
             "explanation": "It leverages the strengths of both approaches for a more effective testing process.",
-            "keywords": "combine self independent perspectives · ≠ faster-cheaper/self-only/biased"
+            "keywords": "Q: self and independent testing | A: strengths of both approaches · effective testing process"
         },
         {
             "id": 11,
@@ -142,7 +142,7 @@
             ],
             "answer": 1,
             "explanation": "It helps uncover defects not apparent through scripted test cases",
-            "keywords": "creativity finds hidden defects · ≠ longer/standardize/less-exploratory"
+            "keywords": "Q: creativity role | A: uncover defects · not apparent · scripted test cases"
         },
         {
             "id": 12,
@@ -155,7 +155,7 @@
             ],
             "answer": 1,
             "explanation": "To ensure recent changes do not negatively impact existing functionality",
-            "keywords": "regression protects existing features · ≠ introduce-defects/delay/avoid-changes"
+            "keywords": "Q: regression testing purpose | A: recent changes · existing functionality"
         },
         {
             "id": 13,
@@ -168,7 +168,7 @@
             ],
             "answer": 0,
             "explanation": "Testers must focus on critical and high-risk areas",
-            "keywords": "prioritize critical high risk areas · ≠ no-priority/repeat/all-scenarios"
+            "keywords": "Q: exhaustive testing impossible | A: critical · high-risk areas"
         },
         {
             "id": 14,
@@ -181,7 +181,7 @@
             ],
             "answer": 0,
             "explanation": "Test Closure",
-            "keywords": "closure reviews objectives met · ≠ reporting/analysis/execution"
+            "keywords": "Q: review objectives criteria deliverables | A: Test Closure"
         },
         {
             "id": 15,
@@ -194,7 +194,7 @@
             ],
             "answer": 0,
             "explanation": "The possibility of an undesirable outcome",
-            "keywords": "possible undesirable outcome risk · ≠ guaranteed/financial/will-not-occur"
+            "keywords": "Q: risk in testing | A: possibility · undesirable outcome"
         },
         {
             "id": 16,
@@ -207,7 +207,7 @@
             ],
             "answer": 3,
             "explanation": "A flaw in the system that can cause it to fail",
-            "keywords": "flaw can cause failure · ≠ feature-request/performance/docs"
+            "keywords": "Q: defines a defect | A: flaw in the system · cause it to fail"
         },
         {
             "id": 17,
@@ -220,7 +220,7 @@
             ],
             "answer": 0,
             "explanation": "To ensure that necessary resources are adequately allocated",
-            "keywords": "allocate necessary resources adequately · ≠ minimize/personnel-only/no-tools"
+            "keywords": "Q: high-level planning resources | A: necessary resources · adequately allocated"
         },
         {
             "id": 18,
@@ -233,7 +233,7 @@
             ],
             "answer": 3,
             "explanation": "Testing forms part of the quality assurance activities",
-            "keywords": "testing forms part of QA · ≠ QA-excludes/formality/testing-only-QA"
+            "keywords": "Q: testing and quality assurance | A: forms part · quality assurance activities"
         },
         {
             "id": 19,
@@ -246,7 +246,7 @@
             ],
             "answer": 3,
             "explanation": "Test Implementation and Execution",
-            "keywords": "record results during execution · ≠ closure/planning/design"
+            "keywords": "Q: recording test results | A: Test Implementation and Execution"
         },
         {
             "id": 20,
@@ -259,7 +259,7 @@
             ],
             "answer": 2,
             "explanation": "To simulate real-world usage and ensure the system operates correctly in a fully integrated environment",
-            "keywords": "end to end real usage · ≠ components/skip-integration/UI-only"
+            "keywords": "Q: end-to-end scenarios purpose | A: simulate real-world usage · fully integrated environment"
         },
         {
             "id": 21,
@@ -272,7 +272,7 @@
             ],
             "answer": 1,
             "explanation": "Pesticide paradox",
-            "keywords": "same tests lose effectiveness · pesticide paradox · ≠ clustering/early/fallacy"
+            "keywords": "Q: same tests repeatedly | A: Pesticide paradox"
         },
         {
             "id": 22,
@@ -285,7 +285,7 @@
             ],
             "answer": 2,
             "explanation": "End-to-end scenarios",
-            "keywords": "system testing uses end scenarios · ≠ hypothetical/regression/unit"
+            "keywords": "Q: system testing scenarios | A: End-to-end scenarios"
         },
         {
             "id": 23,
@@ -298,7 +298,7 @@
             ],
             "answer": 0,
             "explanation": "Defect fixing alone does not ensure the system meets user needs.",
-            "keywords": "fixing defects not enough alone · ≠ defect-free/user-friendly/guarantee"
+            "keywords": "Q: absence-of-errors fallacy | A: Defect fixing alone · does not ensure · meets user needs"
         },
         {
             "id": 24,
@@ -311,7 +311,7 @@
             ],
             "answer": 2,
             "explanation": "Testing shows presence of defects",
-            "keywords": "shows presence not absence · ≠ fallacy/pesticide/early-only"
+            "keywords": "Q: presence not absence | A: Testing shows presence of defects"
         },
         {
             "id": 25,
@@ -324,7 +324,7 @@
             ],
             "answer": 1,
             "explanation": "By continuously helping to detect and correct defects over time",
-            "keywords": "ongoing QA detects over time · ≠ reduce-testing/skip-regression/new-only"
+            "keywords": "Q: ongoing quality assurance | A: detect and correct defects · over time"
         },
         {
             "id": 26,
@@ -337,7 +337,7 @@
             ],
             "answer": 2,
             "explanation": "It guides testers to focus efforts where past experience indicates most defects arise.",
-            "keywords": "focus where defects cluster · ≠ test-all-equally/avoid-failures/rare-modules"
+            "keywords": "Q: defect clustering influence | A: focus efforts · most defects arise"
         },
         {
             "id": 27,
@@ -350,7 +350,7 @@
             ],
             "answer": 1,
             "explanation": "A system can meet requirements yet fail to meet user needs and expectations.",
-            "keywords": "specs met not user needs · ≠ no-defects-satisfy/removal-only/requirements-enough"
+            "keywords": "Q: absence-of-errors fallacy quality | A: meet requirements · fail to meet user needs"
         },
         {
             "id": 28,
@@ -363,7 +363,7 @@
             ],
             "answer": 1,
             "explanation": "Reduced risk of defects in operational software",
-            "keywords": "reduces operational defect risk · ≠ longer-dev/less-function/more-defects"
+            "keywords": "Q: effective testing outcome | A: Reduced risk · operational software"
         },
         {
             "id": 29,
@@ -376,7 +376,7 @@
             ],
             "answer": 1,
             "explanation": "Evaluating exit criteria and reporting",
-            "keywords": "evaluate results against exit criteria · ≠ execution/planning/design"
+            "keywords": "Q: evaluate against exit criteria | A: Evaluating exit criteria and reporting"
         },
         {
             "id": 30,
@@ -389,7 +389,7 @@
             ],
             "answer": 0,
             "explanation": "They contribute to a structured and focused testing effort.",
-            "keywords": "clear objectives focus effort · ≠ stakeholder-only/less-testers/no-independent"
+            "keywords": "Q: clear objectives significance | A: structured · focused testing effort"
         },
         {
             "id": 31,
@@ -402,7 +402,7 @@
             ],
             "answer": 1,
             "explanation": "Different contexts require different testing approaches.",
-            "keywords": "context changes testing approach · ≠ irrelevant/same-methods/independent-env"
+            "keywords": "Q: context dependent testing | A: Different contexts · different testing approaches"
         },
         {
             "id": 32,
@@ -415,7 +415,7 @@
             ],
             "answer": 0,
             "explanation": "Test implementation and execution",
-            "keywords": "setup environment during implementation · ≠ planning/design/closure"
+            "keywords": "Q: set up test environment | A: Test implementation and execution"
         },
         {
             "id": 33,
@@ -428,7 +428,7 @@
             ],
             "answer": 3,
             "explanation": "Test Analysis and Design",
-            "keywords": "analysis design creates test cases · ≠ closure/planning/implementation"
+            "keywords": "Q: test cases from conditions | A: Test Analysis and Design"
         },
         {
             "id": 34,
@@ -441,7 +441,7 @@
             ],
             "answer": 1,
             "explanation": "By incorrect implementation of software changes",
-            "keywords": "mistakes cause wrong implementation · ≠ accurate-procedures/documentation/analysis"
+            "keywords": "Q: mistakes lead to defects | A: incorrect implementation · software changes"
         },
         {
             "id": 35,
@@ -454,7 +454,7 @@
             ],
             "answer": 2,
             "explanation": "To archive results and learn from the test process",
-            "keywords": "closure archives lessons learned · ≠ plan-next/analyze-only/ensure-execution"
+            "keywords": "Q: test closure goal | A: archive results · learn from the test process"
         },
         {
             "id": 36,
@@ -467,7 +467,7 @@
             ],
             "answer": 2,
             "explanation": "Perfect software design",
-            "keywords": "⚠ NOT · perfect design needs no tests · ≠ fallibility/complexity/changes"
+            "keywords": "Q: NOT factor testing necessity | A: Perfect software design"
         },
         {
             "id": 37,
@@ -480,7 +480,7 @@
             ],
             "answer": 2,
             "explanation": "It helps in effective feedback and improves the development process",
-            "keywords": "respectful communication improves feedback · ≠ unnecessary/simplify/large-teams-only"
+            "keywords": "Q: respectful communication role | A: effective feedback · improves the development process"
         },
         {
             "id": 38,
@@ -493,7 +493,7 @@
             ],
             "answer": 0,
             "explanation": "To verify that software complies with regulatory standards and requirements",
-            "keywords": "verify regulatory compliance standards · ≠ reduce-docs/UI-design/complexity"
+            "keywords": "Q: compliance testing | A: complies with regulatory standards · requirements"
         },
         {
             "id": 39,
@@ -506,7 +506,7 @@
             ],
             "answer": 2,
             "explanation": "The environment needs to be ready for executing test cases.",
-            "keywords": "environment ready before execution · ≠ develop-cases/design-only/closure"
+            "keywords": "Q: environment set-up implementation | A: ready for executing test cases"
         },
         {
             "id": 40,
@@ -519,7 +519,7 @@
             ],
             "answer": 3,
             "explanation": "Functional Testing",
-            "keywords": "functions conform to requirements · functional testing · ≠ regression/non-functional/performance"
+            "keywords": "Q: functions conform requirements | A: Functional Testing"
         },
         {
             "id": 41,
@@ -532,7 +532,7 @@
             ],
             "answer": 3,
             "explanation": "The diminishing effectiveness of running the same set of tests repeatedly",
-            "keywords": "vary tests pesticide paradox principle · ≠ clustering/early/fallacy"
+            "keywords": "Q: pesticide paradox refers | A: diminishing effectiveness · same set of tests repeatedly"
         },
         {
             "id": 42,
@@ -545,7 +545,7 @@
             ],
             "answer": 2,
             "explanation": "Having clear objectives",
-            "keywords": "clear objectives drive success · ≠ tools/docs/latest-tech"
+            "keywords": "Q: critical success factor psychology | A: clear objectives"
         },
         {
             "id": 43,
@@ -558,7 +558,7 @@
             ],
             "answer": 3,
             "explanation": "They might cause testers to overlook defects",
-            "keywords": "assumptions blind spots hide defects · ≠ accelerate/meets-expectations/prediction"
+            "keywords": "Q: assumptions and blind spots | A: overlook defects"
         },
         {
             "id": 44,
@@ -571,7 +571,7 @@
             ],
             "answer": 3,
             "explanation": "All combinations of inputs and preconditions are not feasible to test.",
-            "keywords": "all input combos infeasible · ≠ time-consuming/simple/agile-misalign"
+            "keywords": "Q: exhaustive testing impossible why | A: All combinations · not feasible to test"
         },
         {
             "id": 45,
@@ -584,7 +584,7 @@
             ],
             "answer": 2,
             "explanation": "Unit Testing",
-            "keywords": "component testing is unit testing · ≠ acceptance/integration/system"
+            "keywords": "Q: component testing also known | A: Unit Testing"
         },
         {
             "id": 46,
@@ -597,7 +597,7 @@
             ],
             "answer": 1,
             "explanation": "Creation of detailed test designs and test cases",
-            "keywords": "create detailed test designs · analysis design · ≠ execute/report/closure"
+            "keywords": "Q: test analysis and design | A: detailed test designs · test cases"
         },
         {
             "id": 47,
@@ -610,7 +610,7 @@
             ],
             "answer": 3,
             "explanation": "Test analysis and design",
-            "keywords": "identify test conditions early · analysis design · ≠ execution/planning/closure"
+            "keywords": "Q: test conditions identified | A: Test analysis and design"
         },
         {
             "id": 48,
@@ -623,7 +623,7 @@
             ],
             "answer": 1,
             "explanation": "To ensure the system operates correctly in a fully integrated environment",
-            "keywords": "integrated environment end to end · ≠ components/skip/UI-only"
+            "keywords": "Q: end-to-end scenarios benefit | A: fully integrated environment · operates correctly"
         },
         {
             "id": 49,
@@ -636,7 +636,7 @@
             ],
             "answer": 2,
             "explanation": "Testing can only show that defects are present, not that they are absent",
-            "keywords": "presence not absence of defects · ≠ guarantee-absence/eliminate-QA/find-all"
+            "keywords": "Q: testing shows presence | A: defects are present · not that they are absent"
         },
         {
             "id": 50,
@@ -649,7 +649,7 @@
             ],
             "answer": 1,
             "explanation": "During test planning and control",
-            "keywords": "develop strategy during planning · planning control · ≠ execution/closure/reporting"
+            "keywords": "Q: test strategies developed when | A: test planning and control"
         },
         {
             "id": 51,
@@ -662,7 +662,7 @@
             ],
             "answer": 3,
             "explanation": "It eliminates all potential biases that might affect the judgment of quality.",
-            "keywords": "independent view reduces bias · ≠ self-only/faster/developer-pressure"
+            "keywords": "Q: independent testing preferred | A: eliminates all potential biases"
         },
         {
             "id": 52,
@@ -675,7 +675,7 @@
             ],
             "answer": 1,
             "explanation": "Even if a system meets requirements, it might still not be what users need and want.",
-            "keywords": "no defects does not satisfy users · ≠ defect-free/guarantee/validation"
+            "keywords": "Q: absence-of-errors fallacy suggests | A: meets requirements · not be what users need"
         },
         {
             "id": 53,
@@ -688,7 +688,7 @@
             ],
             "answer": 2,
             "explanation": "It provides an objective assessment",
-            "keywords": "objective independent assessment · ≠ subjective/self-only/formality"
+            "keywords": "Q: independent testing important | A: objective assessment"
         },
         {
             "id": 54,
@@ -701,7 +701,7 @@
             ],
             "answer": 3,
             "explanation": "Testing should start as early as possible in the software development lifecycle.",
-            "keywords": "start testing early lifecycle · early testing · ≠ late/end-only/after-release"
+            "keywords": "Q: early testing rationale | A: as early as possible · software development lifecycle"
         },
         {
             "id": 55,
@@ -714,7 +714,7 @@
             ],
             "answer": 1,
             "explanation": "Test implementation and execution",
-            "keywords": "environment supports test cases · implementation execution · ≠ planning/design/closure"
+            "keywords": "Q: environment supports test cases | A: Test implementation and execution"
         },
         {
             "id": 56,
@@ -727,7 +727,7 @@
             ],
             "answer": 3,
             "explanation": "Testing all combinations of inputs and preconditions is not feasible except for trivial cases.",
-            "keywords": "all combinations not feasible · exhaustive impractical · ≠ quick/complete/feasible-all"
+            "keywords": "Q: exhaustive testing impractical | A: not feasible · except for trivial cases"
         },
         {
             "id": 57,
@@ -740,7 +740,7 @@
             ],
             "answer": 2,
             "explanation": "The response time of a system",
-            "keywords": "response time non functional trait · ≠ functional/requirements/validation-only"
+            "keywords": "Q: non-functional characteristic | A: response time · system"
         },
         {
             "id": 58,
@@ -753,7 +753,7 @@
             ],
             "answer": 3,
             "explanation": "Documenting lessons learned and retaining test artifacts",
-            "keywords": "document lessons retain artifacts · closure activities · ≠ plan-next/execute-only"
+            "keywords": "Q: test closure aspect | A: lessons learned · test artifacts"
         },
         {
             "id": 59,
@@ -766,7 +766,7 @@
             ],
             "answer": 0,
             "explanation": "It integrates testing with requirements gathering and design phases",
-            "keywords": "align design with requirements early · ≠ after-code/execution-only"
+            "keywords": "Q: early test design V-Model | A: integrates testing · requirements gathering · design phases"
         },
         {
             "id": 60,
@@ -779,7 +779,7 @@
             ],
             "answer": 2,
             "explanation": "They can lead to financial loss, injury, or environmental damage",
-            "keywords": "defects cause financial injury harm · ≠ satisfaction/performance/features-only"
+            "keywords": "Q: defects cause harm | A: financial loss · injury · environmental damage"
         },
         {
             "id": 61,
@@ -792,7 +792,7 @@
             ],
             "answer": 0,
             "explanation": "Automated regression testing",
-            "keywords": "automated regression after changes · maintenance · ≠ performance/manual/usability"
+            "keywords": "Q: maintenance testing technique | A: Automated regression testing"
         },
         {
             "id": 62,
@@ -805,7 +805,7 @@
             ],
             "answer": 2,
             "explanation": "To evaluate the impact of changes and ensure all affected areas are tested",
-            "keywords": "impact analysis tests affected areas · ≠ avoid-changes/performance-only/team-quality"
+            "keywords": "Q: impact analysis role | A: impact of changes · affected areas are tested"
         },
         {
             "id": 63,
@@ -818,7 +818,7 @@
             ],
             "answer": 1,
             "explanation": "Test implementation and execution",
-            "keywords": "verify environment during execution · ≠ reporting/planning/design"
+            "keywords": "Q: environment verified correctness | A: Test implementation and execution"
         },
         {
             "id": 64,
@@ -831,7 +831,7 @@
             ],
             "answer": 0,
             "explanation": "Boundary Value Analysis",
-            "keywords": "boundary value analysis heuristic · ≠ exhaustive/setup/coding"
+            "keywords": "Q: heuristic technique example | A: Boundary Value Analysis"
         },
         {
             "id": 65,
@@ -844,7 +844,7 @@
             ],
             "answer": 2,
             "explanation": "It offers an objective view free from the influence of project pressures.",
-            "keywords": "objective view without pressure · independent psychology · ≠ avoid-learning/block-dev/method-required"
+            "keywords": "Q: independent testing psychological | A: objective view · project pressures"
         },
         {
             "id": 66,
@@ -857,7 +857,7 @@
             ],
             "answer": 1,
             "explanation": "Ensuring the software meets user expectations and performs as intended",
-            "keywords": "meets user expectations as intended · ≠ delay/reduce-cases/complexity"
+            "keywords": "Q: quality assurance focuses | A: meets user expectations · performs as intended"
         },
         {
             "id": 67,
@@ -870,7 +870,7 @@
             ],
             "answer": 2,
             "explanation": "Providing constructive feedback on defects",
-            "keywords": "constructive feedback on defects · ≠ automation-only/competition/minimize-talk"
+            "keywords": "Q: testers developers relationships | A: constructive feedback · defects"
         },
         {
             "id": 68,
@@ -883,7 +883,7 @@
             ],
             "answer": 3,
             "explanation": "Testing can show that defects are present, but cannot prove that there are no defects.",
-            "keywords": "testing shows presence not absence · ≠ find-all/prove-absence/eliminate-QA"
+            "keywords": "Q: Principle 1 presence defects | A: defects are present · cannot prove · no defects"
         },
         {
             "id": 69,
@@ -896,7 +896,7 @@
             ],
             "answer": 2,
             "explanation": "To respect and protect sensitive information obtained during testing",
-            "keywords": "protect sensitive test information · confidentiality ethics · ≠ share-wide/avoid-report/unauthorized"
+            "keywords": "Q: confidentiality in testing | A: protect sensitive information · during testing"
         },
         {
             "id": 70,
@@ -909,7 +909,7 @@
             ],
             "answer": 2,
             "explanation": "It can influence how defects are perceived and addressed by the team.",
-            "keywords": "psychology shapes defect perception · ≠ anonymous-only/no-impact/technical-only"
+            "keywords": "Q: psychology defect reporting | A: how defects are perceived · addressed by the team"
         },
         {
             "id": 71,
@@ -922,7 +922,7 @@
             ],
             "answer": 1,
             "explanation": "It can help in tailoring communication and collaboration strategies.",
-            "keywords": "tailor communication collaboration strategies · ≠ unified-only/competitive/reduce-controls"
+            "keywords": "Q: psychological differences benefit | A: communication · collaboration strategies"
         },
         {
             "id": 72,
@@ -935,7 +935,7 @@
             ],
             "answer": 1,
             "explanation": "Meeting the exit criteria",
-            "keywords": "exit criteria begin closure · ≠ archive-first/execution-start/cases-done"
+            "keywords": "Q: test closure begins | A: Meeting the exit criteria"
         },
         {
             "id": 73,
@@ -948,7 +948,7 @@
             ],
             "answer": 0,
             "explanation": "It ensures software is free of critical defects and meets user needs",
-            "keywords": "remove critical defects meet needs · ≠ complexity/less-feedback/slower"
+            "keywords": "Q: thorough testing benefit | A: free of critical defects · meets user needs"
         },
         {
             "id": 74,
@@ -961,7 +961,7 @@
             ],
             "answer": 1,
             "explanation": "By finding defects early when they are cheaper to fix.",
-            "keywords": "find defects cheaper when early · ≠ final-stage/after-release/higher-cost"
+            "keywords": "Q: early testing benefit | A: defects early · cheaper to fix"
         },
         {
             "id": 75,
@@ -974,7 +974,7 @@
             ],
             "answer": 3,
             "explanation": "Most defects are found in a small number of modules",
-            "keywords": "defects cluster in few modules · ≠ evenly-distributed/less-critical/late-only"
+            "keywords": "Q: Defect Clustering suggests | A: small number of modules"
         },
         {
             "id": 76,
@@ -987,7 +987,7 @@
             ],
             "answer": 3,
             "explanation": "Users ensure the software meets their needs and requirements",
-            "keywords": "users validate real needs · acceptance testing · ≠ write-code/avoid-use/unit-tests"
+            "keywords": "Q: user involvement acceptance | A: meets their needs · requirements"
         },
         {
             "id": 77,
@@ -1000,7 +1000,7 @@
             ],
             "answer": 3,
             "explanation": "To verify interactions between different systems or subsystems",
-            "keywords": "large integration system interactions · ≠ isolated/exploratory/tools-only"
+            "keywords": "Q: integration testing large goal | A: interactions between · systems or subsystems"
         },
         {
             "id": 78,
@@ -1013,7 +1013,7 @@
             ],
             "answer": 1,
             "explanation": "Confirmation Bias",
-            "keywords": "confirmation bias favors beliefs · ≠ gambler/anchoring/availability"
+            "keywords": "Q: confirms preexisting beliefs | A: Confirmation Bias"
         },
         {
             "id": 79,
@@ -1026,7 +1026,7 @@
             ],
             "answer": 1,
             "explanation": "Identifying potential risks and devising mitigation strategies",
-            "keywords": "identify risks plan mitigation · planning uncertainties · ≠ ignore/postpone/reduce-cases"
+            "keywords": "Q: planning managing uncertainties | A: potential risks · mitigation strategies"
         },
         {
             "id": 80,
@@ -1039,7 +1039,7 @@
             ],
             "answer": 1,
             "explanation": "It enhances the interaction and effectiveness of the testing team.",
-            "keywords": "psychology improves team effectiveness · ≠ simplify-standards/full-automation/eliminate-QA"
+            "keywords": "Q: psychological factors benefit | A: interaction · effectiveness · testing team"
         },
         {
             "id": 81,
@@ -1052,7 +1052,7 @@
             ],
             "answer": 3,
             "explanation": "Data is correctly exchanged between systems using the appropriate protocols and interfaces",
-            "keywords": "protocols exchange data correctly · large integration · ≠ documented-only/ignored/small-only"
+            "keywords": "Q: large-scale integration verify | A: Data is correctly exchanged · appropriate protocols · interfaces"
         },
         {
             "id": 82,
@@ -1065,7 +1065,7 @@
             ],
             "answer": 1,
             "explanation": "To identify and address issues before they impact users",
-            "keywords": "mitigate risks before user impact · ≠ increase-time/end-only/complexity"
+            "keywords": "Q: risk mitigation focus | A: before they impact users"
         },
         {
             "id": 83,
@@ -1078,7 +1078,7 @@
             ],
             "answer": 3,
             "explanation": "Executing test cases according to planned procedures",
-            "keywords": "execute cases per procedures · implementation execution · ≠ document-plan/schedule/risk-only"
+            "keywords": "Q: implementation execution essential | A: Executing test cases · planned procedures"
         },
         {
             "id": 84,
@@ -1091,7 +1091,7 @@
             ],
             "answer": 1,
             "explanation": "Clearly articulating findings and advocating for quality",
-            "keywords": "articulate findings advocate quality · communication · ≠ setup/design/execute-only"
+            "keywords": "Q: effective communication testing | A: articulating findings · advocating for quality"
         },
         {
             "id": 85,
@@ -1104,7 +1104,7 @@
             ],
             "answer": 0,
             "explanation": "It helps create a more collaborative and effective testing environment.",
-            "keywords": "collaborative effective test environment · psychological understanding · ≠ reduce-cost/alone/max-automation"
+            "keywords": "Q: psychological aspects help | A: collaborative · effective testing environment"
         },
         {
             "id": 86,
@@ -1117,7 +1117,7 @@
             ],
             "answer": 1,
             "explanation": "Primarily on areas historically shown to contain the most defects.",
-            "keywords": "focus historical defect hotspots · defect clustering · ≠ unlikely-areas/uniform/new-only"
+            "keywords": "Q: defect clustering focus | A: historically shown · most defects"
         },
         {
             "id": 87,
@@ -1130,7 +1130,7 @@
             ],
             "answer": 2,
             "explanation": "Test planning",
-            "keywords": "test planning starts process · fundamental first · ≠ execution/closure/reporting"
+            "keywords": "Q: first fundamental test activity | A: Test planning"
         },
         {
             "id": 88,
@@ -1143,7 +1143,7 @@
             ],
             "answer": 0,
             "explanation": "Software user interface color scheme",
-            "keywords": "⚠ NOT · UI color scheme improved · ≠ performance/reliability/security"
+            "keywords": "Q: LEAST improved by testing | A: user interface color scheme"
         },
         {
             "id": 89,
@@ -1156,7 +1156,7 @@
             ],
             "answer": 2,
             "explanation": "They can influence the outcome of tests by causing hardware to fail",
-            "keywords": "hardware failures affect outcomes · environmental conditions · ≠ improve-accuracy/simplify/intangible"
+            "keywords": "Q: environmental conditions impact | A: influence the outcome · hardware to fail"
         },
         {
             "id": 90,
@@ -1169,7 +1169,7 @@
             ],
             "answer": 2,
             "explanation": "It influences the risk and approach to testing",
-            "keywords": "context drives risk approach · ≠ less-detail/reduce-time/irrelevant"
+            "keywords": "Q: consider software context | A: influences the risk · approach to testing"
         },
         {
             "id": 91,
@@ -1182,7 +1182,7 @@
             ],
             "answer": 1,
             "explanation": "Integration Testing in the Small",
-            "keywords": "stubs drivers small integration · ≠ system/maintenance/acceptance"
+            "keywords": "Q: stubs and drivers phase | A: Integration Testing in the Small"
         },
         {
             "id": 92,
@@ -1195,7 +1195,7 @@
             ],
             "answer": 2,
             "explanation": "Most defects are found in a small number of modules.",
-            "keywords": "most defects in few modules · ≠ even-distribution/easier-fix/equal-chance"
+            "keywords": "Q: Defect clustering meaning | A: small number of modules"
         },
         {
             "id": 93,
@@ -1208,7 +1208,7 @@
             ],
             "answer": 3,
             "explanation": "Personnel, tools, and environments",
-            "keywords": "personnel tools environments allocated · planning resources · ≠ personnel-only/env-only/tools-only"
+            "keywords": "Q: high-level planning resources | A: Personnel · tools · environments"
         },
         {
             "id": 94,
@@ -1221,7 +1221,7 @@
             ],
             "answer": 3,
             "explanation": "To leverage both detailed and objective testing perspectives",
-            "keywords": "balance detailed and independent views · ≠ strict-supervision/standards/avoid-testing"
+            "keywords": "Q: self and independent balance | A: detailed · objective testing perspectives"
         },
         {
             "id": 95,
@@ -1234,7 +1234,7 @@
             ],
             "answer": 1,
             "explanation": "Error leads to defect, which can cause failure",
-            "keywords": "error leads defect then failure · ≠ defect-prevents/failure-causes/interchangeable"
+            "keywords": "Q: error defect failure | A: Error leads to defect · cause failure"
         },
         {
             "id": 96,
@@ -1247,7 +1247,7 @@
             ],
             "answer": 3,
             "explanation": "Integrating and testing components one at a time or in small groups",
-            "keywords": "integrate components incrementally · small groups · ≠ all-at-once/skip-individual/after-full"
+            "keywords": "Q: incremental integration | A: one at a time · small groups"
         },
         {
             "id": 97,
@@ -1260,7 +1260,7 @@
             ],
             "answer": 1,
             "explanation": "Analyzing test results to assess software quality",
-            "keywords": "analyze results assess quality · evaluation reporting · ≠ review-objectives/setup/closure"
+            "keywords": "Q: evaluation reporting purpose | A: Analyzing test results · assess software quality"
         },
         {
             "id": 98,
@@ -1273,7 +1273,7 @@
             ],
             "answer": 2,
             "explanation": "Test implementation and execution",
-            "keywords": "prepare procedures and test data · ≠ analysis/planning/closure"
+            "keywords": "Q: test procedures and data | A: Test implementation and execution"
         },
         {
             "id": 99,
@@ -1286,7 +1286,7 @@
             ],
             "answer": 1,
             "explanation": "Test Planning and Control",
-            "keywords": "define objectives scope planning · fundamental process · ≠ closure/implementation/execution-only"
+            "keywords": "Q: objectives and scope phase | A: Test Planning and Control"
         },
         {
             "id": 100,
@@ -1299,7 +1299,7 @@
             ],
             "answer": 3,
             "explanation": "Defining the objectives and scope of testing",
-            "keywords": "objectives scope in planning control · ≠ compare-results/create-cases/setup-env"
+            "keywords": "Q: planning and control involves | A: objectives and scope · testing"
         },
         {
             "id": 101,
@@ -1312,7 +1312,7 @@
             ],
             "answer": 1,
             "explanation": "Repeating the same tests may not reveal new defects",
-            "keywords": "repeated tests miss new defects · ≠ find-all/stop-testing/one-time"
+            "keywords": "Q: Pesticide Paradox principle | A: Repeating the same tests · not reveal new defects"
         },
         {
             "id": 102,
@@ -1325,7 +1325,7 @@
             ],
             "answer": 0,
             "explanation": "The readiness of the software based on exit criteria",
-            "keywords": "readiness against exit criteria · evaluating reporting · ≠ write-cases/setup/closure-only"
+            "keywords": "Q: evaluating exit criteria phase | A: readiness · exit criteria"
         },
         {
             "id": 103,
@@ -1338,7 +1338,7 @@
             ],
             "answer": 0,
             "explanation": "To anticipate and address issues sooner",
-            "keywords": "V model anticipates issues early · ≠ delay/code-first/execution-only"
+            "keywords": "Q: early test design V-Model | A: anticipate and address issues sooner"
         },
         {
             "id": 104,
@@ -1351,7 +1351,7 @@
             ],
             "answer": 3,
             "explanation": "Absence-of-Errors Fallacy",
-            "keywords": "no reports not defect free · ≠ proves-quality/stop/defect-free"
+            "keywords": "Q: absence of reported defects | A: Absence-of-Errors Fallacy"
         },
         {
             "id": 105,
@@ -1364,7 +1364,7 @@
             ],
             "answer": 2,
             "explanation": "To avoid conflicts of interest and ensure unbiased assessments",
-            "keywords": "avoid conflicts unbiased assessment · independence objectivity · ≠ speed/cost/avoid-devs"
+            "keywords": "Q: independence and objectivity | A: avoid conflicts of interest · unbiased assessments"
         },
         {
             "id": 106,
@@ -1377,7 +1377,7 @@
             ],
             "answer": 3,
             "explanation": "Performance, scalability, security, usability, and reliability",
-            "keywords": "performance security usability reliability · ≠ functional/requirements/validation-only"
+            "keywords": "Q: non-functional testing focuses | A: Performance · security · usability · reliability"
         },
         {
             "id": 107,
@@ -1390,7 +1390,7 @@
             ],
             "answer": 3,
             "explanation": "Test managers and testers",
-            "keywords": "managers testers perform closure · ≠ developers-only/users-only/automation-only"
+            "keywords": "Q: who performs test closure | A: Test managers and testers"
         },
         {
             "id": 108,
@@ -1403,7 +1403,7 @@
             ],
             "answer": 0,
             "explanation": "Testing the software under real-world conditions",
-            "keywords": "real world conditions acceptance · ≠ lab-only/unit/dev-environment"
+            "keywords": "Q: acceptance testing focus | A: real-world conditions"
         },
         {
             "id": 109,
@@ -1416,7 +1416,7 @@
             ],
             "answer": 3,
             "explanation": "By focusing on areas of the software most likely to have defects",
-            "keywords": "focus likely defect areas · improve quality · ≠ test-everything/random/equal-effort"
+            "keywords": "Q: improve quality effectively | A: most likely to have defects"
         },
         {
             "id": 110,
@@ -1429,7 +1429,7 @@
             ],
             "answer": 1,
             "explanation": "Ensuring seamless interactions between different systems or subsystems",
-            "keywords": "external services seamless integration · large scale · ≠ isolated/manual/docs-only"
+            "keywords": "Q: external services integration | A: seamless interactions · systems or subsystems"
         },
         {
             "id": 111,
@@ -1442,7 +1442,7 @@
             ],
             "answer": 2,
             "explanation": "Test analysis and design",
-            "keywords": "analysis design follows planning · process order · ≠ execution/closure/reporting-first"
+            "keywords": "Q: follows planning and control | A: Test analysis and design"
         },
         {
             "id": 112,
@@ -1455,7 +1455,7 @@
             ],
             "answer": 2,
             "explanation": "Acceptance Testing",
-            "keywords": "acceptance maps requirements phase · V model · ≠ unit/system/integration"
+            "keywords": "Q: V-Model requirements phase | A: Acceptance Testing"
         },
         {
             "id": 113,
@@ -1468,7 +1468,7 @@
             ],
             "answer": 2,
             "explanation": "Too much reliance on developer testing can miss defects.",
-            "keywords": "self testing misses defects bias · ≠ faster/cheaper/sufficient-alone"
+            "keywords": "Q: no independent testing risk | A: developer testing · miss defects"
         },
         {
             "id": 114,
@@ -1481,7 +1481,7 @@
             ],
             "answer": 0,
             "explanation": "It varies testing based on software's intended use and associated risks",
-            "keywords": "context and risks vary approach · ≠ same-approach/ignore-context/fixed-method"
+            "keywords": "Q: context dependency influence | A: intended use · associated risks"
         },
         {
             "id": 115,
@@ -1494,7 +1494,7 @@
             ],
             "answer": 1,
             "explanation": "It helps improve future testing cycles and processes.",
-            "keywords": "lessons learned improve future cycles · closure · ≠ discard/ignore/archive-only"
+            "keywords": "Q: lessons learned important | A: improve future testing cycles · processes"
         },
         {
             "id": 116,
@@ -1507,7 +1507,7 @@
             ],
             "answer": 1,
             "explanation": "Mimicking the behavior of lower-level modules",
-            "keywords": "stubs mimic lower level modules · integration · ≠ drivers-only/system/maintenance"
+            "keywords": "Q: stubs used for | A: Mimicking the behavior · lower-level modules"
         },
         {
             "id": 117,
@@ -1520,7 +1520,7 @@
             ],
             "answer": 0,
             "explanation": "It provides clear goals and objectives for the tests",
-            "keywords": "clear goals before testing starts · ≠ ad-hoc/no-goals/execute-first"
+            "keywords": "Q: test conditions before testing | A: clear goals · objectives for the tests"
         },
         {
             "id": 118,
@@ -1533,7 +1533,7 @@
             ],
             "answer": 3,
             "explanation": "Provides an unbiased view, likely catching different defects",
-            "keywords": "unbiased catches different defects · independent benefit · ≠ same-as-self/slower/dev-bias"
+            "keywords": "Q: independent testing benefit | A: unbiased view · different defects"
         },
         {
             "id": 119,
@@ -1546,7 +1546,7 @@
             ],
             "answer": 0,
             "explanation": "Lack of clear objectives and constructive feedback.",
-            "keywords": "unclear objectives block effectiveness · psychological barrier · ≠ too-many/automation/over-docs"
+            "keywords": "Q: psychological barrier testing | A: Lack of clear objectives · constructive feedback"
         },
         {
             "id": 120,
@@ -1559,7 +1559,7 @@
             ],
             "answer": 1,
             "explanation": "An unbiased perspective on quality and defects",
-            "keywords": "unbiased quality perspective · independent vs self · ≠ faster/cheaper/developer-only"
+            "keywords": "Q: independent vs self-testing | A: unbiased perspective · quality and defects"
         },
         {
             "id": 121,
@@ -1572,7 +1572,7 @@
             ],
             "answer": 2,
             "explanation": "Documented as incidents and analyzed",
-            "keywords": "log incidents analyze discrepancies · ≠ ignore/fix-without-log/compare-only"
+            "keywords": "Q: discrepancies actual expected | A: Documented as incidents · analyzed"
         },
         {
             "id": 122,
@@ -1585,7 +1585,7 @@
             ],
             "answer": 0,
             "explanation": "They determine when the test activities should end.",
-            "keywords": "exit criteria determine when stop · ≠ start/ignore-results/extend-forever"
+            "keywords": "Q: exit criteria influence | A: when the test activities should end"
         },
         {
             "id": 123,
@@ -1598,7 +1598,7 @@
             ],
             "answer": 2,
             "explanation": "Mental shortcuts or rules of thumb based on experience",
-            "keywords": "heuristics are experience shortcuts · psychology · ≠ algorithms/exhaustive/formulas-only"
+            "keywords": "Q: heuristics in psychology | A: Mental shortcuts · rules of thumb · experience"
         },
         {
             "id": 124,
@@ -1611,7 +1611,7 @@
             ],
             "answer": 0,
             "explanation": "Continue testing to meet the criteria",
-            "keywords": "continue until criteria met · evaluating exit · ≠ stop-immediately/ignore/release-anyway"
+            "keywords": "Q: exit criteria not met | A: Continue testing · meet the criteria"
         },
         {
             "id": 125,
@@ -1624,7 +1624,7 @@
             ],
             "answer": 0,
             "explanation": "Cognitive Processes",
-            "keywords": "cognitive processes perception decisions · psychology · ≠ motivation-only/tools/automation"
+            "keywords": "Q: cognitive processes | A: Cognitive Processes"
         },
         {
             "id": 126,
@@ -1637,7 +1637,7 @@
             ],
             "answer": 0,
             "explanation": "To facilitate precise and effective communication of expectations.",
-            "keywords": "objectives enable clear communication · expectations · ≠ optional/vague/politics-only"
+            "keywords": "Q: clear objectives established | A: precise · effective communication · expectations"
         },
         {
             "id": 127,
@@ -1650,7 +1650,7 @@
             ],
             "answer": 3,
             "explanation": "The same tests, when repeated, eventually will not find new defects.",
-            "keywords": "repeated tests stop finding bugs · ≠ exhaustive-once/clustering/early-only"
+            "keywords": "Q: Pesticide paradox challenge | A: same tests · will not find new defects"
         },
         {
             "id": 128,
@@ -1663,7 +1663,7 @@
             ],
             "answer": 2,
             "explanation": "By providing clear and accurate information to stakeholders",
-            "keywords": "transparent accurate stakeholder information · accountability · ≠ hide/minimize/blame-only"
+            "keywords": "Q: transparency and accountability | A: clear and accurate information · stakeholders"
         },
         {
             "id": 129,
@@ -1676,7 +1676,7 @@
             ],
             "answer": 2,
             "explanation": "To identify strengths, weaknesses, and areas for improvement",
-            "keywords": "post mortem improve process · closure lessons · ≠ celebrate-only/archive/delete"
+            "keywords": "Q: post-mortem closure purpose | A: strengths · weaknesses · areas for improvement"
         },
         {
             "id": 130,
@@ -1689,7 +1689,7 @@
             ],
             "answer": 3,
             "explanation": "Acceptance Testing",
-            "keywords": "acceptance criteria in V model · ≠ unit/integration/system-only"
+            "keywords": "Q: V-Model acceptance criteria | A: Acceptance Testing"
         },
         {
             "id": 131,
@@ -1702,7 +1702,7 @@
             ],
             "answer": 0,
             "explanation": "Encourages integration of testing throughout the development lifecycle.",
-            "keywords": "testing throughout lifecycle · early testing timeline · ≠ test-at-end/waterfall-only/delay"
+            "keywords": "Q: early testing timeline | A: throughout the development lifecycle"
         },
         {
             "id": 132,
@@ -1715,7 +1715,7 @@
             ],
             "answer": 0,
             "explanation": "Decisions regarding the continuation or stoppage of testing",
-            "keywords": "continue or stop testing decision · ≠ always-continue/ignore/report-only"
+            "keywords": "Q: evaluating exit criteria outcome | A: continuation or stoppage · testing"
         },
         {
             "id": 133,
@@ -1728,7 +1728,7 @@
             ],
             "answer": 0,
             "explanation": "It can propagate through to later stages, increasing fixing costs",
-            "keywords": "requirements defects propagate costly · early stage · ≠ cheap-to-fix/late-only/no-impact"
+            "keywords": "Q: requirements defect costly | A: propagate · later stages · fixing costs"
         },
         {
             "id": 134,
@@ -1741,7 +1741,7 @@
             ],
             "answer": 1,
             "explanation": "Providing feedback in a constructive and positive manner",
-            "keywords": "constructive positive defect feedback · psychology · ≠ blame/harsh/silent"
+            "keywords": "Q: feedback on defects psychology | A: constructive and positive manner"
         },
         {
             "id": 135,
@@ -1754,7 +1754,7 @@
             ],
             "answer": 1,
             "explanation": "By documenting defects that can be avoided in future projects",
-            "keywords": "document defects improve future projects · testing · ≠ hide/repeat-same/ignore-lessons"
+            "keywords": "Q: improve future projects | A: documenting defects · future projects"
         },
         {
             "id": 136,
@@ -1767,7 +1767,7 @@
             ],
             "answer": 1,
             "explanation": "A tester critically evaluates the product for defects; a developer focuses on creating the product.",
-            "keywords": "tester finds developer builds different · ≠ same-role/interchangeable/codes"
+            "keywords": "Q: tester vs developer mindset | A: critically evaluates · defects · creating the product"
         },
         {
             "id": 137,
@@ -1780,7 +1780,7 @@
             ],
             "answer": 3,
             "explanation": "A safety-critical system in an automobile",
-            "keywords": "safety critical needs rigor · most testing · ≠ game/mobile/trivial-config"
+            "keywords": "Q: most rigorous testing | A: safety-critical system · automobile"
         },
         {
             "id": 138,
@@ -1793,7 +1793,7 @@
             ],
             "answer": 0,
             "explanation": "They improve understanding and cooperation between team members.",
-            "keywords": "respectful communication improves cooperation · ≠ aggressive/silent/docs-only"
+            "keywords": "Q: respectful communications effect | A: understanding · cooperation · team members"
         },
         {
             "id": 139,
@@ -1806,7 +1806,7 @@
             ],
             "answer": 2,
             "explanation": "Poor communication of defects",
-            "keywords": "poor communication hinders testing · psychological factor · ≠ too-many-docs/automation/over-test"
+            "keywords": "Q: hinders effective testing | A: Poor communication · defects"
         },
         {
             "id": 140,
@@ -1819,7 +1819,7 @@
             ],
             "answer": 0,
             "explanation": "It ensures every phase has a corresponding validation process",
-            "keywords": "each phase mapped in V model · ≠ test-at-end/skip-phases/waterfall-only"
+            "keywords": "Q: V-Model mapping benefit | A: every phase · corresponding validation process"
         },
         {
             "id": 141,
@@ -1832,7 +1832,7 @@
             ],
             "answer": 0,
             "explanation": "Prevention of defects by early detection and correction",
-            "keywords": "prevent defects via early detection · ≠ react-only/post-release/metrics-only"
+            "keywords": "Q: quality assurance aim | A: Prevention of defects · early detection · correction"
         },
         {
             "id": 142,
@@ -1845,7 +1845,7 @@
             ],
             "answer": 1,
             "explanation": "To identify defects in software",
-            "keywords": "identify defects in software · necessary reason · ≠ prove-perfect/reduce-features/marketing"
+            "keywords": "Q: testing necessary reason | A: identify defects in software"
         },
         {
             "id": 143,
@@ -1858,7 +1858,7 @@
             ],
             "answer": 3,
             "explanation": "By defining test objectives linked to risk assessments",
-            "keywords": "objectives linked to risk assessment · ≠ ignore-risks/execute-first/ad-hoc"
+            "keywords": "Q: planning manages risks | A: test objectives · risk assessments"
         },
         {
             "id": 144,
@@ -1871,7 +1871,7 @@
             ],
             "answer": 3,
             "explanation": "Professional Competence",
-            "keywords": "maintain professional competence standards · ethics code · ≠ confidentiality/independence/integrity-only"
+            "keywords": "Q: professional competence ethics | A: Professional Competence"
         },
         {
             "id": 145,
@@ -1884,7 +1884,7 @@
             ],
             "answer": 0,
             "explanation": "It ensures defects are addressed before they become more challenging to fix",
-            "keywords": "fix defects early cheaper later · ≠ test-at-end/defer/cost-shortcut"
+            "keywords": "Q: early testing important | A: before they become · challenging to fix"
         },
         {
             "id": 146,
@@ -1897,7 +1897,7 @@
             ],
             "answer": 0,
             "explanation": "Exhaustive testing tests every possible input and precondition",
-            "keywords": "exhaust all inputs versus risk based · ≠ same-as-risk/sample-only/quick-only"
+            "keywords": "Q: exhaustive vs risk-based | A: every possible input · precondition"
         },
         {
             "id": 147,
@@ -1910,7 +1910,7 @@
             ],
             "answer": 0,
             "explanation": "Preparing test closure reports and documentation",
-            "keywords": "closure reports and documentation · test closure · ≠ execute-only/plan-only/design-only"
+            "keywords": "Q: Test Closure activity | A: test closure reports · documentation"
         },
         {
             "id": 148,
@@ -1923,7 +1923,7 @@
             ],
             "answer": 0,
             "explanation": "To provide quick feedback and maintain code quality",
-            "keywords": "automation quick feedback components · component testing · ≠ manual-only/exploratory/release-only"
+            "keywords": "Q: automation component testing | A: quick feedback · code quality"
         },
         {
             "id": 149,
@@ -1936,7 +1936,7 @@
             ],
             "answer": 2,
             "explanation": "Early testing",
-            "keywords": "start testing as early possible · ≠ late/integration-only/production-only"
+            "keywords": "Q: start testing early | A: Early testing"
         },
         {
             "id": 150,
@@ -1949,7 +1949,7 @@
             ],
             "answer": 1,
             "explanation": "Their roles require adopting different mindsets toward the product.",
-            "keywords": "tester developer different mindsets conflict · ≠ same-goals/identical/agreement-only"
+            "keywords": "Q: developers testers conflicts | A: different mindsets · product"
         },
         {
             "id": 151,
@@ -1962,7 +1962,7 @@
             ],
             "answer": 3,
             "explanation": "Test cases need to be regularly reviewed and revised to find more defects.",
-            "keywords": "revise test cases regularly · ≠ never-change/run-once/automation-only"
+            "keywords": "Q: test case review pesticide | A: regularly reviewed and revised · find more defects"
         },
         {
             "id": 152,
@@ -1975,7 +1975,7 @@
             ],
             "answer": 0,
             "explanation": "Archiving test outputs and environments for future use",
-            "keywords": "archive outputs and environments · manage testware · ≠ delete-all/ignore/discard"
+            "keywords": "Q: managing testware closure | A: Archiving test outputs · environments · future use"
         },
         {
             "id": 153,
@@ -1988,7 +1988,7 @@
             ],
             "answer": 2,
             "explanation": "To improve the quality, reliability, and performance of software products",
-            "keywords": "improve quality reliability performance · primary goal · ≠ speed-only/document/write-code"
+            "keywords": "Q: primary goal testing | A: quality · reliability · performance"
         },
         {
             "id": 154,
@@ -2001,7 +2001,7 @@
             ],
             "answer": 0,
             "explanation": "The approach to testing may vary depending on the software and its environment.",
-            "keywords": "approach varies by environment · context dependent · ≠ one-size/all-same/ignore-env"
+            "keywords": "Q: context dependent principle | A: vary depending · software and its environment"
         },
         {
             "id": 155,
@@ -2014,7 +2014,7 @@
             ],
             "answer": 3,
             "explanation": "Respectfully and constructively",
-            "keywords": "respectful constructive defect communication · ≠ harsh/blame/public-shaming/silent"
+            "keywords": "Q: communicate about defects | A: Respectfully and constructively"
         },
         {
             "id": 156,
@@ -2027,7 +2027,7 @@
             ],
             "answer": 2,
             "explanation": "They lead to a more focused and efficient testing effort.",
-            "keywords": "objectives enable focused efficient testing · ≠ vague/equal-effort/no-priorities"
+            "keywords": "Q: clear objectives effect | A: focused · efficient testing effort"
         },
         {
             "id": 157,
@@ -2040,7 +2040,7 @@
             ],
             "answer": 3,
             "explanation": "To execute test cases and log the outcomes",
-            "keywords": "execute cases log outcomes · implementation purpose · ≠ plan-only/design-only/closure-only"
+            "keywords": "Q: implementation execution purpose | A: execute test cases · log the outcomes"
         },
         {
             "id": 158,
@@ -2053,7 +2053,7 @@
             ],
             "answer": 3,
             "explanation": "It helps convey defect feedback effectively",
-            "keywords": "courteous communication conveys feedback · ≠ jargon-only/silent/aggressive"
+            "keywords": "Q: courteous communication role | A: convey defect feedback · effectively"
         },
         {
             "id": 159,
@@ -2066,7 +2066,7 @@
             ],
             "answer": 0,
             "explanation": "It may lead to misunderstandings and reduced software quality.",
-            "keywords": "misunderstandings reduce software quality · poor communication · ≠ faster-delivery/better-code/more-features"
+            "keywords": "Q: poor communication effect | A: misunderstandings · reduced software quality"
         },
         {
             "id": 160,
@@ -2079,7 +2079,7 @@
             ],
             "answer": 0,
             "explanation": "The complexity and integration of systems",
-            "keywords": "complex integrated systems challenge · modern testing · ≠ simple-standalone/no-integration/legacy-only"
+            "keywords": "Q: modern software challenge | A: complexity and integration · systems"
         },
         {
             "id": 161,
@@ -2092,7 +2092,7 @@
             ],
             "answer": 2,
             "explanation": "To identify the underlying reasons for defects",
-            "keywords": "root cause finds underlying why · ≠ fix-symptom-only/ignore/reassign-only"
+            "keywords": "Q: root cause analysis role | A: underlying reasons · defects"
         },
         {
             "id": 162,
@@ -2105,7 +2105,7 @@
             ],
             "answer": 2,
             "explanation": "It is critical as testing approaches should vary based on the specific context.",
-            "keywords": "context critical vary approach · principles · ≠ fixed-process/ignore-context/same-tools"
+            "keywords": "Q: context significance principles | A: vary based on the specific context"
         },
         {
             "id": 163,
@@ -2118,7 +2118,7 @@
             ],
             "answer": 2,
             "explanation": "End-users or clients",
-            "keywords": "end users clients run acceptance · ≠ developers/testers/managers-only"
+            "keywords": "Q: acceptance testing responsible | A: End-users or clients"
         },
         {
             "id": 164,
@@ -2131,7 +2131,7 @@
             ],
             "answer": 2,
             "explanation": "The process of evaluating a software application to identify defects",
-            "keywords": "evaluate application identify defects · testing definition · ≠ write-code/deploy-only/measure-time"
+            "keywords": "Q: defines software testing | A: evaluating a software application · identify defects"
         },
         {
             "id": 165,
@@ -2144,7 +2144,7 @@
             ],
             "answer": 0,
             "explanation": "To define when a test phase can be concluded",
-            "keywords": "define when test phase ends · ≠ start-phase/resource-plan/design-only"
+            "keywords": "Q: exit criteria purpose | A: when a test phase can be concluded"
         },
         {
             "id": 166,
@@ -2157,7 +2157,7 @@
             ],
             "answer": 2,
             "explanation": "Ensuring system functions conform to specified requirements",
-            "keywords": "system functions meet requirements · system testing · ≠ training/integration/components-only"
+            "keywords": "Q: system testing functionality | A: system functions conform · specified requirements"
         }
     ];
     global.QUIZ_BANKS = global.QUIZ_BANKS || {};

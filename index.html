@@ -928,10 +928,10 @@
                     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center relative z-10">
                         <button onclick="showHome()" class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-slate-100 text-slate-700 rounded-xl font-bold hover:bg-slate-200 transition-colors">Về trang chủ</button>
                         <button
-                            onclick="openHandbook()"
+                            onclick="retryGame()"
                             class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-xl font-bold hover:shadow-lg transition-all sm:hover:-translate-y-1"
                         >
-                            Xem Sổ tay
+                            Làm lại
                         </button>
                     </div>
                 </div>
@@ -8163,6 +8163,8 @@
 
             // Logic Game cơ bản
             let currentMode = "";
+            let lastGameMode = "";
+            let lastGroupIndex = 0;
             let currentQuestions = [];
             let currentQuestionIndex = 0;
             let score = 0;
@@ -8239,7 +8241,13 @@
                 document.getElementById("modal-group").classList.add("hidden");
             }
 
+            function retryGame() {
+                if (lastGameMode) startGame(lastGameMode, lastGroupIndex);
+            }
+
             function startGame(mode, groupIndex = 0) {
+                lastGameMode = mode;
+                lastGroupIndex = groupIndex;
                 currentMode = mode;
                 campaignRun = null;
                 hideAllScreens();

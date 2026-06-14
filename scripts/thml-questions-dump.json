@@ -1,0 +1,2168 @@
+[
+  {
+    "id": 1,
+    "text": "Khi cho rằng “ý niệm” hay “hình thức phi vật chất” là bản nguyên hình thành nên thế giới, Platon là nhà triết học thuộc trường phái triết học nào sau đây?",
+    "answer": "Chủ nghĩa duy tâm khách quan",
+    "expl": "Chủ nghĩa duy tâm khách quan"
+  },
+  {
+    "id": 2,
+    "text": "Mác ví hình thái ý thức nào là “thuốc phiện của nhân dân”?",
+    "answer": "Tôn giáo",
+    "expl": "Tôn giáo"
+  },
+  {
+    "id": 3,
+    "text": "Luận điểm của Hêraclít: \"Không ai có thể tắm hai lần trên cùng một dòng sông\" thể hiện tư tưởng gì?",
+    "answer": "Biện chứng",
+    "expl": "Biện chứng"
+  },
+  {
+    "id": 4,
+    "text": "Theo Hegel khởi nguyên của thế giới là gì?",
+    "answer": "Ý niệm tuyệt đối",
+    "expl": "Ý niệm tuyệt đối"
+  },
+  {
+    "id": 5,
+    "text": "“Tất cả cái gì đang vận động, đều vận động nhờ một cái khác nào đó”. Nhận định này gắn liền với hệ thống triết học nào? (Chọn phương án SAI)",
+    "answer": "Triết học duy vật",
+    "expl": "Triết học duy vật"
+  },
+  {
+    "id": 6,
+    "text": "Theo chủ nghĩa Mác-Lênin, chủ nghĩa duy vật đã trải qua mấy hình thức phát triển?",
+    "answer": "Ba hình thức",
+    "expl": "Ba hình thức"
+  },
+  {
+    "id": 7,
+    "text": "Theo Ăngghen, hình thức vận động nào nói lên sự tương tác của các phân tử, các hạt cơ bản?",
+    "answer": "Lý học",
+    "expl": "Lý học"
+  },
+  {
+    "id": 8,
+    "text": "Chọn đáp án đúng nhất với quan điểm của triết học Mác - Lênin:",
+    "answer": "Ý thức con người trực tiếp hình thành từ lao động sản xuất vật chất của xã hội",
+    "expl": "Ý thức con người trực tiếp hình thành từ lao động sản xuất vật chất của xã hội"
+  },
+  {
+    "id": 9,
+    "text": "Theo triết học Mác: Con người có khả năng nhận thức được thế giới không?",
+    "answer": "Có",
+    "expl": "Có"
+  },
+  {
+    "id": 10,
+    "text": "Tồn tại khách quan được hiểu là:",
+    "answer": "Tồn tại độc lập với ý thức của con người",
+    "expl": "Tồn tại độc lập với ý thức của con người"
+  },
+  {
+    "id": 11,
+    "text": "Chân lý là gì?",
+    "answer": "Tri thức phù hợp với hiện thực khách quan",
+    "expl": "Tri thức phù hợp với hiện thực khách quan"
+  },
+  {
+    "id": 12,
+    "text": "Theo Mác - Lênin, không gian tồn tại của vật chất có mấy chiều?",
+    "answer": "3 chiều",
+    "expl": "3 chiều"
+  },
+  {
+    "id": 13,
+    "text": "Chọn đáp án đúng nhất về bản chất ý thức:",
+    "answer": "Ý thức là sự phản ánh năng động, sáng tạo hiện thực khách quan",
+    "expl": "Ý thức là sự phản ánh năng động, sáng tạo hiện thực khách quan"
+  },
+  {
+    "id": 14,
+    "text": "Điền vào chỗ trống: Mặt đối lập của mâu thuẫn là những khuynh hướng, tính chất, đặc điểm mà chúng phát triển theo những chiều hướng […].",
+    "answer": "Trái ngược nhau",
+    "expl": "Trái ngược nhau"
+  },
+  {
+    "id": 15,
+    "text": "Lựa chọn câu đúng nhất về Mối liên hệ phổ biến:",
+    "answer": "Mối liên hệ diễn ra cả giữa các sự vật và ngay trong bản thân sự vật",
+    "expl": "Mối liên hệ diễn ra cả giữa các sự vật và ngay trong bản thân sự vật"
+  },
+  {
+    "id": 16,
+    "text": "Quy luật nào vạch ra khuynh hướng của sự vận động, phát triển?",
+    "answer": "Quy luật phủ định của phủ định",
+    "expl": "Quy luật phủ định của phủ định"
+  },
+  {
+    "id": 17,
+    "text": "Nhận định nào đúng về sự thống nhất và đấu tranh giữa các mặt đối lập?",
+    "answer": "Đấu tranh là tuyệt đối, thống nhất là tương đối",
+    "expl": "Đấu tranh là tuyệt đối, thống nhất là tương đối"
+  },
+  {
+    "id": 18,
+    "text": "Hình thức nào của tư duy trừu tượng là hình thức liên kết các phán đoán?",
+    "answer": "Suy lý (Suy luận)",
+    "expl": "Suy lý (Suy luận)"
+  },
+  {
+    "id": 19,
+    "text": "Phạm trù nào dùng để chỉ tính quy định vốn có của sự vật, về quy mô, trình độ phát triển của sự vật, biểu thị số lượng các thuộc tính, các yếu tố cấu thành sự vật?",
+    "answer": "Lượng",
+    "expl": "Lượng"
+  },
+  {
+    "id": 20,
+    "text": "Theo Ăngghen, hình thức vận động nào nói lên sự thay thế các phương thức sản xuất?",
+    "answer": "Xã hội",
+    "expl": "Xã hội"
+  },
+  {
+    "id": 21,
+    "text": "Các thiết chế như: Nhà nước, Đảng, Tổ chức chính trị là các yếu tố thuộc phạm trù nào?",
+    "answer": "Kiến trúc thượng tầng",
+    "expl": "Kiến trúc thượng tầng"
+  },
+  {
+    "id": 22,
+    "text": "Trong các mặt của Quan hệ sản xuất, mặt nào quan trọng nhất?",
+    "answer": "Sở hữu đối với tư liệu sản xuất",
+    "expl": "Sở hữu đối với tư liệu sản xuất"
+  },
+  {
+    "id": 23,
+    "text": "Lịch sử xã hội loài người đã, đang trải qua mấy hình thái kinh tế - xã hội?",
+    "answer": "5 hình thái kinh tế - xã hội",
+    "expl": "5 hình thái kinh tế - xã hội"
+  },
+  {
+    "id": 24,
+    "text": "Chọn đáp án KHÔNG đúng về phương thức sản xuất:",
+    "answer": "Trong một phương thức sản xuất thì quan hệ sản xuất giữ vai trò quyết định tính chất và trình độ của lực lượng sản xuất",
+    "expl": "Trong một phương thức sản xuất thì quan hệ sản xuất giữ vai trò quyết định tính chất và trình độ của lực lượng sản xuất"
+  },
+  {
+    "id": 25,
+    "text": "Vai trò của tồn tại xã hội trong quan hệ biện chứng với ý thức xã hội là gì?",
+    "answer": "Tồn tại xã hội quyết định sự biến đổi ý thức xã hội",
+    "expl": "Tồn tại xã hội quyết định sự biến đổi ý thức xã hội"
+  },
+  {
+    "id": 26,
+    "text": "Hiện nay còn tư tưởng “trọng nam khinh nữ” thể hiện tính chất gì của ý thức xã hội?",
+    "answer": "Tính bảo thủ (Lạc hậu)",
+    "expl": "Tính bảo thủ (Lạc hậu)"
+  },
+  {
+    "id": 27,
+    "text": "Lựa chọn câu đúng nhất theo quan điểm của Chủ nghĩa duy vật biện chứng.",
+    "answer": "Mối liên hệ của sự vật hiện tượng không chỉ diễn ra giữa các sự vật hiện tượng mà còn diễn ra ngay trong sự vật hiện tượng",
+    "expl": "Mối liên hệ của sự vật hiện tượng không chỉ diễn ra giữa các sự vật hiện tượng mà còn diễn ra ngay trong sự vật hiện tượng"
+  },
+  {
+    "id": 28,
+    "text": "Theo triết học Mác - Lênin, tính độc lập tương đối của ý thức xã hội:",
+    "answer": "Tồn tại xã hội thay đổi nhưng có một số bộ phận của ý thức xã hội chưa thay đổi ngay cùng với tồn tại xã hội",
+    "expl": "Tồn tại xã hội thay đổi nhưng có một số bộ phận của ý thức xã hội chưa thay đổi ngay cùng với tồn tại xã hội"
+  },
+  {
+    "id": 29,
+    "text": "Lịch sử xã hội loài người đã từng xuất hiện loại cấu trúc xã hội nào?",
+    "answer": "Cấu trúc xã hội phi giai cấp và có giai cấp",
+    "expl": "Cấu trúc xã hội phi giai cấp và có giai cấp"
+  },
+  {
+    "id": 30,
+    "text": "Chọn đáp án KHÔNG đúng. Điều kiện, tiền đề đưa đến sự hình thành chủ nghĩa Mác-Lênin?",
+    "answer": "Tiền đề về tư tưởng",
+    "expl": "Tiền đề về tư tưởng"
+  },
+  {
+    "id": 31,
+    "text": "Theo triết học của Mác - Lênin, đặc điểm tâm lý xã hội:",
+    "answer": "Tâm lý xã hội là sự phản ánh mang tính kinh nghiệm, yếu tố trí tuệ đan xen yếu tố tình cảm",
+    "expl": "Tâm lý xã hội là sự phản ánh mang tính kinh nghiệm, yếu tố trí tuệ đan xen yếu tố tình cảm"
+  },
+  {
+    "id": 32,
+    "text": "Vai trò của đấu tranh giai cấp trong lịch sử nhân loại là gì?",
+    "answer": "Là một động lực quan trọng của sự phát triển xã hội trong các xã hội có giai cấp",
+    "expl": "Là một động lực quan trọng của sự phát triển xã hội trong các xã hội có giai cấp"
+  },
+  {
+    "id": 33,
+    "text": "Hình thái ý thức nào là sự phản ánh “lộn ngược” tồn tại xã hội, phản ánh sai lầm, xuyên tạc hiện thực, dẫn con người đến long tin ảo tưởng vào các lực lượng siêu nhiên?",
+    "answer": "Tôn giáo",
+    "expl": "Tôn giáo"
+  },
+  {
+    "id": 34,
+    "text": "Chọn đáp án đúng nhất với quan điểm của triết học Mác - Lênin:",
+    "answer": "Ý thức con người trực tiếp hình thành từ lao động sản xuất vật chất của xã hội",
+    "expl": "Ý thức con người trực tiếp hình thành từ lao động sản xuất vật chất của xã hội"
+  },
+  {
+    "id": 35,
+    "text": "Thêm cụm từ thích hợp vào chỗ trống: Nguyên nhân là phạm trù dùng để chỉ […] giữa các mặt trong một sự vật, hoặc giữa các sự vật với nhau gây ra [...]",
+    "answer": "Sự tác động lẫn nhau/ Một biến đổi nhất định nào đó",
+    "expl": "Sự tác động lẫn nhau/ Một biến đổi nhất định nào đó"
+  },
+  {
+    "id": 36,
+    "text": "Lựa chọn đáp án đúng. Quan hệ giữa cá nhân và tập thể được xây dựng trên cơ sở nào?",
+    "answer": "Lợi ích",
+    "expl": "Lợi ích"
+  },
+  {
+    "id": 37,
+    "text": "Nhận định nào đúng khi bàn về sự thống nhất và đấu tranh giữa các mặt đối lập?",
+    "answer": "Đấu tranh là tuyệt đối, thống nhất là tương đối",
+    "expl": "Đấu tranh là tuyệt đối, thống nhất là tương đối"
+  },
+  {
+    "id": 38,
+    "text": "[…] tồn tại khách quan, độc lập với ý thức của con người. Điền vào dấu […].",
+    "answer": "Tất nhiên và ngẫu nhiên",
+    "expl": "Tất nhiên và ngẫu nhiên"
+  },
+  {
+    "id": 39,
+    "text": "Nhà triết học nào cho rằng : con người sinh ra vốn là bản tính thiện \"Nhân chi sơ, tính bản thiện\"?",
+    "answer": "Mạnh Tử",
+    "expl": "Mạnh Tử"
+  },
+  {
+    "id": 40,
+    "text": "Hình thái ý thức nào phản ánh toàn bộ các tư tưởng, quan điểm của một giai cấp, là sự phản ánh mặt pháp lý trong đời sống xã hội?",
+    "answer": "Pháp quyền",
+    "expl": "Pháp quyền"
+  },
+  {
+    "id": 41,
+    "text": "Trong mối quan hệ giữa lực lượng sản xuất và quan hệ sản xuất, yếu tố nào là nội dung, yếu tố nào là hình thức?",
+    "answer": "Lực lượng sản xuất là nội dung, quan hệ sản xuất là hình thức",
+    "expl": "Lực lượng sản xuất và quan hệ sản xuất đều là nội dung"
+  },
+  {
+    "id": 42,
+    "text": "Trong khi thừa nhận tính thứ nhất của vật chất, chủ nghĩa duy vật chất phác thời cổ đại có hạn chế gì?",
+    "answer": "Đồng nhất vật chất với một hoặc một số vật thể cảm tính",
+    "expl": "Đồng nhất vật chất với một hoặc một số vật thể cảm tính"
+  },
+  {
+    "id": 43,
+    "text": "Để phân biệt được quan điểm của phái khả tri luận và bất khả tri luận cần phải dựa vào yếu tố nào?",
+    "answer": "Việc giải quyết mặt nhận thức luận trong vấn đề cơ bản của triết học",
+    "expl": "Việc giải quyết mặt nhận thức luận trong vấn đề cơ bản của triết học"
+  },
+  {
+    "id": 44,
+    "text": "Theo chủ nghĩa duy vật biện chứng, bản chất của nhận thức là:",
+    "answer": "Chỉ dựa vào hoạt động thực tiễn của con người",
+    "expl": "Chỉ dựa vào hoạt động thực tiễn của con người"
+  },
+  {
+    "id": 45,
+    "text": "Theo cách phân chia các hình thức vận động của F. Engels, hình thức nào là cao nhất và phức tạp nhất?",
+    "answer": "Vận động xã hội",
+    "expl": "Vận động xã hội"
+  },
+  {
+    "id": 46,
+    "text": "Quan điểm, tư tưởng của xã hội là chủ yếu thuộc phạm trù nào?",
+    "answer": "Kiến trúc thượng tầng",
+    "expl": "Kiến trúc thượng tầng"
+  },
+  {
+    "id": 47,
+    "text": "Theo quan điểm của chủ nghĩa Mác -Lênin, nhà nước có mấy đặc trưng?",
+    "answer": "Ba",
+    "expl": "Ba"
+  },
+  {
+    "id": 48,
+    "text": "Ph.Ăngghen: \"[…] là điều kiện cơ bản đầu tiên của toàn bộ đời sống loài người\". Điền vào chỗ trống.",
+    "answer": "Lao động",
+    "expl": "Lao động"
+  },
+  {
+    "id": 49,
+    "text": "Vấn đề cơ bản của triết học là gì?",
+    "answer": "Mối quan hệ giữa vật chất và ý thức",
+    "expl": "Mối quan hệ giữa vật chất và ý thức"
+  },
+  {
+    "id": 50,
+    "text": "Mâu thuẫn làm cho sự vật, hiện tượng biến đổi không ngừng gọi là mâu thuẫn:",
+    "answer": "Mâu thuẫn cơ bản",
+    "expl": "Mâu thuẫn cơ bản"
+  },
+  {
+    "id": 51,
+    "text": "Định nghĩa đúng nhất theo quan điểm của triết học Mác - Lênin:",
+    "answer": "Xã hội là một bộ phận đặc thù của tự nhiên mà là sản phẩm của sự phát triển của tự nhiên",
+    "expl": "Xã hội là một bộ phận đặc thù của tự nhiên mà là sản phẩm của sự phát triển của tự nhiên"
+  },
+  {
+    "id": 52,
+    "text": "Theo ai? Con người chỉ có được hạnh phúc thực sự khi có được sự thư nhàn.",
+    "answer": "Aristot",
+    "expl": "Aristot"
+  },
+  {
+    "id": 53,
+    "text": "Mối liên hệ của các sự vật hiện tượng là gì?",
+    "answer": "Là sự tác động lẫn nhau, chi phối chuyển hóa lẫn nhau một cách khách quan, phổ biến, nhiều vẻ giữa các mặt, quá trình của sự vật, hiện tượng hoặc giữa các sự vật, hiện tượng.",
+    "expl": "Là sự tác động lẫn nhau, chi phối chuyển hóa lẫn nhau một cách khách quan, phổ biến, nhiều vẻ giữa các mặt, quá trình của sự vật, hiện tượng hoặc giữa các sự vật, hiện tượng."
+  },
+  {
+    "id": 54,
+    "text": "Phạm trù nào thể hiện mối quan hệ giữa con người và tự nhiên trong quá trình sản xuất?",
+    "answer": "Lực lượng sản xuất",
+    "expl": "Lực lượng sản xuất"
+  },
+  {
+    "id": 55,
+    "text": "Chọn đáp án KHÔNG đúng về lực lượng sản xuất:",
+    "answer": "Lực lượng sản xuất sản xuất thể hiện mối quan hệ giữa người và người trong quá trình sản xuất.",
+    "expl": "Lực lượng sản xuất sản xuất thể hiện mối quan hệ giữa người và người trong quá trình sản xuất."
+  },
+  {
+    "id": 56,
+    "text": "Theo quan điểm của chủ nghĩa duy vật biện chứng. Vận động là:",
+    "answer": "Vận động là phương thức tồn tại của vật chất, là thuộc tính cố hữu của vật chất.",
+    "expl": "Vận động là phương thức tồn tại của vật chất, là thuộc tính cố hữu của vật chất."
+  },
+  {
+    "id": 57,
+    "text": "Chọn đáp KHÔNG đúng theo triết học Mác-Lênin:",
+    "answer": "Ngôn ngữ là hiện tượng tinh thần.",
+    "expl": "Ngôn ngữ là hiện tượng tinh thần."
+  },
+  {
+    "id": 58,
+    "text": "Hình thức nào không phải là cơ bản của thực tiễn?",
+    "answer": "Hoạt động biểu diễn nghệ thuật",
+    "expl": "Hoạt động biểu diễn nghệ thuật"
+  },
+  {
+    "id": 59,
+    "text": "Theo triết học Mác - Lênin, bộ phận nào là hạt nhân quan trọng và là phương thức tồn tại của ý thức?",
+    "answer": "Tri thức",
+    "expl": "Tri thức"
+  },
+  {
+    "id": 60,
+    "text": "Chọn đáp án đúng nhất theo quan điểm của chủ nghĩa Mác-Lênin:",
+    "answer": "Ý thức chỉ có ở con người.",
+    "expl": "Ý thức chỉ có ở con người."
+  },
+  {
+    "id": 61,
+    "text": "Tư liệu sản xuất đặc trưng trong phương thức sản xuất phong kiến là:",
+    "answer": "Đất đai",
+    "expl": "Đất đai"
+  },
+  {
+    "id": 62,
+    "text": "Mặt tự nhiên của phương thức sản xuất là gì?",
+    "answer": "Lực lượng sản xuất",
+    "expl": "Lực lượng sản xuất"
+  },
+  {
+    "id": 63,
+    "text": "Phương thức sản xuất là thể thống nhất của các nhân tố nào?",
+    "answer": "Lực lượng sản xuất và Quan hệ sản xuất",
+    "expl": "Lực lượng sản xuất và Quan hệ sản xuất"
+  },
+  {
+    "id": 64,
+    "text": "Triết học Mác - Lênin cho rằng: thực tiễn là toàn bộ […] có mục đích, mang tính lịch sử - xã hội của con người nhằm cải tạo thế giới khách quan. Điền vào chỗ trống.",
+    "answer": "Hoạt động vật chất",
+    "expl": "Hoạt động vật chất"
+  },
+  {
+    "id": 65,
+    "text": "Phạm trù nào nói lên thể thống nhất giữa lực lượng sản xuất và quan hệ sản xuất?",
+    "answer": "Phương thức sản xuất",
+    "expl": "Phương thức sản xuất"
+  },
+  {
+    "id": 66,
+    "text": "Chọn đáp án KHÔNG đúng về quan hệ sản xuất:",
+    "answer": "Quan hệ sản xuất bao gồm quan hệ sở hữu tư liệu sản xuất và quan hệ tổ chức quản lý sản xuất.",
+    "expl": "Quan hệ sản xuất bao gồm quan hệ sở hữu tư liệu sản xuất và quan hệ tổ chức quản lý sản xuất."
+  },
+  {
+    "id": 67,
+    "text": "Yếu tố nào của dân số tác động chủ yếu tới sự phát triển của xã hội trong thời đại ngày nay?",
+    "answer": "Chất lượng dân cư",
+    "expl": "Chất lượng dân cư"
+  },
+  {
+    "id": 68,
+    "text": "Trong quan hệ sản xuất, quan hệ nào giữ vai trò quyết định?",
+    "answer": "Quan hệ sở hữu tư liệu sản xuất",
+    "expl": "Quan hệ sở hữu tư liệu sản xuất"
+  },
+  {
+    "id": 69,
+    "text": "Chọn câu trả lời đúng. Theo quan điểm của chủ nghĩa Mác - Lênin, chất của sự vật là:",
+    "answer": "Các thuộc tính sự vật",
+    "expl": "Cấu trúc sự vật"
+  },
+  {
+    "id": 70,
+    "text": "Phạm trù nào thể hiện mối quan hệ giữa người với người trong quá trình sản xuất?",
+    "answer": "Quan hệ sản xuất",
+    "expl": "Quan hệ sản xuất"
+  },
+  {
+    "id": 71,
+    "text": "Quy luật xã hội nào giữ vai trò quyết định đối với sự vận động, phát triển của xã hội?",
+    "answer": "Quy luật về sự phù hợp của quan hệ sản xuất với trình độ phát triển của lực lượng sản xuất",
+    "expl": "Quy luật về sự phù hợp của quan hệ sản xuất với trình độ phát triển của lực lượng sản xuất"
+  },
+  {
+    "id": 72,
+    "text": "Chọn đáp án đúng nhất theo triết học Mác - Lênin, thực tiễn là:",
+    "answer": "Toàn bộ hoạt động vật chất có mục đích, mang tính lịch sử - xã hội của con người nhằm cải tạo thế giới khách quan.",
+    "expl": "Toàn bộ hoạt động vật chất có mục đích, mang tính lịch sử - xã hội của con người nhằm cải tạo thế giới khách quan."
+  },
+  {
+    "id": 73,
+    "text": "Điền vào chỗ trống. \"Sự phân đôi của cái thống nhất và sự nhận thức các bộ phận mâu thuẫn của nó. Đó là thực chất của […]\".",
+    "answer": "Phép biện chứng",
+    "expl": "Phép biện chứng"
+  },
+  {
+    "id": 74,
+    "text": "Tiêu chuẩn khách quan để phân biệt các chế độ xã hội trong lịch sử?",
+    "answer": "Quan hệ sản xuất đặc trưng",
+    "expl": "Quan hệ sản xuất đặc trưng"
+  },
+  {
+    "id": 75,
+    "text": "V.I.Lênin: “Nhận thức là sự tiến gần mãi mãi và vô tận của […] đến khách thể”. Điền vào chỗ trống.",
+    "answer": "Chủ thể",
+    "expl": "Chủ thể"
+  },
+  {
+    "id": 76,
+    "text": "Quy luật nào vạch ra nguồn gốc, động lực của sự vận động và phát triển?",
+    "answer": "Quy luật thống nhất và đấu tranh của các mặt đối lập",
+    "expl": "Quy luật thống nhất và đấu tranh của các mặt đối lập"
+  },
+  {
+    "id": 77,
+    "text": "Chọn đáp án đúng nhất theo quan điểm của Chủ nghĩa duy vật biện chứng:",
+    "answer": "Mối liên hệ của sự vật hiện tượng không chỉ diễn ra giữa các sự vật hiện tượng mà còn diễn ra ngay trong sự vật hiện tượng.",
+    "expl": "Mối liên hệ của sự vật hiện tượng không chỉ diễn ra giữa các sự vật hiện tượng mà còn diễn ra ngay trong sự vật hiện tượng."
+  },
+  {
+    "id": 78,
+    "text": "Chọn đáp án đúng nhất theo quan điểm của chủ nghĩa duy vật biện chứng (vận động và đứng im):",
+    "answer": "Vận động là tuyệt đối, đứng im là tương đối, tạm thời.",
+    "expl": "Vận động là tuyệt đối, đứng im là tương đối, tạm thời."
+  },
+  {
+    "id": 79,
+    "text": "Chọn đáp án đúng nhất. Phủ định biện chứng là:",
+    "answer": "Sự phủ định có kế thừa và tạo điều kiện cho phát triển.",
+    "expl": "Sự phủ định có kế thừa và tạo điều kiện cho phát triển."
+  },
+  {
+    "id": 80,
+    "text": "Chọn đáp KHÔNG đúng theo quan điểm của triết học Mác - Lênin:",
+    "answer": "Ý thức thuần túy là hiện tượng cá nhân.",
+    "expl": "Ý thức thuần túy là hiện tượng cá nhân."
+  },
+  {
+    "id": 81,
+    "text": "Theo chủ nghĩa duy vật biện chứng, bản chất của nhận thức là:",
+    "answer": "Chỉ dựa vào hoạt động thực tiễn của con người.",
+    "expl": "Chỉ dựa vào hoạt động thực tiễn của con người."
+  },
+  {
+    "id": 82,
+    "text": "Theo quan điểm của chủ nghĩa Mác - Lênin, phát triển của sự vật là:",
+    "answer": "Phát triển của sự vật là sự kế thừa có chọn lọc, có phê phán, cải tạo và phát triển.",
+    "expl": "Phát triển của sự vật là sự kế thừa có chọn lọc, có phê phán, cải tạo và phát triển."
+  },
+  {
+    "id": 83,
+    "text": "Quy luật nào vạch ra cách thức của sự vận động, phát triển?",
+    "answer": "Quy luật chuyển hóa từ sự thay đổi về lượng dẫn đến sự thay đổi về chất và ngược lại",
+    "expl": "Quy luật chuyển hóa từ sự thay đổi về lượng dẫn đến sự thay đổi về chất và ngược lại"
+  },
+  {
+    "id": 84,
+    "text": "Chọn đáp án đúng theo triết học Mác - Lênin về sự phát triển:",
+    "answer": "Là sự phủ định biện chứng.",
+    "expl": "Là sự phủ định biện chứng."
+  },
+  {
+    "id": 85,
+    "text": "Chọn đáp KHÔNG đúng theo triết học Mác - Lênin (về lao động và nhận thức):",
+    "answer": "Con người có thể phản ánh đúng đắn thế giới khách quan không cần thông qua lao động.",
+    "expl": "Con người có thể phản ánh đúng đắn thế giới khách quan không cần thông qua lao động."
+  },
+  {
+    "id": 86,
+    "text": "Phạm trù cơ bản và nền tảng của chủ nghĩa duy vật là:",
+    "answer": "Vật chất",
+    "expl": "Vật chất"
+  },
+  {
+    "id": 87,
+    "text": "Chọn đáp án đúng nhất theo quan điểm của Chủ nghĩa duy vật biện chứng (phát triển):",
+    "answer": "Phát triển không chỉ là sự thay đổi về số lượng và khối lượng mà nó còn là sự thay đổi về chất của sự vật hiện tượng",
+    "expl": "Phát triển không chỉ là sự thay đổi về số lượng và khối lượng mà nó còn là sự thay đổi về chất của sự vật hiện tượng"
+  },
+  {
+    "id": 88,
+    "text": "Chọn đáp án đúng nhất theo quan điểm của triết học Mác - Lênin (kế thừa trong phát triển):",
+    "answer": "Phát triển của sự vật có tính kế thừa nhưng trên cơ sở có phê phán, lọc bỏ, cải tạo và phát triển.",
+    "expl": "Phát triển của sự vật có tính kế thừa nhưng trên cơ sở có phê phán, lọc bỏ, cải tạo và phát triển."
+  },
+  {
+    "id": 89,
+    "text": "Theo chủ nghĩa duy vật biện chứng thì nguồn gốc tự nhiên của ý thức là:",
+    "answer": "Bộ óc người cùng với thế giới bên ngoài tác động lên bộ óc người.",
+    "expl": "Bộ óc người cùng với thế giới bên ngoài tác động lên bộ óc người."
+  },
+  {
+    "id": 90,
+    "text": "Mặt xã hội của phương thức sản xuất là gì?",
+    "answer": "Quan hệ sản xuất",
+    "expl": "Quan hệ sản xuất"
+  },
+  {
+    "id": 91,
+    "text": "Phạm trù nào dùng để chỉ tính quy định vốn có của các sự vật, là sự thống nhất hữu cơ của những thuộc tính?",
+    "answer": "Chất",
+    "expl": "Chất"
+  },
+  {
+    "id": 92,
+    "text": "Các thiết chế như: Nhà nước, Đảng, Tổ chức chính trị là các yếu tố thuộc phạm trù nào?",
+    "answer": "Kiến trúc thượng tầng",
+    "expl": "Kiến trúc thượng tầng"
+  },
+  {
+    "id": 93,
+    "text": "Chất của sự vật là gì?",
+    "answer": "Sự thống nhất hữu cơ các thuộc tính",
+    "expl": "Sự thống nhất hữu cơ các thuộc tính"
+  },
+  {
+    "id": 94,
+    "text": "Chọn đáp án KHÔNG đúng (về quan hệ sản xuất):",
+    "answer": "Trong quan hệ sản xuất thì quan hệ tổ chức quản lý sản xuất quyết định các quan hệ khác.",
+    "expl": "Trong quan hệ sản xuất thì quan hệ tổ chức quản lý sản xuất quyết định các quan hệ khác."
+  },
+  {
+    "id": 95,
+    "text": "Theo triết học Mác - Lênin, lao động là yếu tố đầu tiên, cơ bản, quan trọng nhất tạo nên sự thống nhất hữu cơ giữa xã hội và tự nhiên vì:",
+    "answer": "Lao động là quá trình diễn ra giữa con người và tự nhiên, con người là trung gian điều tiết, kiểm tra sự trao đổi chất với tự nhiên",
+    "expl": "Lao động là quá trình diễn ra giữa con người và tự nhiên, con người là trung gian điều tiết, kiểm tra sự trao đổi chất với tự nhiên"
+  },
+  {
+    "id": 96,
+    "text": "Chọn đáp án đúng nhất theo quan điểm của chủ nghĩa duy vật biện chứng (tính thống nhất của thế giới):",
+    "answer": "Thế giới thống nhất ở tính vật chất của nó.",
+    "expl": "Thế giới thống nhất ở tính vật chất của nó."
+  },
+  {
+    "id": 97,
+    "text": "Cấu trúc của lực lượng sản xuất bao gồm:",
+    "answer": "Người lao động và tư liệu sản xuất",
+    "expl": "Người lao động và tư liệu sản xuất"
+  },
+  {
+    "id": 98,
+    "text": "Chọn đáp án KHÔNG đúng về phương thức sản xuất:",
+    "answer": "Trong một phương thức sản xuất thì quan hệ sản xuất giữ vai trò quyết định tính chất và trình độ của lực lượng sản xuất.",
+    "expl": "Trong một phương thức sản xuất thì quan hệ sản xuất giữ vai trò quyết định tính chất và trình độ của lực lượng sản xuất."
+  },
+  {
+    "id": 99,
+    "text": "Chọn đáp KHÔNG đúng theo chủ nghĩa Mác - Lênin, phủ định biện chứng:",
+    "answer": "Phủ định chấm dứt sự phát triển.",
+    "expl": "Phủ định chấm dứt sự phát triển."
+  },
+  {
+    "id": 100,
+    "text": "Trong lý luận về mâu thuẫn, gọi quá trình đồng hóa và quá trình dị hóa trong sinh học là gì?",
+    "answer": "Hai mặt đối lập.",
+    "expl": "Hai mặt đối lập."
+  },
+  {
+    "id": 101,
+    "text": "Đâu là quan điểm của triết học Marx - Lenin?",
+    "answer": "Cái riêng là cái toàn bộ, phong phú hơn cái chung, cái chung là cái bộ phận nhưng sâu sắc, bản chất hơn cái riêng.",
+    "expl": "Cái riêng là cái toàn bộ, phong phú hơn cái chung, cái chung là cái bộ phận nhưng sâu sắc, bản chất hơn cái riêng."
+  },
+  {
+    "id": 102,
+    "text": "Đâu không phải là câu trả lời của Chủ nghĩa duy vật biện chứng về tính thống nhất vật chất của thế giới?",
+    "answer": "Thế giới vật chất bao gồm những bộ phận riêng biệt nhau.",
+    "expl": "Thế giới vật chất bao gồm những bộ phận riêng biệt nhau."
+  },
+  {
+    "id": 103,
+    "text": "Trong một quốc gia đa dân tộc thì vấn đề gì cần giải quyết được coi là có ý nghĩa cơ bản nhất để thực hiện quyền bình đẳng giữa các dân tộc?",
+    "answer": "Xóa bỏ dần sự chênh lệch về mọi mặt giữa các dân tộc do lịch sử để lại.",
+    "expl": "Xóa bỏ dần sự chênh lệch về mọi mặt giữa các dân tộc do lịch sử để lại."
+  },
+  {
+    "id": 104,
+    "text": "Nhà triết học nào để ra thuyết: “ Tam tòng, Tứ đức “ cho người con gái?",
+    "answer": "Khổng Tử.",
+    "expl": "Khổng Tử."
+  },
+  {
+    "id": 105,
+    "text": "Đêmôcrít nhà triết học cổ Hy Lạp quan niệm vật chất là gì?",
+    "answer": "Nguyên tử.",
+    "expl": "Nguyên tử."
+  },
+  {
+    "id": 106,
+    "text": "Phạm trù cơ bản và nền tảng của chủ nghĩa duy vật là:",
+    "answer": "Vật chất.",
+    "expl": "Vật chất."
+  },
+  {
+    "id": 107,
+    "text": "Theo Ăngghen, hình thức vận động nào nói lên sự thay thế các phương thức sản xuất trong quá trình phát triển của xã hội loài người?",
+    "answer": "Xã hội.",
+    "expl": "Xã hội."
+  },
+  {
+    "id": 108,
+    "text": "Theo Mác - Lênin, thời gian tồn tại của vật chất có mấy chiều?",
+    "answer": "1 chiều.",
+    "expl": "1 chiều."
+  },
+  {
+    "id": 109,
+    "text": "Ai là tác giả câu nói: \"Con người không ai có thể tắm hai lần trên một dòng sông\"?",
+    "answer": "Heraclite.",
+    "expl": "Heraclite."
+  },
+  {
+    "id": 110,
+    "text": "Chọn đáp án đúng nhất. Triết học khác với các khoa học khác ở:",
+    "answer": "Tính đặc thù của hệ thống tri thức khoa học và phương pháp nghiên cứu.",
+    "expl": "Tính đặc thù của hệ thống tri thức khoa học và phương pháp nghiên cứu."
+  },
+  {
+    "id": 111,
+    "text": "Phạm trù triết học nào dùng để chỉ những sự vật hiện tượng tồn tại một chỉnh thể mang tính độc lập tương đối so với hệ thống khác có hạn trong không gian và thời gian?",
+    "answer": "Cái riêng.",
+    "expl": "Cái riêng."
+  },
+  {
+    "id": 112,
+    "text": "Trường phái triết học phủ nhận tính thứ nhất của vật chất là?",
+    "answer": "Chủ nghĩa duy tâm.",
+    "expl": "Chủ nghĩa duy tâm."
+  },
+  {
+    "id": 113,
+    "text": "Ph.Ăngghen: “Khi xã hội có nhu cầu về kỹ thuật thì nó thúc đẩy khoa học phát triển hơn mười […]”. Điền vào chỗ trống.",
+    "answer": "Trường đại học.",
+    "expl": "Trường đại học."
+  },
+  {
+    "id": 114,
+    "text": "Cơ sở lý luận của quan điểm toàn diện là gì?",
+    "answer": "Nguyên lý về mối liên hệ phổ biến.",
+    "expl": "Nguyên lý về mối liên hệ phổ biến."
+  },
+  {
+    "id": 115,
+    "text": "Yếu tố nào không thuộc Lực lượng sản xuất:",
+    "answer": "Vị trí của người lao động trong doanh nghiệp.",
+    "expl": "Vị trí của người lao động trong doanh nghiệp."
+  },
+  {
+    "id": 116,
+    "text": "Trường phái triết học nào cho không thể có vật chất không vận động và không thể có vận động ngoài vật chất?",
+    "answer": "Chủ nghĩa duy vật biện chứng.",
+    "expl": "Chủ nghĩa duy vật biện chứng."
+  },
+  {
+    "id": 117,
+    "text": "Chọn đáp án đúng nhất. Trong triết học, mâu thuẫn có nghĩa là:",
+    "answer": "Sự thống nhất và đấu tranh giữa các mặt đối lập.",
+    "expl": "Sự thống nhất và đấu tranh giữa các mặt đối lập."
+  },
+  {
+    "id": 118,
+    "text": "Chọn đáp án đúng nhất theo triết học Mác - Lênin:",
+    "answer": "Một nội dung có thể có nhiều hình thức.",
+    "expl": "Một nội dung có thể có nhiều hình thức."
+  },
+  {
+    "id": 119,
+    "text": "Chọn đáp án KHÔNG đúng. Đối tượng của triết học Mác là:",
+    "answer": "Hệ thống quan điểm triết học trong lịch sử.",
+    "expl": "Hệ thống quan điểm triết học trong lịch sử."
+  },
+  {
+    "id": 120,
+    "text": "Con người phát triển và hoàn thiện mình chủ yếu dựa trên yếu tố nào?",
+    "answer": "Lao động sản xuất.",
+    "expl": "Lao động sản xuất."
+  },
+  {
+    "id": 121,
+    "text": "Qui luật nào vạch ra nguồn gốc, động lực của sự vận động và phát triển?",
+    "answer": "Quy luật thống nhất và đấu tranh của các mặt đối lập.",
+    "expl": "Quy luật thống nhất và đấu tranh của các mặt đối lập."
+  },
+  {
+    "id": 122,
+    "text": "Sự biến đổi của quan hệ sản xuất do yếu tố nào quyết định nhất?",
+    "answer": "Trình độ của lực lượng sản xuất.",
+    "expl": "Trình độ của lực lượng sản xuất."
+  },
+  {
+    "id": 123,
+    "text": "Chọn đáp án đúng nhất theo quan điểm của Chủ nghĩa duy vật biện chứng:",
+    "answer": "Vận động, không gian, thời gian là hình thức tồn tại của vật chất.",
+    "expl": "Vận động, không gian, thời gian là hình thức tồn tại của vật chất."
+  },
+  {
+    "id": 124,
+    "text": "Triết học ra đời vào thời gian nào?",
+    "answer": "Thế kỷ VIII – thế kỷ VI trước Công Nguyên.",
+    "expl": "Thế kỷ VIII – thế kỷ VI trước Công Nguyên."
+  },
+  {
+    "id": 125,
+    "text": "Ưu điểm nổi bật trong quan niệm về vật chất của các nhà triết học duy vật cổ đại là:",
+    "answer": "Lấy bản thân giới tự nhiên để giải thích về giới tự nhiên.",
+    "expl": "Lấy bản thân giới tự nhiên để giải thích về giới tự nhiên."
+  },
+  {
+    "id": 126,
+    "text": "Hình thức nào không phải cơ bản là của thực tiễn?",
+    "answer": "Hoạt động biểu diễn nghệ thuật.",
+    "expl": "Hoạt động biểu diễn nghệ thuật."
+  },
+  {
+    "id": 127,
+    "text": "Thomson phát hiện ra điện tử năm nào?",
+    "answer": "Năm 1897.",
+    "expl": "Năm 1897."
+  },
+  {
+    "id": 128,
+    "text": "Câu: \"Chẳng chua cũng thể là chanh, chẳng ngọt cũng thể cam sành chín cây\" thể hiện phạm trù nào?",
+    "answer": "Chất.",
+    "expl": "Chất."
+  },
+  {
+    "id": 129,
+    "text": "Rơnghen phát hiện ra tia X năm nào?",
+    "answer": "Năm 1895.",
+    "expl": "Năm 1895."
+  },
+  {
+    "id": 130,
+    "text": "V.I.Lênin: \"Cuộc đấu tranh của quần chúng bị tước hết quyền, bị áp bức và lao động chống bọn có đặc quyền, đặc lợi, bọn áp bức và ăn bám, cuộc đấu tranh của những người công nhân\" là:",
+    "answer": "Đấu tranh giai cấp.",
+    "expl": "Đấu tranh giai cấp."
+  },
+  {
+    "id": 131,
+    "text": "Theo chủ nghĩa Mác -Lênin, cơ sở hạ tầng của một xã hội nhất định gồm mấy quan hệ sản xuất?",
+    "answer": "Ba.",
+    "expl": "Ba."
+  },
+  {
+    "id": 132,
+    "text": "Điền vào chỗ trống. Thế giới quan là toàn bộ những […,...] của con người về thế giới, về bản thân con người, về cuộc sống và […] của con người trong thế giới đó.",
+    "answer": "Quan điểm, quan niệm - vị trí.",
+    "expl": "Quan điểm, quan niệm - vị trí."
+  },
+  {
+    "id": 133,
+    "text": "Theo quan điểm của chủ nghĩa duy vật biện chứng, nguồn gốc xã hội của ý thức là:",
+    "answer": "Lao động và ngôn ngữ.",
+    "expl": "Lao động và ngôn ngữ."
+  },
+  {
+    "id": 134,
+    "text": "Phủ định biện chứng thể hiện câu tục ngữ nào sau đây?",
+    "answer": "Tre già măng mọc.",
+    "expl": "Tre già măng mọc."
+  },
+  {
+    "id": 135,
+    "text": "Vị vua Phật tử nào dời kinh đô từ Hoa Lư ra Thăng Long?",
+    "answer": "Lý Công Uẩn.",
+    "expl": "Lý Công Uẩn."
+  },
+  {
+    "id": 136,
+    "text": "Mâu thuẫn đối kháng giữa các giai cấp là do:",
+    "answer": "Sự đối lập về lợi ích cơ bản – lợi ích kinh tế.",
+    "expl": "Sự đối lập về lợi ích cơ bản – lợi ích kinh tế."
+  },
+  {
+    "id": 137,
+    "text": "Chọn đáp án KHÔNG đúng. Vai trò quyết định của sản xuất vật chất đối với sự tồn tại và phát triển xã hội:",
+    "answer": "Sản xuất vật chất là điều kiện cần cho sự sinh tồn xã hội.",
+    "expl": "Sản xuất vật chất là điều kiện cần cho sự sinh tồn xã hội."
+  },
+  {
+    "id": 138,
+    "text": "Khái niệm nào chỉ một cộng đồng người ổn định được hình thành trong lịch sử trong một lãnh thổ nhất định, có chung mối liên hệ về kinh tế, ngôn ngữ và một nền văn hóa?",
+    "answer": "Dân tộc.",
+    "expl": "Dân tộc."
+  },
+  {
+    "id": 139,
+    "text": "Chọn đáp án đúng, những hình thức nhận thức: khái niệm, phán đoán, suy luận thuộc giai đoạn nhận thức nào?",
+    "answer": "Nhận thức lý tính.",
+    "expl": "Nhận thức lý tính."
+  },
+  {
+    "id": 140,
+    "text": "Phạm trù nào nói lên tổ hợp thái độ, thuộc tính riêng trong quan hệ hành động của từng người với giới tự nhiên, với xã hội và bản thân?",
+    "answer": "Nhân cách.",
+    "expl": "Nhân cách."
+  },
+  {
+    "id": 141,
+    "text": "Lựa chọn câu đúng theo quan điểm của chủ nghĩa duy vật biện chứng.",
+    "answer": "Nguồn gốc của vận động là ở trong bản thân sự vật, hiện tượng; do sự tác động của các mặt, các yếu tố trong sự vật, hiện tượng gây ra.",
+    "expl": "Nguồn gốc của vận động là ở trong bản thân sự vật, hiện tượng; do sự tác động của các mặt, các yếu tố trong sự vật, hiện tượng gây ra."
+  },
+  {
+    "id": 142,
+    "text": "Theo Ăngghen, một trong những phương thức tồn tại cơ bản của vật chất là:",
+    "answer": "Vận động.",
+    "expl": "Vận động."
+  },
+  {
+    "id": 143,
+    "text": "Chủ nghĩa Mác-Lênin do ai sáng lập?",
+    "answer": "C.Mác và Ăngghen.",
+    "expl": "C.Mác và Ăngghen."
+  },
+  {
+    "id": 144,
+    "text": "Phạm trù triết học dùng để chỉ những gì chưa có, nhưng sẽ có, sẽ tới khi có điều kiện tương ứng thích hợp được gọi là gì?",
+    "answer": "Khả Năng.",
+    "expl": "Khả Năng."
+  },
+  {
+    "id": 145,
+    "text": "Về mặt bản chất, nguyên lý về mối liên hệ phổ biến một khi được cụ thể hóa sẽ được biểu hiện bằng:",
+    "answer": "Sáu cặp phạm trù cơ bản của phép biện chứng duy vật.",
+    "expl": "Sáu cặp phạm trù cơ bản của phép biện chứng duy vật."
+  },
+  {
+    "id": 146,
+    "text": "Chọn đáp án đúng nhất, hình thức đầu tiên của quá trình nhận thức là:",
+    "answer": "Cảm giác.",
+    "expl": "Cảm giác."
+  },
+  {
+    "id": 147,
+    "text": "V.I.Lênin viết: “Những […] cũ đã bị phá vỡ vì […] mới của chúng”. Điền vào dấu […].",
+    "answer": "Hình thức/ nội dung.",
+    "expl": "Hình thức/ nội dung."
+  },
+  {
+    "id": 148,
+    "text": "Theo Ăngghen, nghĩa chung nhất của vận động là gì?",
+    "answer": "Mọi sự thay đổi và mọi quá trình diễn ra trong vũ trụ.",
+    "expl": "Mọi sự thay đổi và mọi quá trình diễn ra trong vũ trụ."
+  },
+  {
+    "id": 149,
+    "text": "Chọn câu trả lời đúng nhất. Cơ sở hạ tầng là:",
+    "answer": "Toàn bộ những quan hệ sản xuất hợp thành một cơ cấu kinh tế của một xã hội nhất định.",
+    "expl": "Toàn bộ những quan hệ sản xuất hợp thành một cơ cấu kinh tế của một xã hội nhất định."
+  },
+  {
+    "id": 150,
+    "text": "Tổng hợp tất cả những mặt, những mối liên hệ tất nhiên, tương đối ổn định bên trong sự vật, quy định sự vận động và phát triển của sự vật gọi là gì?",
+    "answer": "Bản chất.",
+    "expl": "Bản chất."
+  },
+  {
+    "id": 151,
+    "text": "Chọn đáp án đúng nhất theo quan điểm của chủ nghĩa duy vật biện chứng:",
+    "answer": "Vận động là tuyệt đối, đứng im là tương đối tạm thời.",
+    "expl": "Vận động là tuyệt đối, đứng im là tương đối tạm thời."
+  },
+  {
+    "id": 152,
+    "text": "Câu thành ngữ \"Cá không ăn muối cá ươn, con cãi cha mẹ trăm đường con hư\" thể hiện cấp độ nào của nhận thức?",
+    "answer": "Nhận thức thông thường.",
+    "expl": "Nhận thức thông thường."
+  },
+  {
+    "id": 153,
+    "text": "Hình thức nhận thức: Cảm giác, tri giác, biểu tượng thuộc giai đoạn nhận thức nào?",
+    "answer": "Nhận thức cảm tính.",
+    "expl": "Nhận thức cảm tính."
+  },
+  {
+    "id": 154,
+    "text": "Theo Ăngghen, hình thức vận động đặc trưng của con người và xã hội loài người là hình thức nào?",
+    "answer": "Vận động xã hội.",
+    "expl": "Vận động xã hội."
+  },
+  {
+    "id": 155,
+    "text": "Dấu hiệu để phân biệt khả năng với hiện thực là gì?",
+    "answer": "Sự có mặt và không có mặt trên thực tế.",
+    "expl": "Sự có mặt và không có mặt trên thực tế."
+  },
+  {
+    "id": 156,
+    "text": "Trong quan hệ sản xuất, quan hệ nào giữ vai trò quyết định:",
+    "answer": "Quan hệ sở hữu tư liệu sản xuất.",
+    "expl": "Quan hệ sở hữu tư liệu sản xuất."
+  },
+  {
+    "id": 157,
+    "text": "Chọn đáp án đúng theo triết học Mác - Lênin về sự phát triển:",
+    "answer": "Là sự phủ định biện chứng.",
+    "expl": "Là sự phủ định biện chứng."
+  },
+  {
+    "id": 158,
+    "text": "Về mặt bản chất, nguyên lý về sự phát triển một khi được cụ thể hóa sẽ được biểu hiện bằng:",
+    "answer": "Ba quy luật của phép biện chứng duy vật.",
+    "expl": "Ba quy luật của phép biện chứng duy vật."
+  },
+  {
+    "id": 159,
+    "text": "Theo triết học của Mác - Lênin, đặc điểm hệ tư tưởng:",
+    "answer": "Hệ tư tưởng là hệ thống những quan điểm, hệ thống hóa, khái quát hóa thành lý luận, thành các học thuyết chính trị xã hội phản ánh lợi ích của một giai cấp nhất định.",
+    "expl": "Hệ tư tưởng là hệ thống những quan điểm, hệ thống hóa, khái quát hóa thành lý luận, thành các học thuyết chính trị xã hội phản ánh lợi ích của một giai cấp nhất định."
+  },
+  {
+    "id": 160,
+    "text": "Chọn đáp án đúng nhất. Theo Lênin, con đường biện chứng của sự nhận thức chân lý là một:",
+    "answer": "Quá trình.",
+    "expl": "Quá trình."
+  },
+  {
+    "id": 161,
+    "text": "Mác: “Trong tính hiện thực của nó, bản chất con người là tổng hòa […]”. Điền vào chỗ trống.",
+    "answer": "Những quan hệ xã hội.",
+    "expl": "Những quan hệ xã hội."
+  },
+  {
+    "id": 162,
+    "text": "Chọn đáp án KHÔNG đúng:",
+    "answer": "Quy luật tự nhiên diễn ra tự phát qua sự tác động của các lực lượng siêu nhiên.",
+    "expl": "Quy luật tự nhiên diễn ra tự phát qua sự tác động của các lực lượng siêu nhiên."
+  },
+  {
+    "id": 163,
+    "text": "Chọn đáp án KHÔNG đúng. Các nhà triết học duy vật cho rằng:",
+    "answer": "Quy luật xã hội hình thành và tác động thông qua hoạt động của con người nhưng không phụ thuộc vào ý thức của con người.",
+    "expl": "Quy luật xã hội hình thành và tác động thông qua hoạt động của con người nhưng không phụ thuộc vào ý thức của con người."
+  },
+  {
+    "id": 164,
+    "text": "Nhà nước đầu tiên trong lịch sử là kiểu nhà nước nào?",
+    "answer": "Nhà nước chủ nô.",
+    "expl": "Nhà nước chủ nô."
+  },
+  {
+    "id": 165,
+    "text": "Ưu điểm lớn nhất của triết học cổ điển Đức là gì?",
+    "answer": "Phát triển tư tưởng biện chứng đạt trình độ một hệ thống lý luận.",
+    "expl": "Phát triển tư tưởng biện chứng đạt trình độ một hệ thống lý luận."
+  },
+  {
+    "id": 166,
+    "text": "Chọn cụm từ điền vào chỗ trống: “Cái chung là phạm trù triết học dùng để chỉ […], được lặp lại trong nhiều sự vật hay quá trình riêng lẻ”.",
+    "answer": "Những mặt, những thuộc tính.",
+    "expl": "Những mặt, những thuộc tính."
+  },
+  {
+    "id": 167,
+    "text": "Hình thức nào là hình thức đầu tiên của giai đoạn trực quan sinh động?",
+    "answer": "Cảm giác.",
+    "expl": "Cảm giác."
+  },
+  {
+    "id": 168,
+    "text": "“Ngũ Thường” là gì?",
+    "answer": "Nhân, nghĩa, lễ ,trí ,tín.",
+    "expl": "Nhân, nghĩa, lễ ,trí ,tín."
+  },
+  {
+    "id": 169,
+    "text": "Điền vào chỗ trống. \"Sự phân đôi của cái thống nhất và sự nhận thức các bộ phận mâu thuẫn của nó. Đó là thực chất của […]\".",
+    "answer": "Phép biện chứng.",
+    "expl": "Phép biện chứng."
+  },
+  {
+    "id": 170,
+    "text": "Khoa học tự nhiên bắt đầu có sự phát triển vào thời kỳ nào?",
+    "answer": "Thời kỳ Phục Hưng.",
+    "expl": "Thời kỳ Phục Hưng."
+  },
+  {
+    "id": 171,
+    "text": "Chọn đáp án đúng nhất. Chân lý là:",
+    "answer": "Tri thức phù hợp với hiện thực.",
+    "expl": "Tri thức phù hợp với hiện thực."
+  },
+  {
+    "id": 172,
+    "text": "Sự biến đổi có tính chất cách mạng nhất của kiến trúc thượng tầng là do:",
+    "answer": "Sự thống trị của cơ sở hạ tầng.",
+    "expl": "Sự thống trị của cơ sở hạ tầng."
+  },
+  {
+    "id": 173,
+    "text": "Để phân biệt các nhà triết học duy vật hay duy tâm, phải dựa vào yếu tố nào?",
+    "answer": "Việc giải quyết mặt bản thể luận trong vấn đề cơ bản của triết học.",
+    "expl": "Việc giải quyết mặt bản thể luận trong vấn đề cơ bản của triết học."
+  },
+  {
+    "id": 174,
+    "text": "Phạm trù nào nói lên mối liên hệ bản chất, tất nhiên, phổ biến và lặp đi lặp lại giữa các sự vật hiện tượng?",
+    "answer": "Qui luật.",
+    "expl": "Qui luật."
+  },
+  {
+    "id": 175,
+    "text": "Béccơren phát hiện ra hiện tượng phóng xạ của nguyên tố Urani năm nào?",
+    "answer": "Năm 1896.",
+    "expl": "Năm 1896."
+  },
+  {
+    "id": 176,
+    "text": "Thuộc tính cơ bản phổ biến nhất của mọi dạng vật chất là gì?",
+    "answer": "Tồn tại khách quan.",
+    "expl": "Tồn tại khách quan."
+  },
+  {
+    "id": 177,
+    "text": "Nguồn gốc lý luận trực tiếp của triết học Marx là gì?",
+    "answer": "Triết học cổ điển Đức.",
+    "expl": "Triết học cổ điển Đức."
+  },
+  {
+    "id": 178,
+    "text": "Trong chủ nghĩa tư bản, […] quan hệ giữa giai cấp tư sản và giai cấp công nhân là quan hệ bóc lột. Điền đúng vào […].",
+    "answer": "Bản chất.",
+    "expl": "Bản chất."
+  },
+  {
+    "id": 179,
+    "text": "Hình thức nào của tư duy trừu tượng là hình thức liên kết các khái niệm?",
+    "answer": "Phán đoán.",
+    "expl": "Phán đoán."
+  },
+  {
+    "id": 180,
+    "text": "Quan hệ sở hữu đặc trưng trong những xã hội có cấu trúc phi giai cấp là:",
+    "answer": "Quan hệ sở hữu tập thể.",
+    "expl": "Quan hệ sở hữu tập thể."
+  },
+  {
+    "id": 181,
+    "text": "Theo quan điểm duy vật biện chứng \"đứng im\" là:",
+    "answer": "Tương đối.",
+    "expl": "Tương đối."
+  },
+  {
+    "id": 182,
+    "text": "Theo quan niệm triết học duy vật biện chứng, không gian là gì?",
+    "answer": "Thuộc tính của vật chất.",
+    "expl": "Thuộc tính của vật chất."
+  },
+  {
+    "id": 183,
+    "text": "Chọn đáp án đúng nhất theo quan điểm của Chủ nghĩa duy vật biện chứng:",
+    "answer": "Mối liên hệ của sự vật hiện tượng không chỉ diễn ra giữa các sự vật hiện tượng mà còn diễn ra ngay trong sự vật hiện tượng.",
+    "expl": "Mối liên hệ của sự vật hiện tượng không chỉ diễn ra giữa các sự vật hiện tượng mà còn diễn ra ngay trong sự vật hiện tượng."
+  },
+  {
+    "id": 184,
+    "text": "Chọn câu trả lời đúng nhất. Chức năng của triết học Mác - Lênin là gì?",
+    "answer": "Chức năng thế giới quan và phương pháp luận.",
+    "expl": "Chức năng thế giới quan và phương pháp luận."
+  },
+  {
+    "id": 185,
+    "text": "Tri thức của con người ngày càng hoàn thiện là vì:",
+    "answer": "Nhờ sự nỗ lực hoạt động thực tiễn của con người.",
+    "expl": "Nhờ sự nỗ lực hoạt động thực tiễn của con người."
+  },
+  {
+    "id": 186,
+    "text": "Hiện nay, ở nước ta còn tồn tại tư tưởng “trọng nam khinh nữ”, điều đó thể hiện tính chất gì của ý thức xã hội?",
+    "answer": "Tính bảo thủ.",
+    "expl": "Tính bảo thủ."
+  },
+  {
+    "id": 187,
+    "text": "Theo triết học Mác - Lênin, phép biện chứng duy vật có mấy qui luật?",
+    "answer": "Ba qui luật.",
+    "expl": "Ba qui luật."
+  },
+  {
+    "id": 188,
+    "text": "Chọn đáp án đúng nhất theo quan điểm của Chủ nghĩa duy vật biện chứng:",
+    "answer": "Phát triển không chỉ là sự thay đổi về số lượng và khối lượng mà nó còn là sự thay đổi về chất của sự vật hiện tượng.",
+    "expl": "Phát triển không chỉ là sự thay đổi về số lượng và khối lượng mà nó còn là sự thay đổi về chất của sự vật hiện tượng."
+  },
+  {
+    "id": 189,
+    "text": "Chọn đáp án đúng nhất. Lực lượng sản xuất là:",
+    "answer": "Mối quan hệ con người với tự nhiên trong sản xuất.",
+    "expl": "Mối quan hệ con người với tự nhiên trong sản xuất."
+  },
+  {
+    "id": 190,
+    "text": "Chọn đáp án đúng nhất. Mác: Vấn đề tìm hiểu xem tư duy của con người có thể đạt đến chân lý khách quan hay không, hoàn toàn không phải là vấn đề lý luận mà là vấn đề:",
+    "answer": "Thực tiễn.",
+    "expl": "Thực tiễn."
+  },
+  {
+    "id": 191,
+    "text": "Qui luật nào chỉ ra khuynh hướng đi lên theo hình thức xoáy ốc?",
+    "answer": "Qui luật phủ định của phủ định.",
+    "expl": "Qui luật phủ định của phủ định."
+  },
+  {
+    "id": 192,
+    "text": "Cơ sở lý luận của quan điểm phát triển là gì?",
+    "answer": "Nguyên lý về sự phát triển.",
+    "expl": "Nguyên lý về sự phát triển."
+  },
+  {
+    "id": 193,
+    "text": "Theo triết học Mác - Lênin, vật chất là:",
+    "answer": "Toàn bộ thế giới khách quan.",
+    "expl": "Toàn bộ thế giới khách quan."
+  },
+  {
+    "id": 194,
+    "text": "Kiểu nhà nước nào được V.I.Lênin gọi là nhà nước “nửa nhà nước”?",
+    "answer": "Nhà nước xã hội chủ nghĩa.",
+    "expl": "Nhà nước xã hội chủ nghĩa."
+  },
+  {
+    "id": 195,
+    "text": "Chủ nghĩa Mác-Lênin được hình thành trên cơ sở nào?",
+    "answer": "Tổng kết thực tiễn và kế thừa những giá trị tư tưởng của nhân loại.",
+    "expl": "Tổng kết thực tiễn và kế thừa những giá trị tư tưởng của nhân loại."
+  },
+  {
+    "id": 196,
+    "text": "Kaufman đã chứng minh được khối lượng của nguyên tử không phải là bất biến mà thay đổi theo vận tốc vận động của nguyên tử vào năm nào?",
+    "answer": "Năm 1901.",
+    "expl": "Năm 1901."
+  },
+  {
+    "id": 197,
+    "text": "Theo chủ nghĩa duy vật biện chứng luận điểm nào sau đây là sai?",
+    "answer": "Cùng một sự vật trong những điều kiện nhất định tồn tại 1 khả năng.",
+    "expl": "Cùng một sự vật trong những điều kiện nhất định tồn tại 1 khả năng."
+  },
+  {
+    "id": 198,
+    "text": "Theo quan điểm triết học Mác - Lênin. Vấn đề cơ bản của triết học có:",
+    "answer": "Hai mặt.",
+    "expl": "Hai mặt."
+  },
+  {
+    "id": 199,
+    "text": "Sự thống nhất giữa lượng và chất được thể hiện trong phạm trù nào?",
+    "answer": "Độ.",
+    "expl": "Độ."
+  },
+  {
+    "id": 200,
+    "text": "Khuynh hướng của sự phát triển diễn ra đi theo con đường nào?",
+    "answer": "Đường xoáy ốc.",
+    "expl": "Đường xoáy ốc."
+  },
+  {
+    "id": 201,
+    "text": "Theo Ăngghen, vật chất có mấy hình thức vận động cơ bản?",
+    "answer": "Năm hình thức.",
+    "expl": "Năm hình thức."
+  },
+  {
+    "id": 202,
+    "text": "Yếu tố nào không thuộc Quan hệ sản xuất?",
+    "answer": "Quan hệ giữa người và tự nhiên.",
+    "expl": "Quan hệ giữa người và tự nhiên."
+  },
+  {
+    "id": 203,
+    "text": "Vai trò của tồn tại xã hội trong quan hệ biện chứng với ý thức xã hội là gì?",
+    "answer": "Tồn tại xã hội quyết định sự biến đổi ý thức xã hội.",
+    "expl": "Tồn tại xã hội quyết định sự biến đổi ý thức xã hội."
+  },
+  {
+    "id": 204,
+    "text": "Những cuộc cách mạng thời kỳ cận đại ở Tây Âu do mâu thuẫn giữa lực lượng sản xuất với quan hệ sản xuất nào?",
+    "answer": "Quan hệ sản xuất phong kiến.",
+    "expl": "Quan hệ sản xuất phong kiến."
+  },
+  {
+    "id": 205,
+    "text": "Chọn đáp KHÔNG đúng theo chủ nghĩa Mác - Lênin, phủ định biện chứng:",
+    "answer": "Phủ định chấm dứt sự phát triển.",
+    "expl": "Phủ định chấm dứt sự phát triển."
+  },
+  {
+    "id": 206,
+    "text": "Chọn câu trả lời đúng nhất. Mặt thứ nhất của vấn đề cơ bản của triết học là:",
+    "answer": "Giữa vật chất và ý thức, cái nào có trước, cái nào có sau, cái nào quyết định cái nào.",
+    "expl": "Giữa vật chất và ý thức, cái nào có trước, cái nào có sau, cái nào quyết định cái nào."
+  },
+  {
+    "id": 207,
+    "text": "Yêu cầu của quan điểm toàn diện là gì? Xác định câu trả lời đầy đủ nhất.",
+    "answer": "Phải xem xét tất cả các mặt, các mối liên hệ và các khâu trung gian của sự vật hiện tượng, đồng thời phải nắm được và đánh giá đúng vị trí, vai trò của từng mặt, từng mối liên hệ trong quá trình cấu thành nên sự vật.",
+    "expl": "Phải xem xét tất cả các mặt, các mối liên hệ và các khâu trung gian của sự vật hiện tượng, đồng thời phải nắm được và đánh giá đúng vị trí, vai trò của từng mặt, từng mối liên hệ trong quá trình cấu thành nên sự vật."
+  },
+  {
+    "id": 208,
+    "text": "Chọn đáp án KHÔNG đúng về thực tiễn:",
+    "answer": "Thực tiễn là hoạt động vật chất và tinh thần của con người.",
+    "expl": "Thực tiễn là hoạt động vật chất và tinh thần của con người."
+  },
+  {
+    "id": 209,
+    "text": "Trong Bút ký triết học: V.I.Lênin có ví mối quan hệ giữa \"[…] và [ …]” với sự vận động của một con sông- bọt ở bên trên và luồng nước sâu ở dưới. Điền đúng vào […].",
+    "answer": "Hiện tượng và bản chất.",
+    "expl": "Hiện tượng và bản chất."
+  },
+  {
+    "id": 210,
+    "text": "Theo quan điểm triết học Mác - Lênin. Phương pháp luận là:",
+    "answer": "Lý luận về phương pháp.",
+    "expl": "Lý luận về phương pháp."
+  },
+  {
+    "id": 211,
+    "text": "Trong các câu sau, hãy chọn câu đúng:",
+    "answer": "Vật chất và ý thức tồn tại độc lập, chúng không nằm trong quan hệ sản sinh, cũng không nằm trong quan hệ quyết định nhau. Quan điểm này suy cho cùng cũng thuộc về chủ nghĩa duy tâm.",
+    "expl": "Vật chất và ý thức tồn tại độc lập, chúng không nằm trong quan hệ sản sinh, cũng không nằm trong quan hệ quyết định nhau. Quan điểm này suy cho cùng cũng thuộc về chủ nghĩa duy tâm."
+  },
+  {
+    "id": 212,
+    "text": "Định nghĩa đúng nhất theo quan điểm triết học Mác-Lênin:",
+    "answer": "Tự nhiên là nguồn gốc của xã hội.",
+    "expl": "Tự nhiên là nguồn gốc của xã hội."
+  },
+  {
+    "id": 213,
+    "text": "Trong các cụm từ dưới đây, cụm từ nào được xem là \"hình thức\" của Truyện Kiều?",
+    "answer": "Tác phẩm thơ lục bát.",
+    "expl": "Tác phẩm thơ lục bát."
+  },
+  {
+    "id": 214,
+    "text": "Theo quan điểm của triết học Mác - Lênin, nhân tố quyết định sự tồn tại của xã hội là:",
+    "answer": "Sản xuất vật chất.",
+    "expl": "Sản xuất vật chất."
+  },
+  {
+    "id": 215,
+    "text": "Chọn đáp KHÔNG đúng. Quan điểm của triết học Mác - Lênin về phương pháp biện chứng:",
+    "answer": "Coi nguyên nhân của sự biến đổi nằm ngoài đối tượng.",
+    "expl": "Coi nguyên nhân của sự biến đổi nằm ngoài đối tượng."
+  },
+  {
+    "id": 216,
+    "text": "Chọn đáp án KHÔNG đúng. Chủ nghĩa Mác - Lênin quan niệm về con người:",
+    "answer": "Là chủ thể của giới tự nhiên.",
+    "expl": "Là chủ thể của giới tự nhiên."
+  },
+  {
+    "id": 217,
+    "text": "Điều kiện tiền đề nào quyết định sự ra đời của chủ nghĩa Mác-Lênin?",
+    "answer": "Điều kiện kinh tế - xã hội.",
+    "expl": "Điều kiện kinh tế - xã hội."
+  },
+  {
+    "id": 218,
+    "text": "Theo triết học Mác - Lênin: Trong các hình thức của sản xuất xã hội, hình thức nào là nền tảng?",
+    "answer": "Sản xuất vật chất.",
+    "expl": "Sản xuất vật chất."
+  },
+  {
+    "id": 219,
+    "text": "Câu tục ngữ \"Chuồn chuồn bay thấp thì mưa, bay cao thì nắng, bay vừa thì râm\" thể hiện cấp độ nào của nhận thức?",
+    "answer": "Nhận thức kinh nghiệm.",
+    "expl": "Nhận thức kinh nghiệm."
+  },
+  {
+    "id": 220,
+    "text": "Trong các yếu tố của Tư liệu sản xuất thì yếu tố nào quan trọng nhất:",
+    "answer": "Công cụ lao động.",
+    "expl": "Công cụ lao động."
+  },
+  {
+    "id": 221,
+    "text": "Theo Ăngghen, hình thức vận động nào nói lên quá trình hóa hợp và phân giải?",
+    "answer": "Hóa học.",
+    "expl": "Hóa học."
+  },
+  {
+    "id": 222,
+    "text": "Về mặt bản chất, nguyên lý về mối liên hệ phổ biến một khi được cụ thể hóa sẽ được biểu hiện bằng:",
+    "answer": "Sáu cặp phạm trù cơ bản của phép biện chứng duy vật.",
+    "expl": "Sáu cặp phạm trù cơ bản của phép biện chứng duy vật."
+  },
+  {
+    "id": 223,
+    "text": "Theo Mác - Lênin, phát triển là:",
+    "answer": "Khuynh hướng chung của sự vận động của sự vật và hiện tượng.",
+    "expl": "Khuynh hướng chung của sự vận động của sự vật và hiện tượng."
+  },
+  {
+    "id": 224,
+    "text": "Theo Ăngghen, tồn tại là:",
+    "answer": "Vật chất.",
+    "expl": "Vật chất."
+  },
+  {
+    "id": 225,
+    "text": "Chủ nghĩa Mác-Lênin được hình thành trong thời gian nào?",
+    "answer": "Những năm 40 của thế kỷ XIX.",
+    "expl": "Những năm 40 của thế kỷ XIX."
+  },
+  {
+    "id": 226,
+    "text": "Nội dung nào dưới đây không đúng về mâu thuẫn trong Triết học?",
+    "answer": "Bất kì mặt đối lập nào cũng tạo ra mâu thuẫn.",
+    "expl": "Bất kì mặt đối lập nào cũng tạo ra mâu thuẫn."
+  },
+  {
+    "id": 227,
+    "text": "Sắp xếp theo trình tự xuất hiện từ sớm đến muộn các hình thức thế giới quan sau:",
+    "answer": "Thần thoại - Tôn giáo - Triết học.",
+    "expl": "Thần thoại - Tôn giáo - Triết học."
+  },
+  {
+    "id": 228,
+    "text": "Chọn đáp án đúng nhất. Quần chúng nhân dân và lãnh tụ tồn tại như thế nào?",
+    "answer": "Trong mối quan hệ biện chứng.",
+    "expl": "Trong mối quan hệ biện chứng."
+  },
+  {
+    "id": 229,
+    "text": "Theo Ăngghen, hình thức vận động nào nói lên sự thay đổi vị trí của vật thể trong không gian?",
+    "answer": "Cơ học.",
+    "expl": "Cơ học."
+  },
+  {
+    "id": 230,
+    "text": "Chọn đáp án KHÔNG đúng. Cấu trúc nhân cách gồm:",
+    "answer": "Ý thức xã hội.",
+    "expl": "Ý thức xã hội."
+  },
+  {
+    "id": 231,
+    "text": "Theo chủ nghĩa Mác - Lênin: “con người là một […] sinh học – xã hội”. Điền vào chỗ trống.",
+    "answer": "Thực thể.",
+    "expl": "Thực thể."
+  },
+  {
+    "id": 232,
+    "text": "Theo triết học Mác - Lênin, phép biện chứng duy vật có mấy cặp phạm trù?",
+    "answer": "Sáu cặp phạm trù.",
+    "expl": "Sáu cặp phạm trù."
+  },
+  {
+    "id": 233,
+    "text": "Theo quan điểm của chủ nghĩa duy vật biện chứng, luận điểm nào sau đây là đúng?",
+    "answer": "Không thể coi nguyên nhân và kết quả nằm ở hai sự vật khác nhau.",
+    "expl": "Không thể coi nguyên nhân và kết quả nằm ở hai sự vật khác nhau."
+  },
+  {
+    "id": 234,
+    "text": "“Cái ác và sự thiếu tri thức là đồng nhất”. Quan điểm này là của ai?",
+    "answer": "Xocrat.",
+    "expl": "Xocrat."
+  },
+  {
+    "id": 235,
+    "text": "Phạm trù nào chỉ sự phân kỳ lịch sử xã hội, phân biệt những nấc thang phát triển của xã hội loài người?",
+    "answer": "Hình thái kinh tế xã hội.",
+    "expl": "Hình thái kinh tế xã hội."
+  },
+  {
+    "id": 236,
+    "text": "Khi sự vật, hiện tượng tác động trực tiếp đến con người sẽ gây nên hình thức nhận thức nào?",
+    "answer": "Cảm giác.",
+    "expl": "Cảm giác."
+  },
+  {
+    "id": 237,
+    "text": "Theo quan điểm của CNDVBC, ý thức có khả năng tác động trở lại vật chất thông qua?",
+    "answer": "Hoạt động thực tiễn.",
+    "expl": "Hoạt động thực tiễn."
+  },
+  {
+    "id": 238,
+    "text": "Theo triết học Mác - Lênin, bản chất của nhận thức là:",
+    "answer": "Sự phản ánh chủ động, tích cực, sáng tạo của chủ thể trước khách thể.",
+    "expl": "Sự phản ánh chủ động, tích cực, sáng tạo của chủ thể trước khách thể."
+  },
+  {
+    "id": 239,
+    "text": "Triết học ra đời sớm nhất ở đâu?",
+    "answer": "Ấn Độ, Trung Quốc, Hy Lạp.",
+    "expl": "Ấn Độ, Trung Quốc, Hy Lạp."
+  },
+  {
+    "id": 240,
+    "text": "Đặc trưng cơ bản của quy luật xã hội là gì?",
+    "answer": "Hình thành và tác động thông qua hoạt động của con người nhưng không phụ thuộc vào ý thức của con người.",
+    "expl": "Hình thành và tác động thông qua hoạt động của con người nhưng không phụ thuộc vào ý thức của con người."
+  },
+  {
+    "id": 241,
+    "text": "Heraclite quan niệm vật chất là gì?",
+    "answer": "Lửa.",
+    "expl": "Lửa."
+  },
+  {
+    "id": 242,
+    "text": "Triết học ra đời từ đâu?",
+    "answer": "Từ thực tiễn, do nhu cầu của thực tiễn.",
+    "expl": "Từ thực tiễn, do nhu cầu của thực tiễn."
+  },
+  {
+    "id": 243,
+    "text": "Chọn đáp KHÔNG đúng. Điều kiện KT-XH của sự ra đời triết học Mác là:",
+    "answer": "Giai cấp Vô sản đi theo giai cấp Tư sản trong cuộc đấu tranh lật đổ chế độ Phong Kiến.",
+    "expl": "Giai cấp Vô sản đi theo giai cấp Tư sản trong cuộc đấu tranh lật đổ chế độ Phong Kiến."
+  },
+  {
+    "id": 244,
+    "text": "V.I Lenin cho rằng: Nhận thức đi từ […] đến […], từ bản chất ít sâu sắc đến bản chất sâu sắc hơn. Chọn cụm từ đúng vào chỗ trống.",
+    "answer": "Hiện tượng/ Bản chất.",
+    "expl": "Hiện tượng/ Bản chất."
+  },
+  {
+    "id": 245,
+    "text": "Chọn đáp KHÔNG đúng theo triết học Mác - Lênin:",
+    "answer": "Con người có thể phản ánh đúng đắn thế giới khách quan không cần thông qua lao động.",
+    "expl": "Con người có thể phản ánh đúng đắn thế giới khách quan không cần thông qua lao động."
+  },
+  {
+    "id": 246,
+    "text": "Triết học nghiên cứu thế giới như thế nào?",
+    "answer": "Như một chỉnh thể thống nhất.",
+    "expl": "Như một chỉnh thể thống nhất."
+  },
+  {
+    "id": 247,
+    "text": "Theo quan điểm Mác - Lênin, muốn thay đổi một chế độ xã hội phải:",
+    "answer": "Thay đổi quan hệ sản xuất.",
+    "expl": "Thay đổi quan hệ sản xuất."
+  },
+  {
+    "id": 248,
+    "text": "Theo quan điểm của triết học Mác - Lênin, sản xuất vật chất là:",
+    "answer": "Quá trình con người sử dụng công cụ lao động tác động vào tự nhiên, cải biến các dạng vật chất của tự nhiên để tạo ra của cải vật chất nhằm thỏa mãn nhu cầu tồn tại và phát triển của con người.",
+    "expl": "Quá trình con người sử dụng công cụ lao động tác động vào tự nhiên, cải biến các dạng vật chất của tự nhiên để tạo ra của cải vật chất nhằm thỏa mãn nhu cầu tồn tại và phát triển của con người."
+  },
+  {
+    "id": 249,
+    "text": "Tiêu chuẩn của chân lý theo triết học Mác-Lênin là gì?",
+    "answer": "Thực tiễn.",
+    "expl": "Thực tiễn."
+  },
+  {
+    "id": 250,
+    "text": "Quan điểm triết học cho rằng thượng đế và tự nhiên chỉ là một, gọi là quan điểm có tính chất gì?",
+    "answer": "Có tính chất phiếm thần luận.",
+    "expl": "Có tính chất phiếm thần luận."
+  },
+  {
+    "id": 251,
+    "text": "Kant: \"Vẻ đẹp không nằm ở đôi má hồng ở người thiếu nữ mà ở trong đôi mắt của kẻ suy tình\" thể hiện quan điểm của trường phái triết học nào?",
+    "answer": "Duy tâm.",
+    "expl": "Duy tâm."
+  },
+  {
+    "id": 252,
+    "text": "Theo quan điểm Mác-Lênin, sản xuất xã hội gồm các loại sản xuất sau:",
+    "answer": "Sản xuất vật chất, sản xuất tinh thần, sản xuất ra con người.",
+    "expl": "Sản xuất vật chất, sản xuất tinh thần, sản xuất ra con người."
+  },
+  {
+    "id": 253,
+    "text": "Hình thái ý thức nào phản ánh thế giới một cách chân thực nhằm giải phóng con người thoát khỏi ngu muội, đưa con người làm chủ tự nhiên, xã hội và bản thân?",
+    "answer": "Khoa học.",
+    "expl": "Khoa học."
+  },
+  {
+    "id": 254,
+    "text": "Theo Ăngghen, hình thức vận động nào nói lên sự trao đổi chất giữa cơ thể sống với môi trường?",
+    "answer": "Sinh học.",
+    "expl": "Sinh học."
+  },
+  {
+    "id": 255,
+    "text": "Thế giới quan thần thoại khác với thế giới quan tôn giáo ở:",
+    "answer": "Hệ thống lý thuyết được xây dựng và bảo vệ.",
+    "expl": "Hệ thống lý thuyết được xây dựng và bảo vệ."
+  },
+  {
+    "id": 256,
+    "text": "Trong các yếu tố của Lực lượng sản xuất, yếu tố nào quan trọng nhất:",
+    "answer": "Con người.",
+    "expl": "Con người."
+  },
+  {
+    "id": 257,
+    "text": "Theo quan điểm triết học Mác - Lênin, vấn đề cơ bản của triết học:",
+    "answer": "Là mối quan hệ giữa tư duy và tồn tại.",
+    "expl": "Là mối quan hệ giữa tư duy và tồn tại."
+  },
+  {
+    "id": 258,
+    "text": "Quan hệ sở hữu đặc trưng trong những xã hội có cấu trúc có giai cấp là:",
+    "answer": "Quan hệ sở hữu tư nhân.",
+    "expl": "Quan hệ sở hữu tư nhân."
+  },
+  {
+    "id": 259,
+    "text": "Trong xã hội có phân biệt và đối kháng giai cấp, quy luật nào giữ vai trò là động lực thúc đẩy sự phát triển của xã hội?",
+    "answer": "Quy luật đấu tranh giai cấp.",
+    "expl": "Quy luật đấu tranh giai cấp."
+  },
+  {
+    "id": 260,
+    "text": "Điền vào chỗ trống. Triết học cổ điển Đức ảnh hưởng sâu sắc đến sự hình thành […] của chủ nghĩa Mác-Lênin.",
+    "answer": "Thế giới quan và phương pháp luận.",
+    "expl": "Thế giới quan và phương pháp luận."
+  },
+  {
+    "id": 261,
+    "text": "Theo triết học Mác - Lênin, ý thức là:",
+    "answer": "Là hình ảnh phản ánh sáng tạo hiện thực khách quan.",
+    "expl": "Là hình ảnh phản ánh sáng tạo hiện thực khách quan."
+  },
+  {
+    "id": 262,
+    "text": "Hình thái ý thức nào phản ánh đời sống chính trị của xã hội?",
+    "answer": "Chính trị.",
+    "expl": "Chính trị."
+  },
+  {
+    "id": 263,
+    "text": "Hồ Chí Minh có viết: “nhận xét cán bộ không nên chỉ xét ngoài mặt, chỉ xét một lúc, một việc, mà phải xét kỹ cả toàn bộ công việc của cán bộ”. Quan điểm nào của phép biện chứng duy vật được vận dụng trong luận điểm trên?",
+    "answer": "Quan điểm toàn diện.",
+    "expl": "Quan điểm toàn diện."
+  },
+  {
+    "id": 264,
+    "text": "Hình thức nào sau đây biểu hiện hoạt động thực tiễn của con người?",
+    "answer": "Sản xuất vật chất.",
+    "expl": "Sản xuất vật chất."
+  },
+  {
+    "id": 265,
+    "text": "Theo chủ nghĩa Mác-Lênin, chủ nghĩa duy vật đã trải qua mấy hình thức phát triển:",
+    "answer": "Ba hình thức.",
+    "expl": "Ba hình thức."
+  },
+  {
+    "id": 266,
+    "text": "Nội dung cơ bản và trực tiếp để xây dựng gia đình ở Việt Nam hiện nay là gì?",
+    "answer": "Xây dựng gia đình no ấm, bình đẳng tiến bộ và hạnh phúc.",
+    "expl": "Xây dựng gia đình no ấm, bình đẳng tiến bộ và hạnh phúc."
+  },
+  {
+    "id": 267,
+    "text": "Theo quan điểm của chủ nghĩa duy vật biện chứng. Vận động là:",
+    "answer": "Vận động là phương thức tồn tại của vật chất, là thuộc tính cố hữu của vật chất.",
+    "expl": "Vận động là phương thức tồn tại của vật chất, là thuộc tính cố hữu của vật chất."
+  },
+  {
+    "id": 268,
+    "text": "Lênin khẳng định: chủ nghĩa Mác dựa vào […] chứ không phải dựa vào […] để vạch ra đường lối chính trị của mình. Điền đúng vào […].",
+    "answer": "Hiện thực/ Khả năng.",
+    "expl": "Hiện thực/ Khả năng."
+  },
+  {
+    "id": 269,
+    "text": "Câu: \"Chạy trời không khỏi nắng\", \"chạy mưa không khỏi trời\" thể hiện quan điểm của trường phái triết học nào?",
+    "answer": "Duy vật.",
+    "expl": "Duy vật."
+  },
+  {
+    "id": 270,
+    "text": "Theo quan điểm duy vật biện chứng, thế giới thống nhất ở tính:",
+    "answer": "Vật chất.",
+    "expl": "Vật chất."
+  },
+  {
+    "id": 271,
+    "text": "Các thế lực thù định sử dụng chiến lược “diễn biến hòa bình” chống phá sự nghiệp xây dựng Tổ quốc xã hội chủ nghĩa của nhân dân ta trên phương diện nào?",
+    "answer": "Kinh tế, chính trị, văn hóa, xã hội, tư tưởng, đạo đức, lối sống.",
+    "expl": "Kinh tế, chính trị, văn hóa, xã hội, tư tưởng, đạo đức, lối sống."
+  },
+  {
+    "id": 272,
+    "text": "V.I Lênin cho rằng: “tính […] không thể tách rời tính phổ biến”. Điền vào dấu […].",
+    "answer": "Tất nhiên.",
+    "expl": "Tất nhiên."
+  },
+  {
+    "id": 273,
+    "text": "Chọn đáp án đúng nhất theo quan điểm của chủ nghĩa duy vật biện chứng.",
+    "answer": "Thế giới thống nhất ở tính vật chất của nó.",
+    "expl": "Thế giới thống nhất ở tính vật chất của nó."
+  },
+  {
+    "id": 274,
+    "text": "Quá trình vận động của bản thân sự vật, nội dung và hình thức của nó, từ chỗ thống nhất lại trở thành mâu thuẫn, xung đột bởi vì ở sự vật […]. Điền vào dấu […].",
+    "answer": "Hình thức biến đổi chậm hơn nội dung.",
+    "expl": "Hình thức biến đổi chậm hơn nội dung."
+  },
+  {
+    "id": 275,
+    "text": "Ông cho rằng vũ trụ không phải do Chúa trời hay một lực lượng siêu nhiên thần bí nào tạo ra. Nó “mãi mãi đã, đang và sẽ là ngọn lửa vĩnh viễn đang không ngừng bùng cháy và tàn lụi”. Ông là ai?",
+    "answer": "Heraclite.",
+    "expl": "Heraclite."
+  },
+  {
+    "id": 276,
+    "text": "Chọn đáp án đúng nhất theo quan điểm của triết học Mác - Lênin:",
+    "answer": "Phát triển của sự vật có tính kế thừa nhưng trên cơ sở có phê phán, lọc bỏ, cải tạo và phát triển.",
+    "expl": "Phát triển của sự vật có tính kế thừa nhưng trên cơ sở có phê phán, lọc bỏ, cải tạo và phát triển."
+  },
+  {
+    "id": 277,
+    "text": "Nguồn gốc ra đời của triết học là:",
+    "answer": "Nhận thức, xã hội.",
+    "expl": "Nhận thức, xã hội."
+  },
+  {
+    "id": 278,
+    "text": "Khẳng định nào sau đây là đúng?",
+    "answer": "Phép biện chứng của Hegel là phép biện chứng duy tâm khách quan.",
+    "expl": "Phép biện chứng của Hegel là phép biện chứng duy tâm khách quan."
+  },
+  {
+    "id": 279,
+    "text": "Talet quan niệm vật chất là gì?",
+    "answer": "Nước.",
+    "expl": "Nước."
+  },
+  {
+    "id": 280,
+    "text": "Triết học là gì? Theo quan điểm của các nhà kinh điển Mác - Lênin.",
+    "answer": "Triết học là hệ thống tri thức lý luận chung nhất của con người về thế giới và vị trí của con người trong thế giới.",
+    "expl": "Triết học là hệ thống tri thức lý luận chung nhất của con người về thế giới và vị trí của con người trong thế giới."
+  },
+  {
+    "id": 281,
+    "text": "Bản chất con người được quyết định bởi:",
+    "answer": "Giáo dục của gia đình và nhà trường.",
+    "expl": "Giáo dục của gia đình và nhà trường."
+  },
+  {
+    "id": 282,
+    "text": "Định nghĩa Vật chất của Lênin có mấy giá trị khoa học?",
+    "answer": "Năm.",
+    "expl": "Năm."
+  },
+  {
+    "id": 283,
+    "text": "Theo Chủ nghĩa Mác -Lênin, cơ sở trực tiếp hình thành và phân chia giai cấp trong xã hội là:",
+    "answer": "Chiếm đoạt tư liệu sản xuất của công thành của riêng.",
+    "expl": "Chiếm đoạt tư liệu sản xuất của công thành của riêng."
+  },
+  {
+    "id": 284,
+    "text": "Chọn đáp án đúng nhất:",
+    "answer": "Ý thức là sự phản ánh năng động, sáng tạo hiện thực khách quan.",
+    "expl": "Ý thức là sự phản ánh năng động, sáng tạo hiện thực khách quan."
+  },
+  {
+    "id": 285,
+    "text": "Phép biện chứng duy vật được xác lập trên nền tảng nào?",
+    "answer": "Thế giới quan duy vật khoa học.",
+    "expl": "Thế giới quan duy vật khoa học."
+  },
+  {
+    "id": 286,
+    "text": "Quan hệ giữa khoa học tự nhiên với thần học ở thời kỳ Phục Hưng như thế nào?",
+    "answer": "Khoa học tự nhiên dần dần độc lập với thần học và tôn giáo.",
+    "expl": "Khoa học tự nhiên dần dần độc lập với thần học và tôn giáo."
+  },
+  {
+    "id": 287,
+    "text": "Chủ nghĩa duy tâm tìm nguồn gốc của sự thống nhất của thế giới ở cái gì?",
+    "answer": "Ở ý niệm tuyệt đối hoặc ở ý thức của con người.",
+    "expl": "Ở ý niệm tuyệt đối hoặc ở ý thức của con người."
+  },
+  {
+    "id": 288,
+    "text": "Nhà triết học nào cho rằng: con người bản tính đầu tiên của con người là ác \"Nhân chi sơ, tính bản ác\"?",
+    "answer": "Tuân tử.",
+    "expl": "Tuân tử."
+  },
+  {
+    "id": 289,
+    "text": "Những thành tựu khoa học tự nhiên nào là tiền đề của sự ra đời của chủ nghĩa Mác-Lênin?",
+    "answer": "Thuyết tiến hóa, Quy luật bảo toàn và chuyển hóa năng lượng, Thuyết tế bào.",
+    "expl": "Thuyết tiến hóa, Quy luật bảo toàn và chuyển hóa năng lượng, Thuyết tế bào."
+  },
+  {
+    "id": 290,
+    "text": "“Tất cả cái gì đang vận động, đều vận động nhờ một cái khác nào đó”. Nhận định này gắn liện với hệ thồng triết học nào? Chọn phương án Sai.",
+    "answer": "Triết học duy vật.",
+    "expl": "Triết học duy vật."
+  },
+  {
+    "id": 291,
+    "text": "Trong triết học cổ đại Ấn Độ, nhân sinh quan Phật giáo thể hiện tập trung  trong thuyết \"\"tứ đế\"\". Phương án đúng nhất.",
+    "answer": "Khổ đế, Tập đế, Diệt đế, Đạo đế.",
+    "expl": "Khổ đế, Tập đế, Diệt đế, Đạo đế."
+  },
+  {
+    "id": 292,
+    "text": "Cái ngẫu nhiên xảy ra do nguyên nhân nào quy định?",
+    "answer": "Nguyên nhân bên ngoài.",
+    "expl": "Nguyên nhân bên ngoài."
+  },
+  {
+    "id": 293,
+    "text": "Quá trình sản xuất là quá trình kết hợp:",
+    "answer": "Tư liệu sản xuất và sức lao động.",
+    "expl": "Tư liệu sản xuất và sức lao động."
+  },
+  {
+    "id": 294,
+    "text": "Đồng nhất vật chất với một vật thể hữu hình cảm tính đang tồn tại trong thế giới bên ngoài là quan điểm của  trường phái triết học nào?",
+    "answer": "Chủ nghĩa duy vật chất phác.",
+    "expl": "Chủ nghĩa duy vật chất phác."
+  },
+  {
+    "id": 295,
+    "text": "Triết học Mác - Lênin cho rằng: thực tiễn là toàn bộ […] có mục đích, mang tính lịch sử xã hội của con người nhằm cải tạo thế giới khách quan. Điền vào chỗ trống.",
+    "answer": "Hoạt động vật chất.",
+    "expl": "Hoạt động vật chất."
+  },
+  {
+    "id": 296,
+    "text": "Vai trò của thực tiễn đối với nhận thức:",
+    "answer": "Thực tiễn là cơ sở, nguồn gốc của nhận thức.",
+    "expl": "Thực tiễn là cơ sở, nguồn gốc của nhận thức."
+  },
+  {
+    "id": 297,
+    "text": "Ai coi việc đạt tới thiện là mục đích tối cao?",
+    "answer": "Aristot.",
+    "expl": "Aristot."
+  },
+  {
+    "id": 298,
+    "text": "Đối tượng lao động là:",
+    "answer": "Những cái trong tự nhiên và nguyên liệu.",
+    "expl": "Những cái trong tự nhiên và nguyên liệu."
+  },
+  {
+    "id": 299,
+    "text": "Theo triết học Mác - Lênin, phép biện chứng duy vật có mấy nguyên lý?",
+    "answer": "Hai nguyên lý.",
+    "expl": "Hai nguyên lý."
+  },
+  {
+    "id": 300,
+    "text": "Quan niệm cho rằng vật chất có trước ý thức, vật chất quyết định ý thức là quan điểm của các nhà triết học nào?",
+    "answer": "Duy vật.",
+    "expl": "Duy vật."
+  },
+  {
+    "id": 301,
+    "text": "Chọn đáp KHÔNG đúng theo triết học Mác - Lênin:",
+    "answer": "Ngôn ngữ là hiện tượng tinh thần.",
+    "expl": "Ngôn ngữ là hiện tượng tinh thần."
+  },
+  {
+    "id": 302,
+    "text": "Theo triết học Mác - Lênin, Nhà nước thực hiện chức năng gì?",
+    "answer": "Vừa đối nội vừa đối ngoại.",
+    "expl": "Vừa đối nội vừa đối ngoại."
+  },
+  {
+    "id": 303,
+    "text": "Đặc trưng của phép biện chứng chất phác thời cổ đại là gì?",
+    "answer": "Tính chất tự phát, mộc mạc, ngây thơ.",
+    "expl": "Tính chất tự phát, mộc mạc, ngây thơ."
+  },
+  {
+    "id": 304,
+    "text": "Triết học ra đời trong điều kiện nào?",
+    "answer": "Tư duy của con người đạt trình độ tư duy khái quát cao và xuất hiện tầng lớp lao động trí óc có khả năng hệ thống tri thức của con người.",
+    "expl": "Tư duy của con người đạt trình độ tư duy khái quát cao và xuất hiện tầng lớp lao động trí óc có khả năng hệ thống tri thức của con người."
+  },
+  {
+    "id": 305,
+    "text": "Chọn đáp án KHÔNG đúng. Các nhà triết học duy tâm cho rằng:",
+    "answer": "Ý thức tồn tại trong con người.",
+    "expl": "Ý thức tồn tại trong con người."
+  },
+  {
+    "id": 306,
+    "text": "Điền vào dấu […]. Trong qua trình phát triển khách quan của sự vật , ở những điều kiện nhất định […] có thể chyển hóa thành cái chung và ngược lại.",
+    "answer": "Cái đơn nhất.",
+    "expl": "Cái đơn nhất."
+  },
+  {
+    "id": 307,
+    "text": "Hình thức đầu tiên của đấu tranh giai cấp của giai cấp công nhân khi chưa giành được chính quyền:",
+    "answer": "Đấu tranh kinh tế.",
+    "expl": "Đấu tranh kinh tế."
+  },
+  {
+    "id": 308,
+    "text": "Dân tộc có mấy đặc trưng chủ yếu?",
+    "answer": "Năm.",
+    "expl": "Năm."
+  },
+  {
+    "id": 309,
+    "text": "Môn học nào sau đây không thuộc chủ nghĩa Mác-Lênin?",
+    "answer": "Lịch sử Đảng cộng sản Việt Nam.",
+    "expl": "Lịch sử Đảng cộng sản Việt Nam."
+  },
+  {
+    "id": 310,
+    "text": "Quan điểm nào cho rằng: Vật chất có trước, ý thức có sau, vật chất quyết định ý thức?",
+    "answer": "Chủ nghĩa duy vật.",
+    "expl": "Chủ nghĩa duy vật."
+  },
+  {
+    "id": 311,
+    "text": "Câu: \"Có thực mới vực được đạo\" thể hiện quan điểm của trường phái triết học nào?",
+    "answer": "Duy vật.",
+    "expl": "Duy vật."
+  },
+  {
+    "id": 312,
+    "text": "Chủ nghĩa duy vật có bao nhiêu hình thức cơ bản?",
+    "answer": "Ba hình thức.",
+    "expl": "Ba hình thức."
+  },
+  {
+    "id": 313,
+    "text": "Đặc trưng nổi bật trong quan hệ giữa các dân tộc ở nước ta?",
+    "answer": "Là sự đoàn kết dân tộc, hòa hợp dân tộc trong một cộng đồng thống nhất.",
+    "expl": "Là sự đoàn kết dân tộc, hòa hợp dân tộc trong một cộng đồng thống nhất."
+  },
+  {
+    "id": 314,
+    "text": "Chọn đáp án đúng nhất. Theo triết học Mác:",
+    "answer": "Không phải mọi sự thay đổi về lượng đều làm cho sự vật thay đổi về chất.",
+    "expl": "Không phải mọi sự thay đổi về lượng đều làm cho sự vật thay đổi về chất."
+  },
+  {
+    "id": 315,
+    "text": "Cụm từ nào được V.I.Lênin sử dụng nhiều lần khi đưa ra định nghĩa về vật chất?",
+    "answer": "Cảm giác.",
+    "expl": "Cảm giác."
+  },
+  {
+    "id": 316,
+    "text": "Cùng một[…]có thể có nhiều[…]khác nhau, tùy theo sự thay đổi của điều kiện và hoàn cảnh. Điền đúng vào […].",
+    "answer": "Bản Chất/ Hiện Tượng.",
+    "expl": "Bản Chất/ Hiện Tượng."
+  },
+  {
+    "id": 317,
+    "text": "Chọn đáp án đúng nhất theo quan điểm của triết học Mác - Lênin:",
+    "answer": "Những kết luận của triết học đưa lại thế giới quan và phương pháp luận đúng đắn cho sự phát triển của các khoa học.",
+    "expl": "Những kết luận của triết học đưa lại thế giới quan và phương pháp luận đúng đắn cho sự phát triển của các khoa học."
+  },
+  {
+    "id": 318,
+    "text": "Phạm trù nào dùng để chỉ tính quy định vốn có của các sự vật, là sự thống nhất hữu cơ của những thuộc tính?",
+    "answer": "Chất.",
+    "expl": "Chất."
+  },
+  {
+    "id": 319,
+    "text": "Theo Chủ nghĩa Mác -Lênin, giai cấp là những tập đoàn khác nhau về:",
+    "answer": "Sở hữu đối với tư liệu sản xuất.",
+    "expl": "Sở hữu đối với tư liệu sản xuất."
+  },
+  {
+    "id": 320,
+    "text": "Chọn đáp án đúng nhất theo thứ tự từ thấp đến cao của các hình thức vận động:",
+    "answer": "Vận động cơ học, vận động vật lý, vận động hóa học, vận động sinh học, vận động xã hội.",
+    "expl": "Vận động cơ học, vận động vật lý, vận động hóa học, vận động sinh học, vận động xã hội."
+  },
+  {
+    "id": 321,
+    "text": "Chọn đáp án đúng nhất theo triết học Mác - Lênin:",
+    "answer": "Lịch sử được quyết định bởi quần chúng nhân dân.",
+    "expl": "Lịch sử được quyết định bởi quần chúng nhân dân."
+  },
+  {
+    "id": 322,
+    "text": "Chọn đáp án đúng nhất theo quan điểm triết học Mác - Lênin.",
+    "answer": "Ý thức chỉ có ở con người.",
+    "expl": "Ý thức chỉ có ở con người."
+  },
+  {
+    "id": 323,
+    "text": "Theo triết học Mác - Lênin, lao động là yếu tố đầu tiên, cơ bản, quan trọng nhất tạo nên sự thống nhất hữu cơ giữa xã hội và tự nhiên là vì:",
+    "answer": "Lao động là quá trình diễn ra giữa con người và tự nhiên, con người là trung gian điều tiết, kiểm tra sự trao đổi chất với tự nhiên.",
+    "expl": "Lao động là quá trình diễn ra giữa con người và tự nhiên, con người là trung gian điều tiết, kiểm tra sự trao đổi chất với tự nhiên."
+  },
+  {
+    "id": 324,
+    "text": "Chọn đáp án KHÔNG đúng. Lực lượng sản xuất quyết định Quan hệ sản xuất trên:",
+    "answer": "Chất lượng sản phẩm.",
+    "expl": "Chất lượng sản phẩm."
+  },
+  {
+    "id": 325,
+    "text": "Quan hệ sản xuất tác động thúc đẩy sự phát triển Lực lượng sản xuất khi:",
+    "answer": "Quan hệ sản xuất phù hợp Lực lượng sản xuất.",
+    "expl": "Quan hệ sản xuất phù hợp Lực lượng sản xuất."
+  },
+  {
+    "id": 326,
+    "text": "Theo Mác - Lênin, ý thức ra đời dựa trên mấy nguồn gốc?",
+    "answer": "2 (Tự nhiên, xã hội).",
+    "expl": "2 (Tự nhiên, xã hội)."
+  },
+  {
+    "id": 327,
+    "text": "Trong các yếu tố cấu thành tồn tại xã hội thì yếu tố nào quan trọng nhất?",
+    "answer": "Phương thức sản xuất vật chất.",
+    "expl": "Phương thức sản xuất vật chất."
+  },
+  {
+    "id": 328,
+    "text": "Mác: \"Phương pháp biện chứng của tôi không chỉ khác phương pháp của Hegel mà còn đối lập hẳn phương pháp ấy\". Đó là:",
+    "answer": "Phương pháp biện chứng duy vật.",
+    "expl": "Phương pháp biện chứng duy vật."
+  },
+  {
+    "id": 329,
+    "text": "Chọn đáp án KHÔNG đúng về tư liệu sản xuất:",
+    "answer": "Cơ chế vận hành nhà xưởng.",
+    "expl": "Cơ chế vận hành nhà xưởng."
+  },
+  {
+    "id": 330,
+    "text": "Theo triết học Mác; Ý thức là sự phản ánh:",
+    "answer": "Năng động, sáng tạo.",
+    "expl": "Năng động, sáng tạo."
+  },
+  {
+    "id": 331,
+    "text": "Chọn câu trả lời đúng nhất. Mặt thứ hai của vấn đề cơ bản của triết học là:",
+    "answer": "Con người có khả năng nhận thức thế giới hay không.",
+    "expl": "Con người có khả năng nhận thức thế giới hay không."
+  },
+  {
+    "id": 332,
+    "text": "Quan điểm triết học tự nhiên có tính chất phiếm thần luận là đặc trưng của triết học thời kỳ nào?",
+    "answer": "Thời kỳ Phục Hưng.",
+    "expl": "Thời kỳ Phục Hưng."
+  },
+  {
+    "id": 333,
+    "text": "Chọn đáp án KHÔNG đúng. Theo triết học Mác - Lênin về quần chúng nhân dân:",
+    "answer": "Tất cả dân cư trong xã hội.",
+    "expl": "Tất cả dân cư trong xã hội."
+  },
+  {
+    "id": 334,
+    "text": "Phạm trù nào chỉ sự sắp xếp, mối quan hệ và cơ chế vận hành của các bộ phận, các yếu tố trong một hình thái kinh tế xã hội nhất định?",
+    "answer": "Cấu trúc xã hội.",
+    "expl": "Cấu trúc xã hội."
+  },
+  {
+    "id": 335,
+    "text": "Chọn đáp KHÔNG đúng theo quan điểm của triết học Mác - Lênin:",
+    "answer": "Ý thức thuần túy là hiện tượng cá nhân.",
+    "expl": "Ý thức thuần túy là hiện tượng cá nhân."
+  },
+  {
+    "id": 336,
+    "text": "Qua phát biểu \"Nếu bản chất và hiện tượng luôn có sự thống nhất với nhau, thì mọi khoa học trở nên thừa\". Mác muốn khẳng định điều gì?",
+    "answer": "Bản chất là cái chi phối sự vật.",
+    "expl": "Bản chất là cái chi phối sự vật."
+  },
+  {
+    "id": 337,
+    "text": "Nguồn gốc của sự hình thành và phân chia giai cấp trong xã hội là do:",
+    "answer": "Kinh tế.",
+    "expl": "Kinh tế."
+  },
+  {
+    "id": 338,
+    "text": "Chọn đáp án đúng nhất. Phủ định biện chứng là:",
+    "answer": "Sự phủ định có kế thừa và tạo điều kiện cho phát triển.",
+    "expl": "Sự phủ định có kế thừa và tạo điều kiện cho phát triển."
+  },
+  {
+    "id": 339,
+    "text": "Vấn đề cơ bản của triết học được giải quyết trên những mặt nào?",
+    "answer": "Bản thể luận - Nhận thức luận.",
+    "expl": "Bản thể luận - Nhận thức luận."
+  },
+  {
+    "id": 340,
+    "text": "Theo Chủ nghĩa Mác -Lênin, cách mạng xã hội tạo nên thay đổi cơ bản nhất là:",
+    "answer": "Thay đổi chính quyền nhà nước.",
+    "expl": "Thay đổi chính quyền nhà nước."
+  },
+  {
+    "id": 341,
+    "text": "Nhận định nào là đúng khi xem xét mối quan hệ giữa cái chung, cái riêng , cái đơn nhất?",
+    "answer": "Cái riêng nghèo nàn hơn cái đơn nhất.",
+    "expl": "Cái riêng nghèo nàn hơn cái đơn nhất."
+  },
+  {
+    "id": 342,
+    "text": "Chọn câu trả lời đúng: Theo Ph.Ăng ghen, tồn tại là:",
+    "answer": "Vật chất.",
+    "expl": "Vật chất."
+  },
+  {
+    "id": 343,
+    "text": "Trong các hình thức cơ bản của hoạt động thực tiễn, hình thức nào là quan trọng nhất:",
+    "answer": "Sản xuất vật chất.",
+    "expl": "Sản xuất vật chất."
+  },
+  {
+    "id": 344,
+    "text": "Chọn đáp án đúng nhất theo trình tự phát triển của chủ nghĩa duy vật:",
+    "answer": "Chủ nghĩa duy vật chất phác, chủ nghĩa duy vật siêu hình, chủ nghĩa duy vật biện chứng.",
+    "expl": "Chủ nghĩa duy vật chất phác, chủ nghĩa duy vật siêu hình, chủ nghĩa duy vật biện chứng."
+  },
+  {
+    "id": 345,
+    "text": "Nước ta có bao nhiêu dân tộc cùng nhau chung sống?",
+    "answer": "54 dân tộc.",
+    "expl": "54 dân tộc."
+  },
+  {
+    "id": 346,
+    "text": "Điền cụm từ thích hợp vào chỗ trống của câu sau để được định nghĩa khái niệm hiện thực: \"Hiện thực là phạm trù triết học chỉ cái […]\".",
+    "answer": "Đã có, đang tồn tại.",
+    "expl": "Đã có, đang tồn tại."
+  },
+  {
+    "id": 347,
+    "text": "Con người XHCN là con người nào từ xã hội nào?",
+    "answer": "Cả trong xã hội tư bản và xã hội XHCN.",
+    "expl": "Cả trong xã hội tư bản và xã hội XHCN."
+  },
+  {
+    "id": 348,
+    "text": "Chọn đáp án KHÔNG đúng:",
+    "answer": "Trong quan hệ sản xuất thì quan hệ tổ chức quản lý sản xuất quyết định các quan hệ khác.",
+    "expl": "Trong quan hệ sản xuất thì quan hệ tổ chức quản lý sản xuất quyết định các quan hệ khác."
+  },
+  {
+    "id": 349,
+    "text": "Chọn cụm từ đúng điền vào chỗ trống: “Phép siêu hình đẩy lùi được […] nhưng chính nó lại bị phép biện chứng hiện đại phủ định”.",
+    "answer": "Phép biện chứng cổ đại.",
+    "expl": "Phép biện chứng cổ đại."
+  },
+  {
+    "id": 350,
+    "text": "Theo Mác - Lênin, Tự nhiên là môi trường tồn tại và phát triển của xã hội vì:",
+    "answer": "Tự nhiên cung cấp những điều kiện cần thiết cho sự sống của con người và hoạt động sản xuất xã hội.",
+    "expl": "Tự nhiên cung cấp những điều kiện cần thiết cho sự sống của con người và hoạt động sản xuất xã hội."
+  },
+  {
+    "id": 351,
+    "text": "Hai mặt đối lập liên hệ gắn bó với nhau, làm tiền đề tồn tại cho nhau, Triết học gọi đó là:",
+    "answer": "Sự thống nhất giữa các mặt đối lập.",
+    "expl": "Sự thống nhất giữa các mặt đối lập."
+  },
+  {
+    "id": 352,
+    "text": "Đặc trưng nào của tính dân tộc là quan trọng nhất?",
+    "answer": "Chung một hình thái kinh tế xã hội.",
+    "expl": "Chung một hình thái kinh tế xã hội."
+  },
+  {
+    "id": 353,
+    "text": "Trong quá trình nhận thức và hoạt động thực tiễn, chúng ta cần:",
+    "answer": "Cơ bản là phải căn cứ vào cái tất nhiên nhưng đồng thời phải tính tới cái ngẫu nhiên.",
+    "expl": "Cơ bản là phải căn cứ vào cái tất nhiên nhưng đồng thời phải tính tới cái ngẫu nhiên."
+  },
+  {
+    "id": 354,
+    "text": "Hình thái kinh tế - xã hội đầu tiên của xã hội loài người là:",
+    "answer": "Cộng sản nguyên thủy.",
+    "expl": "Cộng sản nguyên thủy."
+  },
+  {
+    "id": 355,
+    "text": "Theo triết học Mác - Lênin, bản chất của nhà nước là:",
+    "answer": "Bộ máy của giai cấp này dùng để trấn áp giai cấp khác.",
+    "expl": "Bộ máy của giai cấp này dùng để trấn áp giai cấp khác."
+  },
+  {
+    "id": 356,
+    "text": "Theo chủ nghĩa duy vật biện chứng luận điểm nào là sai?",
+    "answer": "Chỉ có hiện thực tồn tại khách quan, khả năng chỉ là cảm giác con người.",
+    "expl": "Chỉ có hiện thực tồn tại khách quan, khả năng chỉ là cảm giác con người."
+  },
+  {
+    "id": 357,
+    "text": "Vật chất và ý thức là hai nguyên thể đầu tiên cùng song song tồn tại\" là quan điểm của trường phái triết học nào?",
+    "answer": "Nhị nguyên.",
+    "expl": "Nhị nguyên."
+  },
+  {
+    "id": 358,
+    "text": "Phép biện chứng duy vật gồm nguyên lý nào?",
+    "answer": "Nguyên lý về mối liên hệ phổ biến và nguyên lý về sự phát triển.",
+    "expl": "Nguyên lý về mối liên hệ phổ biến và nguyên lý về sự phát triển."
+  },
+  {
+    "id": 359,
+    "text": "Quan hệ sản xuất tác động kìm hãm sự phát triển Lực lượng sản xuất khi:",
+    "answer": "Quan hệ sản xuất lạc hậu hơn so với Lực lượng sản xuất.",
+    "expl": "Quan hệ sản xuất lạc hậu hơn so với Lực lượng sản xuất."
+  },
+  {
+    "id": 360,
+    "text": "Vật chất được Lênin định nghĩa với tư cách:",
+    "answer": "Phạm trù triết học.",
+    "expl": "Phạm trù triết học."
+  },
+  {
+    "id": 361,
+    "text": "Cơ sở để phân chia các trào lưu triết học thành triết học nhất nguyên và triết học nhị nguyên là gì?",
+    "answer": "Cách giải quyết vấn đề cơ bản của triết học.",
+    "expl": "Cách giải quyết vấn đề cơ bản của triết học."
+  }
+]

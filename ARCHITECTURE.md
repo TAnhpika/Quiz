@@ -73,7 +73,8 @@ index.html
   text: string,
   options: string[4],
   answer: 0 | 1 | 2 | 3,   // index đáp án đúng
-  explanation: string,
+  explanation: string,     // nguồn gốc / fallback
+  keywords: string,        // mẹo nhớ, phân biệt distractor (hiển thị trên UI)
 }
 ```
 

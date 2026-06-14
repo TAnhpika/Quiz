@@ -60,6 +60,14 @@
                 max-height: 100dvh;
                 overflow: hidden;
             }
+            #screen-game > .glass-panel:first-of-type {
+                overflow: visible;
+                position: relative;
+                z-index: 30;
+            }
+            #btn-flashcard-guide {
+                z-index: 31;
+            }
             #screen-game .game-board {
                 flex: 1;
                 min-height: 0;
@@ -172,6 +180,60 @@
             .option-btn.flashcard-readonly {
                 pointer-events: none;
                 cursor: default;
+            }
+
+            .flashcard-guide-tip {
+                position: fixed;
+                top: -9999px;
+                left: -9999px;
+                width: min(16.5rem, calc(100vw - 1.5rem));
+                padding: 0.75rem 0.85rem;
+                border-radius: 1rem;
+                background: linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 243, 255, 0.96) 100%);
+                border: 1.5px solid #ddd6fe;
+                color: #475569;
+                font-size: 0.78rem;
+                font-weight: 600;
+                line-height: 1.5;
+                text-align: left;
+                box-shadow:
+                    0 12px 28px rgba(139, 92, 246, 0.12),
+                    0 4px 10px rgba(15, 23, 42, 0.05);
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-4px);
+                transition:
+                    opacity 0.15s ease,
+                    visibility 0.15s ease,
+                    transform 0.15s ease;
+                z-index: 200;
+                pointer-events: none;
+                backdrop-filter: blur(8px);
+            }
+            .flashcard-guide-tip-label {
+                display: block;
+                margin-bottom: 0.35rem;
+                font-size: 0.62rem;
+                font-weight: 800;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                color: #7c3aed;
+            }
+            .flashcard-guide-tip kbd {
+                display: inline-block;
+                padding: 0.1rem 0.35rem;
+                border-radius: 0.35rem;
+                background: #f5f3ff;
+                border: 1px solid #ddd6fe;
+                color: #6d28d9;
+                font-family: ui-monospace, monospace;
+                font-size: 0.68rem;
+                font-weight: 700;
+            }
+            .flashcard-guide-tip.is-open {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
             }
 
             #btn-review-hub {
@@ -867,6 +929,19 @@
                         </div>
                     </div>
                     <div class="flex gap-2 items-center shrink-0">
+                        <button
+                            id="btn-flashcard-guide"
+                            type="button"
+                            class="hidden relative w-10 h-10 shrink-0 bg-white rounded-full items-center justify-center text-slate-400 hover:text-violet-500 hover:bg-violet-50 shadow-sm transition-colors border border-slate-100"
+                            aria-label="Hướng dẫn Flashcards"
+                            tabindex="0"
+                        >
+                            <i class="fa-regular fa-circle-question text-lg"></i>
+                            <span id="flashcard-guide-tip" class="flashcard-guide-tip pointer-events-none" role="tooltip">
+                                <span class="flashcard-guide-tip-label"><i class="fa-regular fa-lightbulb mr-1"></i>Hướng dẫn</span>
+                                Lần đầu hãy nhấn <kbd>Space</kbd> để ghi nhớ keywords. Lần sau hãy thử tự trả lời nha!
+                            </span>
+                        </button>
                         <div
                             id="timer-container"
                             class="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-xl shadow-sm border-2 border-blue-100 text-blue-600 font-black text-base md:text-lg"
@@ -1920,6 +1995,8 @@
                     document.getElementById("timer-container").classList.toggle("hidden", isSRStudy);
                     document.getElementById("score-container").classList.add("hidden");
                     document.getElementById("btn-mark-ingame").classList.toggle("hidden", isSRStudy);
+                    document.getElementById("btn-flashcard-guide").classList.toggle("hidden", mode !== "flashcard");
+                    document.getElementById("btn-flashcard-guide").classList.toggle("flex", mode === "flashcard");
                     document.getElementById("flashcard-front-panel").classList.add("hidden");
                     document.getElementById("options-container").classList.remove("flashcard-hidden");
                     resetResultScreen();
@@ -2495,9 +2572,57 @@
                 document.getElementById("game-answer-panel").classList.add("is-visible");
             }
 
+            function bindFlashcardGuideTip() {
+                const btn = document.getElementById("btn-flashcard-guide");
+                let tip = document.getElementById("flashcard-guide-tip");
+                if (!btn || !tip) return;
+
+                if (tip.parentElement !== document.body) document.body.appendChild(tip);
+
+                const openTip = () => {
+                    if (btn.classList.contains("hidden")) return;
+                    const rect = btn.getBoundingClientRect();
+                    const gap = 8;
+                    const pad = 12;
+
+                    tip.style.width = `${Math.min(264, window.innerWidth - pad * 2)}px`;
+                    tip.classList.add("is-open");
+
+                    const tipWidth = tip.offsetWidth;
+                    const tipHeight = tip.offsetHeight;
+                    let left = rect.left - tipWidth;
+                    let top = rect.bottom + gap;
+
+                    left = Math.max(pad, Math.min(left, window.innerWidth - tipWidth - pad));
+                    top = Math.max(pad, Math.min(top, window.innerHeight - tipHeight - pad));
+
+                    tip.style.left = `${left}px`;
+                    tip.style.top = `${top}px`;
+                };
+
+                const closeTip = () => {
+                    tip.classList.remove("is-open");
+                    tip.style.top = "-9999px";
+                    tip.style.left = "-9999px";
+                };
+
+                btn.addEventListener("mouseenter", openTip);
+                btn.addEventListener("mouseleave", closeTip);
+                btn.addEventListener("focus", openTip);
+                btn.addEventListener("blur", closeTip);
+                btn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    tip.classList.contains("is-open") ? closeTip() : openTip();
+                });
+                window.addEventListener("resize", () => {
+                    if (tip.classList.contains("is-open")) openTip();
+                });
+            }
+
             window.onload = () => {
                 applyKeywordsSettings();
                 subjectManager.migrateLegacyData();
+                bindFlashcardGuideTip();
                 showSubjectSelection();
             };
 

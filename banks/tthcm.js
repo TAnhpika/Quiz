@@ -2584,7 +2584,7 @@
                 "Nhiệm vụ của cách mạng.",
                 "Lực lượng cách mạng."
             ],
-            "answer": 2,
+            "answer": 3,
             "explanation": "Nhiệm vụ của cách mạng.",
             "keywords": "Q: “Công nông là gốc của cách mệnh, còn | A: Nhiệm vụ của cách mạng"
         },

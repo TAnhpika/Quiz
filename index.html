@@ -938,8 +938,8 @@
                         >
                             <i class="fa-regular fa-circle-question text-lg"></i>
                             <span id="flashcard-guide-tip" class="flashcard-guide-tip pointer-events-none" role="tooltip">
-                                <span class="flashcard-guide-tip-label"><i class="fa-regular fa-lightbulb mr-1"></i>Hướng dẫn</span>
-                                Lần đầu hãy nhấn <kbd>Space</kbd> để ghi nhớ keywords. Lần sau hãy thử tự trả lời nha!
+                                <span class="flashcard-guide-tip-label"><i class="fa-regular fa-lightbulb mr-1"></i>Hướng dẫn</span> 
+                                Lần đầu hãy nhấn <kbd>Space</kbd> để ghi nhớ keywords. Lần sau hãy thử tự trả lời nha?
                             </span>
                         </button>
                         <div
@@ -1082,6 +1082,19 @@
 
             <div id="screen-result" class="hidden flex-1 flex flex-col items-center justify-center text-center animate-fade-in px-2 sm:px-0">
                 <div class="glass-panel p-6 sm:p-10 md:p-14 rounded-3xl shadow-2xl w-full max-w-2xl relative bg-white/95">
+                    <button
+                        id="btn-result-guide"
+                        type="button"
+                        class="hidden absolute top-3 right-3 sm:top-4 sm:right-4 z-20 w-10 h-10 shrink-0 bg-white rounded-full items-center justify-center text-slate-400 hover:text-violet-500 hover:bg-violet-50 shadow-sm transition-colors border border-slate-100"
+                        aria-label="Hướng dẫn sau khi hoàn thành chặng"
+                        tabindex="0"
+                    >
+                        <i class="fa-regular fa-circle-question text-lg"></i>
+                        <span id="result-guide-tip" class="flashcard-guide-tip pointer-events-none" role="tooltip">
+                            <span class="flashcard-guide-tip-label"><i class="fa-regular fa-lightbulb mr-1"></i>Mẹo học</span>
+                            Hoàn thành chặng lần đầu? Làm lại ngay để nắm chắc kiến thức nào!
+                        </span>
+                    </button>
                     <div id="fireworks" class="absolute inset-0 pointer-events-none opacity-60 overflow-hidden rounded-3xl"></div>
                     <div class="inline-block p-3 sm:p-4 bg-yellow-50 rounded-full mb-3 sm:mb-4">
                         <i class="fa-solid fa-trophy text-5xl sm:text-6xl text-yellow-400 drop-shadow-md"></i>
@@ -2189,6 +2202,17 @@
                 document.getElementById("result-score-label").innerText = "Số lần hoàn thành";
                 document.getElementById("result-score").innerText = `${times} lần`;
                 document.getElementById("result-time-wrap").classList.add("hidden");
+                const resultGuide = document.getElementById("btn-result-guide");
+                if (times === 1) {
+                    resultGuide.classList.remove("hidden");
+                    resultGuide.classList.add("flex");
+                    requestAnimationFrame(() =>
+                        openGuideTip("result-guide-tip", { autoCloseMs: 3000, closeOnButtonClick: true })
+                    );
+                } else {
+                    resultGuide.classList.add("hidden");
+                    resultGuide.classList.remove("flex");
+                }
             }
 
             function resetResultScreen() {
@@ -2197,6 +2221,10 @@
                 document.getElementById("result-stats-wrap").classList.remove("hidden");
                 document.getElementById("result-time-wrap").classList.remove("hidden");
                 document.getElementById("btn-retry").classList.remove("hidden");
+                const resultGuide = document.getElementById("btn-result-guide");
+                resultGuide.classList.add("hidden");
+                resultGuide.classList.remove("flex");
+                closeGuideTip("result-guide-tip");
             }
 
             function finishSpacedSession() {
@@ -2490,6 +2518,7 @@
             }
 
             function hideAllScreens() {
+                closeGuideTip("result-guide-tip");
                 ["screen-subject", "screen-home", "screen-game", "screen-result", "screen-handbook", "modal-group", "modal-review-hub"].forEach((id) =>
                     document.getElementById(id).classList.add("hidden"),
                 );
@@ -2572,17 +2601,33 @@
                 document.getElementById("game-answer-panel").classList.add("is-visible");
             }
 
-            function bindFlashcardGuideTip() {
-                const btn = document.getElementById("btn-flashcard-guide");
-                let tip = document.getElementById("flashcard-guide-tip");
+            const guideTipControllers = {};
+
+            function bindGuideTip(btnId, tipId) {
+                const btn = document.getElementById(btnId);
+                const tip = document.getElementById(tipId);
                 if (!btn || !tip) return;
 
                 if (tip.parentElement !== document.body) document.body.appendChild(tip);
 
-                const openTip = () => {
+                let autoCloseTimer = null;
+                let dismissListener = null;
+
+                const clearAutoDismiss = () => {
+                    if (autoCloseTimer) {
+                        clearTimeout(autoCloseTimer);
+                        autoCloseTimer = null;
+                    }
+                    if (dismissListener) {
+                        document.removeEventListener("click", dismissListener, true);
+                        dismissListener = null;
+                    }
+                };
+
+                const openTip = (openOptions = {}) => {
                     if (btn.classList.contains("hidden")) return;
                     const rect = btn.getBoundingClientRect();
-                    const gap = 8;
+                    const gap = 4;
                     const pad = 12;
 
                     tip.style.width = `${Math.min(264, window.innerWidth - pad * 2)}px`;
@@ -2590,25 +2635,43 @@
 
                     const tipWidth = tip.offsetWidth;
                     const tipHeight = tip.offsetHeight;
-                    let left = rect.left - tipWidth;
+                    let left = rect.right - tipWidth;
                     let top = rect.bottom + gap;
 
-                    left = Math.max(pad, Math.min(left, window.innerWidth - tipWidth - pad));
+                    if (left + tipWidth > window.innerWidth - pad) left = window.innerWidth - tipWidth - pad;
+                    if (left < pad) left = pad;
                     top = Math.max(pad, Math.min(top, window.innerHeight - tipHeight - pad));
 
                     tip.style.left = `${left}px`;
                     tip.style.top = `${top}px`;
+
+                    clearAutoDismiss();
+                    if (openOptions.autoCloseMs) {
+                        autoCloseTimer = setTimeout(closeTip, openOptions.autoCloseMs);
+                    }
+                    if (openOptions.closeOnButtonClick) {
+                        dismissListener = (e) => {
+                            if (!tip.classList.contains("is-open")) return;
+                            const clickedBtn = e.target.closest("button");
+                            if (!clickedBtn || clickedBtn === btn) return;
+                            closeTip();
+                        };
+                        document.addEventListener("click", dismissListener, true);
+                    }
                 };
 
                 const closeTip = () => {
+                    clearAutoDismiss();
                     tip.classList.remove("is-open");
                     tip.style.top = "-9999px";
                     tip.style.left = "-9999px";
                 };
 
-                btn.addEventListener("mouseenter", openTip);
+                guideTipControllers[tipId] = { open: openTip, close: closeTip };
+
+                btn.addEventListener("mouseenter", () => openTip());
                 btn.addEventListener("mouseleave", closeTip);
-                btn.addEventListener("focus", openTip);
+                btn.addEventListener("focus", () => openTip());
                 btn.addEventListener("blur", closeTip);
                 btn.addEventListener("click", (e) => {
                     e.preventDefault();
@@ -2617,6 +2680,19 @@
                 window.addEventListener("resize", () => {
                     if (tip.classList.contains("is-open")) openTip();
                 });
+            }
+
+            function openGuideTip(tipId, options) {
+                guideTipControllers[tipId]?.open(options);
+            }
+
+            function closeGuideTip(tipId) {
+                guideTipControllers[tipId]?.close();
+            }
+
+            function bindFlashcardGuideTip() {
+                bindGuideTip("btn-flashcard-guide", "flashcard-guide-tip");
+                bindGuideTip("btn-result-guide", "result-guide-tip");
             }
 
             window.onload = () => {

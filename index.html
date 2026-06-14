@@ -2483,7 +2483,7 @@
                 document.getElementById("btn-help-hint").classList.toggle("hidden", !enabled);
                 document.getElementById("game-answer-panel").classList.toggle("hidden", !enabled);
                 const hintText = document.getElementById("flashcard-space-hint-text");
-                if (hintText) hintText.innerText = enabled ? "để xem Keywords" : "để xem đáp án";
+                if (hintText) hintText.innerText = enabled ? "để ghi nhớ đúng" : "để xem đáp án";
             }
 
             function showAnswerPanel(text, label = "Keywords", iconClass = "fa-tags") {

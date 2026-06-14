@@ -1,17 +1,23 @@
 /**
- * One-shot script: generate keywords for all questions in QUESTION_BANKS
- * and patch index.html. Usage:
+ * Generate keywords for question banks in banks/{subjectId}.js
+ * Usage:
  *   node scripts/generate-keywords.mjs --dry-run
- *   node scripts/generate-keywords.mjs
+ *   node scripts/generate-keywords.mjs --refresh
  */
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const INDEX_PATH = path.join(__dirname, "..", "index.html");
+const BANKS_DIR = path.join(__dirname, "..", "banks");
 const DRY_RUN = process.argv.includes("--dry-run");
 const REFRESH = process.argv.includes("--refresh");
+
+const SUBJECT_NAMES = {
+    tthcm: "Tư tưởng Hồ Chí Minh",
+    thml: "Triết học Mác - Lênin",
+    swt_pt1: "Software Testing PT1",
+};
 
 const STOPWORDS = new Set([
     "the", "a", "an", "of", "to", "in", "for", "and", "or", "is", "are", "was", "were", "be", "been",
@@ -155,82 +161,41 @@ function escapeJsString(s) {
     return s.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, " ");
 }
 
-function extractQuestionBanks(html) {
-    const marker = "const QUESTION_BANKS = ";
-    const start = html.indexOf(marker);
-    if (start < 0) throw new Error("QUESTION_BANKS not found");
-    let i = html.indexOf("{", start);
-    let depth = 0;
-    for (; i < html.length; i++) {
-        if (html[i] === "{") depth++;
-        else if (html[i] === "}") {
-            depth--;
-            if (depth === 0) break;
-        }
-    }
-    const objStr = html.slice(html.indexOf("{", start), i + 1);
-    return Function(`"use strict"; return ${objStr};`)();
+function loadBankFromFile(subjectId) {
+    const filePath = path.join(BANKS_DIR, `${subjectId}.js`);
+    const src = fs.readFileSync(filePath, "utf8");
+    const match = src.match(/const bank = (\[[\s\S]*\n\s*\]);/);
+    if (!match) throw new Error(`Cannot parse banks/${subjectId}.js`);
+    return JSON.parse(match[1]);
 }
 
-function findQuestionBanksBounds(html) {
-    const marker = "const QUESTION_BANKS = ";
-    const start = html.indexOf(marker);
-    if (start < 0) throw new Error("QUESTION_BANKS not found");
-    let i = html.indexOf("{", start);
-    let depth = 0;
-    for (; i < html.length; i++) {
-        if (html[i] === "{") depth++;
-        else if (html[i] === "}") {
-            depth--;
-            if (depth === 0) break;
-        }
+function loadAllBanks() {
+    const banks = {};
+    for (const file of fs.readdirSync(BANKS_DIR)) {
+        if (!file.endsWith(".js")) continue;
+        const subjectId = file.replace(/\.js$/, "");
+        banks[subjectId] = loadBankFromFile(subjectId);
     }
-    return { start, end: i + 1 };
+    return banks;
 }
 
-function patchQuestionBanks(html, banks) {
-    const { start, end } = findQuestionBanksBounds(html);
-    let section = html.slice(start, end);
-
-    const flat = [];
-    for (const [bankKey, questions] of Object.entries(banks)) {
-        for (const q of questions) {
-            flat.push({ bankKey, id: q.id, keywords: generateKeywords(q, bankKey) });
-        }
-    }
-
-    if (REFRESH) {
-        let ki = 0;
-        section = section.replace(/^(\s+keywords:\s*")(?:[^"\\]|\\.)*("),?\s*$/gm, (match, prefix, suffix) => {
-            if (ki >= flat.length) return match;
-            const kw = escapeJsString(flat[ki++].keywords);
-            return `${prefix}${kw}${suffix},`;
-        });
-        if (ki !== flat.length) {
-            throw new Error(`Keyword refresh mismatch: updated ${ki}, expected ${flat.length}`);
-        }
-        return html.slice(0, start) + section + html.slice(end);
-    }
-
-    section = section.replace(/^(\s+explanation:\s*"(?:[^"\\]|\\.)*"),?\s*$/gm, (match, explPart) => {
-        if (flat.length === 0) return match;
-        const item = flat.shift();
-        const indent = match.match(/^(\s+)/)[1];
-        const kw = escapeJsString(item.keywords);
-        if (match.includes("keywords:")) return match;
-        return `${explPart},\n${indent}keywords: "${kw}",`;
-    });
-
-    if (flat.length > 0) {
-        throw new Error(`Unmatched questions remaining: ${flat.length}`);
-    }
-
-    return html.slice(0, start) + section + html.slice(end);
+function writeBankFile(subjectId, questions) {
+    const name = SUBJECT_NAMES[subjectId] || subjectId;
+    const json = JSON.stringify(questions, null, 4)
+        .replace(/^/gm, "    ")
+        .trim();
+    const content = `/** Ngân hàng câu hỏi: ${name} (${questions.length} câu) — load on demand */
+(function (global) {
+    const bank = ${json};
+    global.QUIZ_BANKS = global.QUIZ_BANKS || {};
+    global.QUIZ_BANKS["${subjectId}"] = bank;
+})(typeof window !== "undefined" ? window : globalThis);
+`;
+    fs.writeFileSync(path.join(BANKS_DIR, `${subjectId}.js`), content, "utf8");
 }
 
 function main() {
-    const html = fs.readFileSync(INDEX_PATH, "utf8");
-    const banks = extractQuestionBanks(html);
+    const banks = loadAllBanks();
 
     if (DRY_RUN) {
         for (const [bankKey, questions] of Object.entries(banks)) {
@@ -244,11 +209,21 @@ function main() {
         return;
     }
 
-    const patched = patchQuestionBanks(html, banks);
-    fs.writeFileSync(INDEX_PATH, patched, "utf8");
+    if (!REFRESH) {
+        console.error("Use --refresh to write keywords into banks/*.js");
+        process.exit(1);
+    }
 
-    const total = Object.values(banks).reduce((s, arr) => s + arr.length, 0);
-    console.log(`${REFRESH ? "Refreshed" : "Patched"} ${total} questions with keywords in ${INDEX_PATH}`);
+    let total = 0;
+    for (const [bankKey, questions] of Object.entries(banks)) {
+        for (const q of questions) {
+            q.keywords = generateKeywords(q, bankKey);
+        }
+        writeBankFile(bankKey, questions);
+        total += questions.length;
+        console.log(`Refreshed banks/${bankKey}.js (${questions.length} questions)`);
+    }
+    console.log(`\nTotal: ${total} questions`);
 }
 
 main();

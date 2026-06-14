@@ -24,7 +24,11 @@
 
 ```
 Quiz/
-├── index.html          # Toàn bộ app: HTML + CSS + JS + QUESTION_BANKS
+├── index.html          # App: HTML + CSS + JS (logic)
+├── banks/              # Ngân hàng câu hỏi — load on demand
+│   ├── tthcm.js
+│   ├── thml.js
+│   └── swt_pt1.js
 ├── README.md
 ├── ARCHITECTURE.md
 └── PhanTichNghiepVu.md
@@ -52,7 +56,8 @@ index.html
 │
 └── <script>
     ├── SUBJECTS              # Metadata từng môn (theme, icon, title)
-    ├── QUESTION_BANKS        # Ngân hàng câu hỏi embedded
+    ├── bankLoader            # Dynamic load banks/{subjectId}.js
+    ├── SUBJECTS              # Cấu hình môn (+ questionCount)
     ├── subjectManager        # Chọn môn, load/save localStorage, cloud payload
     ├── reviewDateUtils       # Helper ngày tháng
     ├── reviewStorage         # reviewData + reviewMeta local/Firestore
@@ -78,15 +83,17 @@ index.html
 }
 ```
 
-### Ngân hàng theo môn (`QUESTION_BANKS`)
+### Ngân hàng theo môn (`banks/{subjectId}.js`)
 
-| Key       | Môn                     | Số câu |
-| --------- | ----------------------- | ------ |
-| `tthcm`   | Tư tưởng Hồ Chí Minh    | 300    |
-| `thml`    | Triết học Mác - Lênin   | 361    |
-| `swt_pt1` | Software Testing PT1    | 166    |
+| File        | Môn                     | Số câu |
+| ----------- | ----------------------- | ------ |
+| `tthcm.js`  | Tư tưởng Hồ Chí Minh    | 300    |
+| `thml.js`   | Triết học Mác - Lênin   | 361    |
+| `swt_pt1.js`| Software Testing PT1    | 166    |
 
-Thêm môn mới: khai báo trong `SUBJECTS` + thêm array tương ứng trong `QUESTION_BANKS`.
+Thêm môn mới: khai báo trong `SUBJECTS` + tạo `banks/{id}.js` + `questionCount` trong SUBJECTS.
+
+Load: `bankLoader.load(subjectId)` khi user chọn môn — script inject `banks/{id}.js`, đăng ký `window.QUIZ_BANKS[id]`.
 
 ---
 
@@ -96,7 +103,7 @@ Thêm môn mới: khai báo trong `SUBJECTS` + thêm array tương ứng trong `
 
 ```js
 currentSubjectId      // môn đang chọn
-questionBank          // ref → QUESTION_BANKS[subjectId]
+questionBank          // ref → bankLoader cache (môn đang chọn)
 markedQuestions       // id[] bookmark
 reviewedQuestions     // id[] đã ôn (mode review)
 groupLastResult       // { "0": { correct, total, percent } }

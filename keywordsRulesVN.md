@@ -351,8 +351,9 @@ Output:
 
 ---
 
-Nguyên tắc cuối cùng:
 
+
+## VI. 
 Nếu phải lựa chọn giữa:
 
 - ngắn hơn,
@@ -361,3 +362,158 @@ Nếu phải lựa chọn giữa:
 hãy luôn chọn phương án đúng với giáo trình.
 
 Nếu nhìn phần A: mà người học có thể đọc như một câu hoàn chỉnh, nghĩa là quá dài. Nếu nhìn A: mà mất khả năng gợi lại đáp án đầy đủ, nghĩa là quá ngắn. Hãy chọn điểm cân bằng: tối đa 4 cụm nguyên văn có giá trị gợi nhớ mạnh nhất.
+
+## VII. Rules bổ sung cho Q (Question Cue)
+
+### Mục tiêu
+
+Phần `Q:` không dùng để chép lại câu hỏi.
+
+Mục tiêu là:
+
+> Giúp người học nhận ra ngay câu hỏi đang kiểm tra kiến thức nào và phân biệt được với các câu tương tự trong cùng ngân hàng câu hỏi.
+
+Q phải đạt được 3 tiêu chí:
+
+* **Ngắn gọn**
+* **Đủ ý chính**
+* **Dễ phân biệt**
+
+---
+
+### 1. Ngắn gọn
+
+Ưu tiên:
+
+```text
+2–7 từ
+```
+
+Chỉ giữ lại những yếu tố thực sự cần thiết.
+
+Loại bỏ:
+
+* từ hỏi: ai, gì, nào, bao nhiêu,...
+* cụm dẫn nhập dài:
+
+  * Theo quan điểm của...
+  * Chọn đáp án đúng nhất...
+  * Trong các nhận định sau...
+
+Ví dụ:
+
+Không nên:
+
+```text
+Theo chủ nghĩa Mác-Lênin, chủ nghĩa duy vật đã trải qua mấy hình thức phát triển
+```
+
+Nên:
+
+```text
+duy vật - mấy hình thức phát triển
+```
+
+---
+
+### 2. Đủ ý chính
+
+Q phải thể hiện được:
+
+> "Câu này thực sự đang hỏi điều gì?"
+
+Không chỉ nêu chủ đề chung.
+
+Không nên:
+
+```text
+Platon
+Hegel
+Nhà nước
+Ý thức
+```
+
+vì quá rộng.
+
+Nên:
+
+```text
+Platon - bản nguyên thế giới
+Hegel - khởi nguyên thế giới
+nhà nước của dân - quyền lực
+ý thức - nguồn gốc trực tiếp
+```
+
+---
+
+### 3. Dễ phân biệt
+
+Hãy tưởng tượng người học đã làm hàng trăm câu trong cùng môn học.
+
+Tự hỏi:
+
+> Nếu chỉ nhìn Q, mình có phân biệt được câu này với các câu khác cùng chủ đề không?
+
+Nếu câu trả lời là "không chắc", hãy bổ sung thêm dấu hiệu nhận diện.
+
+Ví dụ:
+
+Không nên:
+
+```text
+Mác
+```
+
+Nên:
+
+```text
+Mác - thuốc phiện của nhân dân
+```
+
+Không nên:
+
+```text
+nhà nước của dân
+```
+
+Nên:
+
+```text
+nhà nước của dân - quyền lực
+```
+
+---
+
+### 4. Ưu tiên dấu hiệu nhận diện mạnh
+
+Khi chọn Q, ưu tiên theo thứ tự:
+
+1. Thuật ngữ giáo trình cốt lõi.
+2. Tên nhân vật học thuật (Platon, Hegel, Mác,...).
+3. Cụm trích dẫn nổi tiếng.
+4. Quan hệ hoặc hành động được hỏi.
+5. Điều kiện, số lượng, phạm vi nếu giúp phân biệt.
+
+---
+
+### 5. Retrieval Test cho Q
+
+Trước khi chốt `Q:`, hãy tự hỏi:
+
+> Nếu chỉ nhìn Q sau 2 tuần không ôn tập, mình có nhận ra đây là câu nào trong bank không?
+
+Nếu:
+
+* quá chung chung,
+* có thể áp dụng cho nhiều câu khác,
+* không gợi đúng kiến thức,
+
+thì phải viết lại.
+
+---
+
+### Nguyên tắc cuối cùng
+
+> Q tốt không phải là Q ngắn nhất.
+
+> Q tốt là Q ngắn nhất nhưng vẫn đủ để người học nhận ra đúng câu hỏi và không nhầm với các câu khác trong cùng ngân hàng câu hỏi.

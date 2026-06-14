@@ -806,6 +806,7 @@
                         <button
                             onclick="showHome()"
                             class="w-10 h-10 shrink-0 bg-white rounded-full flex items-center justify-center text-slate-500 hover:text-pink-500 shadow-sm transition-colors border border-slate-100"
+                            title="Quay lại (Esc)"
                         >
                             <i class="fa-solid fa-arrow-left"></i>
                         </button>
@@ -876,9 +877,11 @@
                             </h3>
                         </div>
 
-                        <!-- Flashcard FRONT: hint + lật thẻ (chế độ flashcard) -->
-                        <div id="flashcard-front-panel" class="hidden px-4 pb-4 text-center">
-                            <p class="text-xs text-slate-400 italic mb-3">(Tự nhớ đáp án trước khi lật thẻ)</p>
+                        <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 px-3 md:px-4"></div>
+
+                        <!-- Flashcard: nút lật thẻ (dưới 4 lựa chọn, chế độ flashcard) -->
+                        <div id="flashcard-front-panel" class="hidden px-4 pb-2 text-center">
+                            <p class="text-xs text-slate-400 mb-2"><kbd class="px-1.5 py-0.5 bg-slate-100 rounded text-slate-500 font-mono text-[10px]">Space</kbd> để xem đáp án</p>
                             <button
                                 id="btn-flip-card"
                                 onclick="flipFlashcard()"
@@ -887,8 +890,6 @@
                                 Xem đáp án <i class="fa-solid fa-rotate ml-1"></i>
                             </button>
                         </div>
-
-                        <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 px-3 md:px-4"></div>
 
                         <div id="game-answer-panel" class="border-t border-slate-100 bg-gradient-to-r from-yellow-50/80 to-amber-50/50">
                             <div class="flex items-start gap-2">
@@ -922,26 +923,30 @@
                             <button
                                 onclick="handleGrade('again')"
                                 class="grade-btn py-2.5 rounded-xl border-2 border-red-200 bg-red-50 text-red-700 font-bold text-xs md:text-sm hover:bg-red-100"
+                                title="Phím 1"
                             >
-                                😵 Quên hoàn toàn
+                                <span class="text-[10px] opacity-60 mr-1">1</span>😵 Quên hoàn toàn
                             </button>
                             <button
                                 onclick="handleGrade('hard')"
                                 class="grade-btn py-2.5 rounded-xl border-2 border-orange-200 bg-orange-50 text-orange-700 font-bold text-xs md:text-sm hover:bg-orange-100"
+                                title="Phím 2"
                             >
-                                🤔 Khó nhớ
+                                <span class="text-[10px] opacity-60 mr-1">2</span>🤔 Khó nhớ
                             </button>
                             <button
                                 onclick="handleGrade('good')"
                                 class="grade-btn py-2.5 rounded-xl border-2 border-green-200 bg-green-50 text-green-700 font-bold text-xs md:text-sm hover:bg-green-100"
+                                title="Phím 3"
                             >
-                                🙂 Nhớ được
+                                <span class="text-[10px] opacity-60 mr-1">3</span>🙂 Nhớ được
                             </button>
                             <button
                                 onclick="handleGrade('easy')"
                                 class="grade-btn py-2.5 rounded-xl border-2 border-blue-200 bg-blue-50 text-blue-700 font-bold text-xs md:text-sm hover:bg-blue-100"
+                                title="Phím 4"
                             >
-                                😎 Rất dễ
+                                <span class="text-[10px] opacity-60 mr-1">4</span>😎 Rất dễ
                             </button>
                         </div>
                     </div>
@@ -10017,6 +10022,18 @@
             /** Số thẻ đã Easy — dùng cho progress bar */
             let flashcardEasyCount = 0;
             const FLASHCARD_REINSERT = { again: 2, hard: 4, good: 8 };
+            const GRADE_SHORTCUT_KEYS = ["again", "hard", "good", "easy"];
+
+            function isGradeBarVisible() {
+                return !document.getElementById("spaced-grade-bar").classList.contains("hidden");
+            }
+
+            function canUseGradeShortcut() {
+                if (!isGradeBarVisible()) return false;
+                if (currentMode === "flashcard") return flashcardFlipped;
+                if (currentMode === "spaced") return spacedAnswerRevealed;
+                return false;
+            }
 
             function handleGrade(grade) {
                 if (currentMode === "flashcard") handleFlashcardGrade(grade);
@@ -10066,22 +10083,25 @@
                 if (currentMode !== "flashcard" || flashcardFlipped || flashcardQueue.length === 0) return;
                 flashcardFlipped = true;
                 const q = flashcardQueue[0];
-                renderFlashcardBack(q);
+                renderFlashcardOptions(q, true);
                 document.getElementById("flashcard-front-panel").classList.add("hidden");
-                showAnswerPanel(q.explanation, "Giải mã", "fa-key");
+                showAnswerPanel(q.explanation, "Đáp án đúng", "fa-circle-check");
                 reviewUI.showSpacedGradeBar(true);
             }
 
-            function renderFlashcardBack(q) {
+            function renderFlashcardOptions(q, revealed = false) {
                 const optsContainer = document.getElementById("options-container");
                 optsContainer.classList.remove("flashcard-hidden");
                 optsContainer.innerHTML = "";
-                const letter = String.fromCharCode(65 + q.answer);
-                const el = document.createElement("div");
-                el.className =
-                    "option-btn flashcard-readonly correct w-full text-left rounded-2xl border-2 border-slate-100 bg-white text-slate-700 font-semibold shadow-sm flex items-center gap-2";
-                el.innerHTML = `<span class='option-letter bg-blue-50 text-blue-500 rounded-full flex items-center justify-center shrink-0 font-black'>${letter}</span><span class='line-clamp-4 md:line-clamp-3 min-w-0'>${q.options[q.answer]}</span>`;
-                optsContainer.appendChild(el);
+                q.options.forEach((opt, idx) => {
+                    const el = document.createElement("button");
+                    el.className =
+                        "option-btn flashcard-readonly w-full text-left rounded-2xl border-2 border-slate-100 bg-white text-slate-700 font-semibold shadow-sm flex items-center gap-2";
+                    if (revealed && idx === q.answer) el.classList.add("correct");
+                    el.disabled = true;
+                    el.innerHTML = `<span class='option-letter bg-blue-50 text-blue-500 rounded-full flex items-center justify-center shrink-0 font-black'>${String.fromCharCode(65 + idx)}</span><span class='line-clamp-4 md:line-clamp-3 min-w-0'>${opt}</span>`;
+                    optsContainer.appendChild(el);
+                });
             }
 
             function finishFlashcardSession() {
@@ -10485,15 +10505,15 @@
                         flashcardInitialCount > 0 ? `${Math.min(100, (flashcardEasyCount / flashcardInitialCount) * 100)}%` : "0%";
                     document.getElementById("question-text").innerText = q.text;
                     document.getElementById("btn-mark-ingame").style.color = markedQuestions.includes(q.id) ? "#f97316" : "#cbd5e1";
-                    const optsContainer = document.getElementById("options-container");
                     if (!flashcardFlipped) {
-                        optsContainer.innerHTML = "";
-                        optsContainer.classList.add("flashcard-hidden");
+                        renderFlashcardOptions(q, false);
                         document.getElementById("flashcard-front-panel").classList.remove("hidden");
                         return;
                     }
                     document.getElementById("flashcard-front-panel").classList.add("hidden");
-                    renderFlashcardBack(q);
+                    renderFlashcardOptions(q, true);
+                    showAnswerPanel(q.explanation, "Đáp án đúng", "fa-circle-check");
+                    reviewUI.showSpacedGradeBar(true);
                     return;
                 }
 
@@ -10587,12 +10607,48 @@
             }
 
             function handleGameKeydown(e) {
-                if (document.getElementById("screen-game").classList.contains("hidden")) return;
                 const tag = e.target.tagName;
                 if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
 
+                if (e.key === "Escape") {
+                    if (!document.getElementById("modal-group").classList.contains("hidden")) {
+                        e.preventDefault();
+                        closeGroupSelection();
+                        return;
+                    }
+                    if (!document.getElementById("modal-review-hub").classList.contains("hidden")) {
+                        e.preventDefault();
+                        closeReviewHubModal();
+                        return;
+                    }
+                    if (!document.getElementById("screen-game").classList.contains("hidden")) {
+                        e.preventDefault();
+                        showHome();
+                        return;
+                    }
+                    if (!document.getElementById("screen-result").classList.contains("hidden")) {
+                        e.preventDefault();
+                        showHome();
+                        return;
+                    }
+                    if (!document.getElementById("screen-handbook").classList.contains("hidden")) {
+                        e.preventDefault();
+                        showHome();
+                        return;
+                    }
+                    return;
+                }
+
+                if (document.getElementById("screen-game").classList.contains("hidden")) return;
+
                 const answerIdx = getAnswerIndexFromKey(e);
                 if (answerIdx >= 0) {
+                    if (canUseGradeShortcut()) {
+                        e.preventDefault();
+                        handleGrade(GRADE_SHORTCUT_KEYS[answerIdx]);
+                        return;
+                    }
+                    if (currentMode === "flashcard") return;
                     const btns = document.querySelectorAll("#options-container .option-btn");
                     const btn = btns[answerIdx];
                     if (btn && !btn.disabled && !btn.classList.contains("hidden-option")) {
@@ -10604,9 +10660,11 @@
 
                 if (e.key === " " || e.key === "-" || e.code === "Space" || e.code === "Minus") {
                     if (e.repeat) return;
-                    if (currentMode === "flashcard" && !flashcardFlipped) {
-                        e.preventDefault();
-                        flipFlashcard();
+                    if (currentMode === "flashcard") {
+                        if (!flashcardFlipped) {
+                            e.preventDefault();
+                            flipFlashcard();
+                        }
                         return;
                     }
                     const btnNext = document.getElementById("btn-next");

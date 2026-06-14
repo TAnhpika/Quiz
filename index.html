@@ -264,6 +264,37 @@
                 font-size: clamp(0.8rem, 2vw, 1.05rem);
                 margin-bottom: 1rem;
             }
+            #screen-result .glass-panel {
+                overflow: hidden;
+                max-height: 100%;
+            }
+            #result-title {
+                display: block;
+                line-height: 1.4;
+                padding: 0.2em 0 0.05em;
+                overflow: visible;
+                -webkit-box-decoration-break: clone;
+                box-decoration-break: clone;
+            }
+            body.result-active {
+                overflow: hidden;
+                height: 100dvh;
+                max-height: 100dvh;
+                overscroll-behavior: none;
+            }
+            body.result-active #app {
+                height: 100dvh;
+                max-height: 100dvh;
+                min-height: unset;
+                overflow: hidden;
+                padding-top: calc(0.5rem + env(safe-area-inset-top, 0px));
+                padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
+            }
+            #screen-result {
+                height: 100%;
+                min-height: 0;
+                overflow: hidden;
+            }
             #screen-home .home-features {
                 gap: 0.65rem;
             }
@@ -526,16 +557,32 @@
 
                 #screen-result {
                     padding: 0.5rem;
+                    height: 100%;
+                    overflow: hidden;
                 }
                 #screen-result .glass-panel {
                     padding: 1.35rem 0.9rem !important;
                     border-radius: 1.25rem;
+                    overflow: hidden;
+                    max-height: 100%;
+                }
+                body.result-active {
+                    overflow: hidden !important;
+                    height: 100dvh !important;
+                }
+                body.result-active #app {
+                    height: 100dvh !important;
+                    max-height: 100dvh !important;
+                    overflow: hidden !important;
                 }
                 #screen-result .fa-trophy {
                     font-size: 2.75rem !important;
                 }
-                #screen-result h2 {
+                #screen-result h2,
+                #result-title {
                     font-size: 1.65rem !important;
+                    line-height: 1.4 !important;
+                    padding-top: 0.2em !important;
                 }
                 #screen-result .flex.justify-center.gap-6 {
                     flex-direction: column;
@@ -958,18 +1005,18 @@
             </div>
 
             <div id="screen-result" class="hidden flex-1 flex flex-col items-center justify-center text-center animate-fade-in px-2 sm:px-0">
-                <div class="glass-panel p-6 sm:p-10 md:p-14 rounded-3xl shadow-2xl w-full max-w-2xl relative overflow-hidden bg-white/95">
-                    <div id="fireworks" class="absolute inset-0 pointer-events-none opacity-60"></div>
+                <div class="glass-panel p-6 sm:p-10 md:p-14 rounded-3xl shadow-2xl w-full max-w-2xl relative bg-white/95">
+                    <div id="fireworks" class="absolute inset-0 pointer-events-none opacity-60 overflow-hidden rounded-3xl"></div>
                     <div class="inline-block p-3 sm:p-4 bg-yellow-50 rounded-full mb-3 sm:mb-4">
                         <i class="fa-solid fa-trophy text-5xl sm:text-6xl text-yellow-400 drop-shadow-md"></i>
                     </div>
                     <h2
                         id="result-title"
-                        class="text-3xl sm:text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500 mb-4 tracking-tight uppercase"
+                        class="text-3xl sm:text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500 mb-4 tracking-tight uppercase leading-snug"
                     >
                         Chúc Mừng!
                     </h2>
-                    <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 md:gap-10 mb-6 sm:mb-10">
+                    <div id="result-stats-wrap" class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 md:gap-10 mb-6 sm:mb-10">
                         <div class="text-center p-4 sm:p-6 bg-blue-50 rounded-3xl shadow-sm border border-blue-100 min-w-[140px] w-full sm:w-auto">
                             <div id="result-score-label" class="text-xs text-slate-500 font-bold mb-2 tracking-widest uppercase">Điểm số</div>
                             <div id="result-score" class="text-3xl sm:text-4xl font-black text-blue-500">10</div>
@@ -1235,6 +1282,9 @@
                     reviewedQuestions = JSON.parse(localStorage.getItem(this.storageKey(subjectId, "reviewed")) || "[]");
                     groupMastery = JSON.parse(localStorage.getItem(this.storageKey(subjectId, "group_mastery")) || "{}");
                     groupLastResult = JSON.parse(localStorage.getItem(this.storageKey(subjectId, "group_last_result")) || "{}");
+                    flashcardGroupCompletions = JSON.parse(
+                        localStorage.getItem(this.storageKey(subjectId, "flashcard_completions")) || "{}",
+                    );
                     reviewStorage.loadLocal(subjectId);
                     migrateGroupLastResultFromMastery();
                 },
@@ -1245,6 +1295,10 @@
                     localStorage.setItem(subjectManager.storageKey(currentSubjectId, "reviewed"), JSON.stringify(reviewedQuestions));
                     localStorage.setItem(subjectManager.storageKey(currentSubjectId, "group_mastery"), JSON.stringify(groupMastery));
                     localStorage.setItem(subjectManager.storageKey(currentSubjectId, "group_last_result"), JSON.stringify(groupLastResult));
+                    localStorage.setItem(
+                        subjectManager.storageKey(currentSubjectId, "flashcard_completions"),
+                        JSON.stringify(flashcardGroupCompletions),
+                    );
                     reviewStorage.saveLocal(currentSubjectId);
                 },
 
@@ -1267,6 +1321,9 @@
                         reviewedQuestions: JSON.parse(localStorage.getItem(this.storageKey(subjectId, "reviewed")) || "[]"),
                         groupMastery: JSON.parse(localStorage.getItem(this.storageKey(subjectId, "group_mastery")) || "{}"),
                         groupLastResult: JSON.parse(localStorage.getItem(this.storageKey(subjectId, "group_last_result")) || "{}"),
+                        flashcardGroupCompletions: JSON.parse(
+                            localStorage.getItem(this.storageKey(subjectId, "flashcard_completions")) || "{}",
+                        ),
                         reviewMeta: JSON.parse(localStorage.getItem(this.storageKey(subjectId, "review_meta")) || '{"streak":0,"lastReviewDay":null}'),
                     };
                 },
@@ -1284,6 +1341,12 @@
                     }
                     if (data.groupLastResult) {
                         localStorage.setItem(this.storageKey(subjectId, "group_last_result"), JSON.stringify(data.groupLastResult));
+                    }
+                    if (data.flashcardGroupCompletions) {
+                        localStorage.setItem(
+                            this.storageKey(subjectId, "flashcard_completions"),
+                            JSON.stringify(data.flashcardGroupCompletions),
+                        );
                     }
                     if (data.reviewMeta) {
                         localStorage.setItem(this.storageKey(subjectId, "review_meta"), JSON.stringify(data.reviewMeta));
@@ -1336,6 +1399,8 @@
             let groupMastery = {};
             /** Kết quả lần làm gần nhất mỗi chặng { "0": { correct, total, percent } } */
             let groupLastResult = {};
+            /** Số lần hoàn thành flashcard mỗi chặng { "0": count } */
+            let flashcardGroupCompletions = {};
             /** Phiên campaign hiện tại { groupIndex, correctIds: Set } */
             let campaignRun = null;
             /** Modal chọn chặng: campaign hoặc flashcard */
@@ -1393,17 +1458,51 @@
                 }
             }
 
+            function getFlashcardCompletionCount(groupIndex) {
+                return flashcardGroupCompletions[String(groupIndex)] || 0;
+            }
+
+            function saveFlashcardGroupCompletions() {
+                if (!currentSubjectId) return;
+                localStorage.setItem(
+                    subjectManager.storageKey(currentSubjectId, "flashcard_completions"),
+                    JSON.stringify(flashcardGroupCompletions),
+                );
+                if (typeof window.saveUserData === "function") {
+                    window.saveUserData(window.getAppDataForCloud());
+                }
+            }
+
+            function recordFlashcardGroupCompletion(groupIndex) {
+                const key = String(groupIndex);
+                flashcardGroupCompletions[key] = (flashcardGroupCompletions[key] || 0) + 1;
+                saveFlashcardGroupCompletions();
+            }
+
             function renderGroupButtons() {
                 const groupContainer = document.getElementById("group-buttons");
                 groupContainer.innerHTML = "";
+                const isFlashcard = groupPickerMode === "flashcard";
                 for (let i = 0; i < totalGroups; i++) {
-                    const pct = getGroupCompletionPercent(i);
                     const btn = document.createElement("button");
                     btn.className =
                         "py-3 px-3 bg-gradient-to-br from-pink-50 to-orange-50 border-2 border-orange-100 text-orange-700 font-bold rounded-2xl hover:border-orange-300 transition-all text-left w-full";
-                    const fillClass = pct === 100 ? "bg-green-500" : pct > 0 ? "bg-gradient-to-r from-orange-400 to-pink-400" : "bg-slate-200";
-                    const pctClass = pct === 100 ? "text-green-600" : "text-orange-600";
-                    btn.innerHTML = `
+
+                    if (isFlashcard) {
+                        const times = getFlashcardCompletionCount(i);
+                        const timesClass = times > 0 ? "text-green-600" : "text-slate-400";
+                        btn.innerHTML = `
+                    <div class="text-xs text-slate-400 font-normal">Câu ${i * GROUP_SIZE + 1}-${Math.min((i + 1) * GROUP_SIZE, questionBank.length)}</div>
+                    <div class="flex items-center justify-between gap-2 mt-0.5">
+                        <span class="text-base font-black">Chặng ${i + 1}</span>
+                        <span class="text-xs font-black ${timesClass}">${times} lần</span>
+                    </div>
+                `;
+                    } else {
+                        const pct = getGroupCompletionPercent(i);
+                        const fillClass = pct === 100 ? "bg-green-500" : pct > 0 ? "bg-gradient-to-r from-orange-400 to-pink-400" : "bg-slate-200";
+                        const pctClass = pct === 100 ? "text-green-600" : "text-orange-600";
+                        btn.innerHTML = `
                     <div class="text-xs text-slate-400 font-normal">Câu ${i * GROUP_SIZE + 1}-${Math.min((i + 1) * GROUP_SIZE, questionBank.length)}</div>
                     <div class="flex items-center justify-between gap-2 mt-0.5">
                         <span class="text-base font-black">Chặng ${i + 1}</span>
@@ -1413,6 +1512,7 @@
                         <div class="group-progress-fill ${fillClass}" style="width:${pct}%"></div>
                     </div>
                 `;
+                    }
                     btn.onclick = () => {
                         closeGroupSelection();
                         startGame(groupPickerMode === "flashcard" ? "flashcard" : "campaign", i);
@@ -1991,20 +2091,23 @@
             }
 
             function finishFlashcardSession() {
+                recordFlashcardGroupCompletion(lastGroupIndex);
                 clearInterval(timerInterval);
                 reviewUI.updateDashboard();
                 hideAllScreens();
                 resetResultScreen();
-                document.getElementById("screen-result").classList.remove("hidden");
+                showResultScreen();
                 document.getElementById("result-title").innerText = `Hoàn thành Flashcards · Chặng ${lastGroupIndex + 1}`;
-                document.getElementById("result-score-label").innerText = "Kết quả";
-                document.getElementById("result-score").innerText = `Đã ôn: ${flashcardInitialCount} câu.`;
+                const times = getFlashcardCompletionCount(lastGroupIndex);
+                document.getElementById("result-score-label").innerText = "Số lần hoàn thành";
+                document.getElementById("result-score").innerText = `${times} lần`;
                 document.getElementById("result-time-wrap").classList.add("hidden");
             }
 
             function resetResultScreen() {
                 document.getElementById("result-title").innerText = "Chúc Mừng!";
                 document.getElementById("result-score-label").innerText = "Điểm số";
+                document.getElementById("result-stats-wrap").classList.remove("hidden");
                 document.getElementById("result-time-wrap").classList.remove("hidden");
                 document.getElementById("btn-retry").classList.remove("hidden");
             }
@@ -2016,7 +2119,7 @@
                 resetResultScreen();
                 const dueLeft = reviewEngine.getDueQuestions().length;
                 showToast(`Hoàn thành ${currentQuestions.length} câu ôn hôm nay!`);
-                document.getElementById("screen-result").classList.remove("hidden");
+                showResultScreen();
                 document.getElementById("result-score").innerText = "Ôn xong";
                 document.getElementById("result-time").innerText = dueLeft > 0 ? `${dueLeft} câu còn đến hạn` : "Đã hết câu đến hạn";
             }
@@ -2077,6 +2180,7 @@
                         reviewedQuestions,
                         groupMastery,
                         groupLastResult,
+                        flashcardGroupCompletions,
                         reviewMeta,
                     };
                 }
@@ -2258,6 +2362,12 @@
                 document.body.classList.add("home-active");
                 document.body.classList.remove("game-active");
             }
+            function showResultScreen() {
+                document.getElementById("screen-result").classList.remove("hidden");
+                document.body.classList.add("result-active");
+                document.body.classList.remove("game-active", "home-active", "subject-active");
+            }
+
             function hideAllScreens() {
                 ["screen-subject", "screen-home", "screen-game", "screen-result", "screen-handbook", "modal-group", "modal-review-hub"].forEach((id) =>
                     document.getElementById(id).classList.add("hidden"),
@@ -2267,6 +2377,7 @@
                 document.body.classList.remove("game-active");
                 document.body.classList.remove("home-active");
                 document.body.classList.remove("subject-active");
+                document.body.classList.remove("result-active");
                 spacedAnswerRevealed = false;
                 flashcardFlipped = false;
                 flashcardAwaitContinue = false;
@@ -2666,7 +2777,7 @@
                 hideAllScreens();
                 resetResultScreen();
                 updateHomeReviewButton();
-                document.getElementById("screen-result").classList.remove("hidden");
+                showResultScreen();
                 document.getElementById("result-score").innerText =
                     currentMode === "exam"
                         ? `${((score / currentQuestions.length) * 10).toFixed(1)}/10`

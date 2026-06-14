@@ -160,6 +160,20 @@
                 transform: translateY(-1px);
             }
 
+            #btn-flip-card {
+                transition: all 0.15s ease;
+            }
+            #btn-flip-card:hover {
+                transform: translateY(-1px);
+            }
+            #options-container.flashcard-hidden {
+                display: none !important;
+            }
+            .option-btn.flashcard-readonly {
+                pointer-events: none;
+                cursor: default;
+            }
+
             #btn-review-hub {
                 box-shadow: 0 8px 24px rgba(236, 72, 153, 0.25);
             }
@@ -639,7 +653,7 @@
                     </h1>
                     <p id="home-subject-count" class="home-subtitle text-slate-600 font-semibold max-w-2xl mx-auto">Hệ thống ôn tập thông minh - Lưu trữ đám mây tự động!</p>
 
-                    <div class="home-features grid grid-cols-1 md:grid-cols-3 w-full max-w-sm md:max-w-3xl mx-auto">
+                    <div class="home-features grid grid-cols-2 md:grid-cols-4 w-full max-w-sm md:max-w-4xl mx-auto">
                         <button
                             onclick="openGroupSelection()"
                             class="home-feature-btn group relative bg-white border-2 border-pink-200 rounded-2xl shadow-sm hover:shadow-md hover:border-pink-300 transition-all flex flex-col items-center text-center"
@@ -671,6 +685,17 @@
                             </div>
                             <h3 class="font-bold text-slate-700 mb-0.5">Ôn Lại</h3>
                             <p class="text-slate-500 leading-tight">Chưa thuộc</p>
+                        </button>
+                        <button
+                            id="btn-flashcards-home"
+                            onclick="openFlashcardGroupSelection()"
+                            class="home-feature-btn group relative bg-white border-2 border-violet-200 rounded-2xl shadow-sm hover:shadow-md hover:border-violet-300 transition-all flex flex-col items-center text-center"
+                        >
+                            <div class="feature-icon-wrap text-violet-500 bg-violet-50 rounded-full">
+                                <i class="fa-solid fa-clone"></i>
+                            </div>
+                            <h3 class="font-bold text-slate-700 mb-0.5">Flashcards</h3>
+                            <p class="text-slate-500 leading-tight">20 câu/chặng</p>
                         </button>
                     </div>
                 </div>
@@ -770,7 +795,7 @@
                     >
                         <i class="fa-solid fa-times text-xl"></i>
                     </button>
-                    <h3 class="text-2xl font-black text-slate-800 mb-2">Chọn nhóm ôn tập</h3>
+                    <h3 id="modal-group-title" class="text-2xl font-black text-slate-800 mb-2">Chọn nhóm ôn tập</h3>
                     <div id="group-buttons" class="grid grid-cols-2 md:grid-cols-3 gap-3 max-h-[60vh] overflow-y-auto pr-2 mt-4"></div>
                 </div>
             </div>
@@ -851,6 +876,18 @@
                             </h3>
                         </div>
 
+                        <!-- Flashcard FRONT: hint + lật thẻ (chế độ flashcard) -->
+                        <div id="flashcard-front-panel" class="hidden px-4 pb-4 text-center">
+                            <p class="text-xs text-slate-400 italic mb-3">(Tự nhớ đáp án trước khi lật thẻ)</p>
+                            <button
+                                id="btn-flip-card"
+                                onclick="flipFlashcard()"
+                                class="w-full max-w-xs mx-auto py-2.5 md:py-3 bg-gradient-to-r from-violet-500 to-indigo-500 text-white rounded-xl font-black text-sm md:text-base hover:from-violet-600 hover:to-indigo-600 shadow-md"
+                            >
+                                Xem đáp án <i class="fa-solid fa-rotate ml-1"></i>
+                            </button>
+                        </div>
+
                         <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 px-3 md:px-4"></div>
 
                         <div id="game-answer-panel" class="border-t border-slate-100 bg-gradient-to-r from-yellow-50/80 to-amber-50/50">
@@ -880,28 +917,28 @@
                             </button>
                         </div>
 
-                        <!-- 4 mức ghi nhớ (chỉ hiện ở chế độ Spaced Review) -->
+                        <!-- Chấm mức nhớ: Spaced (SR) hoặc Flashcard (queue phiên) -->
                         <div id="spaced-grade-bar" class="hidden px-3 pb-3 md:px-4 md:pb-4 grid grid-cols-2 gap-2">
                             <button
-                                onclick="handleSpacedGrade('again')"
+                                onclick="handleGrade('again')"
                                 class="grade-btn py-2.5 rounded-xl border-2 border-red-200 bg-red-50 text-red-700 font-bold text-xs md:text-sm hover:bg-red-100"
                             >
                                 😵 Quên hoàn toàn
                             </button>
                             <button
-                                onclick="handleSpacedGrade('hard')"
+                                onclick="handleGrade('hard')"
                                 class="grade-btn py-2.5 rounded-xl border-2 border-orange-200 bg-orange-50 text-orange-700 font-bold text-xs md:text-sm hover:bg-orange-100"
                             >
                                 🤔 Khó nhớ
                             </button>
                             <button
-                                onclick="handleSpacedGrade('good')"
+                                onclick="handleGrade('good')"
                                 class="grade-btn py-2.5 rounded-xl border-2 border-green-200 bg-green-50 text-green-700 font-bold text-xs md:text-sm hover:bg-green-100"
                             >
                                 🙂 Nhớ được
                             </button>
                             <button
-                                onclick="handleSpacedGrade('easy')"
+                                onclick="handleGrade('easy')"
                                 class="grade-btn py-2.5 rounded-xl border-2 border-blue-200 bg-blue-50 text-blue-700 font-bold text-xs md:text-sm hover:bg-blue-100"
                             >
                                 😎 Rất dễ
@@ -917,15 +954,18 @@
                     <div class="inline-block p-3 sm:p-4 bg-yellow-50 rounded-full mb-3 sm:mb-4">
                         <i class="fa-solid fa-trophy text-5xl sm:text-6xl text-yellow-400 drop-shadow-md"></i>
                     </div>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500 mb-4 tracking-tight uppercase">
+                    <h2
+                        id="result-title"
+                        class="text-3xl sm:text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-500 mb-4 tracking-tight uppercase"
+                    >
                         Chúc Mừng!
                     </h2>
                     <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 md:gap-10 mb-6 sm:mb-10">
                         <div class="text-center p-4 sm:p-6 bg-blue-50 rounded-3xl shadow-sm border border-blue-100 min-w-[140px] w-full sm:w-auto">
-                            <div class="text-xs text-slate-500 font-bold mb-2 tracking-widest uppercase">Điểm số</div>
+                            <div id="result-score-label" class="text-xs text-slate-500 font-bold mb-2 tracking-widest uppercase">Điểm số</div>
                             <div id="result-score" class="text-3xl sm:text-4xl font-black text-blue-500">10</div>
                         </div>
-                        <div class="text-center p-4 sm:p-6 bg-pink-50 rounded-3xl shadow-sm border border-pink-100 min-w-[140px] w-full sm:w-auto">
+                        <div id="result-time-wrap" class="text-center p-4 sm:p-6 bg-pink-50 rounded-3xl shadow-sm border border-pink-100 min-w-[140px] w-full sm:w-auto">
                             <div class="text-xs text-slate-500 font-bold mb-2 tracking-widest uppercase">Thời gian</div>
                             <div id="result-time" class="text-xl sm:text-2xl font-black text-pink-500 mt-2 sm:mt-4">12:34</div>
                         </div>
@@ -933,6 +973,7 @@
                     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center relative z-10">
                         <button onclick="showHome()" class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-slate-100 text-slate-700 rounded-xl font-bold hover:bg-slate-200 transition-colors">Về trang chủ</button>
                         <button
+                            id="btn-retry"
                             onclick="retryGame()"
                             class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-xl font-bold hover:shadow-lg transition-all sm:hover:-translate-y-1"
                         >
@@ -9448,6 +9489,8 @@
             let groupLastResult = {};
             /** Phiên campaign hiện tại { groupIndex, correctIds: Set } */
             let campaignRun = null;
+            /** Modal chọn chặng: campaign hoặc flashcard */
+            let groupPickerMode = "campaign";
             let reviewLastCorrect = false;
 
             function getGroupQuestions(groupIndex) {
@@ -9523,7 +9566,7 @@
                 `;
                     btn.onclick = () => {
                         closeGroupSelection();
-                        startGame("campaign", i);
+                        startGame(groupPickerMode === "flashcard" ? "flashcard" : "campaign", i);
                     };
                     groupContainer.appendChild(btn);
                 }
@@ -9861,7 +9904,9 @@
 
                 ensureInReviewDeck(questionId) {
                     if (!reviewStorage.getEntry(questionId)) {
-                        reviewStorage.setEntry(reviewDateUtils.createDefaultEntry(questionId, reviewDateUtils.todayKey()));
+                        const entry = reviewDateUtils.createDefaultEntry(questionId, reviewDateUtils.todayKey());
+                        entry.interval = 0; // due hôm nay — đưa vào Flashcards ngay
+                        reviewStorage.setEntry(entry);
                         reviewStorage.syncEntryToCloud(questionId);
                     }
                 },
@@ -9913,10 +9958,14 @@
                 },
 
                 setGameModeUI(mode) {
-                    const isSpaced = mode === "spaced";
-                    document.getElementById("helpers-container").classList.toggle("hidden", isSpaced);
-                    document.getElementById("timer-container").classList.toggle("hidden", isSpaced);
+                    const isSRStudy = mode === "spaced" || mode === "flashcard";
+                    document.getElementById("helpers-container").classList.toggle("hidden", isSRStudy);
+                    document.getElementById("timer-container").classList.toggle("hidden", isSRStudy);
                     document.getElementById("score-container").classList.add("hidden");
+                    document.getElementById("btn-mark-ingame").classList.toggle("hidden", isSRStudy);
+                    document.getElementById("flashcard-front-panel").classList.add("hidden");
+                    document.getElementById("options-container").classList.remove("flashcard-hidden");
+                    resetResultScreen();
                     this.showSpacedGradeBar(false);
                 },
             };
@@ -9961,13 +10010,27 @@
             }
 
             let spacedAnswerRevealed = false;
+            let flashcardFlipped = false;
+            /** Hàng đợi thẻ trong phiên Flashcard (có thể trùng id khi reinsert) */
+            let flashcardQueue = [];
+            let flashcardInitialCount = 0;
+            /** Số thẻ đã Easy — dùng cho progress bar */
+            let flashcardEasyCount = 0;
+            const FLASHCARD_REINSERT = { again: 2, hard: 4, good: 8 };
 
-            function handleSpacedGrade(grade) {
-                if (!spacedAnswerRevealed || currentMode !== "spaced") return;
+            function handleGrade(grade) {
+                if (currentMode === "flashcard") handleFlashcardGrade(grade);
+                else handleSRGrade(grade);
+            }
+
+            function handleSRGrade(grade) {
+                if (currentMode !== "spaced" || !spacedAnswerRevealed) return;
+
                 const q = currentQuestions[currentQuestionIndex];
                 updateReviewSchedule(q.id, grade);
                 spacedAnswerRevealed = false;
                 reviewUI.showSpacedGradeBar(false);
+
                 if (currentQuestionIndex >= currentQuestions.length - 1) {
                     finishSpacedSession();
                 } else {
@@ -9976,10 +10039,75 @@
                 }
             }
 
+            function handleFlashcardGrade(grade) {
+                if (currentMode !== "flashcard" || !flashcardFlipped || flashcardQueue.length === 0) return;
+
+                const card = flashcardQueue.shift();
+                if (grade === "easy") {
+                    flashcardEasyCount++;
+                } else {
+                    const offset = FLASHCARD_REINSERT[grade] ?? 8;
+                    const insertAt = Math.min(offset, flashcardQueue.length);
+                    flashcardQueue.splice(insertAt, 0, card);
+                }
+
+                flashcardFlipped = false;
+                reviewUI.showSpacedGradeBar(false);
+
+                if (flashcardQueue.length === 0) finishFlashcardSession();
+                else loadQuestion();
+            }
+
+            function handleSpacedGrade(grade) {
+                handleGrade(grade);
+            }
+
+            function flipFlashcard() {
+                if (currentMode !== "flashcard" || flashcardFlipped || flashcardQueue.length === 0) return;
+                flashcardFlipped = true;
+                const q = flashcardQueue[0];
+                renderFlashcardBack(q);
+                document.getElementById("flashcard-front-panel").classList.add("hidden");
+                showAnswerPanel(q.explanation, "Giải mã", "fa-key");
+                reviewUI.showSpacedGradeBar(true);
+            }
+
+            function renderFlashcardBack(q) {
+                const optsContainer = document.getElementById("options-container");
+                optsContainer.classList.remove("flashcard-hidden");
+                optsContainer.innerHTML = "";
+                const letter = String.fromCharCode(65 + q.answer);
+                const el = document.createElement("div");
+                el.className =
+                    "option-btn flashcard-readonly correct w-full text-left rounded-2xl border-2 border-slate-100 bg-white text-slate-700 font-semibold shadow-sm flex items-center gap-2";
+                el.innerHTML = `<span class='option-letter bg-blue-50 text-blue-500 rounded-full flex items-center justify-center shrink-0 font-black'>${letter}</span><span class='line-clamp-4 md:line-clamp-3 min-w-0'>${q.options[q.answer]}</span>`;
+                optsContainer.appendChild(el);
+            }
+
+            function finishFlashcardSession() {
+                clearInterval(timerInterval);
+                reviewUI.updateDashboard();
+                hideAllScreens();
+                resetResultScreen();
+                document.getElementById("screen-result").classList.remove("hidden");
+                document.getElementById("result-title").innerText = `Hoàn thành Flashcards · Chặng ${lastGroupIndex + 1}`;
+                document.getElementById("result-score-label").innerText = "Kết quả";
+                document.getElementById("result-score").innerText = `Đã ôn: ${flashcardInitialCount} câu.`;
+                document.getElementById("result-time-wrap").classList.add("hidden");
+            }
+
+            function resetResultScreen() {
+                document.getElementById("result-title").innerText = "Chúc Mừng!";
+                document.getElementById("result-score-label").innerText = "Điểm số";
+                document.getElementById("result-time-wrap").classList.remove("hidden");
+                document.getElementById("btn-retry").classList.remove("hidden");
+            }
+
             function finishSpacedSession() {
                 clearInterval(timerInterval);
                 reviewUI.updateDashboard();
                 hideAllScreens();
+                resetResultScreen();
                 const dueLeft = reviewEngine.getDueQuestions().length;
                 showToast(`Hoàn thành ${currentQuestions.length} câu ôn hôm nay!`);
                 document.getElementById("screen-result").classList.remove("hidden");
@@ -10234,7 +10362,13 @@
                 document.body.classList.remove("home-active");
                 document.body.classList.remove("subject-active");
                 spacedAnswerRevealed = false;
+                flashcardFlipped = false;
+                flashcardQueue = [];
+                flashcardInitialCount = 0;
+                flashcardEasyCount = 0;
                 reviewUI.showSpacedGradeBar(false);
+                document.getElementById("flashcard-front-panel").classList.add("hidden");
+                document.getElementById("options-container").classList.remove("flashcard-hidden");
             }
 
             function resetAnswerPanel() {
@@ -10243,7 +10377,7 @@
                 document.getElementById("hint-text").innerText = "";
                 document.getElementById("btn-next").classList.add("hidden");
                 document.getElementById("btn-finish").classList.add("hidden");
-                if (currentMode !== "spaced") reviewUI.showSpacedGradeBar(false);
+                if (currentMode !== "spaced" && currentMode !== "flashcard") reviewUI.showSpacedGradeBar(false);
             }
 
             function showAnswerPanel(text, label = "Giải mã", iconClass = "fa-key") {
@@ -10259,6 +10393,15 @@
             };
 
             function openGroupSelection() {
+                groupPickerMode = "campaign";
+                document.getElementById("modal-group-title").innerText = "Chọn nhóm ôn tập";
+                renderGroupButtons();
+                document.getElementById("modal-group").classList.remove("hidden");
+            }
+            function openFlashcardGroupSelection() {
+                groupPickerMode = "flashcard";
+                document.getElementById("modal-group-title").innerText = "Chọn chặng Flashcards";
+                renderGroupButtons();
                 document.getElementById("modal-group").classList.remove("hidden");
             }
             function closeGroupSelection() {
@@ -10281,6 +10424,7 @@
                 currentQuestionIndex = 0;
                 reviewLastCorrect = false;
                 spacedAnswerRevealed = false;
+                flashcardFlipped = false;
                 document.getElementById("score").innerText = "0";
                 resetAnswerPanel();
                 reviewUI.setGameModeUI(mode);
@@ -10296,6 +10440,12 @@
                     const idSet = new Set(dueIds);
                     currentQuestions = questionBank.filter((q) => idSet.has(q.id));
                     currentQuestions.sort((a, b) => dueIds.indexOf(a.id) - dueIds.indexOf(b.id));
+                } else if (mode === "flashcard") {
+                    document.getElementById("game-mode-title").innerText = `🃏 Flashcards · Chặng ${groupIndex + 1}`;
+                    currentQuestions = questionBank.slice(groupIndex * GROUP_SIZE, groupIndex * GROUP_SIZE + GROUP_SIZE);
+                    flashcardQueue = [...currentQuestions];
+                    flashcardInitialCount = currentQuestions.length;
+                    flashcardEasyCount = 0;
                 } else if (mode === "campaign") {
                     document.getElementById("game-mode-title").innerText = `Chặng ${groupIndex + 1}`;
                     currentQuestions = questionBank.slice(groupIndex * GROUP_SIZE, groupIndex * GROUP_SIZE + GROUP_SIZE);
@@ -10322,6 +10472,31 @@
             }
 
             function loadQuestion() {
+                // Flashcard: hàng đợi trong phiên (không dùng currentQuestionIndex)
+                if (currentMode === "flashcard") {
+                    if (flashcardQueue.length === 0) {
+                        finishFlashcardSession();
+                        return;
+                    }
+                    resetAnswerPanel();
+                    const q = flashcardQueue[0];
+                    document.getElementById("game-progress").innerText = `Còn ${flashcardQueue.length} thẻ · Chặng ${flashcardInitialCount} câu`;
+                    document.getElementById("progress-bar").style.width =
+                        flashcardInitialCount > 0 ? `${Math.min(100, (flashcardEasyCount / flashcardInitialCount) * 100)}%` : "0%";
+                    document.getElementById("question-text").innerText = q.text;
+                    document.getElementById("btn-mark-ingame").style.color = markedQuestions.includes(q.id) ? "#f97316" : "#cbd5e1";
+                    const optsContainer = document.getElementById("options-container");
+                    if (!flashcardFlipped) {
+                        optsContainer.innerHTML = "";
+                        optsContainer.classList.add("flashcard-hidden");
+                        document.getElementById("flashcard-front-panel").classList.remove("hidden");
+                        return;
+                    }
+                    document.getElementById("flashcard-front-panel").classList.add("hidden");
+                    renderFlashcardBack(q);
+                    return;
+                }
+
                 if (currentQuestionIndex >= currentQuestions.length) {
                     finishGame();
                     return;
@@ -10340,6 +10515,8 @@
                 document.getElementById("progress-bar").style.width = `${(currentQuestionIndex / currentQuestions.length) * 100}%`;
                 document.getElementById("btn-mark-ingame").style.color = markedQuestions.includes(q.id) ? "#f97316" : "#cbd5e1";
                 const optsContainer = document.getElementById("options-container");
+
+                optsContainer.classList.remove("flashcard-hidden");
                 optsContainer.innerHTML = "";
                 q.options.forEach((opt, idx) => {
                     const btn = document.createElement("button");
@@ -10427,6 +10604,11 @@
 
                 if (e.key === " " || e.key === "-" || e.code === "Space" || e.code === "Minus") {
                     if (e.repeat) return;
+                    if (currentMode === "flashcard" && !flashcardFlipped) {
+                        e.preventDefault();
+                        flipFlashcard();
+                        return;
+                    }
                     const btnNext = document.getElementById("btn-next");
                     const btnFinish = document.getElementById("btn-finish");
                     if (!btnNext.classList.contains("hidden")) {
@@ -10477,6 +10659,7 @@
                 }
                 clearInterval(timerInterval);
                 hideAllScreens();
+                resetResultScreen();
                 updateHomeReviewButton();
                 document.getElementById("screen-result").classList.remove("hidden");
                 document.getElementById("result-score").innerText =

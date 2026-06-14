@@ -12,7 +12,7 @@
             ],
             "answer": 1,
             "explanation": "Đường Kách mệnh.",
-            "keywords": "Đường · Kách · ≠ Pháp/Đảng/trị"
+            "keywords": "luận điểm lái thuyền Đảng vững · ≠ Bản án/Chánh cương/Thường thức"
         },
         {
             "id": 2,
@@ -25,7 +25,7 @@
             ],
             "answer": 1,
             "explanation": "Không có tư tưởng độc lập, không đại diện cho phương thức sản xuất tiên tiến.",
-            "keywords": "độc · lập · ≠ triê/khác/đươ"
+            "keywords": "thiếu tư tưởng độc lập PTTSTT · ≠ lý luận/đảng/chiến tranh"
         },
         {
             "id": 3,
@@ -38,7 +38,7 @@
             ],
             "answer": 1,
             "explanation": "Triệt để nhất.",
-            "keywords": "Triệt · ≠ toàn/hợp/minh"
+            "keywords": "ba giải phóng thống nhất triệt để · ≠ an toàn/phù hợp/thông minh"
         },
         {
             "id": 4,
@@ -51,7 +51,7 @@
             ],
             "answer": 1,
             "explanation": "Dân chủ gián tiếp.",
-            "keywords": "≠ Trực/trung/trực"
+            "keywords": "bầu cử đại biểu gián tiếp · ≠ trực tiếp/tập trung/trực tiếp"
         },
         {
             "id": 5,
@@ -64,7 +64,7 @@
             ],
             "answer": 0,
             "explanation": "28/08/1945.",
-            "keywords": "≠ 1954/1930"
+            "keywords": "thành lập BNG 28-08-1945 · ≠ 02-09/07-05/03-02"
         },
         {
             "id": 6,
@@ -77,20 +77,20 @@
             ],
             "answer": 2,
             "explanation": "Dân chủ; Làm chủ.",
-            "keywords": "Làm · ≠ Quản/soát"
+            "keywords": "nước dân chủ nhân dân làm chủ · ≠ vô sản/vì dân/quản lý"
         },
         {
             "id": 7,
             "text": "Vai trò lãnh đạo của giai cấp công nhân trong cách mạng Việt Nam được quyết định bởi:",
             "options": [
                 "Ý muốn của Đảng Cộng sản.",
-                "Đặc tính cuả giai cấp công nhân.",
+                "Đặc tính của giai cấp công nhân.",
                 "Số lượng giai cấp công nhân.",
                 "Ý muốn của giai cấp công nhân."
             ],
             "answer": 1,
             "explanation": "Đặc tính cuả giai cấp công nhân.",
-            "keywords": "Đặc · tính · ≠ sản/lượng/muốn"
+            "keywords": "do đặc tính giai cấp công nhân · ≠ ý muốn/số lượng/Đảng"
         },
         {
             "id": 8,
@@ -103,7 +103,7 @@
             ],
             "answer": 2,
             "explanation": "Thư gửi Ủy ban nhân dân các Kỳ, Tỉnh, Huyện và Làng.",
-            "keywords": "ban · nhân · ≠ chí/Bắc/chiến"
+            "keywords": "việc lợi hại dân Thư UBND · ≠ Tỉnh nhà/Bắc bộ/kháng chiến"
         },
         {
             "id": 9,
@@ -116,7 +116,7 @@
             ],
             "answer": 1,
             "explanation": "Năm 1858, tại đồn An Hải - Sơn Trà - Quảng nam Đà nẵng.",
-            "keywords": "≠ 1885/1860"
+            "keywords": "Pháp xâm lược 1858 An Hải · ≠ 1885/1858 cảng/1860"
         },
         {
             "id": 10,
@@ -129,7 +129,7 @@
             ],
             "answer": 3,
             "explanation": "Nhân dân.",
-            "keywords": "≠ Công/Nông"
+            "keywords": "dân chủ nhân dân làm chủ · ≠ công nhân/công dân/công-nông"
         },
         {
             "id": 11,
@@ -142,7 +142,7 @@
             ],
             "answer": 2,
             "explanation": "Mọi quyền lực trong nhà nước và trong xã hội đều thuộc về nhân dân.",
-            "keywords": "lực · hội · ≠ lao/bầu/định"
+            "keywords": "mọi quyền lực thuộc nhân dân · ≠ chăm lo/đại biểu/biểu quyết"
         },
         {
             "id": 12,
@@ -155,7 +155,7 @@
             ],
             "answer": 2,
             "explanation": "Tự lực cánh sinh, dựa vào sức mình là chính.",
-            "keywords": "lực · cánh · ≠ Đảng/tranh/chủ"
+            "keywords": "tự lực cánh sinh chính · ≠ lãnh đạo/đường lối/độc lập"
         },
         {
             "id": 13,
@@ -168,7 +168,7 @@
             ],
             "answer": 3,
             "explanation": "Nông nghiệp.",
-            "keywords": "Nông · ≠ Công/tài/Thương"
+            "keywords": "nông dân giàu nông nghiệp thịnh · ≠ công nghiệp/nhân tài/thương nghiệp"
         },
         {
             "id": 14,
@@ -181,7 +181,7 @@
             ],
             "answer": 3,
             "explanation": "Lời mở đầu buổi ra mắt của Đảng Lao động Việt Nam, ngày 03/03/1951.",
-            "keywords": "≠ 1930/thu"
+            "keywords": "mở đầu ra mắt ĐLVN 03-03-1951 · ≠ kết thúc/03-02/07-02"
         },
         {
             "id": 15,
@@ -194,7 +194,7 @@
             ],
             "answer": 0,
             "explanation": "Mọi nước dân chủ.",
-            "keywords": "Mọi · ≠ cao/Tất/nghĩa"
+            "keywords": "thời điểm Mọi nước · ≠ nước phát/Tất cả/nước xã"
         },
         {
             "id": 16,
@@ -207,7 +207,7 @@
             ],
             "answer": 0,
             "explanation": "Yêu cầu khách quan.",
-            "keywords": "kha · ≠ nhân/chu/dân"
+            "keywords": "theo Bác Yêu cầu · ≠ Yêu cầu"
         },
         {
             "id": 17,
@@ -220,7 +220,7 @@
             ],
             "answer": 0,
             "explanation": "Sau Cách mạng Tháng Tám năm 1945.",
-            "keywords": "1945 · ≠ 1975/1954/1943"
+            "keywords": "thời điểm Sau Cách · ≠ Sau Cách/Sau Đông"
         },
         {
             "id": 18,
@@ -233,7 +233,7 @@
             ],
             "answer": 0,
             "explanation": "Giúp nhau sữa chữa.",
-            "keywords": "≠ tạo/lầm/điê"
+            "keywords": "theo Bác Giúp nhau · ≠ Giúp nhau/Sửa chữa/Chỉ ra"
         },
         {
             "id": 19,
@@ -246,7 +246,7 @@
             ],
             "answer": 3,
             "explanation": "Ý thức đạo đức.",
-            "keywords": "đức · ≠ nhiệm/nhân/trí"
+            "keywords": "theo Bác thức đạo · ≠ thức trách/Lòng nhân/Lý trí"
         },
         {
             "id": 20,
@@ -259,7 +259,7 @@
             ],
             "answer": 2,
             "explanation": "Dân.",
-            "keywords": "≠ nước/Công/Đảng"
+            "keywords": "theo Bác Dân · ≠ Nhà nước/Công dân/Đảng"
         },
         {
             "id": 21,
@@ -272,7 +272,7 @@
             ],
             "answer": 3,
             "explanation": "Chủ nghĩa Mác – Lênin.",
-            "keywords": "nghĩa · Mác · ≠ bình/tộc/dân"
+            "keywords": "nền tảng tư tưởng Mác Lênin · ≠ phê bình/đoàn kết/tập trung"
         },
         {
             "id": 22,
@@ -285,7 +285,7 @@
             ],
             "answer": 0,
             "explanation": "Giai cấp công nhân và nhân dân lao động làm chủ.",
-            "keywords": "lao · động · ≠ nông"
+            "keywords": "Giai cấp công nhân nhân dân · ≠ Giai cấp/Đảng Cộng"
         },
         {
             "id": 23,
@@ -298,7 +298,7 @@
             ],
             "answer": 2,
             "explanation": "Vừa cứng rắn về nguyên tắc, vừa mềm dẻo về sách lược.",
-            "keywords": "Vừa · ≠ nhươ/biến"
+            "keywords": "cứng rắn nguyên tắc mềm dẻo · ≠ nhân nhượng/bất biến/mềm lợi ích"
         },
         {
             "id": 24,
@@ -311,7 +311,7 @@
             ],
             "answer": 2,
             "explanation": "Cán bộ tốt hay kém.",
-            "keywords": "tốt · kém · ≠ sai/hoa"
+            "keywords": "thành bại do cán bộ tốt kém · ≠ đường lối/hoạch định"
         },
         {
             "id": 25,
@@ -324,7 +324,7 @@
             ],
             "answer": 3,
             "explanation": "Đại đoàn kết dân tộc là vấn đề chiến lược.",
-            "keywords": "chiến · ≠ sách lược/sống còn/chính trị"
+            "keywords": "đại đoàn kết vấn đề chiến lược · ≠ sách lược/sống còn/thủ đoạn"
         },
         {
             "id": 26,
@@ -337,7 +337,7 @@
             ],
             "answer": 2,
             "explanation": "Nhà nước phải quản lý đất nước bằng Hiến pháp và pháp luật.",
-            "keywords": "đất · bằng · ≠ Nam/quô/dân"
+            "keywords": "quản lý bằng Hiến pháp pháp luật · ≠ Nhà nước/Đẩy mạnh"
         },
         {
             "id": 27,
@@ -350,7 +350,7 @@
             ],
             "answer": 2,
             "explanation": "Cả chủ nghĩa tư bản, cả chủ nghĩa xã hội.",
-            "keywords": ""
+            "keywords": "nhà nước CNTB có TB và XH · ≠ QHSX cũ/chỉ TB/chỉ XH"
         },
         {
             "id": 28,
@@ -363,7 +363,7 @@
             ],
             "answer": 0,
             "explanation": "Tham ô, lãng phí.",
-            "keywords": "≠ phái/công"
+            "keywords": "chống tham ô lãng phí như giặc · ≠ bè phái/tham nhũng/phá hoại"
         },
         {
             "id": 29,
@@ -376,7 +376,7 @@
             ],
             "answer": 1,
             "explanation": "Cách mệnh; thuyền mới chạy.",
-            "keywords": "≠ mạng"
+            "keywords": "Đảng vững cách mệnh thuyền chạy · ≠ có thể/cách mạng"
         },
         {
             "id": 30,
@@ -389,7 +389,7 @@
             ],
             "answer": 0,
             "explanation": "Xây dựng hệ thống luật pháp hoàn chỉnh và phân quyền rõ ràng.",
-            "keywords": "Xây · dựng · ≠ dân/Nam/nước"
+            "keywords": "Xây thống luật pháp hoàn chỉnh · ≠ Đưa luật/Tăng cường/Dân chủ"
         },
         {
             "id": 31,
@@ -402,7 +402,7 @@
             ],
             "answer": 1,
             "explanation": "Nhân dân.",
-            "keywords": "Nhân · ≠ Công/hội/phủ"
+            "keywords": "theo Bác Nhân dân · ≠ Công dân/Quốc hội/Chính phủ"
         },
         {
             "id": 32,
@@ -415,7 +415,7 @@
             ],
             "answer": 3,
             "explanation": "Con ngươi mắt mình.",
-            "keywords": "ngươi · ≠ mạng/cách"
+            "keywords": "theo Bác Con ngươi · ≠ Tính mạng/Con mắt/Nhân cách"
         },
         {
             "id": 33,
@@ -428,7 +428,7 @@
             ],
             "answer": 0,
             "explanation": "Châu Á, phương Đông.",
-            "keywords": "≠ Tây/Nam"
+            "keywords": "CN dễ ra đời châu Á Đông · ≠ châu Âu/Tây Nam/Đông Âu"
         },
         {
             "id": 34,
@@ -441,7 +441,7 @@
             ],
             "answer": 2,
             "explanation": "Lý Thuỵ.",
-            "keywords": "Thuy · ≠ Lin/Minh/Nguyê"
+            "keywords": "nhiệm vụ QT III tên Lý Thụy · ≠ Lin/HCM/Nguyễn Ba"
         },
         {
             "id": 35,
@@ -454,7 +454,7 @@
             ],
             "answer": 1,
             "explanation": "Bản chất cách mạng của Đảng.",
-            "keywords": "Bản · chất · ≠ quyền/đời/Nhiê"
+            "keywords": "thời điểm Bản chất · ≠ Vị cầm/Nội ra/Nhiệm vụ"
         },
         {
             "id": 36,
@@ -467,7 +467,7 @@
             ],
             "answer": 1,
             "explanation": "Hoàn toàn độc lập.",
-            "keywords": "≠ chóng/nhanh/phóng"
+            "keywords": "ham muốn nước hoàn toàn độc lập · ≠ nhanh/thắng nhanh/giải phóng"
         },
         {
             "id": 37,
@@ -480,7 +480,7 @@
             ],
             "answer": 3,
             "explanation": "Đạo đức cách mạng.",
-            "keywords": "≠ mệnh/nhân/đại"
+            "keywords": "ngọc mài vàng luyện đạo đức CM · ≠ ĐK mệnh/Nâng cao/Liên Xô"
         },
         {
             "id": 38,
@@ -493,7 +493,7 @@
             ],
             "answer": 1,
             "explanation": "Những người dân nhập cư mặc nhiên được hưởng những quyền hợp pháp mà người Việt Nam phải đi xin của Pháp.",
-            "keywords": "nhiên · đươ · ≠ triê/anh/tri"
+            "keywords": "Những người dân nhập mặc nhiên · ≠ Nhiều dân/sự phân/khu phố"
         },
         {
             "id": 39,
@@ -506,7 +506,7 @@
             ],
             "answer": 1,
             "explanation": "Chân chính.",
-            "keywords": "Chân · chính · ≠ sáng/hòi/lớn"
+            "keywords": "theo Bác Chân chính · ≠ sáng/Cực đoan/Sô vanh"
         },
         {
             "id": 40,
@@ -519,7 +519,7 @@
             ],
             "answer": 3,
             "explanation": "Quần chúng nhân dân.",
-            "keywords": "Quâ · chu · ≠ Nam/công"
+            "keywords": "theo Bác Quần chúng · ≠ Đảng Cộng/Giai cấp"
         },
         {
             "id": 41,
@@ -532,7 +532,7 @@
             ],
             "answer": 2,
             "explanation": "Tôn trọng củng cố và phát triển.",
-            "keywords": "Tôn · củng · ≠ lợi/chóng/mạnh"
+            "keywords": "Tôn củng phát triển · ≠ Tạo điều/Thúc đẩy/Phát triển"
         },
         {
             "id": 42,
@@ -545,7 +545,7 @@
             ],
             "answer": 0,
             "explanation": "Chủ nghĩa dân tộc.",
-            "keywords": "dân · tộc"
+            "keywords": "nền tảng Chủ nghĩa dân tộc · ≠ Chủ nghĩa/Chủ nghĩa"
         },
         {
             "id": 43,
@@ -558,7 +558,7 @@
             ],
             "answer": 3,
             "explanation": "Tất cả đều thất bại.",
-            "keywords": "thâ · ≠ kiê/nơi/chu"
+            "keywords": "khái niệm Tất cả · ≠ con đường/đến nơi"
         },
         {
             "id": 44,
@@ -571,7 +571,7 @@
             ],
             "answer": 0,
             "explanation": "Sửa đổi lối làm việc.",
-            "keywords": "viê · ≠ Ngươ/nhân"
+            "keywords": "trích tác phẩm Sửa đổi · ≠ Người cán/Đạo đức/Nâng cao"
         },
         {
             "id": 45,
@@ -584,7 +584,7 @@
             ],
             "answer": 3,
             "explanation": "Giải phóng dân tộc là tiền đề để giải phóng giai cấp.",
-            "keywords": "≠ song/đến"
+            "keywords": "dân tộc trước giai cấp tiền đề · ≠ song song/giai cấp trước/không liên quan"
         },
         {
             "id": 46,
@@ -597,7 +597,7 @@
             ],
             "answer": 0,
             "explanation": "Quảng Châu (Trung Quốc).",
-            "keywords": "Quảng · Châu · ≠ Nam/Cảng/Hải"
+            "keywords": "thời điểm Quảng Châu · ≠ Cao Bằng/Hương Cảng/Thượng Hải"
         },
         {
             "id": 47,
@@ -610,7 +610,7 @@
             ],
             "answer": 1,
             "explanation": "Chủ nghĩa cá nhân.",
-            "keywords": "nhân · ≠ chúng/quô/hậu"
+            "keywords": "⚠ NOT · chủ nghĩa cá nhân kẻ thù · ≠ đế quốc/tư bản/nghèo nàn"
         },
         {
             "id": 48,
@@ -623,7 +623,7 @@
             ],
             "answer": 0,
             "explanation": "Phụng sự tổ quốc, phục vụ nhân dân.",
-            "keywords": "Phụng · quốc · ≠ cấp/công/mạnh"
+            "keywords": "phụng sự tổ quốc phục vụ dân · ≠ lợi ích VS/giàu mạnh"
         },
         {
             "id": 49,
@@ -636,7 +636,7 @@
             ],
             "answer": 1,
             "explanation": "Kết hợp đấu tranh quân sự với đấu tranh ngoại giao.",
-            "keywords": "≠ dân/chu"
+            "keywords": "Kết hợp đấu tranh quân sự · ≠ Kết hợp/Kết hợp"
         },
         {
             "id": 50,
@@ -649,7 +649,7 @@
             ],
             "answer": 1,
             "explanation": "Nội lực là chính, ngoại lực là quan trọng.",
-            "keywords": "chính · ≠ nhâ/thiê/nhau"
+            "keywords": "nội lực chính ngoại lực quan trọng · ≠ không cần/ngoại đầu/như nhau"
         },
         {
             "id": 51,
@@ -662,7 +662,7 @@
             ],
             "answer": 2,
             "explanation": "Tự phê bình.",
-            "keywords": "⚠ KHÔNG phải · phê · bình · ≠ bào/truyền/chức"
+            "keywords": "⚠ NOT · sửa khuyết điểm bài Tự phê bình · ≠ Lời xin/Lời căn/Lời khuyên"
         },
         {
             "id": 52,
@@ -675,7 +675,7 @@
             ],
             "answer": 2,
             "explanation": "Thực hiện bằng con đường bạo lực cách mạng.",
-            "keywords": "Thực · hiện · ≠ quốc/Lênin/giao"
+            "keywords": "con đường bạo lực cách mạng · ≠ chính quốc/Mác-Lênin/ngoại giao"
         },
         {
             "id": 53,
@@ -688,7 +688,7 @@
             ],
             "answer": 1,
             "explanation": "Tháng 08/1945.",
-            "keywords": "1945 · ≠ 1941/1942/1944"
+            "keywords": "thời điểm 08-1945 · ≠ 05-1941/08-1942/12-1944"
         },
         {
             "id": 54,
@@ -701,7 +701,7 @@
             ],
             "answer": 0,
             "explanation": "Tốt – xấu, thiện – ác.",
-            "keywords": "thiện · ≠ điê/sai"
+            "keywords": "mỗi người có tốt xấu thiện ác · ≠ ưu nhược/không tốt/đúng sai"
         },
         {
             "id": 55,
@@ -714,7 +714,7 @@
             ],
             "answer": 0,
             "explanation": "Chủ nghĩa cá nhân.",
-            "keywords": "nghĩa · nhân · ≠ quyê/phí/động"
+            "keywords": "kẻ thù XH là cá nhân · ≠ lạm quyền/tham ô/phản động"
         },
         {
             "id": 56,
@@ -727,7 +727,7 @@
             ],
             "answer": 2,
             "explanation": "Quan hệ tổng thể với cách mạng thế giới.",
-            "keywords": "giơ · ≠ dân/giai"
+            "keywords": "thời điểm Quan hệ · ≠ Quan hệ"
         },
         {
             "id": 57,
@@ -740,7 +740,7 @@
             ],
             "answer": 1,
             "explanation": "Đạo đức mới, lối sống mới, nếp sống mới.",
-            "keywords": "≠ cách/tưởng"
+            "keywords": "Đạo đức mới, lối sống mới, · ≠ Đạo đức/Nếp sống"
         },
         {
             "id": 58,
@@ -753,7 +753,7 @@
             ],
             "answer": 0,
             "explanation": "Toàn dân, trên cơ sở liên minh công – nông.",
-            "keywords": "Toàn · liên · ≠ giơ/thức"
+            "keywords": "Toàn dân, trên liên minh công · ≠ Nhân dân/Giai cấp/Công nhân"
         },
         {
             "id": 59,
@@ -766,7 +766,7 @@
             ],
             "answer": 2,
             "explanation": "Năm 1925.",
-            "keywords": "1925 · ≠ 1924/1930/1927"
+            "keywords": "trích tác phẩm 1925 · ≠ 1924/1930/1927"
         },
         {
             "id": 60,
@@ -779,7 +779,7 @@
             ],
             "answer": 3,
             "explanation": "Sự đoàn kết và thống nhất trong Đảng.",
-            "keywords": ""
+            "keywords": "Sự đoàn kết thống Đảng · ≠ Sự đoàn/Sự thống"
         },
         {
             "id": 61,
@@ -792,7 +792,7 @@
             ],
             "answer": 3,
             "explanation": "Giúp con người vươn đến CHÂN – THIỆN – MỸ.",
-            "keywords": "Giúp · vươn · ≠ cách/hội/thức"
+            "keywords": "mục tiêu Giúp con · ≠ Hoàn thiện/Trở thành/Nâng cao"
         },
         {
             "id": 62,
@@ -805,7 +805,7 @@
             ],
             "answer": 1,
             "explanation": "Tháng 5/1908.",
-            "keywords": "1908 · ≠ 1906/1905/1911"
+            "keywords": "thời điểm 5-1908 · ≠ 5-1906/5-1905/5-1911"
         },
         {
             "id": 63,
@@ -818,7 +818,7 @@
             ],
             "answer": 1,
             "explanation": "Sống, chiến đấu, lao động và học tập theo gương Bác Hồ vĩ đại.",
-            "keywords": "chiến · đấu · ≠ tịch/Minh/việc"
+            "keywords": "thời điểm Sống chiến · ≠ Toàn Đảng/Sống làm"
         },
         {
             "id": 64,
@@ -831,7 +831,7 @@
             ],
             "answer": 1,
             "explanation": "Con đường cách mạng vô sản.",
-            "keywords": "≠ tư sản/phong kiến"
+            "keywords": "Con đường cách mạng sản · ≠ Con đường"
         },
         {
             "id": 65,
@@ -844,7 +844,7 @@
             ],
             "answer": 0,
             "explanation": "Tất cả tinh thần và lực lượng, tính mạng và của cải.",
-            "keywords": "mạng · ≠ nhâ/đang/sức"
+            "keywords": "thời điểm Tất cả · ≠ Toàn bộ/Tất cả/Toàn bộ"
         },
         {
             "id": 66,
@@ -857,7 +857,7 @@
             ],
             "answer": 3,
             "explanation": "Amiral Latouche-Tréville của Pháp.",
-            "keywords": "Amiral"
+            "keywords": "Amiral Latouche-Tréville Pháp · ≠ Latouche-Tré"
         },
         {
             "id": 67,
@@ -870,7 +870,7 @@
             ],
             "answer": 1,
             "explanation": "Phan Bội Châu.",
-            "keywords": "Bội · Châu · ≠ Trinh/Văn/Học"
+            "keywords": "nhân vật Phan Bội · ≠ Phan Chu/Lương Văn/Nguyễn Thái"
         },
         {
             "id": 68,
@@ -883,7 +883,7 @@
             ],
             "answer": 3,
             "explanation": "Hồ Chí Minh.",
-            "keywords": "⚠ KHÔNG phải · Minh · ≠ Chinh/Duẩn/Lênin"
+            "keywords": "đạo đức CM do rèn luyện HCM · ≠ Trường Chinh/Lê Duẩn/Lênin"
         },
         {
             "id": 69,
@@ -896,7 +896,7 @@
             ],
             "answer": 3,
             "explanation": "Đem sức ta.",
-            "keywords": "Đem · sức · ≠ quốc/dân/Đảng"
+            "keywords": "theo Bác Đem sức · ≠ Dựa sự/Dưới sự"
         },
         {
             "id": 70,
@@ -909,7 +909,7 @@
             ],
             "answer": 2,
             "explanation": "Khổng Tử; Giêxu; Mác; Tôn Dật Tiên.",
-            "keywords": "Giêxu · Tôn · ≠ Lênin"
+            "keywords": "nhân vật Tử Giêxu · ≠ Tử Đạt/Lão Tử/Mạnh Tử"
         },
         {
             "id": 71,
@@ -922,7 +922,7 @@
             ],
             "answer": 2,
             "explanation": "Ngày 19/05/1941.",
-            "keywords": "1941 · ≠ 0/5/2"
+            "keywords": "thành lập 19-05-1941 · ≠ 19-05-1940/19-05-1945/19-05-1942"
         },
         {
             "id": 72,
@@ -935,7 +935,7 @@
             ],
             "answer": 2,
             "explanation": "Lòng yêu nước, thương nòi và tinh thần độc lập, tự tôn dân tộc.",
-            "keywords": "tôn · ≠ quô/sinh"
+            "keywords": "Lòng yêu nước, thương nòi tinh · ≠ Tinh thần"
         },
         {
             "id": 73,
@@ -948,7 +948,7 @@
             ],
             "answer": 1,
             "explanation": "Phát triển từ tự do cạnh tranh sang đế quốc chủ nghĩa.",
-            "keywords": "tranh · sang · ≠ quốc gia/xanhdica, congxoocxiom/nhà nước"
+            "keywords": "Phát triển từ tự cạnh tranh · ≠ Phát triển"
         },
         {
             "id": 74,
@@ -961,7 +961,7 @@
             ],
             "answer": 0,
             "explanation": "Dân là chủ.",
-            "keywords": "≠ làm/soát/hành"
+            "keywords": "dân là chủ khát vọng · ≠ Dân làm/Dân kiểm/Dân điều"
         },
         {
             "id": 75,
@@ -974,7 +974,7 @@
             ],
             "answer": 1,
             "explanation": "Giải phóng dân tộc, giải phóng giai cấp, giải phóng con người.",
-            "keywords": "cấp · ≠ hội"
+            "keywords": "Giải phóng dân tộc, giải phóng · ≠ Giải phóng"
         },
         {
             "id": 76,
@@ -987,7 +987,7 @@
             ],
             "answer": 1,
             "explanation": "Từ năm 1931 đến năm 1945.",
-            "keywords": "1931 · 1945 · ≠ 1911/1920/1930"
+            "keywords": "thời điểm Từ 1931 · ≠ 05-06-1911/Từ 1911/Từ 1921"
         },
         {
             "id": 77,
@@ -1000,7 +1000,7 @@
             ],
             "answer": 0,
             "explanation": "Nhân - Nghĩa - Trí - Dũng - Liêm.",
-            "keywords": "≠ Tín/Chính"
+            "keywords": "Nhân Nghĩa Trí Liêm · ≠ Nhân Nghĩa/Cần Kiệm"
         },
         {
             "id": 78,
@@ -1013,7 +1013,7 @@
             ],
             "answer": 0,
             "explanation": "Ở Paris - Pháp, năm 1919.",
-            "keywords": "1919 · ≠ 1917/1920"
+            "keywords": "thời điểm Ở Paris · ≠ Ở Boston/Ở Pháp/Ở Paris"
         },
         {
             "id": 79,
@@ -1026,7 +1026,7 @@
             ],
             "answer": 3,
             "explanation": "Phải luôn luôn tự đổi mới để phát triển.",
-            "keywords": "triê · ≠ thân/hoa"
+            "keywords": "Phải luôn luôn tự đổi mới · ≠ Phải luôn/Phải học"
         },
         {
             "id": 80,
@@ -1039,7 +1039,7 @@
             ],
             "answer": 1,
             "explanation": "Tất cả các nước dân chủ.",
-            "keywords": "Tất · ≠ nghĩa/nghi/Mọi"
+            "keywords": "Tất nước dân chủ · ≠ nước xã/nước cộng/Mọi nước"
         },
         {
             "id": 81,
@@ -1052,7 +1052,7 @@
             ],
             "answer": 1,
             "explanation": "Phương pháp làm việc biện chứng.",
-            "keywords": "pha · viê · ≠ luận/hoa/thư"
+            "keywords": "theo Bác Phương pháp · ≠ Học thuộc/Học tập/Vận luận"
         },
         {
             "id": 82,
@@ -1065,7 +1065,7 @@
             ],
             "answer": 2,
             "explanation": "Không xóa bỏ quyền sở hữu về tư liệu sản xuất của họ.",
-            "keywords": "≠ lột/hợp"
+            "keywords": "Không xóa bỏ quyền sở hữu về · ≠ Xóa bỏ/Đánh đổ/hình thức"
         },
         {
             "id": 83,
@@ -1078,7 +1078,7 @@
             ],
             "answer": 0,
             "explanation": "Quảng Châu – Trung Quốc, giúp thành lập các tổ chức cộng sản.",
-            "keywords": "Châu · ≠ Cảng/Đông/Tây"
+            "keywords": "Quảng Châu Trung Quốc, giúp thành · ≠ Hương Cảng/Quảng Đông/Quảng Tây"
         },
         {
             "id": 84,
@@ -1091,7 +1091,7 @@
             ],
             "answer": 3,
             "explanation": "Kháng chiến chống thực dân Pháp.",
-            "keywords": "Pha · ≠ phong kiến/quốc Mỹ/thực dân"
+            "keywords": "theo Bác Kháng chiến · ≠ Kháng chiế"
         },
         {
             "id": 85,
@@ -1104,7 +1104,7 @@
             ],
             "answer": 3,
             "explanation": "Dân tộc Việt Nam và tất cả các dân tộc bị áp bức trên thế giới.",
-            "keywords": "Việt · Nam · ≠ đang/ngươ/Đông"
+            "keywords": "Dân tộc Việt tất dân tộc · ≠ Dân tộc/Tất cả"
         },
         {
             "id": 86,
@@ -1117,7 +1117,7 @@
             ],
             "answer": 0,
             "explanation": "Mục tiêu lâu dài của cách mạng.",
-            "keywords": "tiêu · lâu · ≠ tranh/trươ/cuô"
+            "keywords": "Mục tiêu lâu dài cách mạng · ≠ Thực tiễn/Nhiệm vụ/Đích đến"
         },
         {
             "id": 87,
@@ -1130,7 +1130,7 @@
             ],
             "answer": 0,
             "explanation": "Tuyên ngôn độc lập nước Mỹ 1776.",
-            "keywords": "độc · lập · ≠ Lao/quyền/sản"
+            "keywords": "Tuyên ngôn độc lập nước 1776 · ≠ Tuyên ngôn"
         },
         {
             "id": 88,
@@ -1143,7 +1143,7 @@
             ],
             "answer": 1,
             "explanation": "Sáu phương pháp.",
-            "keywords": ""
+            "keywords": "theo Bác Sáu phương · ≠ Ba phương/Bốn phương/phương pháp"
         },
         {
             "id": 89,
@@ -1156,7 +1156,7 @@
             ],
             "answer": 2,
             "explanation": "Tháng 05 năm 1922.",
-            "keywords": "1922 · ≠ 1920/1927/1925"
+            "keywords": "thời điểm 05 1922 · ≠ 07 1920/07 1927/05 1925"
         },
         {
             "id": 90,
@@ -1169,7 +1169,7 @@
             ],
             "answer": 3,
             "explanation": "Bao gồm những vấn đề có liên quan đến cách mạng thế giới, tài sản tinh thần cho cách mạng thế giới.",
-            "keywords": "giới · tài · ≠ Nam/loại"
+            "keywords": "⚠ NOT · không gồm CM thế giới tài sản · ≠ quy luật/nguồn gốc/nội dung VN"
         },
         {
             "id": 91,
@@ -1182,7 +1182,7 @@
             ],
             "answer": 2,
             "explanation": "Mục tiêu, nhiệm vụ hàng đầu của cách mạng, của dân tộc.",
-            "keywords": "≠ tra/nhất"
+            "keywords": "Mục tiêu, nhiệm hàng đầu cách · ≠ Nhiệm vụ/Mục tiêu"
         },
         {
             "id": 92,
@@ -1195,7 +1195,7 @@
             ],
             "answer": 0,
             "explanation": "Ý thức đạo đức – Hành vi đạo đức – Quan hệ đạo đức.",
-            "keywords": "≠ Hiểu/Nhận"
+            "keywords": "thức đạo đức Hành đạo đức · ≠ Hiểu đạo/Nhận thức/đạo đức"
         },
         {
             "id": 93,
@@ -1208,7 +1208,7 @@
             ],
             "answer": 2,
             "explanation": "Thực tiễn thất bại của phong trào cách mạng ở các nước phương Đông.",
-            "keywords": "nươ · phương · ≠ Nam/giới/dân"
+            "keywords": "⚠ NOT · thất bại phương Đông cơ sở · ≠ truyền thống VN/thực tiễn/Mác-Lênin"
         },
         {
             "id": 94,
@@ -1221,7 +1221,7 @@
             ],
             "answer": 1,
             "explanation": "Người phục vụ.",
-            "keywords": "phu · ≠ công/Công/qua"
+            "keywords": "khái niệm Người phục · ≠ Người làm/Công bộc/Người quản"
         },
         {
             "id": 95,
@@ -1234,7 +1234,7 @@
             ],
             "answer": 0,
             "explanation": "Cao 1,5 m; Nặng 45 kg.",
-            "keywords": ""
+            "keywords": "Cao 1,5 Nặng · ≠ Cao Nặng/Cao 52/Cao 55"
         },
         {
             "id": 96,
@@ -1247,7 +1247,7 @@
             ],
             "answer": 1,
             "explanation": "Đạo đức nghề nghiệp là những chuẩn mực về nhận thức và hành vi phù hợp với đặc thù của từng lĩnh vực trong hoạt động nghề nghiệp do cơ quan, tổ chức có thẩm quyền quy định.",
-            "keywords": "≠ lĩnh vực/quy định"
+            "keywords": "Đạo đức nghề nghiệp những chuẩn · ≠ Đạo đức"
         },
         {
             "id": 97,
@@ -1260,7 +1260,7 @@
             ],
             "answer": 2,
             "explanation": "Lẽ sống, thiện ác, hạnh phúc, trách nhiệm, lương tâm.",
-            "keywords": "lương · tâm"
+            "keywords": "sống, thiện ác, hạnh phúc, trách · ≠ Lẽ sống"
         },
         {
             "id": 98,
@@ -1273,7 +1273,7 @@
             ],
             "answer": 2,
             "explanation": "Tập trung dân chủ.",
-            "keywords": "Tập · trung · ≠ tùng/trên/bình"
+            "keywords": "nguyên tắc Tập trung · ≠ Thiểu số/Cấp dưới/Tự phê"
         },
         {
             "id": 99,
@@ -1286,7 +1286,7 @@
             ],
             "answer": 1,
             "explanation": "Năm 1941.",
-            "keywords": "1941 · ≠ 1925/1930/1943"
+            "keywords": "thời điểm 1941 · ≠ 1925/1930/1943"
         },
         {
             "id": 100,
@@ -1299,7 +1299,7 @@
             ],
             "answer": 1,
             "explanation": "Vì đó là điều kiện cho sự đoàn kết ngoài xã hội.",
-            "keywords": "ngoa · ≠ huy/công/dân"
+            "keywords": "Vì đó điều kiện sự đoàn · ≠ Vì đó"
         },
         {
             "id": 101,
@@ -1312,7 +1312,7 @@
             ],
             "answer": 3,
             "explanation": "Tất cả đều vì lợi ích của nhân dân.",
-            "keywords": "Tất · đều · ≠ lao/sống/chủ"
+            "keywords": "Tất đều lợi ích nhân dân · ≠ Phục vụ/Chăm lo/Do quần"
         },
         {
             "id": 102,
@@ -1325,7 +1325,7 @@
             ],
             "answer": 1,
             "explanation": "Tuyên truyền.",
-            "keywords": "truyê · ≠ gia/Dân"
+            "keywords": "theo Bác Tuyên truyền · ≠ Tuyên giáo/Dân vận/Tuyên vận"
         },
         {
             "id": 103,
@@ -1338,7 +1338,7 @@
             ],
             "answer": 0,
             "explanation": "Đảng lãnh đạo, nhà nước quản lý, nhân dân làm chủ.",
-            "keywords": ""
+            "keywords": "Đảng lãnh đạo, nhà nước quản · ≠ Nhà nước/Đảng nhà"
         },
         {
             "id": 104,
@@ -1351,7 +1351,7 @@
             ],
             "answer": 3,
             "explanation": "Dân tộc Việt Nam với đế quốc xâm lược và tay sai của chúng.",
-            "keywords": "tộc · xâm · ≠ Pha/thư"
+            "keywords": "thời điểm Dân tộc · ≠ Giai cấp"
         },
         {
             "id": 105,
@@ -1364,7 +1364,7 @@
             ],
             "answer": 3,
             "explanation": "Không lãng phí.",
-            "keywords": "lãng · phí · ≠ cải/dân/kiệt"
+            "keywords": "theo Bác lãng phí · ≠ Tiết kiệm/Keo kiệt"
         },
         {
             "id": 106,
@@ -1377,7 +1377,7 @@
             ],
             "answer": 1,
             "explanation": "Tháng 08/1943, trong nhà tù của Tưởng Giới Thạch tại Trung Quốc.",
-            "keywords": "1943 · Tươ · ≠ Đươ/tri/Kông"
+            "keywords": "thời điểm 08-1943 · ≠ 07-1925/02-1930/06-1931"
         },
         {
             "id": 107,
@@ -1390,7 +1390,7 @@
             ],
             "answer": 2,
             "explanation": "Đại hội đại biển toàn quốc lần thứ IX của Đảng.",
-            "keywords": "≠ của Đảng"
+            "keywords": "Đại hội đại biển toàn quốc · ≠ Đại hội"
         },
         {
             "id": 108,
@@ -1403,7 +1403,7 @@
             ],
             "answer": 1,
             "explanation": "Tạo thành phong trào quần chúng rộng rãi.",
-            "keywords": "tha · phong · ≠ gương/đôi/suô"
+            "keywords": "⚠ NOT · phong trào quần chúng rộng · ≠ nói đi làm/xây chống/tu dưỡng"
         },
         {
             "id": 109,
@@ -1416,7 +1416,7 @@
             ],
             "answer": 3,
             "explanation": "Lịch sử nước ta.",
-            "keywords": "≠ kích/nha/mệnh"
+            "keywords": "Dân ta phải biết sử Lịch sử · ≠ Bài ca/Lịch sử/Đường kách"
         },
         {
             "id": 110,
@@ -1429,7 +1429,7 @@
             ],
             "answer": 0,
             "explanation": "02/03/1919.",
-            "keywords": "≠ 1930/1920"
+            "keywords": "thời điểm 02-03-1919 · ≠ 03-02-1930/03-02-1919/16-07-1920"
         },
         {
             "id": 111,
@@ -1442,7 +1442,7 @@
             ],
             "answer": 3,
             "explanation": "Từ 1921 - 1930: Thời kỳ hình thành nội dung cơ bản tư tưởng cách mạng Việt Nam.",
-            "keywords": "dung · bản · ≠ Lênin/nước"
+            "keywords": "1921 1930: hình thành nội bản · ≠ Từ 1890/Từ 1921/Từ 1911"
         },
         {
             "id": 112,
@@ -1455,7 +1455,7 @@
             ],
             "answer": 0,
             "explanation": "Đại hội đại biển toàn quốc lần thứ II của Đảng.",
-            "keywords": "≠ của Đảng"
+            "keywords": "Đại hội đại biển toàn quốc · ≠ Đại hội"
         },
         {
             "id": 113,
@@ -1468,7 +1468,7 @@
             ],
             "answer": 2,
             "explanation": "Tác phẩm “Đường kách mệnh”.",
-            "keywords": "Đươ · ≠ tre/việc/dân"
+            "keywords": "theo Bác Tác phẩm · ≠ Tác phẩm"
         },
         {
             "id": 114,
@@ -1481,7 +1481,7 @@
             ],
             "answer": 0,
             "explanation": "Cùng học sinh trường Quốc học Huế biểu tình chống chế độ tham nhũng và mức thuế cao.",
-            "keywords": "đoa · nông · ≠ chư/Quô"
+            "keywords": "Cùng đoàn biểu tình nông dân · ≠ Phiên dịch/Cùng học"
         },
         {
             "id": 115,
@@ -1494,7 +1494,7 @@
             ],
             "answer": 3,
             "explanation": "Nhân dân có quyền phê bình Nhà nước.",
-            "keywords": "Nhân dân có quyền phê bình Nhà nước · kiểm · soát · ≠ Nhà nước"
+            "keywords": "Nhân dân quyền kiểm soát Nhà · ≠ Nhân dân"
         },
         {
             "id": 116,
@@ -1507,7 +1507,7 @@
             ],
             "answer": 0,
             "explanation": "Thực tiễn cách mạng Việt Nam.",
-            "keywords": "Viê · Nam · ≠ Tây/giơ"
+            "keywords": "thời điểm Thực tiễn · ≠ Thực tiễn"
         },
         {
             "id": 117,
@@ -1520,7 +1520,7 @@
             ],
             "answer": 2,
             "explanation": "Cách mạng đến nơi.",
-            "keywords": "đến · nơi · ≠ triê/công"
+            "keywords": "theo Bác Cách mạng · ≠ Cách mạng"
         },
         {
             "id": 118,
@@ -1533,7 +1533,7 @@
             ],
             "answer": 2,
             "explanation": "Đề cao đạo đức trong quản lý xã hội, đề cao tư tưởng nhân đạo hoà bình.",
-            "keywords": "cao · ≠ kinh/luật"
+            "keywords": "cao đạo đức quản hội, đề · ≠ Coi pháp/Đảm bảo/Kết hợp"
         },
         {
             "id": 119,
@@ -1546,7 +1546,7 @@
             ],
             "answer": 1,
             "explanation": "Anh hùng giải phóng dân tộc, Nhà văn hóa kiệt xuất Việt Nam.",
-            "keywords": "kiệt · xuất · ≠ giơ/giới"
+            "keywords": "Anh hùng giải phóng dân tộc, · ≠ Anh hùng"
         },
         {
             "id": 120,
@@ -1559,7 +1559,7 @@
             ],
             "answer": 3,
             "explanation": "Đòi quyền bình đẳng giữa các dân tộc.",
-            "keywords": "Đòi · quyền · ≠ phóng/nươ/lập"
+            "keywords": "⚠ NOT · đòi bình đẳng dân tộc · ≠ đấu tranh/nhà nước/thành lập NN"
         },
         {
             "id": 121,
@@ -1572,7 +1572,7 @@
             ],
             "answer": 0,
             "explanation": "Bốn phương vô sản.",
-            "keywords": "Bốn · phương · ≠ giới/Bắc/Trắng"
+            "keywords": "Bốn phương sản · ≠ Lao động/Đông Tây/Vàng Đen"
         },
         {
             "id": 122,
@@ -1585,7 +1585,7 @@
             ],
             "answer": 1,
             "explanation": "Sự tu dưỡng đạo đức cá nhân.",
-            "keywords": "dưỡng · nhân · ≠ học/bằng/nghĩa"
+            "keywords": "dưỡng đạo đức nhân · ≠ Tinh thần/Quản lý"
         },
         {
             "id": 123,
@@ -1598,7 +1598,7 @@
             ],
             "answer": 0,
             "explanation": "Tháng 12 năm 1920.",
-            "keywords": "1920 · ≠ 1923/1921/1922"
+            "keywords": "thời điểm 12 1920 · ≠ 06 1923/02 1921/12 1922"
         },
         {
             "id": 124,
@@ -1611,7 +1611,7 @@
             ],
             "answer": 3,
             "explanation": "Đoàn kết toàn dân, phụng sự tổ quốc.",
-            "keywords": "phu · quô · ≠ công/thă"
+            "keywords": "thời điểm Đoàn kết · ≠ Thành công/Đoàn kết"
         },
         {
             "id": 125,
@@ -1624,7 +1624,7 @@
             ],
             "answer": 3,
             "explanation": "Tháng 02 năm 1919.",
-            "keywords": "1919 · ≠ 1917/1920/1918"
+            "keywords": "thời điểm 02 1919 · ≠ 10 1917/02 1920/12 1918"
         },
         {
             "id": 126,
@@ -1637,7 +1637,7 @@
             ],
             "answer": 0,
             "explanation": "Nhu cầu và lợi ích của con người.",
-            "keywords": "cầu · lợi · ≠ muốn/thần/nhân"
+            "keywords": "cầu lợi ích con người · ≠ Nguyện vọng/Động lực/Sở thích"
         },
         {
             "id": 127,
@@ -1650,7 +1650,7 @@
             ],
             "answer": 2,
             "explanation": "Các trường học, số người đi học, biết đọc, biết viết.",
-            "keywords": "trươ · biê · ≠ con/dân/thuô"
+            "keywords": "trường học, số người học, biết · ≠ Tổng hợp/Sản phẩm/Đời sống"
         },
         {
             "id": 128,
@@ -1663,7 +1663,7 @@
             ],
             "answer": 2,
             "explanation": "Thái độ, quan điểm và quan niệm sống.",
-            "keywords": "điểm · ≠ trí/chủ/nhiệm"
+            "keywords": "Thái độ, quan điểm quan niệm · ≠ thức trách/Khách quan/Thái độ"
         },
         {
             "id": 129,
@@ -1676,7 +1676,7 @@
             ],
             "answer": 0,
             "explanation": "Phan Chu Trinh.",
-            "keywords": "Chu · Trinh · ≠ Châu/Văn/Học"
+            "keywords": "theo Bác Phan Chu · ≠ Phan Bội/Lương Văn/Nguyễn Thái"
         },
         {
             "id": 130,
@@ -1689,7 +1689,7 @@
             ],
             "answer": 1,
             "explanation": "Di chúc.",
-            "keywords": "chúc · ≠ mạng/việc/trị"
+            "keywords": "đoàn kết như con ngươi Di chúc · ≠ Đạo đức/Sửa đổi/Thường thức"
         },
         {
             "id": 131,
@@ -1702,7 +1702,7 @@
             ],
             "answer": 3,
             "explanation": "Đại hội đại biển toàn quốc lần thứ V của Đảng.",
-            "keywords": "≠ của Đảng"
+            "keywords": "Đại hội đại biển toàn quốc · ≠ Đại hội"
         },
         {
             "id": 132,
@@ -1715,7 +1715,7 @@
             ],
             "answer": 1,
             "explanation": "Chủ nghĩa nhân đạo chiến đấu.",
-            "keywords": "Chủ · nghĩa · ≠ người/dân"
+            "keywords": "cốt lõi nhân đạo chiến đấu · ≠ yêu thương/thương dân/quan tâm"
         },
         {
             "id": 133,
@@ -1728,7 +1728,7 @@
             ],
             "answer": 0,
             "explanation": "Tính tiên tiến.",
-            "keywords": "tiên · ≠ chúng/tộc/học"
+            "keywords": "⚠ NOT · văn hóa phải tiên tiến · ≠ đại chúng/dân tộc/khoa học"
         },
         {
             "id": 134,
@@ -1741,7 +1741,7 @@
             ],
             "answer": 0,
             "explanation": "Hai cánh của một con chim.",
-            "keywords": "cánh · ≠ tuộc/đĩa/bàng"
+            "keywords": "hai cánh một con chim · ≠ bạch tuộc/đĩa hai vòi/đại bàng"
         },
         {
             "id": 135,
@@ -1754,7 +1754,7 @@
             ],
             "answer": 3,
             "explanation": "Tự giúp lấy mình đã.",
-            "keywords": "lấy · mình · ≠ trước/gọi/dậy"
+            "keywords": "giúp lấy mình · ≠ Giúp người/Kêu gọi/Tự gắng"
         },
         {
             "id": 136,
@@ -1767,7 +1767,7 @@
             ],
             "answer": 3,
             "explanation": "Độc lập và tự do.",
-            "keywords": "Độc · lập · ≠ dân/đẳng/đất"
+            "keywords": "khái niệm Độc lập · ≠ Ruộng đất/Quyền bình/Hòa bình"
         },
         {
             "id": 137,
@@ -1780,7 +1780,7 @@
             ],
             "answer": 2,
             "explanation": "Thành công không đến nơi.",
-            "keywords": "nơi · ≠ triê/thư"
+            "keywords": "Thành công đến nơi · ≠ Thành công/Chưa thực"
         },
         {
             "id": 138,
@@ -1793,7 +1793,7 @@
             ],
             "answer": 3,
             "explanation": "Việc học không bao giờ cùng, còn sống còn phải học.",
-            "keywords": "Việc · bao · ≠ mỏi/nghiệp/mãi"
+            "keywords": "Việc học bao giờ cùng, còn · ≠ Học biết/Học vì/Học học"
         },
         {
             "id": 139,
@@ -1806,7 +1806,7 @@
             ],
             "answer": 2,
             "explanation": "Ngày 05/06/1911; Bến cảng Nhà rồng - Sài gòn.",
-            "keywords": "≠ Minh/Hương/phô"
+            "keywords": "thời điểm 05-06-1911 · ≠ 1911/05-06-1911"
         },
         {
             "id": 140,
@@ -1819,7 +1819,7 @@
             ],
             "answer": 3,
             "explanation": "Văn hoá không thể đứng ngoài mà phải đứng trong chính trị, kinh tế, xã hội.",
-            "keywords": "ngoa · ≠ trâ/nhau"
+            "keywords": "Văn hoá đứng ngoài mà phải · ≠ Văn hoá"
         },
         {
             "id": 141,
@@ -1832,7 +1832,7 @@
             ],
             "answer": 1,
             "explanation": "Hiến pháp 1946 và Hiến pháp 1959.",
-            "keywords": "1946 · ≠ 1976/1980/1992"
+            "keywords": "quản lý bằng Hiến pháp pháp luật · ≠ Hiến pháp"
         },
         {
             "id": 142,
@@ -1845,7 +1845,7 @@
             ],
             "answer": 3,
             "explanation": "Con người với thói quen.",
-            "keywords": "tho · quen · ≠ con người/xã hội/việc làm"
+            "keywords": "⚠ NOT · đạo đức không gắn thói quen · ≠ người-người/xã hội/việc làm"
         },
         {
             "id": 143,
@@ -1858,7 +1858,7 @@
             ],
             "answer": 0,
             "explanation": "Nho giáo và Phật giáo.",
-            "keywords": "≠ Lênin/Chúa"
+            "keywords": "Nho giáo Phật giáo · ≠ Chủ nghĩa/Nho giáo/Phật giáo"
         },
         {
             "id": 144,
@@ -1871,7 +1871,7 @@
             ],
             "answer": 1,
             "explanation": "Nhà nước xã hội chủ nghĩa.",
-            "keywords": "Nhà · nước · ≠ Nam/trị/Minh"
+            "keywords": "⚠ NOT · nhà nước XHCN cơ cấu MT · ≠ Đảng/Tổ chức/Đoàn TN"
         },
         {
             "id": 145,
@@ -1884,7 +1884,7 @@
             ],
             "answer": 3,
             "explanation": "Sản xuất.",
-            "keywords": "≠ hội/gia"
+            "keywords": "theo Bác Sản xuất · ≠ Cần cù/Xây chủ/Tăng gia"
         },
         {
             "id": 146,
@@ -1897,7 +1897,7 @@
             ],
             "answer": 0,
             "explanation": "Tư tưởng Lão giáo.",
-            "keywords": "≠ Phâ/Nho/Lênin"
+            "keywords": "tưởng Lão giáo · ≠ Tư tưởng/Chủ nghĩa"
         },
         {
             "id": 147,
@@ -1910,7 +1910,7 @@
             ],
             "answer": 2,
             "explanation": "Phải kế thừa truyền thống yêu nước, nhân nghĩa, đoàn kết.",
-            "keywords": "truyê · thô · ≠ hoa/dân/ngươ"
+            "keywords": "⚠ NOT · kế thừa yêu nước đoàn kết · ≠ yêu thương/niềm tin/khoan dung"
         },
         {
             "id": 148,
@@ -1923,7 +1923,7 @@
             ],
             "answer": 0,
             "explanation": "Chọn cho mình lý do để sống.",
-            "keywords": "≠ nghề nghiệp/cuộc sống/hướng đi"
+            "keywords": "Chọn cho mình lý do để · ≠ mình nghề/mình nghĩa/mình hướng"
         },
         {
             "id": 149,
@@ -1936,7 +1936,7 @@
             ],
             "answer": 2,
             "explanation": "Tinh hoa văn hoá nhân loại.",
-            "keywords": "nhân · loại · ≠ tộc/dân/Lênin"
+            "keywords": "theo Bác Tinh hoa · ≠ Tinh hoa/Chủ nghĩa"
         },
         {
             "id": 150,
@@ -1949,7 +1949,7 @@
             ],
             "answer": 2,
             "explanation": "Thuộc địa.",
-            "keywords": "Thuộc · địa · ≠ kiến/lập/sản"
+            "keywords": "theo Bác Thuộc địa · ≠ Phong kiến/Độc lập/Tư sản"
         },
         {
             "id": 151,
@@ -1962,7 +1962,7 @@
             ],
             "answer": 3,
             "explanation": "Sống và hoạt động để tạo ra giá trị vật chất, tinh thần nhằm thoả mãn nhu cầu xã hội.",
-            "keywords": "hội · ≠ vật chất/cá nhân/tinh thần"
+            "keywords": "Sống hoạt động tạo giá trị · ≠ Sống hoạt"
         },
         {
             "id": 152,
@@ -1975,7 +1975,7 @@
             ],
             "answer": 2,
             "explanation": "Quần chúng nhân dân.",
-            "keywords": "Quâ · ≠ công/nhiều/lao"
+            "keywords": "theo Bác Quần chúng · ≠ Giai cấp/Dân chúng/Người dân"
         },
         {
             "id": 153,
@@ -1988,7 +1988,7 @@
             ],
             "answer": 3,
             "explanation": "Có sự thống nhất bản chất giai cấp công nhân với tính nhân dân và tính dân tộc.",
-            "keywords": "thống · nhất · ≠ Mang/sắc"
+            "keywords": "thống bản chất giai cấp công · ≠ Mang bản/Mang tính/tính dân"
         },
         {
             "id": 154,
@@ -2001,7 +2001,7 @@
             ],
             "answer": 0,
             "explanation": "Pháp luật đúng là pháp luật thể hiện bảo vệ được quyền lợi ích của dân.",
-            "keywords": "hiện · được · ≠ cầm quyền/của Đảng"
+            "keywords": "Pháp luật đúng pháp luật hiện · ≠ Pháp luật"
         },
         {
             "id": 155,
@@ -2014,7 +2014,7 @@
             ],
             "answer": 2,
             "explanation": "Báo Thanh niên.",
-            "keywords": "Thanh · niên · ≠ khổ/khô"
+            "keywords": "thời điểm Báo Thanh · ≠ Báo Người/Báo Người/Báo Đời"
         },
         {
             "id": 156,
@@ -2027,7 +2027,7 @@
             ],
             "answer": 0,
             "explanation": "Làm giàu cho văn hoá Việt Nam, xây dựng nó phù hợp với tinh thần dân chủ.",
-            "keywords": ""
+            "keywords": "Làm giàu văn hoá Việt xây · ≠ Mở rộng/Làm giàu"
         },
         {
             "id": 157,
@@ -2040,7 +2040,7 @@
             ],
             "answer": 1,
             "explanation": "Cải cách dân chủ tư sản.",
-            "keywords": ""
+            "keywords": "⚠ NOT · con đường cải cách tư sản · ≠ phong kiến/dân chủ/vô sản"
         },
         {
             "id": 158,
@@ -2053,7 +2053,7 @@
             ],
             "answer": 2,
             "explanation": "Văn hoá du lịch.",
-            "keywords": "≠ dục/nghệ/sống"
+            "keywords": "⚠ NOT · văn hóa du lịch lĩnh vực · ≠ giáo dục/văn nghệ/đời sống"
         },
         {
             "id": 159,
@@ -2066,7 +2066,7 @@
             ],
             "answer": 2,
             "explanation": "Sẵn sàng chiến đấu, hy sinh vì Tổ quốc.",
-            "keywords": "chiê · sinh · ≠ dân/nghi/công"
+            "keywords": "⚠ NOT · sẵn sàng hy sinh Tổ quốc · ≠ trung-hiếu/yêu thương/cần kiệm"
         },
         {
             "id": 160,
@@ -2079,7 +2079,7 @@
             ],
             "answer": 1,
             "explanation": "Nguyễn Thị Định.",
-            "keywords": "Định · ≠ Thập/Kiều/Chiến"
+            "keywords": "theo Bác Nguyễn Định · ≠ Nguyễn Thập/Tạ Kiều/Nguyễn Chiến"
         },
         {
             "id": 161,
@@ -2092,7 +2092,7 @@
             ],
             "answer": 3,
             "explanation": "Phong trào yêu nước.",
-            "keywords": "yêu · nước · ≠ dân/chủ/thức"
+            "keywords": "thời điểm Phong trào · ≠ Phong trào/Tầng lớp"
         },
         {
             "id": 162,
@@ -2105,7 +2105,7 @@
             ],
             "answer": 2,
             "explanation": "Ngày 04/02/1977.",
-            "keywords": "1977 · ≠ 1960/1944/1986"
+            "keywords": "thời điểm 04-02-1977 · ≠ 20-12-1960/22-12-1944/12-12-1986"
         },
         {
             "id": 163,
@@ -2118,7 +2118,7 @@
             ],
             "answer": 3,
             "explanation": "Văn minh thiên về vật chất - kỹ thuật còn văn hóa thiên về vật chất tinh thần.",
-            "keywords": "thiên · vật · ≠ tây/quốc/lịch"
+            "keywords": "Văn minh thiên vật chất thuật · ≠ Văn hóa/Văn minh"
         },
         {
             "id": 164,
@@ -2131,7 +2131,7 @@
             ],
             "answer": 0,
             "explanation": "Quy tắc (tường minh/ hàm ẩn) nhằm xác định kiểu hành vi nào là được chấp nhận trong một xã hội/cộng đồng/nhóm.",
-            "keywords": "tường · minh · ≠ chung/sống"
+            "keywords": "Quy tắc (tường minh/ hàm ẩn) · ≠ Quy tắc/Chuẩn mực/Những hành"
         },
         {
             "id": 165,
@@ -2144,7 +2144,7 @@
             ],
             "answer": 0,
             "explanation": "Trong cuộc đấu tranh chống chủ nghĩa đế quốc, chủ nghĩa thực dân, cách mạng thuộc địa có tầm quan trọng đặc biệt.",
-            "keywords": "⚠ KHÔNG phải · chủ · nghĩa · ≠ nhân/thân/bản"
+            "keywords": "⚠ NOT · CM thuộc địa tầm quan trọng · ≠ tự giải phóng VS/anh em/công nhân"
         },
         {
             "id": 166,
@@ -2157,7 +2157,7 @@
             ],
             "answer": 3,
             "explanation": "Con người xã hội chủ nghĩa.",
-            "keywords": "Con · người · ≠ tiến/tộc/cao"
+            "keywords": "Con người hội chủ nghĩa · ≠ Khoa học/Văn hóa/Nền kinh"
         },
         {
             "id": 167,
@@ -2170,7 +2170,7 @@
             ],
             "answer": 2,
             "explanation": "Con đĩa hai vòi.",
-            "keywords": "đĩa · ≠ tuộc/bàng/chim"
+            "keywords": "hình tượng chủ nghĩa TB con đĩa · ≠ bạch tuộc/chim/ hai cánh"
         },
         {
             "id": 168,
@@ -2183,7 +2183,7 @@
             ],
             "answer": 3,
             "explanation": "Cách mạng giải phóng dân tộc có khả năng nổ ra và giành được thắng lợi trước cách mạng vô sản ở chính quốc.",
-            "keywords": "khả · năng · ≠ thời/qua/vào"
+            "keywords": "CM dân tộc thắng trước chính quốc · ≠ đồng thời/tiền đề/phụ thuộc"
         },
         {
             "id": 169,
@@ -2196,7 +2196,7 @@
             ],
             "answer": 3,
             "explanation": "Chủ nghĩa Mác – Lênin.",
-            "keywords": "Lênin · ≠ nước/Nam/loại"
+            "keywords": "theo Bác Chủ nghĩa · ≠ Chủ nghĩa/Tinh hoa"
         },
         {
             "id": 170,
@@ -2209,7 +2209,7 @@
             ],
             "answer": 0,
             "explanation": "Một bộ phận của cách mạng vô sản thế giới.",
-            "keywords": "cách · mạng · ≠ chính/cấp/trên"
+            "keywords": "phận cách mạng sản giới · ≠ sở quyền/bộ phận/Kim chỉ"
         },
         {
             "id": 171,
@@ -2222,7 +2222,7 @@
             ],
             "answer": 2,
             "explanation": "Dân.",
-            "keywords": "≠ nước/Công/Đảng"
+            "keywords": "theo Bác Dân · ≠ Nhà nước/Công dân/Đảng"
         },
         {
             "id": 172,
@@ -2235,7 +2235,7 @@
             ],
             "answer": 1,
             "explanation": "Tài nguyên thiên nhiên.",
-            "keywords": "Tài · nguyên · ≠ Nam/cường"
+            "keywords": "⚠ NOT · tài nguyên thiên nhiên sức mạnh · ≠ yêu nước/đoàn kết/văn hóa"
         },
         {
             "id": 173,
@@ -2248,7 +2248,7 @@
             ],
             "answer": 2,
             "explanation": "Giải phóng dân tộc.",
-            "keywords": "dân · tộc · ≠ nhân/ruô/người"
+            "keywords": "thời điểm Giải phóng · ≠ Giải phóng/Người cày"
         },
         {
             "id": 174,
@@ -2261,7 +2261,7 @@
             ],
             "answer": 0,
             "explanation": "Thiểu số phục tùng đa số.",
-            "keywords": "Thiểu · phục · ≠ gia/Đảng/bình"
+            "keywords": "⚠ NOT · phục tùng đa số không đúng · ≠ kỷ luật/đoàn kết/phê bình"
         },
         {
             "id": 175,
@@ -2274,7 +2274,7 @@
             ],
             "answer": 3,
             "explanation": "Tính nhân sinh.",
-            "keywords": "nhân · sinh · ≠ lịch/thống/trị"
+            "keywords": "theo Bác Tính nhân · ≠ Tính lịch/Tính hệ/Tính giá"
         },
         {
             "id": 176,
@@ -2287,7 +2287,7 @@
             ],
             "answer": 3,
             "explanation": "Giai đoạn văn hóa thời kì Pháp thuộc.",
-            "keywords": "Pháp · ≠ Bắc thuộc/hiện đại/Đại Việt"
+            "keywords": "thời điểm Giai đoạn · ≠ Giai đoạn"
         },
         {
             "id": 177,
@@ -2300,7 +2300,7 @@
             ],
             "answer": 1,
             "explanation": "Phan Bội Châu.",
-            "keywords": "Bội · Châu · ≠ Trinh/Minh/thuộc"
+            "keywords": "nhân vật Phan Bội · ≠ Phan Chu/Hồ Chí/Giai đoạn"
         },
         {
             "id": 178,
@@ -2313,7 +2313,7 @@
             ],
             "answer": 3,
             "explanation": "Năm giai đoạn, giai đoạn từ cuối 1920 đến 03/02/1930 là quan trọng nhất.",
-            "keywords": "Năm · ≠ 1911"
+            "keywords": "giai đoạn, giai đoạn từ cuối · ≠ 05-06-1911/03-02-1930"
         },
         {
             "id": 179,
@@ -2326,7 +2326,7 @@
             ],
             "answer": 3,
             "explanation": "Truyền thống yêu nước.",
-            "keywords": "yêu · nước · ≠ kết/hiê/tạo"
+            "keywords": "theo Bác Truyền thống · ≠ Truyền thống/Truyền thố"
         },
         {
             "id": 180,
@@ -2339,7 +2339,7 @@
             ],
             "answer": 3,
             "explanation": "Bốn cách: Theo nghĩa rộng; Theo nghĩa hẹp; Theo nghĩa hẹp hơn; Theo phương thức sử dụng công cụ sinh hoạt.",
-            "keywords": "≠ Hai/xuâ"
+            "keywords": "Bốn cách: nghĩa rộng; nghĩa hẹp; · ≠ Hai cách:/cách: nghĩ/Ba cách:"
         },
         {
             "id": 181,
@@ -2352,7 +2352,7 @@
             ],
             "answer": 3,
             "explanation": "Ngày 06/01/1946.",
-            "keywords": "1946 · ≠ 1930/1975"
+            "keywords": "thời điểm 06-01-1946 · ≠ 03-02-1930/30-04-1975/24-02-1930"
         },
         {
             "id": 182,
@@ -2365,7 +2365,7 @@
             ],
             "answer": 0,
             "explanation": "Quyền thiêng liêng, bất khả xâm phạm của tất cả các dân tộc.",
-            "keywords": "≠ giơ/giới"
+            "keywords": "Quyền thiêng liêng, bất khả xâm · ≠ Quyền tự/Quyền thiêng/Quyền bất"
         },
         {
             "id": 183,
@@ -2378,7 +2378,7 @@
             ],
             "answer": 1,
             "explanation": "Xóa bỏ giai cấp bóc lột với tư cách là giai cấp thống trị xã hội.",
-            "keywords": "Xóa · cách · ≠ thuộc/khác/giơ"
+            "keywords": "Xóa bỏ giai cấp bóc lột với · ≠ Tiêu diệt/Thay giai/Giải phóng"
         },
         {
             "id": 184,
@@ -2391,7 +2391,7 @@
             ],
             "answer": 2,
             "explanation": "Về cách mạng giải phóng dân tộc.",
-            "keywords": "giải · phóng · ≠ ruộng đất/dân chủ/XHCN"
+            "keywords": "theo Bác Về cách · ≠ Về cách"
         },
         {
             "id": 185,
@@ -2404,7 +2404,7 @@
             ],
             "answer": 0,
             "explanation": "Từ những quan hệ kinh tế, xã hội, giai cấp con người.",
-            "keywords": ""
+            "keywords": "những quan kinh tế, hội, giai · ≠ Từ quan/Từ giai"
         },
         {
             "id": 186,
@@ -2417,7 +2417,7 @@
             ],
             "answer": 0,
             "explanation": "Công nhân, nông dân, lao động trí óc.",
-            "keywords": "lao · động · ≠ giai/cao/buôn"
+            "keywords": "Công nhân, nông dân, lao động · ≠ Giai cấp/Công nhân/Học trò"
         },
         {
             "id": 187,
@@ -2430,7 +2430,7 @@
             ],
             "answer": 0,
             "explanation": "Năm 1955.",
-            "keywords": "1955 · ≠ 1969/1947/1958"
+            "keywords": "thời điểm 1955 · ≠ 1969/1947/1958"
         },
         {
             "id": 188,
@@ -2443,7 +2443,7 @@
             ],
             "answer": 3,
             "explanation": "01/04/1922.",
-            "keywords": "1922 · ≠ 1920/1923/1921"
+            "keywords": "thời điểm 01-04-1922 · ≠ 30-12-1920/16-08-1923/10-05-1921"
         },
         {
             "id": 189,
@@ -2456,7 +2456,7 @@
             ],
             "answer": 2,
             "explanation": "Toàn diện gồm Đông, Tây, kim, cổ, tất cả các mặt, các khía cạnh.",
-            "keywords": "Đông · Tây · ≠ thô/thu"
+            "keywords": "Toàn gồm Đông, Tây, kim, tất · ≠ Toàn hệ/Chắt lọc/Toàn lọc"
         },
         {
             "id": 190,
@@ -2469,7 +2469,7 @@
             ],
             "answer": 1,
             "explanation": "Phan Chu Trinh.",
-            "keywords": "Chu · Trinh · ≠ Châu/Tha/Học"
+            "keywords": "nhân vật Phan Chu · ≠ Phan Bội/Hoàng Hoa/Nguyễn Thái"
         },
         {
             "id": 191,
@@ -2482,7 +2482,7 @@
             ],
             "answer": 3,
             "explanation": "Thực tiễn không có lý luận như nhắm mắt mà đi, lý luận không đem ra thực hành thì giống như cái hòm đựng đầy sách.",
-            "keywords": "đem · ≠ ngươ/trươ"
+            "keywords": "Thực tiễn lý luận nhắm mắt · ≠ Lý luận/Thực tiễn"
         },
         {
             "id": 192,
@@ -2495,7 +2495,7 @@
             ],
             "answer": 3,
             "explanation": "Toàn bộ những con người Việt Nam cụ thể sinh sống tại nước ngoài.",
-            "keywords": ""
+            "keywords": "Toàn bộ những con người Việt · ≠ Toàn bộ/Con người"
         },
         {
             "id": 193,
@@ -2508,7 +2508,7 @@
             ],
             "answer": 2,
             "explanation": "Tháng 07/1920 tại Paris.",
-            "keywords": "Paris · ≠ Moscow/London/York"
+            "keywords": "thời điểm 07-1920 · ≠ 07-1920/02-1917"
         },
         {
             "id": 194,
@@ -2521,7 +2521,7 @@
             ],
             "answer": 2,
             "explanation": "Tính giá trị.",
-            "keywords": "giá · trị · ≠ lịch/thống/sinh"
+            "keywords": "theo Bác Tính giá · ≠ Tính lịch/Tính hệ/Tính nhân"
         },
         {
             "id": 195,
@@ -2534,7 +2534,7 @@
             ],
             "answer": 0,
             "explanation": "Lý luận của chủ nghĩa Mác – Lênin.",
-            "keywords": "chu · nghi · ≠ tiễn/nươ/giơ"
+            "keywords": "luận chủ nghĩa Mác Lênin · ≠ Lý luận/Thực tiễn"
         },
         {
             "id": 196,
@@ -2547,7 +2547,7 @@
             ],
             "answer": 3,
             "explanation": "Cần cù, chăm chỉ, năng động, sáng tạo, làm việc có kế hoạch.",
-            "keywords": "động · sáng · ≠ hỏi/học"
+            "keywords": "Cần cù, chăm chỉ, năng động, · ≠ Cần cù/Chăm chỉ"
         },
         {
             "id": 197,
@@ -2560,7 +2560,7 @@
             ],
             "answer": 1,
             "explanation": "Dân có quyền làm những gì mà pháp luật không cấm và đạo đức cho phép.",
-            "keywords": "quyê · phe · ≠ chẽ/động/thác"
+            "keywords": "⚠ NOT · dân làm gì pháp không cấm · ≠ đại biểu/ủng hộ/kiểm soát"
         },
         {
             "id": 198,
@@ -2573,7 +2573,7 @@
             ],
             "answer": 2,
             "explanation": "Lin.",
-            "keywords": "≠ Lebon/Polopxki/Nilopxki"
+            "keywords": "khái niệm Lin · ≠ Victor Lebon/Polopxki/Nilopxki"
         },
         {
             "id": 199,
@@ -2586,7 +2586,7 @@
             ],
             "answer": 2,
             "explanation": "Nhiệm vụ của cách mạng.",
-            "keywords": "Nhiệm · ≠ pháp/đoa/lượng"
+            "keywords": "Nhiệm cách mạng · ≠ Phương pháp/Vai trò/Lực lượng"
         },
         {
             "id": 200,
@@ -2599,7 +2599,7 @@
             ],
             "answer": 0,
             "explanation": "Đường Kách mệnh.",
-            "keywords": "Đường · Kách · ≠ Pháp/Đảng/lập"
+            "keywords": "luận điểm trong Đường Kách mệnh · ≠ Bản án/Chánh cương/Tuyên ngôn"
         },
         {
             "id": 201,
@@ -2612,7 +2612,7 @@
             ],
             "answer": 2,
             "explanation": "Người thuộc tầng lớp cai trị.",
-            "keywords": "cai · ≠ dân/lưu/gia"
+            "keywords": "nhân vật Người thuộc · ≠ Toàn bộ/Người thuộ"
         },
         {
             "id": 202,
@@ -2625,7 +2625,7 @@
             ],
             "answer": 3,
             "explanation": "Mặt trận Việt Nam Độc lập Đồng minh.",
-            "keywords": "Độc · lập · ≠ quốc/bình/miền"
+            "keywords": "⚠ NOT · Việt Minh hợp nhất MT · ≠ Tổ quốc/Liên minh/GP miền Nam"
         },
         {
             "id": 203,
@@ -2638,7 +2638,7 @@
             ],
             "answer": 0,
             "explanation": "Hiệp ước Patonot năm 1884.",
-            "keywords": "≠ 1992/1883/thuô"
+            "keywords": "thời điểm Hiệp ước · ≠ Hiệp ước"
         },
         {
             "id": 204,
@@ -2651,7 +2651,7 @@
             ],
             "answer": 2,
             "explanation": "Muốn tiến lên CNXH thì phải phát triển kinh tế và văn hóa.",
-            "keywords": "≠ kinh tế/văn hóa"
+            "keywords": "Muốn tiến lên CNXH phải phát · ≠ Muốn tiến"
         },
         {
             "id": 205,
@@ -2664,7 +2664,7 @@
             ],
             "answer": 0,
             "explanation": "Vốn quý nhất, nhân tố quan trọng đến thành công của cách mạng.",
-            "keywords": "quan · ≠ lực/định/gia"
+            "keywords": "Vốn quý nhân quan đến thành · ≠ Nguồn vốn/Vốn quý"
         },
         {
             "id": 206,
@@ -2677,7 +2677,7 @@
             ],
             "answer": 1,
             "explanation": "Là vấn đề mang tính quyết định.",
-            "keywords": "≠ lợi/vừa/quan"
+            "keywords": "vai trò vấn đề · ≠ vấn đề"
         },
         {
             "id": 207,
@@ -2690,7 +2690,7 @@
             ],
             "answer": 0,
             "explanation": "Đại biểu duy nhất của các nước thuộc địa Đông Dương.",
-            "keywords": "Đông · Dương · ≠ tham/châu/Paris"
+            "keywords": "Đại biểu duy nước thuộc địa · ≠ Đại biểu/Đại biểu"
         },
         {
             "id": 208,
@@ -2703,7 +2703,7 @@
             ],
             "answer": 2,
             "explanation": "Đoàn kết công – nông và các tầng lớp khác trong xã hội.",
-            "keywords": "tầng · lớp · ≠ trí/thô/dân"
+            "keywords": "Đoàn kết công nông tầng lớp · ≠ Đoàn kết"
         },
         {
             "id": 209,
@@ -2716,7 +2716,7 @@
             ],
             "answer": 3,
             "explanation": "Soi đường.",
-            "keywords": "Soi · ≠ Dẫn/Chỉ"
+            "keywords": "theo Bác Soi đường · ≠ Dẫn đường/Dẫn lối/Chỉ đường"
         },
         {
             "id": 210,
@@ -2729,7 +2729,7 @@
             ],
             "answer": 2,
             "explanation": "Làm theo năng lực, hưởng theo lao động.",
-            "keywords": "lao · ≠ cầu/góp/người"
+            "keywords": "nguyên tắc Làm năng · ≠ Làm năng/Phân phối"
         },
         {
             "id": 211,
@@ -2742,7 +2742,7 @@
             ],
             "answer": 3,
             "explanation": "Tư tưởng nhân đạo hòa bình.",
-            "keywords": "nhân · đạo · ≠ giao/ngừng/tranh"
+            "keywords": "theo Bác Tư tưởng · ≠ Tư tưởng"
         },
         {
             "id": 212,
@@ -2755,7 +2755,7 @@
             ],
             "answer": 2,
             "explanation": "Giai cấp công nhân.",
-            "keywords": "công · nhân · ≠ thư/dân"
+            "keywords": "nhân vật Giai cấp · ≠ Giai cấp/Tầng lớp"
         },
         {
             "id": 213,
@@ -2768,7 +2768,7 @@
             ],
             "answer": 1,
             "explanation": "Đoàn kết trên cơ sở thống nhất mục tiêu và lợi ích, có lý, có tình.",
-            "keywords": "thống · nhất · ≠ vũ lực/có lợi/có lại"
+            "keywords": "nguyên tắc Đoàn kết · ≠ Đoàn kết"
         },
         {
             "id": 214,
@@ -2781,7 +2781,7 @@
             ],
             "answer": 2,
             "explanation": "Phạm vi điều chỉnh của đạo đức rộng hơn.",
-            "keywords": "≠ luật"
+            "keywords": "Phạm điều chỉnh đạo đức rộng · ≠ Phạm vi/Tính quyết/Tính phụ"
         },
         {
             "id": 215,
@@ -2794,7 +2794,7 @@
             ],
             "answer": 3,
             "explanation": "Ngày 20/10/1987 đến 20/11/1987.",
-            "keywords": ""
+            "keywords": "thời điểm 20-10-1987 · ≠ 30-4-1987/20-11-1987/19-5-1987"
         },
         {
             "id": 216,
@@ -2807,7 +2807,7 @@
             ],
             "answer": 1,
             "explanation": "Đại hội Đảng lần thứ XII.",
-            "keywords": "XII · ≠ IX/X/XI"
+            "keywords": "theo Bác Đại hội · ≠ Đại hội"
         },
         {
             "id": 217,
@@ -2820,7 +2820,7 @@
             ],
             "answer": 3,
             "explanation": "Giải phóng quần chúng lao động.",
-            "keywords": "quần · chúng · ≠ nhân/dân"
+            "keywords": "theo Bác Giải phóng · ≠ Giải phóng/Giải phóng"
         },
         {
             "id": 218,
@@ -2833,7 +2833,7 @@
             ],
             "answer": 1,
             "explanation": "Nguyễn Sinh Sắc.",
-            "keywords": "Nguyễn · Sinh · ≠ Quy/Miê/Châu"
+            "keywords": "nhân vật Nguyễn Sinh · ≠ Vương Thúc/Lê Văn/Phan Bội"
         },
         {
             "id": 219,
@@ -2846,7 +2846,7 @@
             ],
             "answer": 1,
             "explanation": "Từ 09/1910 đến 02/1911.",
-            "keywords": "1911 · ≠ 1909"
+            "keywords": "thời điểm 09-1910 · ≠ 09-1908/11-1908/09-1909"
         },
         {
             "id": 220,
@@ -2859,7 +2859,7 @@
             ],
             "answer": 1,
             "explanation": "Được tiến hành chủ động và sáng tạo.",
-            "keywords": "Đươ · tiến · ≠ quô/khác/nghĩa"
+            "keywords": "Được tiến hành chủ động sáng · ≠ Dựa sự"
         },
         {
             "id": 221,
@@ -2872,7 +2872,7 @@
             ],
             "answer": 1,
             "explanation": "Sở hữu xã hội về tư liệu sản xuất.",
-            "keywords": "hữu · hội · ≠ chủ/triển/hợp"
+            "keywords": "hữu hội liệu sản xuất · ≠ Nhân dân/Khoa học/cấu Công"
         },
         {
             "id": 222,
@@ -2885,7 +2885,7 @@
             ],
             "answer": 1,
             "explanation": "Năm 1930.",
-            "keywords": "1930 · ≠ 1920/1941/1925"
+            "keywords": "thời điểm 1930 · ≠ 1920/1941/1925"
         },
         {
             "id": 223,
@@ -2898,7 +2898,7 @@
             ],
             "answer": 0,
             "explanation": "Nền văn hóa ấy phải phục vụ cho nhân dân và do nhân dân xây dựng nên.",
-            "keywords": "phải · phục · ≠ ngươ/anh/giơ"
+            "keywords": "Nền văn hóa phải phục nhân · ≠ Đó nền/Nền văn"
         },
         {
             "id": 224,
@@ -2911,7 +2911,7 @@
             ],
             "answer": 2,
             "explanation": "Không theo đuôi quần chúng.",
-            "keywords": "đuôi · ≠ nghe/cầu/dân"
+            "keywords": "đuôi quần chúng · ≠ Luôn luôn/Lắng nghe/Thực hiện"
         },
         {
             "id": 225,
@@ -2924,7 +2924,7 @@
             ],
             "answer": 1,
             "explanation": "Điều chỉnh lý luận trước.",
-            "keywords": "≠ tiê/nhă"
+            "keywords": "theo Bác Điều chỉnh · ≠ Điều chỉnh/Thực hành"
         },
         {
             "id": 226,
@@ -2937,7 +2937,7 @@
             ],
             "answer": 3,
             "explanation": "Giành chính quyền và giữ chính quyền.",
-            "keywords": "Giành · giữ · ≠ mới/sai"
+            "keywords": "Giành chính quyền giữ chính quyền · ≠ Lật đổ/Tiêu diệt/Xây bảo"
         },
         {
             "id": 227,
@@ -2950,7 +2950,7 @@
             ],
             "answer": 0,
             "explanation": "Việt Nam sẵn sàng là bạn, là đối tác tin cậy của các nước trong cộng đồng quốc tế.",
-            "keywords": ""
+            "keywords": "thời điểm Việt sẵn · ≠ Việt sẵn/Việt muốn"
         },
         {
             "id": 228,
@@ -2963,7 +2963,7 @@
             ],
             "answer": 2,
             "explanation": "Chính sách phù hợp với điều kiện của nước ta.",
-            "keywords": "Chi · phu · ≠ phong/Nam/tranh"
+            "keywords": "Chính sách phù hợp điều kiện · ≠ Giúp người/Đem lại"
         },
         {
             "id": 229,
@@ -2976,7 +2976,7 @@
             ],
             "answer": 0,
             "explanation": "Gắn liền với độc lập của các dân tộc thuộc địa.",
-            "keywords": "thuô · ≠ thô/nhân/triê"
+            "keywords": "⚠ NOT · gắn độc lập thuộc địa khác · ≠ thống nhất/tự do/thật sự"
         },
         {
             "id": 230,
@@ -2989,7 +2989,7 @@
             ],
             "answer": 3,
             "explanation": "Yêu cầu của cách mạng giải phóng thuộc địa.",
-            "keywords": "Yêu · cầu · ≠ Nam/loa/Đông"
+            "keywords": "⚠ NOT · yêu cầu CM giải phóng thuộc địa · ≠ truyền thống/tinh hoa Đông"
         },
         {
             "id": 231,
@@ -3002,7 +3002,7 @@
             ],
             "answer": 1,
             "explanation": "Thiên về giá trị vật chất - kỹ thuật và chỉ trình độ phát triển.",
-            "keywords": "thuật · ≠ phát triển/lịch sử"
+            "keywords": "Thiên giá trị vật chất thuật · ≠ Thiên về"
         },
         {
             "id": 232,
@@ -3015,7 +3015,7 @@
             ],
             "answer": 1,
             "explanation": "Đại đoàn kết dân tộc.",
-            "keywords": "Đại · đoàn · ≠ quốc/nghệ/Nguô"
+            "keywords": "khái niệm Đại đoàn · ≠ Sự ủng/Khoa học/Nguồn vốn"
         },
         {
             "id": 233,
@@ -3028,7 +3028,7 @@
             ],
             "answer": 2,
             "explanation": "Độc lập dân tộc phải gắn liền tự do và hạnh phúc của nhân dân.",
-            "keywords": "hạnh · phúc · ≠ triệt để/lãnh thổ/dựng CNXH"
+            "keywords": "Độc lập dân tộc phải gắn · ≠ Độc lập"
         },
         {
             "id": 234,
@@ -3041,7 +3041,7 @@
             ],
             "answer": 2,
             "explanation": "Đem sức ta.",
-            "keywords": "Đem · sức · ≠ đoa/quốc/Đảng"
+            "keywords": "theo Bác Đem sức · ≠ Dựa sự/Dưới sự"
         },
         {
             "id": 235,
@@ -3054,7 +3054,7 @@
             ],
             "answer": 2,
             "explanation": "Nguồn gốc ra đời của Đảng.",
-            "keywords": "Nguồn · gốc · ≠ Nhiệm/chất/chuâ"
+            "keywords": "thời điểm Nguồn gốc · ≠ Nhiệm vụ/Bản chất/Tiêu chuẩn"
         },
         {
             "id": 236,
@@ -3067,7 +3067,7 @@
             ],
             "answer": 0,
             "explanation": "Xây dựng con người mới.",
-            "keywords": "con · ngươ · ≠ Nam/nghê/hoa"
+            "keywords": "⚠ NOT · đóng góp không phải con người mới · ≠ văn hóa mới/văn nghệ/quan điểm"
         },
         {
             "id": 237,
@@ -3080,7 +3080,7 @@
             ],
             "answer": 1,
             "explanation": "Lời kêu gọi, ngày 17/7/1966.",
-            "keywords": "1966 · ≠ 1946/1969/1968"
+            "keywords": "không sợ chiến tranh Lời kêu gọi · ≠ 19-12-1946/Di chúc/Thư chúc"
         },
         {
             "id": 238,
@@ -3093,7 +3093,7 @@
             ],
             "answer": 3,
             "explanation": "Lòng nhân ái cao cả.",
-            "keywords": "nhân · ≠ sinh/bác/thượng"
+            "keywords": "Lòng nhân cao · ≠ Đức hy/Lòng từ/Lòng cao"
         },
         {
             "id": 239,
@@ -3106,7 +3106,7 @@
             ],
             "answer": 0,
             "explanation": "Tháng 01/1938.",
-            "keywords": ""
+            "keywords": "thời điểm 01-1938 · ≠ 12-1939/06-1938/10-1938"
         },
         {
             "id": 240,
@@ -3119,7 +3119,7 @@
             ],
             "answer": 3,
             "explanation": "Tháng 12 năm 1920.",
-            "keywords": "1920 · ≠ 1919/1921"
+            "keywords": "thành lập 12 1920 · ≠ 02 1919/02 1921/12 1919"
         },
         {
             "id": 241,
@@ -3132,7 +3132,7 @@
             ],
             "answer": 0,
             "explanation": "Lấy lợi ích tối cao của giai cấp công nhân, giai cấp vô sản làm mục tiêu phấn đấu.",
-            "keywords": "cao · giai · ≠ nhau/dươ/chu"
+            "keywords": "⚠ NOT · lợi ích VS làm mục tiêu · ≠ đoàn kết/công-nông-trí/hiệp thương"
         },
         {
             "id": 242,
@@ -3145,7 +3145,7 @@
             ],
             "answer": 3,
             "explanation": "Sáu phương pháp luận.",
-            "keywords": ""
+            "keywords": "theo Bác Sáu phương · ≠ Bốn phương/Bảy phương/phương pháp"
         },
         {
             "id": 243,
@@ -3158,7 +3158,7 @@
             ],
             "answer": 3,
             "explanation": "Sai lầm về đường lối và sự suy thoái đạo đức của cán bộ, đảng viên.",
-            "keywords": "Sai · lầm · ≠ ngoa/nghê/nghi"
+            "keywords": "Sai lầm đường lối suy thoái · ≠ biến hòa/Tụt hậu/Đi lệch"
         },
         {
             "id": 244,
@@ -3171,7 +3171,7 @@
             ],
             "answer": 3,
             "explanation": "Giải phóng các nước thuộc địa.",
-            "keywords": "≠ đại/tranh/cao"
+            "keywords": "⚠ NOT · giải phóng thuộc địa không phải · ≠ khát vọng/giải pháp/cổ vũ"
         },
         {
             "id": 245,
@@ -3184,7 +3184,7 @@
             ],
             "answer": 3,
             "explanation": "Xóa bỏ nguồn gốc sinh ra bất bình đẳng, áp bức dân tộc.",
-            "keywords": "Xóa · nguồn · ≠ sản/thành/quyền"
+            "keywords": "Xóa nguồn gốc sinh bất bình · ≠ Phải đoàn/Phải tự/Phải giành"
         },
         {
             "id": 246,
@@ -3197,7 +3197,7 @@
             ],
             "answer": 0,
             "explanation": "Muốn dược thấy tư tưởng nhân quyền và dân quyền được thực hiện như thế nào tại Pháp và tại Việt Nam.",
-            "keywords": "dươ · tươ · ≠ thơ/mạng/quốc"
+            "keywords": "Muốn thấy tưởng nhân quyền dân · ≠ Vì mong/Để vận/Vì nguồn"
         },
         {
             "id": 247,
@@ -3210,7 +3210,7 @@
             ],
             "answer": 0,
             "explanation": "Hiến pháp.",
-            "keywords": "Hiến · pháp · ≠ nhân/dân/Đảng"
+            "keywords": "vai trò Hiến pháp · ≠ Ý chí/Mong muốn/Điều lệ"
         },
         {
             "id": 248,
@@ -3223,7 +3223,7 @@
             ],
             "answer": 2,
             "explanation": "Nông nghiệp.",
-            "keywords": "Nông · ≠ Công/Thương"
+            "keywords": "theo Bác Nông nghiệp · ≠ Công nghiệp/Du lịch/Thương nghiệ"
         },
         {
             "id": 249,
@@ -3236,7 +3236,7 @@
             ],
             "answer": 0,
             "explanation": "Nâng cao đạo đức cách mạng, quét sạch chủ nghĩa cá nhân.",
-            "keywords": "Nâng · cao · ≠ mệnh/việc"
+            "keywords": "ngọc mài vàng luyện đạo đức · ≠ Đạo đức/Đường kách/Sửa đổi"
         },
         {
             "id": 250,
@@ -3249,7 +3249,7 @@
             ],
             "answer": 0,
             "explanation": "17/12/1958.",
-            "keywords": "1958 · ≠ 1967/1959/1969"
+            "keywords": "thời điểm 17-12-1958 · ≠ 17-12-1967/17-12-1959/17-12-1969"
         },
         {
             "id": 251,
@@ -3262,7 +3262,7 @@
             ],
             "answer": 1,
             "explanation": "Sự khai sáng của văn hoá.",
-            "keywords": "khai · ≠ đươ/soi"
+            "keywords": "Sự khai sáng văn hoá · ≠ Sự soi/Sự đóng"
         },
         {
             "id": 252,
@@ -3275,7 +3275,7 @@
             ],
             "answer": 3,
             "explanation": "Lấy tình thân ái mà cảm hoá họ.",
-            "keywords": "thân · ≠ dung/đoa/sai"
+            "keywords": "Lấy tình thân ái mà cảm · ≠ lòng khoan/Kiên quyết/Giáo dục"
         },
         {
             "id": 253,
@@ -3288,7 +3288,7 @@
             ],
             "answer": 1,
             "explanation": "Bệnh chạy theo thành tích.",
-            "keywords": "Bệnh · cha · ≠ lợi/pha/liêu"
+            "keywords": "⚠ NOT · tiêu cực không phải thành tích · ≠ kiêu ngạo/tư túng/tham ô"
         },
         {
             "id": 254,
@@ -3301,7 +3301,7 @@
             ],
             "answer": 2,
             "explanation": "Đánh đổ địa chủ phong kiến đem lại ruộng đất cho nhân dân.",
-            "keywords": "địa · chủ · ≠ tộc/đại/lập"
+            "keywords": "⚠ NOT · đánh đổ địa chủ ruộng đất · ≠ đế quốc/con đường/nhà nước"
         },
         {
             "id": 255,
@@ -3314,7 +3314,7 @@
             ],
             "answer": 1,
             "explanation": "Đủ 21 tuổi.",
-            "keywords": ""
+            "keywords": "thời điểm Đủ 21 · ≠ Đủ 18/Đủ 19/Đủ 20"
         },
         {
             "id": 256,
@@ -3327,7 +3327,7 @@
             ],
             "answer": 3,
             "explanation": "Giải phóng dân tộc, giải phóng giai cấp, giải phóng con người.",
-            "keywords": ""
+            "keywords": "mục tiêu Giải phóng · ≠ Giải phóng"
         },
         {
             "id": 257,
@@ -3340,7 +3340,7 @@
             ],
             "answer": 3,
             "explanation": "Giá trị về quyền sống, quyền tự do và quyền mưu cầu hạnh phúc.",
-            "keywords": "sống · mưu · ≠ sinh/thân/bác"
+            "keywords": "Giá trị quyền sống, quyền quyền · ≠ Tư tưởng/Triết lý"
         },
         {
             "id": 258,
@@ -3353,7 +3353,7 @@
             ],
             "answer": 3,
             "explanation": "Chủ nghĩa yêu nước và chủ nghĩa quốc tế.",
-            "keywords": "yêu · nước · ≠ cấp/dân/phu"
+            "keywords": "yêu nước kết hợp quốc tế · ≠ dân-giai cấp/dân tộc-XH/độc lập-hạnh phúc"
         },
         {
             "id": 259,
@@ -3366,7 +3366,7 @@
             ],
             "answer": 2,
             "explanation": "Chức năng điều chỉnh xã hội.",
-            "keywords": "điều · chỉnh · ≠ dục/tiếp"
+            "keywords": "Chức năng điều chỉnh hội · ≠ Chức năng"
         },
         {
             "id": 260,
@@ -3379,7 +3379,7 @@
             ],
             "answer": 1,
             "explanation": "Đa dạng tộc người.",
-            "keywords": "ngươ · ≠ nước/cường/kết"
+            "keywords": "thời điểm Đa dạng · ≠ Chủ nghĩa/thức tự/Tinh thần"
         },
         {
             "id": 261,
@@ -3392,7 +3392,7 @@
             ],
             "answer": 1,
             "explanation": "Trung Quốc.",
-            "keywords": "Trung · Quốc · ≠ Pháp/Nam/Liên"
+            "keywords": "theo Bác Trung Quốc · ≠ Pháp/Việt/Liên Xô"
         },
         {
             "id": 262,
@@ -3405,7 +3405,7 @@
             ],
             "answer": 1,
             "explanation": "Xây dựng bản lĩnh cách mạng, đấu tranh chống giặc ngoại xâm.",
-            "keywords": "tranh · ngoa · ≠ luâ/nươ/công"
+            "keywords": "Xây bản lĩnh cách mạng, đấu · ≠ Góp phần/Giáo dục/Xây rèn"
         },
         {
             "id": 263,
@@ -3418,7 +3418,7 @@
             ],
             "answer": 2,
             "explanation": "Huy động các nguồn lực sẵn có trong nhân dân.",
-            "keywords": "Huy · động · ≠ quốc/nước/mới"
+            "keywords": "Huy động nguồn lực sẵn nhân · ≠ Tranh thủ/Kết hợp"
         },
         {
             "id": 264,
@@ -3431,7 +3431,7 @@
             ],
             "answer": 2,
             "explanation": "Lương Văn Can.",
-            "keywords": "Lương · Văn · ≠ Trinh/Châu/Học"
+            "keywords": "theo Bác Lương Văn · ≠ Phan Chu/Phan Bội/Nguyễn Thái"
         },
         {
             "id": 265,
@@ -3444,7 +3444,7 @@
             ],
             "answer": 0,
             "explanation": "Gốc của người cách mạng.",
-            "keywords": "≠ viên/con/cầu"
+            "keywords": "Gốc người cách mạng · ≠ Phẩm chất/Gốc rễ/Yêu cầu"
         },
         {
             "id": 266,
@@ -3457,7 +3457,7 @@
             ],
             "answer": 1,
             "explanation": "Độc lập dân tộc gắn liền với chủ nghĩa xã hội.",
-            "keywords": "Độc · lập · ≠ cấp/người/đại"
+            "keywords": "thời điểm Độc lập · ≠ Giải phóng/Kết hợp"
         },
         {
             "id": 267,
@@ -3470,7 +3470,7 @@
             ],
             "answer": 1,
             "explanation": "Gia đình nhà nho yêu nước, hiếu học, giàu truyền thống cách mạng và ý chí phấn đấu vươn lên rất cao.",
-            "keywords": "nhà · nho · ≠ quan/ham/nghiê"
+            "keywords": "Gia đình nhà nho yêu nước, · ≠ Gia đình"
         },
         {
             "id": 268,
@@ -3483,7 +3483,7 @@
             ],
             "answer": 1,
             "explanation": "Năm 1923, tại Mátxcơva (Liên Xô).",
-            "keywords": "1923 · Mátxcơva · ≠ Quốc/Lan/Pháp"
+            "keywords": "thời điểm 1923 · ≠ 1925/1926/1920"
         },
         {
             "id": 269,
@@ -3496,7 +3496,7 @@
             ],
             "answer": 2,
             "explanation": "Chủ nghĩa yêu nước chân chính kết hợp nhuần nhuyễn với chủ nghĩa quốc tế vô sản.",
-            "keywords": "Chu · yêu · ≠ triê/phương/loa"
+            "keywords": "Chủ nghĩa yêu nước chân chính · ≠ Đa phương/Giải quyết/Đối thoại"
         },
         {
             "id": 270,
@@ -3509,7 +3509,7 @@
             ],
             "answer": 0,
             "explanation": "Châu Á; Châu Phi; Châu Âu; Châu Mỹ.",
-            "keywords": ""
+            "keywords": "thời điểm Châu Á · ≠ Châu Á/Châu Phi"
         },
         {
             "id": 271,
@@ -3522,7 +3522,7 @@
             ],
             "answer": 0,
             "explanation": "Mặt trận dân tộc thống nhất.",
-            "keywords": "≠ nhân/Nam/Dương"
+            "keywords": "Mặt trận dân tộc thống · ≠ Mặt trận"
         },
         {
             "id": 272,
@@ -3535,7 +3535,7 @@
             ],
             "answer": 0,
             "explanation": "Di chúc (1965-1969).",
-            "keywords": "chúc · 1965-1969 · ≠ 1960/1958/1927"
+            "keywords": "đoàn kết như con ngươi Di chúc · ≠ Ba mươi/Đạo đức/Đường cách"
         },
         {
             "id": 273,
@@ -3548,7 +3548,7 @@
             ],
             "answer": 1,
             "explanation": "Liên minh giữa nhân dân thế giới về mục tiêu phản đối chiến tranh phi nghĩa.",
-            "keywords": "nhân · dân · ≠ quốc/sản/nghệ"
+            "keywords": "Liên minh giữa nhân dân giới · ≠ Liên minh/Sức mạnh"
         },
         {
             "id": 274,
@@ -3561,7 +3561,7 @@
             ],
             "answer": 3,
             "explanation": "Phát huy tài năng của các nhà nghiên cứu lý luận giỏi.",
-            "keywords": "Pha · huy · ≠ Lênin/suốt/nươ"
+            "keywords": "Phát huy tài năng nhà nghiên · ≠ Dựa trên/đội tiên/Vận kinh"
         },
         {
             "id": 275,
@@ -3574,7 +3574,7 @@
             ],
             "answer": 1,
             "explanation": "Nguồn sức mạnh vô địch của khối đại đoàn kết.",
-            "keywords": "≠ quyê/tro"
+            "keywords": "Nguồn sức mạnh địch khối đại · ≠ Nhân tố/Cội nguồn"
         },
         {
             "id": 276,
@@ -3587,7 +3587,7 @@
             ],
             "answer": 3,
             "explanation": "Pháp luật và đạo đức tồn tại song song, đều có vai trò quan trọng.",
-            "keywords": "tồn · tại · ≠ thiểu/giác"
+            "keywords": "Pháp luật đạo đức tồn tại · ≠ Đạo đức/Pháp luật"
         },
         {
             "id": 277,
@@ -3600,7 +3600,7 @@
             ],
             "answer": 2,
             "explanation": "Nước Pháp, ngày 06/07/1911.",
-            "keywords": "≠ phi/Phi"
+            "keywords": "thời điểm 06-07-1911 · ≠ 05-06-1911/25-06-1911/06-07-1911"
         },
         {
             "id": 278,
@@ -3613,7 +3613,7 @@
             ],
             "answer": 3,
             "explanation": "Những mẩu chuyện về đời hoạt động của Hồ Chủ tịch.",
-            "keywords": "mẩu · chuyện · ≠ mới/Pháp/lập"
+            "keywords": "Những mẩu chuyện về đời hoạt · ≠ Đời sống/Phát biểu/Tuyên ngôn"
         },
         {
             "id": 279,
@@ -3626,7 +3626,7 @@
             ],
             "answer": 0,
             "explanation": "Vai trò lãnh đạo của Đảng.",
-            "keywords": "Vai · trò · ≠ Nhiệm/quyền/quyê"
+            "keywords": "thời điểm Vai trò · ≠ Nhiệm vụ/Vị cầm/Bản chất"
         },
         {
             "id": 280,
@@ -3639,7 +3639,7 @@
             ],
             "answer": 0,
             "explanation": "Hồ Chí Minh.",
-            "keywords": "Chí · Minh"
+            "keywords": "nhân vật Hồ Chí · ≠ Lão Tử/Mạnh tử/Tử"
         },
         {
             "id": 281,
@@ -3652,7 +3652,7 @@
             ],
             "answer": 2,
             "explanation": "Mạnh tử.",
-            "keywords": "Mạnh"
+            "keywords": "nhân vật Mạnh tử · ≠ Tất Đạt/Lão Tử/Tử"
         },
         {
             "id": 282,
@@ -3665,7 +3665,7 @@
             ],
             "answer": 2,
             "explanation": "Đạo đức cách mạng.",
-            "keywords": "≠ năng/pháp"
+            "keywords": "theo Bác Đạo đức · ≠ Trí tuệ/Tài năng/Phương pháp"
         },
         {
             "id": 283,
@@ -3678,7 +3678,7 @@
             ],
             "answer": 2,
             "explanation": "Chiến thắng Điện Biên Phủ.",
-            "keywords": "Điện · Phủ · ≠ Bình/Bắc/giới"
+            "keywords": "theo Bác Chiến Điện · ≠ Chiến Hòa/Chiến Tây/Chiến Biên"
         },
         {
             "id": 284,
@@ -3691,7 +3691,7 @@
             ],
             "answer": 0,
             "explanation": "Ănghen, Lênin.",
-            "keywords": "≠ Minh/Mác"
+            "keywords": "nhân vật Ănghen Lênin · ≠ Ănghen Hồ/Lênin Hồ/C. Mác"
         },
         {
             "id": 285,
@@ -3704,7 +3704,7 @@
             ],
             "answer": 0,
             "explanation": "Quảng Châu – Trung Quốc, năm 1927.",
-            "keywords": "≠ Viê/Hương/1925"
+            "keywords": "thời điểm Quảng Châu · ≠ Bắc pó/Hương Cảng/Quảng Châu"
         },
         {
             "id": 286,
@@ -3717,7 +3717,7 @@
             ],
             "answer": 0,
             "explanation": "Tháng 06/1925.",
-            "keywords": "1925 · ≠ 1929/1926/1927"
+            "keywords": "thời điểm 06-1925 · ≠ 08-1929/05-1926/06-1927"
         },
         {
             "id": 287,
@@ -3730,7 +3730,7 @@
             ],
             "answer": 2,
             "explanation": "Các quan hệ kinh tế - xã hội.",
-            "keywords": "≠ đức/trị/sống"
+            "keywords": "quan kinh hội · ≠ quan hệ/quan điểm/quy tắc"
         },
         {
             "id": 288,
@@ -3743,7 +3743,7 @@
             ],
             "answer": 2,
             "explanation": "Đời sống tinh thần của xã hội, thuộc về kiến trúc thượng tầng.",
-            "keywords": "tinh · thần · ≠ ngươ/viê/chất"
+            "keywords": "thời điểm Đời sống · ≠ Tổng hợp/trường học/Đời sống"
         },
         {
             "id": 289,
@@ -3756,7 +3756,7 @@
             ],
             "answer": 1,
             "explanation": "Sự vận động và phát triển của con người.",
-            "keywords": "≠ hội/sống"
+            "keywords": "vận động phát triển con người · ≠ Sự vận/Sự phát/Đời sống"
         },
         {
             "id": 290,
@@ -3769,7 +3769,7 @@
             ],
             "answer": 1,
             "explanation": "Đoàn kết tạo ra sức mạnh, tạo ra lực lượng để xây dựng đất nước.",
-            "keywords": "xây · nươ · ≠ khăn/ngươ/công"
+            "keywords": "Đoàn kết tạo sức mạnh, tạo · ≠ Đoàn lực/Đoàn kết"
         },
         {
             "id": 291,
@@ -3782,7 +3782,7 @@
             ],
             "answer": 0,
             "explanation": "Một nhà nước được công nhận bằng hiến pháp và pháp luật của dân.",
-            "keywords": "đươ · công · ≠ nhân dân/cá nhân/lãnh thổ"
+            "keywords": "quản lý bằng Hiến pháp pháp luật · ≠ nhà nước"
         },
         {
             "id": 292,
@@ -3795,7 +3795,7 @@
             ],
             "answer": 1,
             "explanation": "Bồi dưỡng lý luận chính trị, rèn luyện tác phong công tác, tư duy tự chủ.",
-            "keywords": "luâ · chi · ≠ người/thiện/dân"
+            "keywords": "Bồi dưỡng lý luận chính trị, · ≠ Bồi dưỡng/Mở rộng"
         },
         {
             "id": 293,
@@ -3808,7 +3808,7 @@
             ],
             "answer": 2,
             "explanation": "Ngón vắn, ngón dài.",
-            "keywords": "≠ ngă/Ngă/nhau"
+            "keywords": "thời điểm Ngón vắn · ≠ Ngón ngắn/Ngắn dài/Dài ngắn"
         },
         {
             "id": 294,
@@ -3821,7 +3821,7 @@
             ],
             "answer": 2,
             "explanation": "Vua quan và phong kiến.",
-            "keywords": "≠ dân/chủ"
+            "keywords": "thời điểm Vua quan · ≠ Vua quan/Phong kiến"
         },
         {
             "id": 295,
@@ -3834,7 +3834,7 @@
             ],
             "answer": 1,
             "explanation": "Thanh niên.",
-            "keywords": "Thanh · ≠ nhân/Thiê/Nhi"
+            "keywords": "theo Bác Thanh niên · ≠ Công nhân/Thiếu niên/Nhi đồng"
         },
         {
             "id": 296,
@@ -3847,7 +3847,7 @@
             ],
             "answer": 0,
             "explanation": "Kiên định lấy chủ nghĩa Mác – Lênin làm nền tảng tư tưởng, kim chỉ nam cho hành động.",
-            "keywords": "Kiên · định · ≠ thă/lối/điê"
+            "keywords": "thời điểm Kiên định · ≠ Căn cứ/Lấy chủ/Dựa chủ"
         },
         {
             "id": 297,
@@ -3860,7 +3860,7 @@
             ],
             "answer": 3,
             "explanation": "Tất cả tinh thần và lực lượng, tính mạng và của cải.",
-            "keywords": "mạng · cải · ≠ động/sức"
+            "keywords": "thời điểm Tất cả · ≠ Tất cả/Lực lượng/Toàn bộ"
         },
         {
             "id": 298,
@@ -3873,7 +3873,7 @@
             ],
             "answer": 0,
             "explanation": "Sức mạnh của phong trào cách mạng thế giới.",
-            "keywords": "≠ thế giới/dân tộc/nghệ 4.0"
+            "keywords": "Sức mạnh phong trào cách mạng · ≠ Sức mạnh"
         },
         {
             "id": 299,
@@ -3886,7 +3886,7 @@
             ],
             "answer": 0,
             "explanation": "Tổng hợp các quan hệ xã hội từ rộng đến hẹp.",
-            "keywords": "hợp · đến · ≠ hoa/nhiên"
+            "keywords": "Tổng hợp quan hội rộng đến · ≠ Tổng hoà/Sản phẩm/Sự thống"
         },
         {
             "id": 300,
@@ -3899,7 +3899,7 @@
             ],
             "answer": 2,
             "explanation": "Kiên trì chống lại khuynh hướng sai lầm của chủ nghĩa xét lại.",
-            "keywords": "≠ cơ hội/sôvanh/dân tộc"
+            "keywords": "Kiên trì chống lại khuynh hướng · ≠ Kiên trì"
         }
     ];
     global.QUIZ_BANKS = global.QUIZ_BANKS || {};

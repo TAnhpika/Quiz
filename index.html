@@ -11676,6 +11676,8 @@
             let flashcardInitialCount = 0;
             /** Số thẻ đã Easy — dùng cho progress bar */
             let flashcardEasyCount = 0;
+            /** Chọn đúng — chờ nút Tiếp tục trước khi loại khỏi chặng */
+            let flashcardAwaitContinue = false;
             const FLASHCARD_REINSERT = { again: 2, hard: 4, good: 8 };
             const GRADE_SHORTCUT_KEYS = ["again", "hard", "good", "easy"];
 
@@ -11724,6 +11726,7 @@
                 }
 
                 flashcardFlipped = false;
+                flashcardAwaitContinue = false;
                 reviewUI.showSpacedGradeBar(false);
                 resetAnswerPanel();
 
@@ -11745,7 +11748,10 @@
 
                 if (selectedIndex === q.answer) {
                     btnElement.classList.add("correct");
-                    advanceFlashcardQueue("easy");
+                    flashcardFlipped = true;
+                    flashcardAwaitContinue = true;
+                    document.getElementById("flashcard-front-panel").classList.add("hidden");
+                    document.getElementById("btn-next").classList.remove("hidden");
                     return;
                 }
 
@@ -12074,6 +12080,7 @@
                 document.body.classList.remove("subject-active");
                 spacedAnswerRevealed = false;
                 flashcardFlipped = false;
+                flashcardAwaitContinue = false;
                 flashcardQueue = [];
                 flashcardInitialCount = 0;
                 flashcardEasyCount = 0;
@@ -12180,6 +12187,7 @@
                 reviewLastCorrect = false;
                 spacedAnswerRevealed = false;
                 flashcardFlipped = false;
+                flashcardAwaitContinue = false;
                 document.getElementById("score").innerText = "0";
                 resetAnswerPanel();
                 reviewUI.setGameModeUI(mode);
@@ -12327,6 +12335,10 @@
             }
 
             function nextQuestion() {
+                if (currentMode === "flashcard" && flashcardAwaitContinue) {
+                    advanceFlashcardQueue("easy");
+                    return;
+                }
                 if (currentMode === "review" && reviewLastCorrect) {
                     advanceAfterReviewCorrect();
                     return;
@@ -12404,7 +12416,10 @@
                 if (e.key === " " || e.key === "-" || e.code === "Space" || e.code === "Minus") {
                     if (e.repeat) return;
                     if (currentMode === "flashcard") {
-                        if (!flashcardFlipped) {
+                        if (flashcardAwaitContinue) {
+                            e.preventDefault();
+                            nextQuestion();
+                        } else if (!flashcardFlipped) {
                             e.preventDefault();
                             flipFlashcard();
                         }

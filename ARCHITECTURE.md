@@ -26,7 +26,6 @@
 Quiz/
 ├── index.html          # App: HTML + CSS + JS (logic)
 ├── banks/              # Ngân hàng câu hỏi — load on demand
-│   ├── tthcm.js
 │   ├── thml.js
 │   └── swt_pt1.js
 ├── README.md
@@ -87,7 +86,6 @@ index.html
 
 | File        | Môn                     | Số câu |
 | ----------- | ----------------------- | ------ |
-| `tthcm.js`  | Tư tưởng Hồ Chí Minh    | 300    |
 | `thml.js`   | Triết học Mác - Lênin   | 361    |
 | `swt_pt1.js`| Software Testing PT1    | 166    |
 

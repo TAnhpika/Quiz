@@ -1196,21 +1196,6 @@
             // Mỗi môn: questions riêng, tiến độ/bookmark/review lưu theo subjectId
             // =============================================================================
             const SUBJECTS = {
-                tthcm: {
-                    id: "tthcm",
-                    name: "Tư tưởng Hồ Chí Minh",
-                    titleLines: ["ĐƯỜNG LÊN ĐỈNH", "TƯ TƯỞNG HỒ CHÍ MINH"],
-                    icon: "fa-graduation-cap",
-                    iconColor: "text-pink-400",
-                    borderColor: "border-pink-50",
-                    gradient: "from-pink-500 via-orange-400 to-blue-500",
-                    cardBorder: "border-pink-200",
-                    cardHover: "hover:border-pink-300",
-                    cardIconBg: "bg-pink-50",
-                    cardIconColor: "text-pink-400",
-                    questionCount: 300,
-                    keywordsEnabled: true,
-                },
                 thml: {
                     id: "thml",
                     name: "Triết học Mác - Lênin",
@@ -1302,13 +1287,7 @@
                 },
 
                 migrateLegacyData() {
-                    const legacyMap = {
-                        tthcm_marked_questions_ultimate: ["tthcm", "marked"],
-                        tthcm_reviewed_questions_v1: ["tthcm", "reviewed"],
-                        tthcm_group_mastery_v1: ["tthcm", "group_mastery"],
-                        tthcm_review_data_v1: ["tthcm", "review_data"],
-                        tthcm_review_meta_v1: ["tthcm", "review_meta"],
-                    };
+                    const legacyMap = {};
                     Object.entries(legacyMap).forEach(([oldKey, [sid, suffix]]) => {
                         const val = localStorage.getItem(oldKey);
                         const newKey = this.storageKey(sid, suffix);
@@ -1775,7 +1754,8 @@
                     cloudEntries.forEach((raw) => {
                         const cloud = this.entryFromFirestore(raw);
                         if (!cloud) return;
-                        const sid = raw.subjectId || "tthcm";
+                        const sid = raw.subjectId;
+                        if (!sid || !SUBJECTS[sid]) return;
                         if (!grouped[sid]) grouped[sid] = {};
                         this.mergeEntryPair(grouped[sid], cloud);
                     });
@@ -2257,14 +2237,6 @@
                 if (data.subjects && typeof data.subjects === "object") {
                     Object.entries(data.subjects).forEach(([sid, payload]) => {
                         if (SUBJECTS[sid]) subjectManager.applySubjectPayload(sid, payload);
-                    });
-                } else {
-                    subjectManager.applySubjectPayload("tthcm", {
-                        markedQuestions: Array.isArray(data.markedQuestions) ? data.markedQuestions : Array.isArray(data.bookmarks) ? data.bookmarks : null,
-                        reviewedQuestions: data.reviewedQuestions,
-                        groupMastery: data.groupMastery,
-                        groupLastResult: data.groupLastResult,
-                        reviewMeta: data.reviewMeta,
                     });
                 }
 
@@ -3180,7 +3152,7 @@
                     const user = await waitForAuth();
                     if (!user) return;
                     const payload = {
-                        subjectId: entryData.subjectId || currentSubjectId || "tthcm",
+                        subjectId: entryData.subjectId || currentSubjectId,
                         questionId: entryData.questionId,
                         repetition: entryData.repetition,
                         interval: entryData.interval,
@@ -3208,7 +3180,7 @@
                         batch.set(
                             colRef.doc(id),
                             {
-                                subjectId: data.subjectId || currentSubjectId || "tthcm",
+                                subjectId: data.subjectId || currentSubjectId,
                                 questionId: data.questionId,
                                 repetition: data.repetition,
                                 interval: data.interval,

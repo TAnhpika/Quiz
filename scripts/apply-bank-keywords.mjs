@@ -1,6 +1,6 @@
 /**
  * Apply curated keywords JSON to a bank file.
- * Usage: node scripts/apply-bank-keywords.mjs tthcm
+ * Usage: node scripts/apply-bank-keywords.mjs thml
  */
 import fs from "fs";
 import path from "path";
@@ -17,7 +17,6 @@ const BANK_PATH = path.join(__dirname, "..", "banks", `${bankId}.js`);
 const KEYWORDS_PATH = path.join(__dirname, `${bankId}-keywords.json`);
 
 const BANK_HEADERS = {
-    tthcm: (n) => `/** Ngân hàng câu hỏi: Tư tưởng Hồ Chí Minh (${n} câu) — load on demand */`,
     thml: (n) => `/** Ngân hàng câu hỏi: Triết học Mác - Lênin (${n} câu) — load on demand */`,
     swt_pt1: (n) => `/** Ngân hàng câu hỏi: Software Testing PT1 (${n} câu) — load on demand */`,
 };

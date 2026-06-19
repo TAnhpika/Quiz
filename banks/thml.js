@@ -2215,12 +2215,12 @@
             "id": 171,
             "text": "Chọn đáp án đúng nhất. Chân lý là:",
             "options": [
-                "Tri thức đúng.",
+                "Tri thức phù hợp với hiện thực được thực tiễn kiểm nghiệm.",
                 "Tri thức phù hợp với thực tế.",
                 "Tri thức phù hợp với hiện thực.",
                 "Tri thức do khoa học chứng minh."
             ],
-            "answer": 2,
+            "answer": 0,
             "explanation": "Tri thức phù hợp với hiện thực.",
             "keywords": "Q: chân lý - Chọn đáp án | A: Tri thức phù hợp với hiện thực"
         },

@@ -2114,7 +2114,7 @@
                 "Vật chất có trước ý thức.",
                 "Vật chất quyết định ý thức.",
                 "Bản chất của thế giới là vật chất.",
-                "Quy luật xã hội hình thành và tác động thông qua hoạt động của con người nhưng không phụ thuộc vào ý thức của con người."
+                "Vật chất là thế giới."
             ],
             "answer": 3,
             "explanation": "Quy luật xã hội hình thành và tác động thông qua hoạt động của con người nhưng không phụ thuộc vào ý thức của con người.",
@@ -2153,7 +2153,7 @@
                 "Một sự vật, một quá trình.",
                 "Những mặt, những sự vật.",
                 "Những mặt, những thuộc tính.",
-                "Quy luật xã hội hình thành và tác động thông qua hoạt động của con người nhưng không phụ thuộc vào ý thức của con người."
+                "Một vài vấn đề."
             ],
             "answer": 2,
             "explanation": "Những mặt, những thuộc tính.",
@@ -2166,9 +2166,9 @@
                 "Khái niệm.",
                 "Biểu tượng.",
                 "Cảm giác.",
-                "Quy luật xã hội hình thành và tác động thông qua hoạt động của con người nhưng không phụ thuộc vào ý thức của con người."
+                "Tri giác."
             ],
-            "answer": 2,
+            "answer": 2, 
             "explanation": "Cảm giác.",
             "keywords": "Q: Cảm giác | A: Cảm giác"
         },

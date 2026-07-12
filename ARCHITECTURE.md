@@ -1,7 +1,8 @@
-# Quiz — Frontend Architecture
+# Quizzy × Memozy — Frontend Architecture
 
-> Ứng dụng ôn tập trắc nghiệm **Đường Lên Đỉnh**  
-> Stack: Vanilla JS · Single HTML · Tailwind CDN · Font Awesome 6.7 · Firebase (optional)
+> **Quizzy**: ôn tập trắc nghiệm **Đường Lên Đỉnh**  
+> **Memozy**: học từ vựng IELTS (flashcard + spaced repetition + TTS)  
+> Stack: Vanilla JS · HTML · Tailwind CDN · Font Awesome 6.7 · Firebase (optional)
 
 ---
 
@@ -10,10 +11,11 @@
 | Vai trò       | Công nghệ                                              |
 | ------------- | ------------------------------------------------------ |
 | UI            | HTML5 + Tailwind CSS (CDN)                             |
-| Logic         | Vanilla JavaScript (một file `index.html`)             |
+| Logic         | Vanilla JS — `index.html` (Quizzy) + `memozy-app.js`   |
 | Font          | Google Fonts — Nunito                                  |
 | Icons         | Font Awesome 6.7.2 (CDN)                               |
-| State local   | `localStorage` (per subject)                           |
+| State local   | `localStorage` (per subject / per Memozy account)      |
+| Audio         | Web Speech API (`speechSynthesis`, en-GB)              |
 | Cloud sync    | Firebase Auth (Anonymous) + Firestore (tùy cấu hình)   |
 | Deploy        | Vercel / static hosting                                |
 | Build         | Không có — zero build step                             |
@@ -23,53 +25,90 @@
 ## 2. Cấu trúc dự án
 
 ```
-Quiz/
-├── index.html          # App: HTML + CSS + JS (logic)
-├── banks/              # Ngân hàng câu hỏi — load on demand
+Quizzy/
+├── index.html              # Hub + Quizzy UI/logic + Memozy screens (HTML)
+├── memozy-app.js           # Memozy navigation, study, SRS, TTS
+├── banks/                  # Ngân hàng Quizzy — load on demand
 │   ├── thml.js
 │   └── swt_pt1.js
+├── banks/memozy/           # Ngân hàng từ vựng IELTS
+│   ├── catalog.js          # Cây Skill → Group → Leaf
+│   ├── reading.js
+│   ├── listening.js
+│   ├── writing.js
+│   └── speaking.js
 ├── README.md
 ├── ARCHITECTURE.md
 └── PhanTichNghiepVu.md
 ```
 
-> Toàn bộ logic nằm trong `index.html` (~10.000+ dòng). Không có `src/`, bundler hay framework.
-
 ### Cấu trúc logic bên trong `index.html`
 
 ```
 index.html
-├── <head>
-│   ├── Tailwind CDN
-│   ├── Font Awesome CDN
-│   └── <style>           # Custom CSS, responsive, game/home screens
-│
 ├── <body> #app
-│   ├── screen-subject    # Chọn môn học
-│   ├── screen-home       # Trang chủ (3 nút chính + hub)
-│   ├── modal-group       # Chọn chặng (campaign)
-│   ├── modal-review-hub  # Dashboard SR + shortcuts
-│   ├── screen-game       # Màn chơi (dùng chung mọi mode)
-│   ├── screen-result     # Kết quả + Làm lại
-│   └── screen-handbook   # Sổ tay tra cứu
+│   ├── screen-app-hub           # Chọn Quizzy / Memozy
+│   ├── screen-memozy-account    # Tuấn Anh / Linh / Both
+│   ├── screen-memozy-skills     # 4 skills + Ôn hôm nay
+│   ├── screen-memozy-browse     # Part / dạng (cây catalog)
+│   ├── screen-memozy-study      # Flashcard lật thẻ + grade + audio
+│   ├── screen-memozy-result
+│   ├── screen-subject           # Chọn môn (Quizzy)
+│   ├── screen-home
+│   ├── modal-group / modal-review-hub
+│   ├── screen-game / screen-result / screen-handbook
 │
-└── <script>
-    ├── SUBJECTS              # Metadata từng môn (theme, icon, title)
-    ├── bankLoader            # Dynamic load banks/{subjectId}.js
-    ├── SUBJECTS              # Cấu hình môn (+ questionCount)
-    ├── subjectManager        # Chọn môn, load/save localStorage, cloud payload
-    ├── reviewDateUtils       # Helper ngày tháng
-    ├── reviewStorage         # reviewData + reviewMeta local/Firestore
-    ├── reviewEngine          # SR scheduling (Anki-lite)
-    ├── reviewUI              # Dashboard hub, spaced grade bar
-    ├── Game core             # startGame, selectAnswer, finishGame, timer, helps
-    ├── Handbook              # renderHandbook, filterHandbook
-    └── Firebase integration  # Anonymous auth, sync users + reviewData
+└── <script> … Quizzy modules …
+<script src="memozy-app.js">     # window.Memozy API
 ```
 
 ---
 
-## 3. Mô hình dữ liệu câu hỏi
+## 2b. Memozy — luồng & dữ liệu
+
+```mermaid
+flowchart TD
+  Hub[screen-app-hub] -->|Quizzy| Subject[screen-subject]
+  Hub -->|Memozy| Account[screen-memozy-account]
+  Account --> Skills[screen-memozy-skills]
+  Skills --> Browse[screen-memozy-browse]
+  Browse --> Study[screen-memozy-study]
+  Skills -->|On Hom Nay| Study
+  Study --> Result[screen-memozy-result]
+```
+
+### Vocab card
+
+```js
+{
+  id: "sp-ht-01",
+  term, meaning, example, paraphrase, phonetic,
+  skill: "speaking",
+  path: ["part1", "hometown"],  // khớp catalog leaf
+  owner: "tuananh" | "linh" | "both",
+  tags: ["idiom"]
+}
+```
+
+Filter: `owner === account || owner === "both" || account === "both"`.
+
+### localStorage (Memozy)
+
+| Key | Mô tả |
+| --- | ----- |
+| `memozy_account` | `tuananh` / `linh` / `both` |
+| `memozy_{account}_review_data` | SRS entries theo card `id` (string) |
+| `memozy_{account}_review_meta` | `{ streak, lastReviewDay }` |
+
+SRS grades: Again 1d / Hard 3d / Good 7d / Easy 14d (cùng thuật toán Anki-lite như Quizzy).
+
+### API `window.Memozy`
+
+`showAppHub`, `enterQuizzy`, `enterMemozy`, `selectAccount`, `openSkill`, `startLeaf`, `startDueReview`, `flipCard`, `handleGrade`, `speakCurrent`, …
+
+---
+
+## 3. Mô hình dữ liệu câu hỏi (Quizzy)
 
 ```js
 {
@@ -126,8 +165,9 @@ User action (bookmark, finish chặng, SR grade, …)
 
 ```
 window.onload
-  → subjectManager.migrateLegacyData()
-  → showSubjectSelection()
+  → Memozy.showAppHub()          # chọn Quizzy / Memozy
+  → (Quizzy) showSubjectSelection()
+  → (Memozy) enterMemozy → account → skills → browse → study
 ```
 
 Chọn môn → `selectSubject(id)` → load state → `screen-home`.
@@ -136,11 +176,16 @@ Chọn môn → `selectSubject(id)` → load state → `screen-home`.
 
 ## 5. Màn hình & Navigation
 
-Không dùng router — điều hướng bằng `hideAllScreens()` + toggle class `hidden` trên từng `#screen-*`.
+Không dùng router — điều hướng bằng `hideAllScreens()` / `Memozy.hideMemozyScreens()` + toggle class `hidden` trên từng `#screen-*`.
 
 | Screen / Modal       | ID                  | Mở từ                          |
 | -------------------- | ------------------- | ------------------------------ |
-| Chọn môn             | `screen-subject`    | `onload`, nút Đổi môn          |
+| App Hub              | `screen-app-hub`    | `onload`, nút Hub              |
+| Memozy Account       | `screen-memozy-account` | Hub → Memozy              |
+| Memozy Skills        | `screen-memozy-skills`  | Sau chọn account            |
+| Memozy Browse        | `screen-memozy-browse`  | Chọn skill                  |
+| Memozy Study         | `screen-memozy-study`   | Leaf / Ôn hôm nay           |
+| Chọn môn             | `screen-subject`    | Hub → Quizzy                   |
 | Trang chủ            | `screen-home`       | Sau chọn môn, sau result/home  |
 | Chơi game            | `screen-game`       | `startGame(mode)`              |
 | Kết quả              | `screen-result`     | `finishGame()`                 |
@@ -307,7 +352,13 @@ Icon môn khai báo trong `SUBJECTS[].icon` (vd: `fa-vial-circle-check` — cầ
 
 ```mermaid
 flowchart TD
-    A[onload] --> B[screen-subject]
+    A[onload] --> Hub[screen-app-hub]
+    Hub -->|Quizzy| B[screen-subject]
+    Hub -->|Memozy| M1[memozy-account]
+    M1 --> M2[memozy-skills]
+    M2 --> M3[memozy-browse]
+    M3 --> M4[memozy-study]
+    M2 -->|On Hom Nay| M4
     B -->|selectSubject| C[screen-home]
     C -->|Học Theo Nhóm| D[modal-group]
     D -->|startGame campaign| E[screen-game]
@@ -319,6 +370,7 @@ flowchart TD
     F -->|showHome| C
     C -->|Hub → Sổ tay| G[screen-handbook]
     C -->|Đổi môn| B
+    B -->|Hub| Hub
 ```
 
 ---
@@ -337,12 +389,15 @@ flowchart TD
 
 ## 14. Scope hiện tại
 
-- ✅ Đa môn, chọn môn, tiến độ tách biệt
-- ✅ Campaign / Exam / Review / Spaced
+- ✅ Hub chọn Quizzy / Memozy
+- ✅ Memozy: account filter, 4 skills, browse taxonomy, flip flashcard, SRS, TTS
+- ✅ Đa môn, chọn môn, tiến độ tách biệt (Quizzy)
+- ✅ Campaign / Exam / Review / Spaced / Flashcard MCQ (Quizzy)
 - ✅ Bookmark, Sổ tay, export/import
 - ✅ SR dashboard + streak
-- ✅ Firebase sync (khi config)
+- ✅ Firebase sync (khi config) — Quizzy
 - ✅ Responsive mobile + keyboard shortcuts
 - ⏸ Tài khoản user thật
-- ⏸ Backend API / admin quản lý câu hỏi
+- ⏸ Backend API / admin quản lý câu hỏi & vocab
 - ⏸ PWA offline
+- ⏸ Đồng bộ cloud cho Memozy review data

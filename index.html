@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1" />
-        <title>Đường Lên Đỉnh - Ôn Tập Đại Học</title>
+        <title>Quizzy × Memozy</title>
         <link rel="icon" type="image/jpeg" href="https://i.pinimg.com/474x/f3/6c/30/f36c30786f75f2d2d28dd959bf41a5ae.jpg" />
         <link rel="apple-touch-icon" href="https://i.pinimg.com/474x/f3/6c/30/f36c30786f75f2d2d28dd959bf41a5ae.jpg" />
         <script src="https://cdn.tailwindcss.com"></script>
@@ -710,12 +710,221 @@
                     height: 2.1rem;
                 }
             }
+
+            /* Memozy */
+            #screen-memozy-study {
+                height: 100dvh;
+                max-height: 100dvh;
+                overflow: hidden;
+            }
+            .memozy-card-face {
+                min-height: 14rem;
+                transition: transform 0.2s ease, opacity 0.2s ease;
+            }
+            #memozy-grade-bar .grade-btn {
+                min-height: 2.75rem;
+            }
+            #memozy-grade-bar .grade-btn:hover:not(:disabled) {
+                transform: translateY(-1px);
+            }
         </style>
     </head>
     <body class="bg-gradient-to-br from-pink-100 via-yellow-50 to-blue-100 min-h-screen text-slate-800">
         <div id="app" class="container mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-10 max-w-5xl min-h-screen flex flex-col relative">
+            <!-- Hub: chọn Quizzy / Memozy -->
+            <div id="screen-app-hub" class="hidden flex-1 flex flex-col items-center justify-center text-center animate-fade-in w-full">
+                <div class="glass-panel rounded-3xl shadow-xl w-full max-w-3xl mx-auto p-6 md:p-10">
+                    <div class="inline-block p-4 bg-white rounded-full shadow-sm mb-4 border border-slate-100">
+                        <i class="fa-solid fa-compass text-4xl text-indigo-400"></i>
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-black text-slate-800 mb-2">Chọn ứng dụng</h1>
+                    <p class="text-sm md:text-base text-slate-500 mb-8">Quizzy ôn thi · Memozy học từ vựng IELTS</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                        <button
+                            type="button"
+                            onclick="Memozy.enterQuizzy()"
+                            class="group bg-white border-2 border-pink-200 hover:border-pink-400 rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all"
+                        >
+                            <div class="w-12 h-12 rounded-full bg-pink-50 text-pink-500 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-graduation-cap text-xl"></i>
+                            </div>
+                            <h2 class="font-black text-slate-800 text-xl mb-1">Quizzy</h2>
+                            <p class="text-sm text-slate-500">Ôn thi cuối kỳ — trắc nghiệm, chặng, spaced repetition</p>
+                        </button>
+                        <button
+                            type="button"
+                            onclick="Memozy.enterMemozy()"
+                            class="group bg-white border-2 border-teal-200 hover:border-teal-400 rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all"
+                        >
+                            <div class="w-12 h-12 rounded-full bg-teal-50 text-teal-500 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-language text-xl"></i>
+                            </div>
+                            <h2 class="font-black text-slate-800 text-xl mb-1">Memozy</h2>
+                            <p class="text-sm text-slate-500">Học từ vựng IELTS — flashcard, audio, spaced repetition</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memozy: chọn account -->
+            <div id="screen-memozy-account" class="hidden flex-1 flex flex-col items-center justify-center text-center animate-fade-in w-full relative">
+                <button
+                    type="button"
+                    onclick="Memozy.backFromAccount()"
+                    class="fixed top-5 left-5 z-30 px-3 py-2 rounded-xl bg-white/90 border border-slate-200 text-slate-600 text-xs font-bold hover:bg-white shadow-sm flex items-center gap-1.5"
+                >
+                    <i class="fa-solid fa-arrow-left"></i> Hub
+                </button>
+                <div class="glass-panel rounded-3xl shadow-xl w-full max-w-lg mx-auto p-6 md:p-10">
+                    <div class="inline-block p-4 bg-teal-50 rounded-full shadow-sm mb-4 border border-teal-100">
+                        <i class="fa-solid fa-user-group text-3xl text-teal-500"></i>
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-black text-slate-800 mb-2">Chọn Account</h1>
+                    <p class="text-sm text-slate-500 mb-6">Lọc bộ từ theo người học</p>
+                    <div id="memozy-account-cards" class="flex flex-col gap-3"></div>
+                </div>
+            </div>
+
+            <!-- Memozy: chọn skill -->
+            <div id="screen-memozy-skills" class="hidden flex-1 flex flex-col items-center text-center animate-fade-in w-full relative">
+                <button
+                    type="button"
+                    onclick="Memozy.backFromSkills()"
+                    class="fixed top-5 left-5 z-30 px-3 py-2 rounded-xl bg-white/90 border border-slate-200 text-slate-600 text-xs font-bold hover:bg-white shadow-sm flex items-center gap-1.5"
+                >
+                    <i class="fa-solid fa-arrow-left"></i> Account
+                </button>
+                <button
+                    id="btn-memozy-due"
+                    type="button"
+                    onclick="Memozy.startDueReview()"
+                    class="fixed top-5 right-5 z-30 px-3 py-2 rounded-xl bg-gradient-to-r from-orange-500 to-red-400 text-white text-xs font-bold shadow-sm flex items-center gap-1.5 opacity-50 cursor-not-allowed"
+                    disabled
+                >
+                    <i class="fa-solid fa-fire"></i> Ôn hôm nay
+                    <span id="memozy-due-badge" class="hidden bg-white text-red-600 text-[10px] font-black min-w-[1.1rem] h-4 px-1 rounded-full flex items-center justify-center">0</span>
+                </button>
+                <div class="glass-panel rounded-3xl shadow-xl w-full max-w-4xl mx-auto p-6 md:p-8 mt-12 md:mt-4">
+                    <p class="text-xs font-bold text-teal-600 uppercase tracking-wide mb-1">Memozy · <span id="memozy-skills-account">—</span></p>
+                    <h1 class="text-2xl md:text-3xl font-black text-slate-800 mb-2">Chọn Skills</h1>
+                    <p class="text-sm text-slate-500 mb-6">Reading · Listening · Writing · Speaking</p>
+                    <div id="memozy-skill-cards" class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left"></div>
+                </div>
+            </div>
+
+            <!-- Memozy: browse part/dạng -->
+            <div id="screen-memozy-browse" class="hidden flex-1 flex flex-col items-center animate-fade-in w-full relative">
+                <button
+                    type="button"
+                    onclick="Memozy.backFromBrowse()"
+                    class="fixed top-5 left-5 z-30 px-3 py-2 rounded-xl bg-white/90 border border-slate-200 text-slate-600 text-xs font-bold hover:bg-white shadow-sm flex items-center gap-1.5"
+                >
+                    <i class="fa-solid fa-arrow-left"></i> Skills
+                </button>
+                <div class="glass-panel rounded-3xl shadow-xl w-full max-w-2xl mx-auto p-6 md:p-8 mt-12 md:mt-4 text-left">
+                    <h1 id="memozy-browse-title" class="text-2xl font-black text-slate-800 mb-1">Skill</h1>
+                    <p id="memozy-browse-goal" class="text-sm text-slate-500 mb-6">Goal</p>
+                    <div id="memozy-browse-tree"></div>
+                </div>
+            </div>
+
+            <!-- Memozy: study flashcard -->
+            <div id="screen-memozy-study" class="hidden fixed inset-0 z-40 flex flex-col animate-fade-in max-w-3xl mx-auto px-3 py-3 md:px-4 md:py-4">
+                <div class="glass-panel rounded-2xl px-3 py-2.5 md:px-4 md:py-3 shadow-sm flex items-center justify-between gap-3 border-b-4 border-b-teal-100 shrink-0">
+                    <div class="flex items-center gap-3 min-w-0">
+                        <button
+                            type="button"
+                            onclick="Memozy.exitStudyToBrowse()"
+                            class="w-10 h-10 shrink-0 bg-white rounded-full flex items-center justify-center text-slate-500 hover:text-teal-500 shadow-sm transition-colors border border-slate-100"
+                            title="Quay lại"
+                        >
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                        <div class="min-w-0">
+                            <h2 id="memozy-study-title" class="font-black text-slate-700 text-base md:text-lg tracking-tight truncate">Memozy</h2>
+                            <div id="memozy-study-progress" class="text-xs text-slate-500 font-bold">Còn 0 thẻ</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <button
+                            id="btn-memozy-autoplay"
+                            type="button"
+                            onclick="Memozy.toggleAutoplay()"
+                            class="h-10 px-2.5 shrink-0 rounded-full flex items-center gap-1.5 text-xs font-bold shadow-sm border transition-colors bg-slate-50 text-slate-500 border-slate-200 hover:bg-slate-100"
+                            title="Tự phát âm mỗi từ mới"
+                            aria-pressed="false"
+                        >
+                            <i class="fa-solid fa-rotate" aria-hidden="true"></i>
+                            <span class="hidden sm:inline">Auto</span>
+                        </button>
+                        <button
+                            type="button"
+                            onclick="Memozy.speakCurrent()"
+                            class="w-10 h-10 shrink-0 bg-teal-50 rounded-full flex items-center justify-center text-teal-600 hover:bg-teal-100 shadow-sm border border-teal-100"
+                            title="Phát âm"
+                        >
+                            <i class="fa-solid fa-volume-high"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex-1 min-h-0 flex flex-col mt-3">
+                    <div class="glass-panel rounded-3xl shadow-lg flex-1 min-h-0 flex flex-col overflow-hidden bg-white/95">
+                        <div class="flex-1 min-h-0 flex flex-col items-center justify-center p-6 md:p-10">
+                            <div id="memozy-card-front" class="memozy-card-face w-full max-w-lg text-center">
+                                <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Mặt trước</p>
+                                <p id="memozy-term" class="text-2xl md:text-3xl font-black text-slate-800 leading-snug mb-3">term</p>
+                                <p id="memozy-phonetic" class="text-sm text-slate-400 font-mono mb-6"></p>
+                                <button
+                                    type="button"
+                                    onclick="Memozy.flipCard()"
+                                    class="px-6 py-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-xl font-black text-sm shadow-sm hover:shadow-md transition-all"
+                                >
+                                    Lật thẻ <kbd class="ml-1 px-1.5 py-0.5 bg-white/20 rounded text-[10px] font-mono">Space</kbd>
+                                </button>
+                            </div>
+                            <div id="memozy-card-back" class="memozy-card-face w-full max-w-lg text-center hidden">
+                                <p class="text-[10px] font-bold uppercase tracking-widest text-teal-500 mb-3">Mặt sau</p>
+                                <p id="memozy-meaning" class="text-xl md:text-2xl font-black text-slate-800 mb-3">nghĩa</p>
+                                <p id="memozy-example" class="text-sm text-slate-600 italic leading-relaxed mb-3">example</p>
+                                <p id="memozy-paraphrase" class="text-sm font-semibold text-violet-600 mb-3 hidden"></p>
+                                <p id="memozy-card-tags" class="text-[11px] text-slate-400 font-bold"></p>
+                            </div>
+                        </div>
+                        <div id="memozy-grade-bar" class="hidden px-3 pb-3 md:px-4 md:pb-4 grid grid-cols-2 gap-2 border-t border-slate-100 pt-3">
+                            <button type="button" onclick="Memozy.handleGrade('again')" class="grade-btn py-2.5 rounded-xl border-2 border-red-200 bg-red-50 text-red-700 font-bold text-xs md:text-sm hover:bg-red-100" title="Phím 1">😵 Quên</button>
+                            <button type="button" onclick="Memozy.handleGrade('hard')" class="grade-btn py-2.5 rounded-xl border-2 border-orange-200 bg-orange-50 text-orange-700 font-bold text-xs md:text-sm hover:bg-orange-100" title="Phím 2">🤔 Khó</button>
+                            <button type="button" onclick="Memozy.handleGrade('good')" class="grade-btn py-2.5 rounded-xl border-2 border-green-200 bg-green-50 text-green-700 font-bold text-xs md:text-sm hover:bg-green-100" title="Phím 3">🙂 Nhớ</button>
+                            <button type="button" onclick="Memozy.handleGrade('easy')" class="grade-btn py-2.5 rounded-xl border-2 border-blue-200 bg-blue-50 text-blue-700 font-bold text-xs md:text-sm hover:bg-blue-100" title="Phím 4">😎 Dễ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memozy: result -->
+            <div id="screen-memozy-result" class="hidden flex-1 flex flex-col items-center justify-center text-center animate-fade-in px-2">
+                <div class="glass-panel p-8 md:p-12 rounded-3xl shadow-2xl w-full max-w-lg bg-white/95">
+                    <div class="inline-block p-3 bg-teal-50 rounded-full mb-4">
+                        <i class="fa-solid fa-circle-check text-5xl text-teal-500"></i>
+                    </div>
+                    <h2 id="memozy-result-title" class="text-2xl md:text-3xl font-black text-slate-800 mb-2">Hoàn thành!</h2>
+                    <p id="memozy-result-detail" class="text-sm text-slate-500 mb-8">—</p>
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                        <button type="button" onclick="Memozy.exitStudyToBrowse()" class="px-6 py-3.5 bg-slate-100 text-slate-700 rounded-xl font-bold hover:bg-slate-200">Quay lại</button>
+                        <button type="button" onclick="Memozy.showSkills()" class="px-6 py-3.5 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-xl font-bold">Skills</button>
+                    </div>
+                </div>
+            </div>
+
             <!-- Màn hình chọn môn học -->
-            <div id="screen-subject" class="flex-1 flex flex-col items-center justify-center text-center animate-fade-in w-full">
+            <div id="screen-subject" class="hidden flex-1 flex flex-col items-center justify-center text-center animate-fade-in w-full relative">
+                <button
+                    type="button"
+                    onclick="Memozy.showAppHub()"
+                    class="fixed top-5 left-5 z-30 px-3 py-2 rounded-xl bg-white/90 border border-slate-200 text-slate-600 text-xs font-bold hover:bg-white shadow-sm flex items-center gap-1.5"
+                >
+                    <i class="fa-solid fa-arrow-left"></i> Hub
+                </button>
                 <div class="glass-panel rounded-3xl shadow-xl w-full max-w-3xl mx-auto p-6 md:p-10">
                     <div class="inline-block p-4 bg-white rounded-full shadow-sm mb-4 border border-slate-100">
                         <i class="fa-solid fa-layer-group text-4xl text-indigo-400"></i>
@@ -1437,6 +1646,7 @@
                 document.body.classList.add("subject-active");
                 document.body.classList.remove("home-active");
                 document.body.classList.remove("game-active");
+                document.title = "Đường Lên Đỉnh - Quizzy";
             }
 
             function rebuildHandbookGroupOptions() {
@@ -2495,12 +2705,15 @@
                 ["screen-subject", "screen-home", "screen-game", "screen-result", "screen-handbook", "modal-group", "modal-review-hub"].forEach((id) =>
                     document.getElementById(id).classList.add("hidden"),
                 );
+                if (window.Memozy?.hideMemozyScreens) window.Memozy.hideMemozyScreens();
                 document.getElementById("btn-review-hub").classList.add("hidden");
                 document.getElementById("fireworks").innerHTML = "";
                 document.body.classList.remove("game-active");
                 document.body.classList.remove("home-active");
                 document.body.classList.remove("subject-active");
                 document.body.classList.remove("result-active");
+                document.body.classList.remove("hub-active");
+                document.body.classList.remove("memozy-active");
                 spacedAnswerRevealed = false;
                 flashcardFlipped = false;
                 flashcardAwaitContinue = false;
@@ -2672,7 +2885,8 @@
                 applyKeywordsSettings();
                 subjectManager.migrateLegacyData();
                 bindFlashcardGuideTip();
-                showSubjectSelection();
+                if (window.Memozy?.showAppHub) Memozy.showAppHub();
+                else showSubjectSelection();
             };
 
             function openGroupSelection() {
@@ -3247,5 +3461,6 @@
             }
             // END FIREBASE INTEGRATION
         </script>
+        <script src="memozy-app.js"></script>
     </body>
 </html>

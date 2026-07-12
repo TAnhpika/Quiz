@@ -233,7 +233,7 @@
 
     function matchesOwner(card) {
         if (!memozyAccount || memozyAccount === "both") return true;
-        return card.owner === memozyAccount || card.owner === "both";
+        return card.owner === memozyAccount;
     }
 
     function pathKey(path) {
@@ -343,7 +343,7 @@
                 </div>
                 <div>
                     <div class="font-black text-lg ${a.labelClass}">${a.label}</div>
-                    ${a.hint ? `<div class="text-xs text-slate-500 mt-0.5">${a.hint}</div>` : `<div class="text-xs text-slate-400 mt-0.5">Bộ từ riêng + từ chung</div>`}
+                    ${a.hint ? `<div class="text-xs text-slate-500 mt-0.5">${a.hint}</div>` : `<div class="text-xs text-slate-400 mt-0.5">Chỉ bộ từ riêng</div>`}
                 </div>
             </button>`,
             )

@@ -1146,11 +1146,22 @@
                             type="button"
                             onclick="Memozy.toggleAutoplay()"
                             class="h-10 px-2.5 shrink-0 rounded-full flex items-center gap-1.5 text-xs font-bold shadow-sm border transition-colors bg-slate-50 text-slate-500 border-slate-200 hover:bg-slate-100"
-                            title="Tự phát âm mỗi từ mới"
+                            title="Auto play audio"
                             aria-pressed="false"
                         >
                             <i class="fa-solid fa-bolt" aria-hidden="true"></i>
                             <span class="hidden sm:inline">Auto</span>
+                        </button>
+                        <button
+                            id="btn-memozy-auto-hard"
+                            type="button"
+                            onclick="Memozy.toggleAutoHard()"
+                            class="h-10 px-2.5 shrink-0 rounded-full flex items-center gap-1.5 text-xs font-bold shadow-sm border transition-colors bg-white/90 text-slate-500 border-slate-200 hover:bg-slate-50"
+                            title="Lặp lại từ sai sau ~4 từ"
+                            aria-pressed="false"
+                        >
+                            <i class="fa-solid fa-rotate" aria-hidden="true"></i>
+                            <span class="hidden sm:inline">Repeat</span>
                         </button>
                         <button
                             type="button"
@@ -3764,6 +3775,6 @@
             }
             // END FIREBASE INTEGRATION
         </script>
-        <script src="memozy-app.js?v=mcq5"></script>
+        <script src="memozy-app.js?v=mcq10"></script>
     </body>
 </html>

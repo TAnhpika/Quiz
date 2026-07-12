@@ -44,9 +44,11 @@
     let memozyMode = null; // "leaf" | "due"
     let memozyStudyTitle = "";
     let memozyAutoplay = localStorage.getItem("memozy_autoplay") === "1";
+    let memozyAutoHard = localStorage.getItem("memozy_auto_hard") === "1";
     let memozyInitialCount = 0;
     let memozyAnswered = false;
     let memozyAwaitContinue = false;
+    let memozyContinueGrade = "good";
     let memozyCurrentOptions = [];
     let memozyAnswerIndex = 0;
 
@@ -447,7 +449,7 @@
         const btn = document.getElementById("btn-memozy-autoplay");
         if (!btn) return;
         btn.setAttribute("aria-pressed", memozyAutoplay ? "true" : "false");
-        btn.title = memozyAutoplay ? "Auto play: Bật — tắt" : "Auto play: Tắt — bật";
+        btn.title = "Auto play audio";
         btn.innerHTML = `<i class="fa-solid fa-bolt" aria-hidden="true"></i><span class="hidden sm:inline">Auto</span>`;
         if (memozyAutoplay) {
             btn.className =
@@ -472,6 +474,27 @@
                 /* silent */
             }
         }
+    }
+
+    function syncAutoHardButton() {
+        const btn = document.getElementById("btn-memozy-auto-hard");
+        if (!btn) return;
+        btn.setAttribute("aria-pressed", memozyAutoHard ? "true" : "false");
+        btn.title = "Lặp lại từ sai sau ~4 từ";
+        btn.innerHTML = `<i class="fa-solid fa-rotate" aria-hidden="true"></i><span class="hidden sm:inline">Repeat</span>`;
+        if (memozyAutoHard) {
+            btn.className =
+                "h-10 px-2.5 shrink-0 rounded-full flex items-center gap-1.5 text-xs font-bold shadow-sm border transition-colors bg-amber-500 text-white border-amber-500 hover:bg-amber-600";
+        } else {
+            btn.className =
+                "h-10 px-2.5 shrink-0 rounded-full flex items-center gap-1.5 text-xs font-bold shadow-sm border transition-colors bg-white/90 text-slate-500 border-slate-200 hover:bg-slate-50";
+        }
+    }
+
+    function toggleAutoHard() {
+        memozyAutoHard = !memozyAutoHard;
+        localStorage.setItem("memozy_auto_hard", memozyAutoHard ? "1" : "0");
+        syncAutoHardButton();
     }
 
     function speakTerm(text) {
@@ -526,6 +549,7 @@
         document.getElementById("memozy-grade-bar")?.classList.add("hidden");
         document.getElementById("memozy-continue-bar")?.classList.add("hidden");
         syncAutoplayButton();
+        syncAutoHardButton();
         loadCard();
     }
 
@@ -674,6 +698,7 @@
         memozyFlipped = false;
         memozyAnswered = false;
         memozyAwaitContinue = false;
+        memozyContinueGrade = "good";
         const total = memozyQueue.length;
         const titleEl = document.getElementById("memozy-study-title");
         const progressEl = document.getElementById("memozy-study-progress");
@@ -714,13 +739,19 @@
 
         if (selectedIndex === memozyAnswerIndex) {
             btnElement.classList.add("correct");
+            memozyContinueGrade = "good";
             showRevealPanel(card, "continue");
         } else {
             btnElement.classList.add("wrong");
             btns.forEach((b) => {
                 if (parseInt(b.dataset.idx, 10) === memozyAnswerIndex) b.classList.add("correct");
             });
-            showRevealPanel(card, "grade");
+            if (memozyAutoHard) {
+                memozyContinueGrade = "hard";
+                showRevealPanel(card, "continue");
+            } else {
+                showRevealPanel(card, "grade");
+            }
         }
     }
 
@@ -729,33 +760,41 @@
         memozyFlipped = true;
         memozyAnswered = true;
         renderOptions(true);
-        showRevealPanel(currentCard(), "grade");
+        if (memozyAutoHard) {
+            memozyContinueGrade = "hard";
+            showRevealPanel(currentCard(), "continue");
+        } else {
+            showRevealPanel(currentCard(), "grade");
+        }
     }
 
-    /** Chọn đúng → Tiếp tục: SRS good + bỏ khỏi queue phiên học */
+    /** Tiếp tục: grade theo memozyContinueGrade (good khi đúng / hard khi Auto Khó) */
     function continueCard() {
         if (!memozyAwaitContinue || !currentCard()) return;
+        const grade = memozyContinueGrade || "good";
         memozyAwaitContinue = false;
         document.getElementById("memozy-continue-bar")?.classList.add("hidden");
-        const card = memozyQueue.shift();
-        updateReviewSchedule(card.id, "good");
-        if (!memozyQueue.length) finishStudy();
-        else loadCard();
+        advanceWithGrade(grade);
     }
 
-    function handleGrade(grade) {
-        if (!memozyFlipped || memozyAwaitContinue || !currentCard()) return;
+    function advanceWithGrade(grade) {
+        if (!currentCard()) return;
         const card = memozyQueue.shift();
         updateReviewSchedule(card.id, grade);
         if (grade === "again") {
             const insertAt = Math.min(3, memozyQueue.length);
             memozyQueue.splice(insertAt, 0, card);
         } else if (grade === "hard") {
-            const insertAt = Math.min(6, memozyQueue.length);
+            const insertAt = Math.min(4, memozyQueue.length);
             memozyQueue.splice(insertAt, 0, card);
         }
         if (!memozyQueue.length) finishStudy();
         else loadCard();
+    }
+
+    function handleGrade(grade) {
+        if (!memozyFlipped || memozyAwaitContinue || !currentCard()) return;
+        advanceWithGrade(grade);
     }
 
     function finishStudy() {
@@ -854,6 +893,7 @@
             if (c) speakTerm(c.term);
         },
         toggleAutoplay,
+        toggleAutoHard,
         exitStudyToBrowse,
         backFromBrowse,
         backFromSkills,

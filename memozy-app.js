@@ -7,9 +7,31 @@
 
     const MEMOZY_SKILLS = ["reading", "listening", "writing", "speaking"];
     const ACCOUNTS = {
-        tuananh: { id: "tuananh", label: "Tuấn Anh", icon: "fa-user" },
-        linh: { id: "linh", label: "Linh", icon: "fa-user" },
-        both: { id: "both", label: "Both", icon: "fa-users", hint: "Hiện vocab của cả 2" },
+        tuananh: {
+            id: "tuananh",
+            label: "Tuấn Anh",
+            icon: "fa-user",
+            accent: "teal",
+            iconClass: "teal",
+            labelClass: "text-teal-700",
+        },
+        linh: {
+            id: "linh",
+            label: "Linh",
+            icon: "fa-user",
+            accent: "pink",
+            iconClass: "pink",
+            labelClass: "text-pink-600",
+        },
+        both: {
+            id: "both",
+            label: "Both",
+            icon: "fa-users",
+            hint: "Hiện vocab của cả 2",
+            accent: "dual",
+            iconClass: "dual",
+            labelClass: "text-indigo-600",
+        },
     };
 
     let memozyAccount = localStorage.getItem("memozy_account") || null;
@@ -22,12 +44,13 @@
     let memozyMode = null; // "leaf" | "due"
     let memozyStudyTitle = "";
     let memozyAutoplay = localStorage.getItem("memozy_autoplay") === "1";
+    let memozyInitialCount = 0;
 
     const colorMap = {
-        emerald: { border: "border-emerald-200", hover: "hover:border-emerald-400", bg: "bg-emerald-50", text: "text-emerald-600", icon: "text-emerald-500" },
-        sky: { border: "border-sky-200", hover: "hover:border-sky-400", bg: "bg-sky-50", text: "text-sky-600", icon: "text-sky-500" },
-        violet: { border: "border-violet-200", hover: "hover:border-violet-400", bg: "bg-violet-50", text: "text-violet-600", icon: "text-violet-500" },
-        orange: { border: "border-orange-200", hover: "hover:border-orange-400", bg: "bg-orange-50", text: "text-orange-600", icon: "text-orange-500" },
+        emerald: { bg: "bg-emerald-50", icon: "text-emerald-600", text: "text-emerald-700" },
+        sky: { bg: "bg-sky-50", icon: "text-sky-600", text: "text-sky-700" },
+        violet: { bg: "bg-cyan-50", icon: "text-cyan-700", text: "text-cyan-800" },
+        orange: { bg: "bg-orange-50", icon: "text-orange-600", text: "text-orange-700" },
     };
 
     function storageKey(suffix) {
@@ -291,9 +314,12 @@
             return;
         }
         document.getElementById("screen-memozy-skills")?.classList.remove("hidden");
-        const label = ACCOUNTS[memozyAccount]?.label || memozyAccount;
+        const acc = ACCOUNTS[memozyAccount];
         const el = document.getElementById("memozy-skills-account");
-        if (el) el.textContent = label;
+        if (el) {
+            el.textContent = acc?.label || memozyAccount;
+            el.className = acc?.labelClass || "text-teal-600";
+        }
         renderSkillCards();
         updateDueBadge();
     }
@@ -305,12 +331,12 @@
             .map(
                 (a) => `
             <button type="button" onclick="Memozy.selectAccount('${a.id}')"
-                class="group bg-white border-2 border-teal-200 ${memozyAccount === a.id ? "border-teal-400 ring-2 ring-teal-100" : ""} hover:border-teal-400 rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all text-left flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full bg-teal-50 text-teal-500 flex items-center justify-center shrink-0">
-                    <i class="fa-solid ${a.icon} text-xl"></i>
+                class="mz-account-row accent-${a.accent} ${memozyAccount === a.id ? "is-active" : ""}">
+                <div class="mz-acc-icon ${a.iconClass}">
+                    <i class="fa-solid ${a.icon}"></i>
                 </div>
                 <div>
-                    <div class="font-black text-slate-800 text-lg">${a.label}</div>
+                    <div class="font-black text-lg ${a.labelClass}">${a.label}</div>
                     ${a.hint ? `<div class="text-xs text-slate-500 mt-0.5">${a.hint}</div>` : `<div class="text-xs text-slate-400 mt-0.5">Bộ từ riêng + từ chung</div>`}
                 </div>
             </button>`,
@@ -327,16 +353,15 @@
             const cards = (window.MEMOZY_BANKS[sk] || []).filter(matchesOwner);
             const due = countTrackedDue(cards);
             return `
-            <button type="button" onclick="Memozy.openSkill('${sk}')"
-                class="bg-white border-2 ${c.border} ${c.hover} rounded-2xl p-5 shadow-sm hover:shadow-md transition-all text-left">
+            <button type="button" onclick="Memozy.openSkill('${sk}')" class="mz-skill-tile">
                 <div class="flex items-start justify-between gap-2 mb-3">
-                    <div class="w-11 h-11 rounded-full ${c.bg} ${c.icon} flex items-center justify-center">
-                        <i class="fa-solid ${cat.icon} text-lg"></i>
+                    <div class="w-12 h-12 rounded-2xl ${c.bg} ${c.icon} flex items-center justify-center">
+                        <i class="fa-solid ${cat.icon} text-xl"></i>
                     </div>
-                    ${due > 0 ? `<span class="text-[10px] font-black bg-red-500 text-white px-2 py-0.5 rounded-full">${due} due</span>` : ""}
+                    ${due > 0 ? `<span class="text-[10px] font-black bg-orange-500 text-white px-2 py-0.5 rounded-full">${due} due</span>` : ""}
                 </div>
                 <h3 class="font-black text-slate-800 text-lg mb-1">${cat.name}</h3>
-                <p class="text-xs text-slate-500 leading-snug">${cat.goal}</p>
+                <p class="text-xs text-slate-500 leading-snug line-clamp-2">${cat.goal}</p>
                 <p class="text-[11px] font-bold ${c.text} mt-3">${cards.length} thẻ</p>
             </button>`;
         }).join("");
@@ -392,21 +417,21 @@
                         const newCount = cards.filter((c) => !memozyReviewData[c.id]).length;
                         return `
                     <button type="button" onclick='Memozy.startLeaf(${JSON.stringify(memozySkill)}, ${JSON.stringify(g.id)}, ${JSON.stringify(leaf)})'
-                        class="w-full text-left bg-white border-2 border-slate-100 hover:border-teal-300 rounded-xl p-3.5 transition-all flex items-center justify-between gap-3">
+                        class="mz-leaf-row">
                         <div class="min-w-0">
-                            <div class="font-bold text-slate-700 truncate">${leaf.name}</div>
+                            <div class="font-bold text-slate-800 truncate">${leaf.name}</div>
                             <div class="text-[11px] text-slate-400 mt-0.5">${cards.length} thẻ${newCount ? ` · ${newCount} mới` : ""}</div>
                         </div>
                         <div class="flex items-center gap-2 shrink-0">
                             ${due > 0 ? `<span class="text-[10px] font-black bg-orange-500 text-white px-1.5 py-0.5 rounded-full">${due}</span>` : ""}
-                            <i class="fa-solid fa-chevron-right text-slate-300 text-xs"></i>
+                            <i class="fa-solid fa-chevron-right text-teal-300 text-xs"></i>
                         </div>
                     </button>`;
                     })
                     .join("");
                 return `
-                <div class="mb-5">
-                    <h4 class="text-xs font-black uppercase tracking-wider text-slate-400 mb-2 px-1">${g.name}</h4>
+                <div class="mb-6">
+                    <h4 class="text-[11px] font-black uppercase tracking-[0.14em] text-teal-700/70 mb-2.5 px-1">${g.name}</h4>
                     <div class="space-y-2">${leavesHtml}</div>
                 </div>`;
             })
@@ -419,12 +444,13 @@
         if (!btn) return;
         btn.setAttribute("aria-pressed", memozyAutoplay ? "true" : "false");
         btn.title = memozyAutoplay ? "Auto play: Bật — tắt" : "Auto play: Tắt — bật";
+        btn.innerHTML = `<i class="fa-solid fa-bolt" aria-hidden="true"></i><span class="hidden sm:inline">Auto</span>`;
         if (memozyAutoplay) {
             btn.className =
-                "h-10 px-2.5 shrink-0 rounded-full flex items-center gap-1.5 text-xs font-bold shadow-sm border transition-colors bg-teal-500 text-white border-teal-500 hover:bg-teal-600";
+                "h-10 px-2.5 shrink-0 rounded-full flex items-center gap-1.5 text-xs font-bold shadow-sm border transition-colors bg-teal-600 text-white border-teal-600 hover:bg-teal-700";
         } else {
             btn.className =
-                "h-10 px-2.5 shrink-0 rounded-full flex items-center gap-1.5 text-xs font-bold shadow-sm border transition-colors bg-slate-50 text-slate-500 border-slate-200 hover:bg-slate-100";
+                "h-10 px-2.5 shrink-0 rounded-full flex items-center gap-1.5 text-xs font-bold shadow-sm border transition-colors bg-white/90 text-slate-500 border-slate-200 hover:bg-slate-50";
         }
     }
 
@@ -469,6 +495,7 @@
         memozyMode = "leaf";
         memozyStudyTitle = leaf.name;
         memozyQueue = cards.slice();
+        memozyInitialCount = cards.length;
         beginStudy();
     }
 
@@ -482,6 +509,7 @@
         memozyLeaf = null;
         memozyStudyTitle = "Ôn hôm nay";
         memozyQueue = cards.slice();
+        memozyInitialCount = cards.length;
         beginStudy();
     }
 
@@ -499,6 +527,24 @@
         return memozyQueue[0] || null;
     }
 
+    function updateProgressBar() {
+        const fill = document.getElementById("memozy-progress-fill");
+        if (!fill || !memozyInitialCount) {
+            if (fill) fill.style.width = "0%";
+            return;
+        }
+        const done = Math.max(0, memozyInitialCount - memozyQueue.length);
+        const pct = Math.min(100, Math.round((done / memozyInitialCount) * 100));
+        fill.style.width = `${pct}%`;
+    }
+
+    function animateCardEnter(el) {
+        if (!el) return;
+        el.classList.remove("is-enter");
+        void el.offsetWidth;
+        el.classList.add("is-enter");
+    }
+
     function loadCard() {
         const card = currentCard();
         if (!card) {
@@ -509,9 +555,15 @@
         const total = memozyQueue.length;
         document.getElementById("memozy-study-title").textContent = memozyStudyTitle;
         document.getElementById("memozy-study-progress").textContent = `Còn ${total} thẻ`;
-        document.getElementById("memozy-card-front").classList.remove("hidden");
-        document.getElementById("memozy-card-back").classList.add("hidden");
+        updateProgressBar();
+
+        const front = document.getElementById("memozy-card-front");
+        const back = document.getElementById("memozy-card-back");
+        front.classList.remove("hidden", "is-exit");
+        back.classList.add("hidden");
+        back.classList.remove("is-enter");
         document.getElementById("memozy-grade-bar").classList.add("hidden");
+
         document.getElementById("memozy-term").textContent = card.term;
         document.getElementById("memozy-phonetic").textContent = card.phonetic || "";
         document.getElementById("memozy-phonetic").classList.toggle("hidden", !card.phonetic);
@@ -524,8 +576,9 @@
         } else {
             paraEl.classList.add("hidden");
         }
-        const tagEl = document.getElementById("memozy-card-tags");
-        tagEl.textContent = (card.tags || []).join(" · ");
+        document.getElementById("memozy-card-tags").textContent = (card.tags || []).join(" · ");
+        animateCardEnter(front);
+
         if (memozyAutoplay) {
             setTimeout(() => speakTerm(card.term), 120);
         }
@@ -534,9 +587,16 @@
     function flipCard() {
         if (memozyFlipped || !currentCard()) return;
         memozyFlipped = true;
-        document.getElementById("memozy-card-front").classList.add("hidden");
-        document.getElementById("memozy-card-back").classList.remove("hidden");
-        document.getElementById("memozy-grade-bar").classList.remove("hidden");
+        const front = document.getElementById("memozy-card-front");
+        const back = document.getElementById("memozy-card-back");
+        front.classList.add("is-exit");
+        setTimeout(() => {
+            front.classList.add("hidden");
+            front.classList.remove("is-exit", "is-enter");
+            back.classList.remove("hidden");
+            animateCardEnter(back);
+            document.getElementById("memozy-grade-bar").classList.remove("hidden");
+        }, 160);
     }
 
     function handleGrade(grade) {

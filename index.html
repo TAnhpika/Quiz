@@ -9,7 +9,7 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" />
         <style>
-            @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap");
+            @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Sora:wght@500;600;700;800&display=swap");
             body {
                 font-family: "Nunito", sans-serif;
                 background-attachment: fixed;
@@ -711,7 +711,151 @@
                 }
             }
 
-            /* Memozy */
+            /* Memozy identity */
+            :root {
+                --mz-accent: #0d9488;
+                --mz-accent-2: #06b6d4;
+                --mz-ink: #0f172a;
+                --mz-surface: rgba(255, 255, 255, 0.88);
+                --mz-mint: #ecfdf5;
+            }
+            body.memozy-active,
+            body.hub-active {
+                background:
+                    radial-gradient(1200px 600px at 10% -10%, rgba(45, 212, 191, 0.35), transparent 55%),
+                    radial-gradient(900px 500px at 95% 5%, rgba(56, 189, 248, 0.28), transparent 50%),
+                    radial-gradient(800px 500px at 50% 110%, rgba(167, 243, 208, 0.4), transparent 45%),
+                    linear-gradient(160deg, #f0fdfa 0%, #e0f2fe 45%, #ecfeff 100%) !important;
+            }
+            .mz-brand {
+                font-family: "Sora", "Nunito", sans-serif;
+                font-weight: 800;
+                letter-spacing: -0.03em;
+            }
+            .mz-back {
+                position: fixed;
+                top: 1.25rem;
+                left: 1.25rem;
+                z-index: 30;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.35rem;
+                padding: 0.45rem 0.85rem;
+                border-radius: 9999px;
+                background: rgba(255, 255, 255, 0.92);
+                border: 1px solid rgba(13, 148, 136, 0.18);
+                color: #0f766e;
+                font-size: 0.75rem;
+                font-weight: 800;
+                box-shadow: 0 4px 14px rgba(13, 148, 136, 0.08);
+                transition: background 0.15s ease, transform 0.15s ease;
+            }
+            .mz-back:hover {
+                background: #fff;
+                transform: translateY(-1px);
+            }
+            .mz-panel {
+                background: var(--mz-surface);
+                backdrop-filter: blur(16px);
+                border: 1px solid rgba(255, 255, 255, 0.75);
+                box-shadow: 0 18px 40px rgba(15, 118, 110, 0.08);
+            }
+            .mz-skill-tile {
+                background: rgba(255, 255, 255, 0.92);
+                border: 1px solid rgba(13, 148, 136, 0.12);
+                border-radius: 1.25rem;
+                padding: 1.25rem;
+                text-align: left;
+                box-shadow: 0 8px 20px rgba(15, 118, 110, 0.05);
+                transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+            }
+            .mz-skill-tile:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 14px 28px rgba(15, 118, 110, 0.1);
+                border-color: rgba(13, 148, 136, 0.35);
+            }
+            .mz-leaf-row {
+                width: 100%;
+                text-align: left;
+                background: rgba(255, 255, 255, 0.95);
+                border: 1px solid rgba(148, 163, 184, 0.2);
+                border-radius: 1rem;
+                padding: 1rem 1.1rem;
+                min-height: 3.75rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0.75rem;
+                transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+            }
+            .mz-leaf-row:hover {
+                border-color: rgba(13, 148, 136, 0.4);
+                background: #fff;
+                transform: translateX(2px);
+            }
+            .mz-account-row {
+                background: rgba(255, 255, 255, 0.95);
+                border: 1.5px solid rgba(148, 163, 184, 0.25);
+                border-radius: 1.25rem;
+                padding: 1.1rem 1.25rem;
+                text-align: left;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+            }
+            .mz-account-row:hover {
+                transform: translateY(-1px);
+            }
+            .mz-account-row.accent-teal:hover {
+                border-color: rgba(13, 148, 136, 0.5);
+                box-shadow: 0 10px 24px rgba(13, 148, 136, 0.12);
+            }
+            .mz-account-row.accent-teal.is-active {
+                border-color: #14b8a6;
+                box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.28);
+                background: linear-gradient(135deg, rgba(240, 253, 250, 0.95), #fff);
+            }
+            .mz-account-row.accent-pink:hover {
+                border-color: rgba(236, 72, 153, 0.5);
+                box-shadow: 0 10px 24px rgba(236, 72, 153, 0.12);
+            }
+            .mz-account-row.accent-pink.is-active {
+                border-color: #ec4899;
+                box-shadow: 0 0 0 3px rgba(244, 114, 182, 0.28);
+                background: linear-gradient(135deg, rgba(253, 242, 248, 0.95), #fff);
+            }
+            .mz-account-row.accent-dual:hover {
+                border-color: rgba(99, 102, 241, 0.45);
+                box-shadow: 0 10px 24px rgba(99, 102, 241, 0.1);
+            }
+            .mz-account-row.accent-dual.is-active {
+                border-color: #6366f1;
+                box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.28);
+                background: linear-gradient(135deg, rgba(238, 242, 255, 0.9), rgba(240, 253, 250, 0.5), #fff);
+            }
+            .mz-acc-icon {
+                width: 3rem;
+                height: 3rem;
+                border-radius: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                font-size: 1.25rem;
+            }
+            .mz-acc-icon.teal {
+                background: #f0fdfa;
+                color: #0d9488;
+            }
+            .mz-acc-icon.pink {
+                background: #fdf2f8;
+                color: #db2777;
+            }
+            .mz-acc-icon.dual {
+                background: linear-gradient(135deg, #f0fdfa, #fdf2f8);
+                color: #6366f1;
+            }
             #screen-memozy-study {
                 height: 100dvh;
                 max-height: 100dvh;
@@ -719,13 +863,104 @@
             }
             .memozy-card-face {
                 min-height: 14rem;
-                transition: transform 0.2s ease, opacity 0.2s ease;
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                transition:
+                    opacity 0.22s ease,
+                    transform 0.22s ease;
+            }
+            .memozy-card-face.is-enter {
+                animation: mzCardEnter 0.28s ease both;
+            }
+            .memozy-card-face.is-exit {
+                opacity: 0;
+                transform: translateY(6px) scale(0.985);
+            }
+            @keyframes mzCardEnter {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px) scale(0.98);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+            }
+            #memozy-term {
+                font-family: "Sora", "Nunito", sans-serif;
+                font-weight: 700;
+                letter-spacing: -0.03em;
+                color: var(--mz-ink);
+                font-size: clamp(1.75rem, 5vw, 2.5rem);
+                line-height: 1.25;
+            }
+            #memozy-meaning {
+                font-family: "Sora", "Nunito", sans-serif;
+                font-weight: 700;
+                letter-spacing: -0.02em;
+            }
+            .mz-example-quote {
+                border-left: 3px solid rgba(13, 148, 136, 0.35);
+                padding: 0.65rem 0.85rem;
+                background: rgba(240, 253, 250, 0.7);
+                border-radius: 0 0.75rem 0.75rem 0;
+                text-align: left;
+                font-style: italic;
+                color: #475569;
+                font-size: 0.875rem;
+                line-height: 1.55;
+            }
+            .mz-progress-track {
+                height: 4px;
+                border-radius: 9999px;
+                background: rgba(148, 163, 184, 0.25);
+                overflow: hidden;
+                margin-top: 0.4rem;
+                max-width: 11rem;
+            }
+            .mz-progress-fill {
+                height: 100%;
+                border-radius: 9999px;
+                background: linear-gradient(90deg, #0d9488, #06b6d4);
+                transition: width 0.25s ease;
+            }
+            #memozy-grade-bar:not(.hidden) {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
+            }
+            @media (min-width: 640px) {
+                #memozy-grade-bar:not(.hidden) {
+                    grid-template-columns: repeat(4, 1fr);
+                }
             }
             #memozy-grade-bar .grade-btn {
-                min-height: 2.75rem;
+                min-height: 2.85rem;
+                border-width: 0;
+                border-radius: 0.85rem;
+                font-weight: 800;
+                font-size: 0.8rem;
+                transition: transform 0.15s ease, filter 0.15s ease;
             }
             #memozy-grade-bar .grade-btn:hover:not(:disabled) {
                 transform: translateY(-1px);
+                filter: brightness(0.97);
+            }
+            #memozy-grade-bar .grade-again {
+                background: #fee2e2;
+                color: #b91c1c;
+            }
+            #memozy-grade-bar .grade-hard {
+                background: #ffedd5;
+                color: #c2410c;
+            }
+            #memozy-grade-bar .grade-good {
+                background: #dcfce7;
+                color: #15803d;
+            }
+            #memozy-grade-bar .grade-easy {
+                background: #e0f2fe;
+                color: #0369a1;
             }
         </style>
     </head>
@@ -733,34 +968,31 @@
         <div id="app" class="container mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-10 max-w-5xl min-h-screen flex flex-col relative">
             <!-- Hub: chọn Quizzy / Memozy -->
             <div id="screen-app-hub" class="hidden flex-1 flex flex-col items-center justify-center text-center animate-fade-in w-full">
-                <div class="glass-panel rounded-3xl shadow-xl w-full max-w-3xl mx-auto p-6 md:p-10">
-                    <div class="inline-block p-4 bg-white rounded-full shadow-sm mb-4 border border-slate-100">
-                        <i class="fa-solid fa-compass text-4xl text-indigo-400"></i>
-                    </div>
-                    <h1 class="text-2xl md:text-3xl font-black text-slate-800 mb-2">Chọn ứng dụng</h1>
-                    <p class="text-sm md:text-base text-slate-500 mb-8">Quizzy ôn thi · Memozy học từ vựng IELTS</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                <div class="mz-panel rounded-3xl w-full max-w-3xl mx-auto p-6 md:p-10">
+                    <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 mb-3">Learning suite</p>
+                    <h1 class="text-sm md:text-base font-semibold text-slate-500 mb-8">Chọn ứng dụng để bắt đầu</h1>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-center">
                         <button
                             type="button"
                             onclick="Memozy.enterQuizzy()"
-                            class="group bg-white border-2 border-pink-200 hover:border-pink-400 rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all"
+                            class="group bg-white/95 border border-pink-200/80 hover:border-pink-400 rounded-2xl p-5 md:p-7 shadow-sm hover:shadow-md transition-all"
                         >
-                            <div class="w-12 h-12 rounded-full bg-pink-50 text-pink-500 flex items-center justify-center mb-4">
+                            <div class="w-12 h-12 mx-auto rounded-2xl bg-pink-50 text-pink-500 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
                                 <i class="fa-solid fa-graduation-cap text-xl"></i>
                             </div>
-                            <h2 class="font-black text-slate-800 text-xl mb-1">Quizzy</h2>
-                            <p class="text-sm text-slate-500">Ôn thi cuối kỳ — trắc nghiệm, chặng, spaced repetition</p>
+                            <h2 class="mz-brand text-2xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-orange-400 mb-2">Quizzy</h2>
+                            <p class="text-sm text-slate-500 leading-relaxed">Ôn thi cuối kỳ — trắc nghiệm, chặng, spaced repetition</p>
                         </button>
                         <button
                             type="button"
                             onclick="Memozy.enterMemozy()"
-                            class="group bg-white border-2 border-teal-200 hover:border-teal-400 rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md transition-all"
+                            class="group bg-white/95 border border-teal-200/80 hover:border-teal-400 rounded-2xl p-5 md:p-7 shadow-sm hover:shadow-md transition-all"
                         >
-                            <div class="w-12 h-12 rounded-full bg-teal-50 text-teal-500 flex items-center justify-center mb-4">
+                            <div class="w-12 h-12 mx-auto rounded-2xl bg-teal-50 text-teal-500 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
                                 <i class="fa-solid fa-language text-xl"></i>
                             </div>
-                            <h2 class="font-black text-slate-800 text-xl mb-1">Memozy</h2>
-                            <p class="text-sm text-slate-500">Học từ vựng IELTS — flashcard, audio, spaced repetition</p>
+                            <h2 class="mz-brand text-2xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-500 mb-2">Memozy</h2>
+                            <p class="text-sm text-slate-500 leading-relaxed">Học từ vựng IELTS — flashcard, audio, spaced repetition</p>
                         </button>
                     </div>
                 </div>
@@ -768,17 +1000,11 @@
 
             <!-- Memozy: chọn account -->
             <div id="screen-memozy-account" class="hidden flex-1 flex flex-col items-center justify-center text-center animate-fade-in w-full relative">
-                <button
-                    type="button"
-                    onclick="Memozy.backFromAccount()"
-                    class="fixed top-5 left-5 z-30 px-3 py-2 rounded-xl bg-white/90 border border-slate-200 text-slate-600 text-xs font-bold hover:bg-white shadow-sm flex items-center gap-1.5"
-                >
+                <button type="button" onclick="Memozy.backFromAccount()" class="mz-back">
                     <i class="fa-solid fa-arrow-left"></i> Hub
                 </button>
-                <div class="glass-panel rounded-3xl shadow-xl w-full max-w-lg mx-auto p-6 md:p-10">
-                    <div class="inline-block p-4 bg-teal-50 rounded-full shadow-sm mb-4 border border-teal-100">
-                        <i class="fa-solid fa-user-group text-3xl text-teal-500"></i>
-                    </div>
+                <div class="mz-panel rounded-3xl w-full max-w-lg mx-auto p-6 md:p-10">
+                    <p class="mz-brand text-teal-600 text-sm mb-1">Memozy</p>
                     <h1 class="text-2xl md:text-3xl font-black text-slate-800 mb-2">Chọn Account</h1>
                     <p class="text-sm text-slate-500 mb-6">Lọc bộ từ theo người học</p>
                     <div id="memozy-account-cards" class="flex flex-col gap-3"></div>
@@ -787,26 +1013,22 @@
 
             <!-- Memozy: chọn skill -->
             <div id="screen-memozy-skills" class="hidden flex-1 flex flex-col items-center text-center animate-fade-in w-full relative">
-                <button
-                    type="button"
-                    onclick="Memozy.backFromSkills()"
-                    class="fixed top-5 left-5 z-30 px-3 py-2 rounded-xl bg-white/90 border border-slate-200 text-slate-600 text-xs font-bold hover:bg-white shadow-sm flex items-center gap-1.5"
-                >
+                <button type="button" onclick="Memozy.backFromSkills()" class="mz-back">
                     <i class="fa-solid fa-arrow-left"></i> Account
                 </button>
                 <button
                     id="btn-memozy-due"
                     type="button"
                     onclick="Memozy.startDueReview()"
-                    class="fixed top-5 right-5 z-30 px-3 py-2 rounded-xl bg-gradient-to-r from-orange-500 to-red-400 text-white text-xs font-bold shadow-sm flex items-center gap-1.5 opacity-50 cursor-not-allowed"
+                    class="fixed top-5 right-5 z-30 px-3.5 py-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-400 text-white text-xs font-bold shadow-md flex items-center gap-1.5 opacity-50 cursor-not-allowed"
                     disabled
                 >
                     <i class="fa-solid fa-fire"></i> Ôn hôm nay
-                    <span id="memozy-due-badge" class="hidden bg-white text-red-600 text-[10px] font-black min-w-[1.1rem] h-4 px-1 rounded-full flex items-center justify-center">0</span>
+                    <span id="memozy-due-badge" class="hidden bg-white text-orange-600 text-[10px] font-black min-w-[1.1rem] h-4 px-1 rounded-full flex items-center justify-center">0</span>
                 </button>
-                <div class="glass-panel rounded-3xl shadow-xl w-full max-w-4xl mx-auto p-6 md:p-8 mt-12 md:mt-4">
-                    <p class="text-xs font-bold text-teal-600 uppercase tracking-wide mb-1">Memozy · <span id="memozy-skills-account">—</span></p>
-                    <h1 class="text-2xl md:text-3xl font-black text-slate-800 mb-2">Chọn Skills</h1>
+                <div class="mz-panel rounded-3xl w-full max-w-4xl mx-auto p-6 md:p-8 mt-14 md:mt-6">
+                    <p class="mz-brand text-sm mb-1"><span class="text-teal-600">Memozy</span> · <span id="memozy-skills-account" class="text-teal-600">—</span></p>
+                    <h1 class="text-2xl md:text-3xl font-black text-slate-800 mb-1">Chọn Skills</h1>
                     <p class="text-sm text-slate-500 mb-6">Reading · Listening · Writing · Speaking</p>
                     <div id="memozy-skill-cards" class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left"></div>
                 </div>
@@ -814,15 +1036,12 @@
 
             <!-- Memozy: browse part/dạng -->
             <div id="screen-memozy-browse" class="hidden flex-1 flex flex-col items-center animate-fade-in w-full relative">
-                <button
-                    type="button"
-                    onclick="Memozy.backFromBrowse()"
-                    class="fixed top-5 left-5 z-30 px-3 py-2 rounded-xl bg-white/90 border border-slate-200 text-slate-600 text-xs font-bold hover:bg-white shadow-sm flex items-center gap-1.5"
-                >
+                <button type="button" onclick="Memozy.backFromBrowse()" class="mz-back">
                     <i class="fa-solid fa-arrow-left"></i> Skills
                 </button>
-                <div class="glass-panel rounded-3xl shadow-xl w-full max-w-2xl mx-auto p-6 md:p-8 mt-12 md:mt-4 text-left">
-                    <h1 id="memozy-browse-title" class="text-2xl font-black text-slate-800 mb-1">Skill</h1>
+                <div class="mz-panel rounded-3xl w-full max-w-2xl mx-auto p-6 md:p-8 mt-14 md:mt-6 text-left">
+                    <p class="mz-brand text-teal-600 text-sm mb-1">Memozy</p>
+                    <h1 id="memozy-browse-title" class="text-2xl md:text-3xl font-black text-slate-800 mb-1">Skill</h1>
                     <p id="memozy-browse-goal" class="text-sm text-slate-500 mb-6">Goal</p>
                     <div id="memozy-browse-tree"></div>
                 </div>
@@ -830,19 +1049,24 @@
 
             <!-- Memozy: study flashcard -->
             <div id="screen-memozy-study" class="hidden fixed inset-0 z-40 flex flex-col animate-fade-in max-w-3xl mx-auto px-3 py-3 md:px-4 md:py-4">
-                <div class="glass-panel rounded-2xl px-3 py-2.5 md:px-4 md:py-3 shadow-sm flex items-center justify-between gap-3 border-b-4 border-b-teal-100 shrink-0">
-                    <div class="flex items-center gap-3 min-w-0">
+                <div class="mz-panel rounded-2xl px-3 py-2.5 md:px-4 md:py-3 flex items-center justify-between gap-3 shrink-0">
+                    <div class="flex items-center gap-3 min-w-0 flex-1">
                         <button
                             type="button"
                             onclick="Memozy.exitStudyToBrowse()"
-                            class="w-10 h-10 shrink-0 bg-white rounded-full flex items-center justify-center text-slate-500 hover:text-teal-500 shadow-sm transition-colors border border-slate-100"
+                            class="w-10 h-10 shrink-0 bg-white rounded-full flex items-center justify-center text-teal-700 hover:bg-teal-50 shadow-sm transition-colors border border-teal-100"
                             title="Quay lại"
                         >
                             <i class="fa-solid fa-arrow-left"></i>
                         </button>
-                        <div class="min-w-0">
-                            <h2 id="memozy-study-title" class="font-black text-slate-700 text-base md:text-lg tracking-tight truncate">Memozy</h2>
-                            <div id="memozy-study-progress" class="text-xs text-slate-500 font-bold">Còn 0 thẻ</div>
+                        <div class="min-w-0 flex-1">
+                            <h2 id="memozy-study-title" class="font-black text-slate-800 text-base md:text-lg tracking-tight truncate">Memozy</h2>
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <div id="memozy-study-progress" class="text-xs text-slate-500 font-bold">Còn 0 thẻ</div>
+                            </div>
+                            <div class="mz-progress-track" aria-hidden="true">
+                                <div id="memozy-progress-fill" class="mz-progress-fill" style="width: 0%"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="flex items-center gap-2 shrink-0">
@@ -854,7 +1078,7 @@
                             title="Tự phát âm mỗi từ mới"
                             aria-pressed="false"
                         >
-                            <i class="fa-solid fa-rotate" aria-hidden="true"></i>
+                            <i class="fa-solid fa-bolt" aria-hidden="true"></i>
                             <span class="hidden sm:inline">Auto</span>
                         </button>
                         <button
@@ -869,33 +1093,31 @@
                 </div>
 
                 <div class="flex-1 min-h-0 flex flex-col mt-3">
-                    <div class="glass-panel rounded-3xl shadow-lg flex-1 min-h-0 flex flex-col overflow-hidden bg-white/95">
+                    <div class="mz-panel rounded-3xl flex-1 min-h-0 flex flex-col overflow-hidden">
                         <div class="flex-1 min-h-0 flex flex-col items-center justify-center p-6 md:p-10">
                             <div id="memozy-card-front" class="memozy-card-face w-full max-w-lg text-center">
-                                <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Mặt trước</p>
-                                <p id="memozy-term" class="text-2xl md:text-3xl font-black text-slate-800 leading-snug mb-3">term</p>
-                                <p id="memozy-phonetic" class="text-sm text-slate-400 font-mono mb-6"></p>
+                                <p id="memozy-term" class="mb-3">term</p>
+                                <p id="memozy-phonetic" class="text-sm text-slate-400 font-mono mb-8"></p>
                                 <button
                                     type="button"
                                     onclick="Memozy.flipCard()"
-                                    class="px-6 py-3 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-xl font-black text-sm shadow-sm hover:shadow-md transition-all"
+                                    class="px-7 py-3 bg-gradient-to-r from-teal-600 to-cyan-500 text-white rounded-2xl font-black text-sm shadow-md hover:shadow-lg transition-all"
                                 >
                                     Lật thẻ <kbd class="ml-1 px-1.5 py-0.5 bg-white/20 rounded text-[10px] font-mono">Space</kbd>
                                 </button>
                             </div>
                             <div id="memozy-card-back" class="memozy-card-face w-full max-w-lg text-center hidden">
-                                <p class="text-[10px] font-bold uppercase tracking-widest text-teal-500 mb-3">Mặt sau</p>
-                                <p id="memozy-meaning" class="text-xl md:text-2xl font-black text-slate-800 mb-3">nghĩa</p>
-                                <p id="memozy-example" class="text-sm text-slate-600 italic leading-relaxed mb-3">example</p>
-                                <p id="memozy-paraphrase" class="text-sm font-semibold text-violet-600 mb-3 hidden"></p>
-                                <p id="memozy-card-tags" class="text-[11px] text-slate-400 font-bold"></p>
+                                <p id="memozy-meaning" class="text-xl md:text-2xl text-slate-800 mb-4">nghĩa</p>
+                                <p id="memozy-example" class="mz-example-quote mb-4">example</p>
+                                <p id="memozy-paraphrase" class="text-sm font-semibold text-teal-700 mb-3 hidden"></p>
+                                <p id="memozy-card-tags" class="text-[11px] text-slate-400 font-bold tracking-wide"></p>
                             </div>
                         </div>
-                        <div id="memozy-grade-bar" class="hidden px-3 pb-3 md:px-4 md:pb-4 grid grid-cols-2 gap-2 border-t border-slate-100 pt-3">
-                            <button type="button" onclick="Memozy.handleGrade('again')" class="grade-btn py-2.5 rounded-xl border-2 border-red-200 bg-red-50 text-red-700 font-bold text-xs md:text-sm hover:bg-red-100" title="Phím 1">😵 Quên</button>
-                            <button type="button" onclick="Memozy.handleGrade('hard')" class="grade-btn py-2.5 rounded-xl border-2 border-orange-200 bg-orange-50 text-orange-700 font-bold text-xs md:text-sm hover:bg-orange-100" title="Phím 2">🤔 Khó</button>
-                            <button type="button" onclick="Memozy.handleGrade('good')" class="grade-btn py-2.5 rounded-xl border-2 border-green-200 bg-green-50 text-green-700 font-bold text-xs md:text-sm hover:bg-green-100" title="Phím 3">🙂 Nhớ</button>
-                            <button type="button" onclick="Memozy.handleGrade('easy')" class="grade-btn py-2.5 rounded-xl border-2 border-blue-200 bg-blue-50 text-blue-700 font-bold text-xs md:text-sm hover:bg-blue-100" title="Phím 4">😎 Dễ</button>
+                        <div id="memozy-grade-bar" class="hidden px-3 pb-3 md:px-4 md:pb-4 border-t border-teal-50/80 pt-3">
+                            <button type="button" onclick="Memozy.handleGrade('again')" class="grade-btn grade-again" title="Phím 1">Quên</button>
+                            <button type="button" onclick="Memozy.handleGrade('hard')" class="grade-btn grade-hard" title="Phím 2">Khó</button>
+                            <button type="button" onclick="Memozy.handleGrade('good')" class="grade-btn grade-good" title="Phím 3">Nhớ</button>
+                            <button type="button" onclick="Memozy.handleGrade('easy')" class="grade-btn grade-easy" title="Phím 4">Dễ</button>
                         </div>
                     </div>
                 </div>
@@ -903,15 +1125,16 @@
 
             <!-- Memozy: result -->
             <div id="screen-memozy-result" class="hidden flex-1 flex flex-col items-center justify-center text-center animate-fade-in px-2">
-                <div class="glass-panel p-8 md:p-12 rounded-3xl shadow-2xl w-full max-w-lg bg-white/95">
-                    <div class="inline-block p-3 bg-teal-50 rounded-full mb-4">
-                        <i class="fa-solid fa-circle-check text-5xl text-teal-500"></i>
+                <div class="mz-panel p-8 md:p-12 rounded-3xl w-full max-w-lg">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-teal-50 mb-5">
+                        <i class="fa-solid fa-circle-check text-4xl text-teal-500"></i>
                     </div>
+                    <p class="mz-brand text-teal-600 text-sm mb-1">Memozy</p>
                     <h2 id="memozy-result-title" class="text-2xl md:text-3xl font-black text-slate-800 mb-2">Hoàn thành!</h2>
                     <p id="memozy-result-detail" class="text-sm text-slate-500 mb-8">—</p>
                     <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                        <button type="button" onclick="Memozy.exitStudyToBrowse()" class="px-6 py-3.5 bg-slate-100 text-slate-700 rounded-xl font-bold hover:bg-slate-200">Quay lại</button>
-                        <button type="button" onclick="Memozy.showSkills()" class="px-6 py-3.5 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-xl font-bold">Skills</button>
+                        <button type="button" onclick="Memozy.exitStudyToBrowse()" class="px-6 py-3.5 bg-white border border-slate-200 text-slate-700 rounded-xl font-bold hover:bg-slate-50">Quay lại</button>
+                        <button type="button" onclick="Memozy.showSkills()" class="px-6 py-3.5 bg-gradient-to-r from-teal-600 to-cyan-500 text-white rounded-xl font-bold shadow-sm">Skills</button>
                     </div>
                 </div>
             </div>

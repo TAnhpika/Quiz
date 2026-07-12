@@ -1190,6 +1190,15 @@
                             <button type="button" onclick="Memozy.handleGrade('good')" class="grade-btn grade-good" title="Phím 3">Nhớ</button>
                             <button type="button" onclick="Memozy.handleGrade('easy')" class="grade-btn grade-easy" title="Phím 4">Dễ</button>
                         </div>
+                        <div id="memozy-continue-bar" class="hidden px-3 pb-3 md:px-4 md:pb-4 border-t border-teal-50/80 pt-3">
+                            <button
+                                type="button"
+                                onclick="Memozy.continueCard()"
+                                class="w-full py-3 rounded-xl font-black text-sm bg-gradient-to-r from-teal-600 to-cyan-500 text-white shadow-sm hover:shadow-md transition-all"
+                            >
+                                Tiếp tục <kbd class="ml-1 px-1.5 py-0.5 bg-white/20 rounded text-[10px] font-mono">Space</kbd>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -3755,6 +3764,6 @@
             }
             // END FIREBASE INTEGRATION
         </script>
-        <script src="memozy-app.js?v=mcq3"></script>
+        <script src="memozy-app.js?v=mcq5"></script>
     </body>
 </html>

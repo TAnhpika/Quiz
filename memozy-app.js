@@ -46,6 +46,7 @@
     let memozyAutoplay = localStorage.getItem("memozy_autoplay") === "1";
     let memozyInitialCount = 0;
     let memozyAnswered = false;
+    let memozyAwaitContinue = false;
     let memozyCurrentOptions = [];
     let memozyAnswerIndex = 0;
 
@@ -523,6 +524,7 @@
         document.body.classList.add("memozy-active");
         document.getElementById("screen-memozy-study")?.classList.remove("hidden");
         document.getElementById("memozy-grade-bar")?.classList.add("hidden");
+        document.getElementById("memozy-continue-bar")?.classList.add("hidden");
         syncAutoplayButton();
         loadCard();
     }
@@ -625,13 +627,14 @@
         });
     }
 
-    function showRevealPanel(card) {
+    function showRevealPanel(card, mode = "grade") {
         const meaningEl = document.getElementById("memozy-meaning");
         const exampleEl = document.getElementById("memozy-example");
         const paraEl = document.getElementById("memozy-paraphrase");
         const tagsEl = document.getElementById("memozy-card-tags");
         const revealEl = document.getElementById("memozy-reveal");
         const gradeEl = document.getElementById("memozy-grade-bar");
+        const continueEl = document.getElementById("memozy-continue-bar");
         if (!meaningEl || !revealEl) return;
 
         meaningEl.textContent = card.meaning;
@@ -650,7 +653,16 @@
         if (tagsEl) tagsEl.textContent = (card.tags || []).join(" · ");
         revealEl.classList.remove("hidden");
         document.getElementById("memozy-space-hint")?.classList.add("hidden");
-        gradeEl?.classList.remove("hidden");
+
+        if (mode === "continue") {
+            memozyAwaitContinue = true;
+            gradeEl?.classList.add("hidden");
+            continueEl?.classList.remove("hidden");
+        } else {
+            memozyAwaitContinue = false;
+            continueEl?.classList.add("hidden");
+            gradeEl?.classList.remove("hidden");
+        }
     }
 
     function loadCard() {
@@ -661,6 +673,7 @@
         }
         memozyFlipped = false;
         memozyAnswered = false;
+        memozyAwaitContinue = false;
         const total = memozyQueue.length;
         const titleEl = document.getElementById("memozy-study-title");
         const progressEl = document.getElementById("memozy-study-progress");
@@ -671,6 +684,7 @@
         updateProgressBar();
 
         document.getElementById("memozy-grade-bar")?.classList.add("hidden");
+        document.getElementById("memozy-continue-bar")?.classList.add("hidden");
         document.getElementById("memozy-reveal")?.classList.add("hidden");
         document.getElementById("memozy-space-hint")?.classList.remove("hidden");
 
@@ -700,13 +714,14 @@
 
         if (selectedIndex === memozyAnswerIndex) {
             btnElement.classList.add("correct");
+            showRevealPanel(card, "continue");
         } else {
             btnElement.classList.add("wrong");
             btns.forEach((b) => {
                 if (parseInt(b.dataset.idx, 10) === memozyAnswerIndex) b.classList.add("correct");
             });
+            showRevealPanel(card, "grade");
         }
-        showRevealPanel(card);
     }
 
     function peekAnswer() {
@@ -714,11 +729,22 @@
         memozyFlipped = true;
         memozyAnswered = true;
         renderOptions(true);
-        showRevealPanel(currentCard());
+        showRevealPanel(currentCard(), "grade");
+    }
+
+    /** Chọn đúng → Tiếp tục: SRS good + bỏ khỏi queue phiên học */
+    function continueCard() {
+        if (!memozyAwaitContinue || !currentCard()) return;
+        memozyAwaitContinue = false;
+        document.getElementById("memozy-continue-bar")?.classList.add("hidden");
+        const card = memozyQueue.shift();
+        updateReviewSchedule(card.id, "good");
+        if (!memozyQueue.length) finishStudy();
+        else loadCard();
     }
 
     function handleGrade(grade) {
-        if (!memozyFlipped || !currentCard()) return;
+        if (!memozyFlipped || memozyAwaitContinue || !currentCard()) return;
         const card = memozyQueue.shift();
         updateReviewSchedule(card.id, grade);
         if (grade === "again") {
@@ -768,7 +794,8 @@
 
         if (e.code === "Space" || e.key === " ") {
             e.preventDefault();
-            if (!memozyFlipped) peekAnswer();
+            if (memozyAwaitContinue) continueCard();
+            else if (!memozyFlipped) peekAnswer();
             return;
         }
 
@@ -798,7 +825,7 @@
             if (!memozyFlipped) {
                 const btn = document.querySelector(`#memozy-options .mz-opt-btn[data-idx="${digitMap[e.code]}"]`);
                 if (btn && !btn.disabled) selectAnswer(digitMap[e.code], btn);
-            } else {
+            } else if (!memozyAwaitContinue) {
                 handleGrade(gradeMap[e.code]);
             }
         }
@@ -818,6 +845,7 @@
         startDueReview,
         selectAnswer,
         peekAnswer,
+        continueCard,
         flipCard: peekAnswer,
         handleGrade,
         speakTerm,

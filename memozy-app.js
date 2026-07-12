@@ -45,6 +45,9 @@
     let memozyStudyTitle = "";
     let memozyAutoplay = localStorage.getItem("memozy_autoplay") === "1";
     let memozyInitialCount = 0;
+    let memozyAnswered = false;
+    let memozyCurrentOptions = [];
+    let memozyAnswerIndex = 0;
 
     const colorMap = {
         emerald: { bg: "bg-emerald-50", icon: "text-emerald-600", text: "text-emerald-700" },
@@ -515,6 +518,7 @@
 
     function beginStudy() {
         memozyFlipped = false;
+        memozyAnswered = false;
         hideMemozyScreens();
         document.body.classList.add("memozy-active");
         document.getElementById("screen-memozy-study")?.classList.remove("hidden");
@@ -538,11 +542,110 @@
         fill.style.width = `${pct}%`;
     }
 
-    function animateCardEnter(el) {
-        if (!el) return;
-        el.classList.remove("is-enter");
-        void el.offsetWidth;
-        el.classList.add("is-enter");
+    function optionText(c) {
+        if (c.paraphrase) return String(c.paraphrase).split("/")[0].trim();
+        return c.meaning;
+    }
+
+    function shuffleInPlace(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+    }
+
+    function collectDistractors(card, correctText) {
+        const seen = new Set([correctText.toLowerCase()]);
+        const out = [];
+
+        function tryAdd(c) {
+            if (!c || c.id === card.id) return;
+            const t = optionText(c);
+            if (!t || seen.has(t.toLowerCase())) return;
+            seen.add(t.toLowerCase());
+            out.push(t);
+        }
+
+        const sameLeaf = (window.MEMOZY_BANKS?.[card.skill] || []).filter(
+            (c) => matchesOwner(c) && pathKey(c.path) === pathKey(card.path),
+        );
+        shuffleInPlace(sameLeaf.slice()).forEach(tryAdd);
+
+        if (out.length < 3) {
+            const sameSkill = (window.MEMOZY_BANKS?.[card.skill] || []).filter(matchesOwner);
+            shuffleInPlace(sameSkill.slice()).forEach(tryAdd);
+        }
+
+        if (out.length < 3) {
+            shuffleInPlace(allAccountCards().slice()).forEach(tryAdd);
+        }
+
+        const fillers = ["N/A", "—", "Không rõ", "Khác"];
+        let fi = 0;
+        while (out.length < 3) {
+            const f = fillers[fi++ % fillers.length] + (fi > fillers.length ? ` ${fi}` : "");
+            if (!seen.has(f.toLowerCase())) {
+                seen.add(f.toLowerCase());
+                out.push(f);
+            }
+        }
+        return out.slice(0, 3);
+    }
+
+    function buildOptions(card) {
+        const correct = optionText(card);
+        const distractors = collectDistractors(card, correct);
+        const options = shuffleInPlace([correct, ...distractors]);
+        return { options, answerIndex: options.indexOf(correct) };
+    }
+
+    function renderOptions(revealed = false) {
+        const wrap = document.getElementById("memozy-options");
+        if (!wrap) return;
+        wrap.innerHTML = "";
+        memozyCurrentOptions.forEach((opt, idx) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "mz-opt-btn";
+            btn.dataset.idx = String(idx);
+            if (revealed) {
+                btn.disabled = true;
+                if (idx === memozyAnswerIndex) btn.classList.add("correct");
+            } else {
+                btn.onclick = () => selectAnswer(idx, btn);
+            }
+            btn.innerHTML = `<span class="mz-opt-letter">${String.fromCharCode(65 + idx)}</span><span class="min-w-0 line-clamp-3">${opt}</span>`;
+            wrap.appendChild(btn);
+        });
+    }
+
+    function showRevealPanel(card) {
+        const meaningEl = document.getElementById("memozy-meaning");
+        const exampleEl = document.getElementById("memozy-example");
+        const paraEl = document.getElementById("memozy-paraphrase");
+        const tagsEl = document.getElementById("memozy-card-tags");
+        const revealEl = document.getElementById("memozy-reveal");
+        const gradeEl = document.getElementById("memozy-grade-bar");
+        if (!meaningEl || !revealEl) return;
+
+        meaningEl.textContent = card.meaning;
+        if (exampleEl) {
+            exampleEl.textContent = card.example || "";
+            exampleEl.classList.toggle("hidden", !card.example);
+        }
+        if (paraEl) {
+            if (card.paraphrase) {
+                paraEl.textContent = "≈ " + card.paraphrase;
+                paraEl.classList.remove("hidden");
+            } else {
+                paraEl.classList.add("hidden");
+            }
+        }
+        if (tagsEl) tagsEl.textContent = (card.tags || []).join(" · ");
+        revealEl.classList.remove("hidden");
+        document.getElementById("memozy-space-hint")?.classList.add("hidden");
+        gradeEl?.classList.remove("hidden");
     }
 
     function loadCard() {
@@ -552,51 +655,61 @@
             return;
         }
         memozyFlipped = false;
+        memozyAnswered = false;
         const total = memozyQueue.length;
-        document.getElementById("memozy-study-title").textContent = memozyStudyTitle;
-        document.getElementById("memozy-study-progress").textContent = `Còn ${total} thẻ`;
+        const titleEl = document.getElementById("memozy-study-title");
+        const progressEl = document.getElementById("memozy-study-progress");
+        const termEl = document.getElementById("memozy-term");
+        const phoneticEl = document.getElementById("memozy-phonetic");
+        if (titleEl) titleEl.textContent = memozyStudyTitle;
+        if (progressEl) progressEl.textContent = `Còn ${total} thẻ`;
         updateProgressBar();
 
-        const front = document.getElementById("memozy-card-front");
-        const back = document.getElementById("memozy-card-back");
-        front.classList.remove("hidden", "is-exit");
-        back.classList.add("hidden");
-        back.classList.remove("is-enter");
-        document.getElementById("memozy-grade-bar").classList.add("hidden");
+        document.getElementById("memozy-grade-bar")?.classList.add("hidden");
+        document.getElementById("memozy-reveal")?.classList.add("hidden");
+        document.getElementById("memozy-space-hint")?.classList.remove("hidden");
 
-        document.getElementById("memozy-term").textContent = card.term;
-        document.getElementById("memozy-phonetic").textContent = card.phonetic || "";
-        document.getElementById("memozy-phonetic").classList.toggle("hidden", !card.phonetic);
-        document.getElementById("memozy-meaning").textContent = card.meaning;
-        document.getElementById("memozy-example").textContent = card.example || "";
-        const paraEl = document.getElementById("memozy-paraphrase");
-        if (card.paraphrase) {
-            paraEl.textContent = "≈ " + card.paraphrase;
-            paraEl.classList.remove("hidden");
-        } else {
-            paraEl.classList.add("hidden");
+        if (termEl) termEl.textContent = card.term;
+        if (phoneticEl) {
+            phoneticEl.textContent = card.phonetic || "";
+            phoneticEl.classList.toggle("hidden", !card.phonetic);
         }
-        document.getElementById("memozy-card-tags").textContent = (card.tags || []).join(" · ");
-        animateCardEnter(front);
+
+        const built = buildOptions(card);
+        memozyCurrentOptions = built.options;
+        memozyAnswerIndex = built.answerIndex;
+        renderOptions(false);
 
         if (memozyAutoplay) {
             setTimeout(() => speakTerm(card.term), 120);
         }
     }
 
-    function flipCard() {
+    function selectAnswer(selectedIndex, btnElement) {
+        if (memozyFlipped || memozyAnswered || !currentCard()) return;
+        memozyAnswered = true;
+        memozyFlipped = true;
+        const card = currentCard();
+        const btns = document.querySelectorAll("#memozy-options .mz-opt-btn");
+        btns.forEach((b) => (b.disabled = true));
+
+        if (selectedIndex === memozyAnswerIndex) {
+            btnElement.classList.add("correct");
+        } else {
+            btnElement.classList.add("wrong");
+            btns.forEach((b) => {
+                if (parseInt(b.dataset.idx, 10) === memozyAnswerIndex) b.classList.add("correct");
+            });
+        }
+        showRevealPanel(card);
+    }
+
+    function peekAnswer() {
         if (memozyFlipped || !currentCard()) return;
         memozyFlipped = true;
-        const front = document.getElementById("memozy-card-front");
-        const back = document.getElementById("memozy-card-back");
-        front.classList.add("is-exit");
-        setTimeout(() => {
-            front.classList.add("hidden");
-            front.classList.remove("is-exit", "is-enter");
-            back.classList.remove("hidden");
-            animateCardEnter(back);
-            document.getElementById("memozy-grade-bar").classList.remove("hidden");
-        }, 160);
+        memozyAnswered = true;
+        renderOptions(true);
+        showRevealPanel(currentCard());
     }
 
     function handleGrade(grade) {
@@ -610,7 +723,6 @@
             const insertAt = Math.min(6, memozyQueue.length);
             memozyQueue.splice(insertAt, 0, card);
         }
-        // good/easy: leave the queue (scheduled for later via SRS)
         if (!memozyQueue.length) finishStudy();
         else loadCard();
     }
@@ -644,20 +756,46 @@
         showAppHub();
     }
 
-    // Keyboard
+    // Keyboard: 1-4 options before reveal; Space peek; 1-4 grades after reveal
     function onKeydown(e) {
         const study = document.getElementById("screen-memozy-study");
         if (!study || study.classList.contains("hidden")) return;
+
         if (e.code === "Space" || e.key === " ") {
             e.preventDefault();
-            if (!memozyFlipped) flipCard();
+            if (!memozyFlipped) peekAnswer();
             return;
         }
-        if (!memozyFlipped) return;
-        const map = { Digit1: "again", Digit2: "hard", Digit3: "good", Digit4: "easy", Numpad1: "again", Numpad2: "hard", Numpad3: "good", Numpad4: "easy" };
-        if (map[e.code]) {
+
+        const digitMap = {
+            Digit1: 0,
+            Digit2: 1,
+            Digit3: 2,
+            Digit4: 3,
+            Numpad1: 0,
+            Numpad2: 1,
+            Numpad3: 2,
+            Numpad4: 3,
+        };
+        const gradeMap = {
+            Digit1: "again",
+            Digit2: "hard",
+            Digit3: "good",
+            Digit4: "easy",
+            Numpad1: "again",
+            Numpad2: "hard",
+            Numpad3: "good",
+            Numpad4: "easy",
+        };
+
+        if (digitMap[e.code] != null) {
             e.preventDefault();
-            handleGrade(map[e.code]);
+            if (!memozyFlipped) {
+                const btn = document.querySelector(`#memozy-options .mz-opt-btn[data-idx="${digitMap[e.code]}"]`);
+                if (btn && !btn.disabled) selectAnswer(digitMap[e.code], btn);
+            } else {
+                handleGrade(gradeMap[e.code]);
+            }
         }
     }
 
@@ -673,7 +811,9 @@
         openSkill,
         startLeaf,
         startDueReview,
-        flipCard,
+        selectAnswer,
+        peekAnswer,
+        flipCard: peekAnswer,
         handleGrade,
         speakTerm,
         speakCurrent() {

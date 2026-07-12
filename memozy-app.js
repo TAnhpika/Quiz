@@ -543,8 +543,8 @@
     }
 
     function optionText(c) {
-        if (c.paraphrase) return String(c.paraphrase).split("/")[0].trim();
-        return c.meaning;
+        if (!c?.paraphrase) return null;
+        return String(c.paraphrase).split("/")[0].trim();
     }
 
     function shuffleInPlace(arr) {
@@ -581,10 +581,11 @@
             shuffleInPlace(allAccountCards().slice()).forEach(tryAdd);
         }
 
-        const fillers = ["N/A", "—", "Không rõ", "Khác"];
+        const fillers = ["unrelated idea", "opposite meaning", "irrelevant phrase", "unconnected concept"];
         let fi = 0;
         while (out.length < 3) {
-            const f = fillers[fi++ % fillers.length] + (fi > fillers.length ? ` ${fi}` : "");
+            const f = fillers[fi % fillers.length] + (fi >= fillers.length ? ` ${fi}` : "");
+            fi++;
             if (!seen.has(f.toLowerCase())) {
                 seen.add(f.toLowerCase());
                 out.push(f);
@@ -595,6 +596,10 @@
 
     function buildOptions(card) {
         const correct = optionText(card);
+        if (!correct) {
+            console.warn("Memozy: missing paraphrase for", card?.id, card?.term);
+            return { options: ["(missing paraphrase)", "unrelated idea", "opposite meaning", "irrelevant phrase"], answerIndex: 0 };
+        }
         const distractors = collectDistractors(card, correct);
         const options = shuffleInPlace([correct, ...distractors]);
         return { options, answerIndex: options.indexOf(correct) };

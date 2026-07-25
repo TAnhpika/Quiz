@@ -1,0 +1,497 @@
+Which of the following will be the best definition for Testing:
+A. The goal / purpose of testing is to demonstrate that the program works.
+B. The purpose of testing is to demonstrate that the program is defect free.
+C. The purpose of testing is to demonstrate that the program does what it is supposed to do
+D. Testing is executing Software for the purpose of finding defects.
+D
+
+Which is the non-functional testing
+A. Performance testing
+B. Unit testing
+C. Regression testing
+D. Sanity testing
+A
+
+What is the purpose of test completion criteria in a test plan:
+A. To know when a specific test has finished its execution
+B. To ensure that the test case specification is complete
+C. To set the criteria used in generating test inputs
+D. To know when test planning is complete
+E. To plan when to stop testing
+E
+
+Which of the follawing could be a reason for a failure?
+1) Testing fault
+2) Software fault
+3) Design fault
+4) Environment Fault
+5) Documentation Fault
+A. 2 is a valid reason: 1.3.4 & 5 are not
+B. 1.2.3,4 are valid reasons: 5 is not
+C. 1.2.3 are valid reasons: 4 & 5 are not
+D. All of them are valid reasons for failure
+D
+
+Bug life cycle
+A. Open. Assigned. Fixed. Closed
+B. Open. Fixed. Assigned. Closed
+C. Assigned, Open, Closed, Fixed
+D. Assigned. Open. Foxed Closed
+A
+
+A piece of saftware has been given
+what tests in the tollowing will you pentom
+1) Test the area's most critical to business processes
+2 esthe areas where aulls wil be maximum
+3) Test the easiest functionalities
+A. 182 are true and 3 is false
+B. 1.283 are true.
+C. listrue zosoreto sel
+D. 182 are false. 3 is true
+A
+
+A standard for software testing terminology is:
+A IEEE 802.11
+B. ISO 9001
+C. BS 7925-1
+D. BS 7925-2
+C
+
+As part of which test process do you determine the exit critena?
+A. Test planning.
+B. Evaluating exit criteria and reporting.
+C. Test closure
+D. Test control
+A
+
+Which, in general, is the least required skill of a good tester?
+A. Being diplomatic
+B. Able to write software
+C. Having good attention to detail
+D. Able to be relied on
+B
+
+What is the purpose of exit criteria?
+A. To define when a test level is complete
+B. To determine when a test has comploted.
+C. To identify when a software system should be retired
+D. To determine whether a test has passed
+A
+
+A test design technique is
+A. A process for selecting test cases
+B. A process for detormining expocted outputs
+C. A way to measure the quality of software
+D. A way to measure in a test plan what has to be done
+A
+
+Testing activity which is periormed to expose defects in the interfaces and in the interaction between integrated
+components is
+A. System Level Testing
+B. Integration Level Testing
+C. Unit Level Testing
+D. Component Testing
+B
+
+Repeated Testing of an already tested program, after modification, to discover any defects introduced or
+uncovered as a result of the changes in the software being tested or in another related or unrelated software
+component:
+A. Ro Testing
+B. Confimation Testing
+C. Regression Testing
+D. Nogative Testing
+C
+
+Which of the following statements about component testing is not true?
+A. Component testing should be performed by development
+B. Component testing is also known as isolation or module testing
+C. Component testing should have completion criteria planned
+D. Component testing does not involve regression testing
+D
+
+Dunng the software development process, at what point can the test process start
+A. When the code is complete.
+B. When the design is complete.
+C. when me sonware eoutements nove Deen depoved
+D. When the first code module is reedy for unit testing
+C
+
+Which of the following is a part of Test Closure Activities?
+L Checking which planned deliverables have been delivered
+il. Defect report analysis.
+i. Finalizing and archiving testware.
+iv. Analyzing lessons
+A. i. a, iv are true and in is false
+B. i. i. iii are true and iv is false
+C. i, i. iv are true and is is false
+D. All of them are true
+D
+
+Which of the following is not a type of incremental testing approach?
+A. Top down
+B. Big-bang
+C. Bottom up
+D. Functional incrementation.
+B
+
+Test Implementation and execution has which of the following major tasks?
+i. Developing and prioritizing test cases.
+creating test data, writing test procedures and optionally preparing the
+test hamesses and writing automated test scripts.
+ii. Creating the test suite from the test cases for efficient test execution.
+IlI. Verifying that the test environment has been set up correctly.
+iv. Determining the exit criterie.
+A. illum are true and iv is false
+B. i.,iv are true and i is false
+C. iii are true and ili.iv are false
+D. iiiiiiv are true and i is false
+A
+
+Validation involves which of the following
+i. Helps to check the Quality of the Built Product
+ii. Helps to check that we have built the right product.
+ill. Helps in developing the product
+iv. Manitaring tool wastage and obsolotoness.
+A. Options i,,i, iv are true
+B. ii is true and i ill iv are false
+C. iii.in are true and iv is false
+D. it is true and i, iliv are false.
+B
+
+Which of the following has highest level of independence in which test cases are:
+A. Designed by persons who write the software under test
+B. Designod by a person from a differont section
+C. Designed by a person from a different organization
+D. Designed by another person
+C
+
+Find the correct flow of the phases of a formal review
+A. Planning. Review meeting, Rework. Kick off
+B. Planning. Individual preparation. Kick off. Rework
+C. Planning, Review meeting, Rework, Follow up
+D. Planning. Individuel preparation. Follow up. Kick off
+C
+
+What is the main purpose of Informal review
+A. Inexpensive way to get some benefit
+B. Find defects
+C. Learning, gaining understanding, effect finding
+D. Discuss. make decisions, solve technical problems
+A
+
+In a review meeting a moderator is a person who
+A. Takes minutes of the meeting
+B. Mediates between people
+C. Takes telephane calls
+D. Writes the documents to be reviewed
+B
+
+The Phases of formal review process is mentioned below arrange them in the correct order.
+i) Planning
+ii) Review Meeting
+iii) Rework
+iv) Individual Preparations
+v) Kick Off
+vi) Follow Up
+A. i, ii, iii, iv, v, vi
+B. vi, i, ii, iii, iv, v
+C. i, v, iv, ii, iii, vi
+D. i, ii, iii, v, iv, vi
+C
+
+Success Factors for a review include:
+i. Each Review does not have a predefined objective
+ii. Defects found are welcomed and expressed objectively
+ili. Management supports a good review process.
+iv. There is an emphasis on learning and process improvement.
+A. ii.ili.iv are correct and i is incorrect
+B. ill. i. iv is correct and ii is incorrect
+C. i. ili. iv. ii is in correct
+D. ii is correct
+A
+
+What can static analysis NOT find?
+A. The use of a variable before it has been defined
+B. Unreachable ("dead") code
+C. Memory leaks
+D. Array bound violations
+C
+
+People who don't participate in technical reviews
+A. Analysts
+B. Management
+C. Developers
+D. Testers
+B
+
+Peer Reviews are also called as :
+A. Inspection
+B. Walkthrough
+C. Technical Review
+D. Formal Review
+C
+
+Which of the following is a static test?
+A. Code inspection
+B. Coverage analysis
+C. Usability ossessment
+D. Installation test
+A
+
+A person who documents all the issues, problems and open points that were identified during a formal review
+A. Moderator
+B. Scrbe
+C. Author
+D. Manager
+B
+
+Complete statement and branch coverage means:
+A That you have tested wery statement in the program
+B. That you have tested every statement and every branch in the program
+C. That you have tested every IF stotement in the program
+D. That you have tested every combination of values of IF statements in the program
+B
+
+Which of the following combinations correctly describes a valid approach to component testing:
+i) Functional testing of the component in isolation.
+ii) Structure-based testing of the code without recording incidents.
+iii) Automated tests that are run until the component passes.
+iv) Functional testing of the interfaces between modules.
+A. i and ii.
+B. i, ii and iii
+C. iii.
+D. ii and iv
+A
+
+Which of the following is NOT a black box technique:
+A. Equivalence partitioning
+B. State transition testing
+C. LCSAJ
+D. Syntax testing
+E. Boundary value analysis
+C
+
+Testing without a real plan and test cases is called _ (choose one answer)
+A. Gorilla testing
+B. Monkey testing
+C. Adhoc testing
+D. All of the others
+C
+
+A thermometer measures temperature in whole degrees only. If the temperature falls below 18 degrees, the
+heating is switched off. It is switched on again when the temperature reaches 21 degrees. What are the best
+values in degrees to cover all equivalence partitions?
+A. 15. 19 and 25.
+B. 17. 18 and19.
+C. 18. 20 and 22.
+D. 16. 26 and 32.
+A
+
+How many tests are required to achieve 100% branch/decision coverage?
+if width > length
+then
+biggest_dimension = width
+else
+biggest_dimension = length
+end_if
+The following has been added to the bottom of the code fragment above.
+print "Biggest dimension is " & biggest_dimension
+print "Width: " & width
+print "Length: " & length
+A. 1
+B. 2
+C. 3
+D. 4
+B
+
+What's the disadvantage of Black Box Testing (choose one answer)
+A. Chances of having repetition of tosts that are already done by programmer.
+B. The test inputs noods to be from large sample space.
+C. It is difficult to identify all possible inputs in limited testing time. So writing test cases is slow and difficult
+D. All of the others
+D
+
+Order numbers on a stock control system can range between 10000 and 99999 inclusive. Which of the tollowing
+inputs might be a result of designing tests for only valid equivalence classes and valid boundaries:
+A. 1000. 5000. 99999
+B. 9999. 50000. 100000
+C. 10000, 50000, 99999
+D. 10000. 99999
+E. 9999. 10000, 50000, 99999. 10000
+C
+
+Expected results are:
+A. Only important in system testing
+B. Only used in component testing
+C. Never specified in advance
+D. Most useful when specified in advance
+E. Derived from the code
+D
+
+A program validates a numeric field as follows:
+Values less than 10 are rejected, values between 10 and 21 are accepted. values greater
+than or equal to 22 are rejected. Which of the following covers the MOST boundary values?
+A. 9.10.11.22
+B. 9.10.21.22
+C. 10.11.21.22
+D. 10.11.20.21
+B
+
+___ is a very early build intended for limited distribution to a few key customers and to marketing for
+demonstration purposes
+A. Alpha release
+B. Beta release
+C. Test release document
+D. Build
+A
+
+Match the following:
+1. Test estimation
+2. Test control
+3. Test monitoring
+a. Measures of tracking process
+b. Effort required to perform activities
+c. Reallocation of resources
+A. 1 -b. 2-c. 3-a
+B. 1 -b. 2-a, 3-c
+C. 1-c. 2-a, 3-b
+D. 1 -a. 2-b. 3-c
+A
+
+What is the main reason for testing software before releasing it?
+A. To show that system will work after release
+B. To decide when the software is of sufficient quality to release
+C. To find as many bugs as possible before release
+D. To give information for a risk based decision about release
+D
+
+Which of the following is not a part of the Test Implementation and Execution Phase
+A. Creating test suites from the test cases
+B. Executing test cases either manually or by using test execution tools
+C. Comparing actual results
+D. Designing the Tests
+D
+
+A Test Plan Outline contains which of the following:
+i. Test Items
+ii. Test Scripts
+iii. Test Deliverables
+iv. Responsibilities
+A. i,ii iii are true and iv is false
+B. i,ili,iv are true and ii is false
+C. ii,ili are true and i and iv are false
+D. i,ii are false and iii, iv are true
+B
+
+What is the MAIN objective when reviewing a software deliverable?
+A. To identify potential application failures by use of a test specification.
+B. To identify defects in any software work product.
+C. To identify spelling mistakes in a requirements specification.
+D. To identify standards inconsistencies in the code.
+B
+
+Quality Assurance is the process by which product quality is compared with the application standards and the
+action taken when nonconformance is detected
+A. True
+B. False
+B
+
+Which of the following is a step-by-step method followed to ensure that standards are met?
+A. SDLC
+B. Project Plan
+C. Policy
+D. Procedure
+D
+
+Verification involves which of the following
+i. Helps to check the Quality of the built product
+ii.Helps to check that we have built the right product.
+iii.Helps in developing the product
+iv. Monitoring tool wastage and obsoleteness.
+A. Options i ii, iii, iv are true.
+B. i is true and ii.iii, iv are false
+C. i.ii.ili are true and iv is false
+D. ii is true and i,ili, iv are false.
+B
+
+With thorough testing it is possible to remove all defects from a program prior to delivery to the customer.
+A. True
+B. False
+B
+
+Which of the following benefits are MOST likely to be achieved by using test tools?
+i) Easy to access information about tests and testing.
+ii) Reduced maintenance of testware.
+iii) Easy and cheap to implement.
+iv) Greater consistency of tests.
+A. ii and iv
+B. ii and iii
+C. i and iv
+D. i and iii
+C
+
+With which of the following categories is a test comparator tool USUALLY associated?
+A. Tool support for performance and monitoring.
+B. Tool support for static testing
+C. Tool support for test execution and logging.
+D. Tool support for the management of testing and tests.
+C
+
+For which of the following types of testing would a vendor contractor typically need to write the initial scripts?
+A. Measuring response time
+B. Measuring transaction rates
+C. Recovery testing
+D. Simulating many users
+E. Generating many transactions
+C
+
+Which of the following is NOT a characteristic of User Acceptance Testing?
+A. Use of automated test execution tools
+B. Testing performed by users.
+C. Testing against acceptance test criteria
+D. Integration of system with user documentation.
+A
+
+The place to start if you want a (new) test tool is:
+A. Attend a tool exhibition
+B. Invite a vendor to give a demo
+C. Analyze your needs and requirements
+D. Find out what your budget would be for the tool
+E. Search the internet
+C
+
+The Provision and Management of a controlled library containing all the
+configurations items is called as
+A. Configuration Control
+B. Status Accounting
+C. Configuration Identification
+A
+
+The principal attributes of tools and automation are (choose one answer)
+A. (1) Speed & efficiency
+B. (2) Accuracy & precision
+C. Both of (1) and (2)
+D. None of (1) nor (2)
+C
+
+Find the mismatch
+A. Test data preparation tools - Manipulate Data bases
+B. Test design tools - Generate test inputs
+C. Requirement management tods - Enables individual tests to be traceable
+D. Configuration management tools - Check for consistence
+D
+
+A typical commercial test execution tool would be able to perform all of the following. EXCEPT:
+A. Generating expected outputs
+B. Replaying inputs according to a programmed script
+C. Comparison of expected outcomes with actual outcomes
+D. Recording test inputs
+E. Reading test values from a data file
+A
+
+When a new testing tool is purchased, it should be used first by:
+A. A small team to establish the best way to use the tool
+B. Everyone who may eventually have some use for the tool
+C. The independent testing team
+D. The vendor contractor to write the initial scripts
+A

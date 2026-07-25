@@ -1,0 +1,474 @@
+Which one is not comes under international standard: (choose one answer)
+A. IEC
+B. IEEE
+c. ISO
+D. All of the others
+B
+
+Faults found by users are due to:
+A. Insufficient time for testing
+B. Poor software and poor testing
+C. Bad luck
+B
+
+A piece of software has been given
+what tests in the following will you perform?
+1) Test the area's most critical to business processes
+2) Test the areas where faults will be maximum
+3) Test the easiest functionalities
+A. 1&2 are true and 3 is false
+B. 1,2&3 are true.
+C. 1 is true, 2&3 are false.
+D. 1&2 are false, 3 is true
+A
+
+EULA stands for
+A. End Usability License Agreement
+B. End User License Agreement
+C. End User License Arrangement
+D. End User License Attachment
+B
+
+CAST stands for
+A. Computer Aided Software Testing
+B. Computer Aided Software Tools
+C. Computer Analysis Software Techniques
+D. None of the others
+A
+
+Defect Management process does not include
+A. Defect prevention
+B. Deliverable base-lining
+C. Management reporting
+D. None of the others
+B
+
+Which of the following will be the best definition for Testing:
+A. The goal / purpose of testing is to demonstrate that the program works.
+B. The purpose of testing is to demonstrate that the program is defect free.
+C. The purpose of testing is to demonstrate that the program does what it is supposed to do
+D. Testing is executing Software for the purpose of finding defects.
+D
+
+Which of the following is the standard for the Software product quality
+A. ISO 9126
+B. ISO 829
+C. ISO 1012
+D. ISO 1028
+A
+
+The cost of fixing a fault:
+A. Is not important
+B. Increases as we move the product towards live use
+C. Decreases as we move the product towards live use
+D. Is more expensive if found in requirements than functional design
+E. Can never be determined
+B
+
+Which of the following statements are true?
+A. Faults in program specifications are the most expensive to fix
+B. Faults in code are the most expensive to fix.
+C. Faults in requirements are the most expensive to fix
+D. Faults in designs are the most expensive to fix.
+C
+
+Cost of the reviews will not include.
+A. Review process itself
+B. Metrics analysis
+C. Tool support.
+D. Process improvement.
+D
+
+Reviews, static analysis and dynamic testing have the same objective
+A. (1) Identifying defects.
+B. (ii) Fixing defects.
+C. (i) and (i)
+D. None of (i) nor (ii)
+A
+
+During the software development process, at what point can the test process start?
+A. When the code is complete.
+B. When the design is complete.
+C. When the software requirements have been approved.
+D. When the first code module is ready for unit testing
+C
+
+Drivers are also known as:
+i. Spade
+ii. Test harness
+iii. Scaffolding
+A. i, ii are true and ill is false
+B. i, ill are true and ii is false
+C. i, ill are true and i is false
+D. All of i, il and ill are true
+C
+
+Who would USUALLY perform debugging activities?
+A. Developers.
+B. Analysts.
+C. Testers.
+D. Incident Managers.
+A
+
+Software testing accounts to what percent of software development costs?
+A. 10-20
+B. 40-50
+C. 70-80
+D. 5-10
+B
+
+Configuration and compatibility testing are typically good choices for outsourcing
+A. True
+B. False
+A
+
+Which of the following has highest level of independence in which test cases are:
+A. Designed by persons who write the software under test
+B. Designed by a person from a different section
+C. Designed by a person from a different organization
+D. Designed by another person
+C
+
+Majority of system errors occur in the ___ phase
+A. Requirements Phase.
+B. Analysis and Design Phase
+C. Development Phase
+D. Testing Phase
+A
+
+Benefits of Independent Testing
+A. Independent testers are much more qualified than Developers
+B. Independent testers see other and different defects and are unbiased.
+C. Independent Testers cannot identify defects.
+D. Independent Testers can test better than developers
+B
+
+Who is responsible for document all the issues, problems and open point that were identified during the review
+meeting
+A. Moderator
+B. Scribe
+C. Reviewers
+D. Author
+B
+
+The person who leads the review of the documents), planning the review, running the meeting and follow-up
+after the meeting
+A. Reviewer
+B. Author
+C. Moderator
+D. Auditor
+C
+
+The Kick Off phase of a formal review includes the following:
+A. Explaining the objective
+B. Fixing defects found typically done by author
+C. Follow up
+D. Individual Meeting preparations
+A
+
+Static analysis tools are typically used by
+A. Testers
+B. Developers
+C. Testers & Developers
+D. None of the others
+B
+
+What can static analysis NOT find?
+A. The use of a variable before it has been defined
+B. Unreachable ("dead") code
+C. Memory leaks
+D. Array bound violations
+C
+
+In a review meeting a moderator is a person who
+A. Takes minutes of the meeting
+B. Mediates between people
+C. Takes telephone calls
+D. Writes the documents to be reviewed
+B
+
+The Phases of formal review process is mentioned below arrange them the correct order.
+i)Planning
+ii) Review Meeting
+iii) Rework
+iv) Individual Preparations
+v) Kick Off
+vi) Follow Up
+A. i,il,iii,iv,v,vi
+B. vi,,i,ili, iv, v
+C. i,v,iv,i, iii, vi
+D. i,ii,iii,v, iv, vi
+C
+
+People who don't participate in technical reviews
+A. Analysts
+B. Management
+C. Developers
+D. Testers
+B
+
+Which of the following is not a static testing technique?
+A. Error guessing
+B. Walkthrough
+C. Data flow analysis
+D. Inspections
+A
+
+Which expression best matches the following characteristics or review
+processes:
+1. Led by author
+2. Undocumented
+3. No management participation
+4. Led by a trained moderator or leader
+5. Uses entry exit criteria
+s) Inspection
+t) Peer review
+u) Informal review
+v) Walkthrough
+A. s = 4, t = 3, u = 2 and 5, v = 1
+B. s = 4 and 5, t = 3, u = 2, v = 1
+C. s = 1 and 5, t = 3, u = 2, V= 4
+D. s = 5, t = 4, u = 3, V = 1 and 2
+E. s = 4 and 5, t= 1, u = 2, v = 3
+B
+
+Features of White Box Testing Technique:
+i. We use explicit knowledge of the internal workings of the item being tested to select the
+test data.
+ii. Uses specific knowledge of programming code to examine outputs and assumes that the tester knows the
+path of logic in a unit or a program.
+iii. Checking for the performance of the application
+iv. Also checks for functionality.
+A. i, ii are true and ill and iv are false
+B. iii is true and i,ii, iv are false
+C. ii,iii is true and i,iv is false
+D. iii and iv are true and iii are false
+A
+
+Complete statement and branch coverage means:
+A. That you have tested every statement in the program.
+B. That you have tested every statement and every branch in the program.
+C. That you have tested every IF statement in the program.
+D. That you have tested every combination of values of IF statements in the program
+B
+
+Which of the following techniques is NOT a White box technique?
+A. Statement Testing and coverage
+B. Decision Testing and coverage
+C. Condition Coverage
+D. Boundary value analysis
+D
+
+A program with high cyclometic complexity is almost likely to be:
+A. Large
+B. Small
+C. Difficult to write
+D. Difficult to test
+D
+
+Which of the following is NOT part of system testing
+A. Business process-based testing
+B. Performance, load and stress testing
+C. Requirements-based testing
+D. Usability testing
+E. Top-down integration testing
+E
+
+Error guessing is:
+A. An appropriate way of deriving system tests.
+B. Only used if good requirements are not available.
+C. Only used when good requirements are available.
+D. The most appropriate way of deriving system tests.
+A
+
+Cyclomatic Complexity method comes under which testing method
+A. White box
+B. Black box
+C. Green box
+D. Yellow box
+A
+
+Given the following state transition diagram. Which of the following series of state transitions contains an INVALID
+transition which may indicate a fault in the system design?
+Exhibit:
+A. Login Browse Basket Checkout Basket Checkout Pay Logout.
+B. Login Browse Basket Checkout Pay Logout.
+C. Login Browse Basket Checkout Basket Logout.
+D. Login Browse Basket Browse Basket Checkout Pay Logout.
+C
+
+Regression testing should be performed:
+v) Every week
+w) After the software has changed
+x) As often as possible
+y) When the environment has changed
+z) When the project manager says
+A. V & w are true, X - z are false
+B. w, x & y are true, v & z are false
+C. w & y are true, v, x & z are false
+D. w is true, v, x y and z are false
+E. All of them are true
+C
+
+FPA is used to
+A. To measure the functional requirements of the project
+B. To measure the size of the functionality of an Information system
+C. To measure the functional testing effort
+D. To measure the functional flow
+B
+
+Software quality is not relevant to
+A. Correctness
+B. Usability
+C. Viability
+D. Reusability
+C
+
+Which activities form part of test planning?
+i) Developing test cases.
+ii) Defining the overall approach to testing.
+iii) Assigning resources.
+iv) Building the test environment
+v) Writing test conditions.
+A. i, ii & iv are true, iii & v are false.
+B. ii & iii are true, i, iv & v are false.
+C. iv & v are true, i, ii & iii are false.
+D. i, i & ill are true iv & v are false.
+B
+
+Which of the following is not a part of the Test Implementation and Execution Phase
+A. Creating test suites from the test cases
+B. Executing test cases either manually or by using test execution tools
+C. Comparing actual results
+D. Designing the Tests
+D
+
+Gest Case are grouped into Manageable (and scheduled) units are called as
+A. Test Harness
+B. Test Suite
+C. Test Cycle
+D. Test Driver
+B
+
+When should configuration management procedures be implemented?
+A. During test planning.
+B. During test analysis.
+C. During test execution.
+D. When evaluating exit criteria
+A
+
+Which activity in the fundamental test process creates test suites tor efficient test execution'?
+A. Implementation and execution
+B. Planning and control.
+C. Analysis and design.
+D. Test closure.
+A
+
+What is the main reason for testing software before releasing it?
+A. To show that system will work after release
+B. To decide when the software is of sufficient quality to release
+C. To find as many bugs as possible before release
+D. To give information for a risk based decision about release
+D
+
+A __ is the step-by-step method followed to ensure that standards are met
+A. SDLC
+B. Project Plan
+C. Policy
+D. Procedure
+D
+
+What is the MAIN objective when reviewing a software deliverable?
+A. To identify potential application failures by use of a test specification.
+B. To identify defects in any software work product.
+C. To identify spelling mistakes in a requirements specification.
+D. To identify standards inconsistencies in the code.
+B
+
+The principal attributes of tools and automation are (choose one answer)
+A. (1) Speed & efficiency
+B. (2) Accuracy & precision
+C. Both of (1) and (2)
+D. None of (1) nor (2)
+C
+
+What type of tools to be used for Regression Testing?
+A. (1) Performance
+B. (2) Record/Playback
+C. Both of (1) and (2)
+D. None of (1) nor (2)
+B
+
+Which tool will be used to test the flag memory leaks and unassigned pointers
+A. Dynamic analysis tool
+B. Static Analysis tool.
+C. Maintenance tool.
+D. Configuration tool.
+A
+
+Which of the following tools would be involved in the automation of regression test?
+A. Data tester
+B. Boundary tester
+C. Capture/Playback
+D. Output comparator.
+C
+
+The Provision and Management of a controlled library containing all the
+configurations items is called as
+A. Configuration Control
+B. Status Accounting
+C. Configuration Identification
+A
+
+Which of the following benefits are MOST likely to be achieved by using test tools?
+i) Easy to access information about tests and testing.
+ii) Reduced maintenance of testware.
+iii) Easy and cheap to implement.
+iv) Greater consistency of tests.
+A. ii and iv
+B. ii and iii
+C. i and iv
+D. i and iii
+C
+
+Which of the following activities should be performed during the selection and Implementation of a testing
+tool?
+i) Investigate the organisation's test process.
+ii) Conduct a proof of concept.
+iii) Implement the selected tool on a project behind schedule to save time.
+iv) Identify coaching and mentoring requirements for the use of the selected tool.
+A. i, ii, iii.
+B. ii, iii, iv.
+C. i, iii, iv.
+D. i, ii, iv.
+D
+
+With which of the following categories is a test comparator tool USUALLY associated?
+A. Tool support for performance and monitoring.
+B. Tool support for static testing.
+C. Tool support for test execution and logging.
+D. Tool support for the management of testing and tests.
+C
+
+Find the mismatch
+A. Test data preparation tools - Manipulate Data bases
+B. Test design tools - Generate test inputs
+C. Requirement management tools - Enables individual tests to be traceable
+D. Configuration management tools - Check for consistence
+D
+
+thermometer measures temperature in whole degrees only. If the temperature falls below 18 degrees, the
+heating is switched off. It is switched on again when the temperature reaches 21 degrees. What are the be
+values in degrees to cover all equivalence partitions?
+A. 15, 19 and 25
+B. 17, 18 and 19.
+C. 18,20 and 22.
+D. 16, 26 and 32.
+A
+
+The ___ Testing will be performed by the people at client own locations
+A. Alpha testing
+B. Field testing
+C. Performance testing
+D. System testing
+B

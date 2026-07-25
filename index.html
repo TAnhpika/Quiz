@@ -1234,17 +1234,26 @@
             <div id="screen-subject" class="hidden flex-1 flex flex-col items-center justify-center text-center animate-fade-in w-full relative">
                 <button
                     type="button"
+                    id="btn-subject-hub"
                     onclick="Memozy.showAppHub()"
                     class="fixed top-5 left-5 z-30 px-3 py-2 rounded-xl bg-white/90 border border-slate-200 text-slate-600 text-xs font-bold hover:bg-white shadow-sm flex items-center gap-1.5"
                 >
                     <i class="fa-solid fa-arrow-left"></i> Hub
                 </button>
+                <button
+                    type="button"
+                    id="btn-subject-back-courses"
+                    onclick="showCourseCards()"
+                    class="hidden fixed top-5 left-5 z-30 px-3 py-2 rounded-xl bg-white/90 border border-slate-200 text-slate-600 text-xs font-bold hover:bg-white shadow-sm flex items-center gap-1.5"
+                >
+                    <i class="fa-solid fa-arrow-left"></i> Môn
+                </button>
                 <div class="glass-panel rounded-3xl shadow-xl w-full max-w-3xl mx-auto p-6 md:p-10">
                     <div class="inline-block p-4 bg-white rounded-full shadow-sm mb-4 border border-slate-100">
-                        <i class="fa-solid fa-layer-group text-4xl text-indigo-400"></i>
+                        <i id="subject-hero-icon" class="fa-solid fa-layer-group text-4xl text-indigo-400"></i>
                     </div>
-                    <h1 class="text-2xl md:text-3xl font-black text-slate-800 mb-2">Chọn Môn Học</h1>
-                    <p class="text-sm md:text-base text-slate-500 mb-6">Mỗi môn có ngân hàng câu hỏi & tiến độ riêng</p>
+                    <h1 id="subject-screen-title" class="text-2xl md:text-3xl font-black text-slate-800 mb-2">Chọn Môn Học</h1>
+                    <p id="subject-screen-subtitle" class="text-sm md:text-base text-slate-500 mb-6">Mỗi môn có ngân hàng câu hỏi & tiến độ riêng</p>
                     <div id="subject-cards" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
                     <div id="bank-loading" class="hidden mt-4 flex items-center justify-center gap-2 text-sm text-slate-500 font-semibold">
                         <i class="fa-solid fa-spinner fa-spin text-indigo-400"></i>
@@ -1464,6 +1473,17 @@
                                 <span class="flashcard-guide-tip-label"><i class="fa-regular fa-lightbulb mr-1"></i>Hướng dẫn</span> 
                                 Lần đầu hãy nhấn <kbd>Space</kbd> để ghi nhớ keywords. Lần sau hãy thử tự trả lời nha!
                             </span>
+                        </button>
+                        <button
+                            id="btn-flashcard-auto-hard"
+                            type="button"
+                            onclick="toggleFlashcardAutoHard()"
+                            class="hidden h-10 px-2.5 shrink-0 rounded-full items-center gap-1.5 text-xs font-bold shadow-sm border transition-colors bg-white/90 text-slate-500 border-slate-200 hover:bg-slate-50"
+                            title="Lặp lại câu sai sau ~4 câu"
+                            aria-pressed="false"
+                        >
+                            <i class="fa-solid fa-rotate" aria-hidden="true"></i>
+                            <span class="hidden sm:inline">Repeat</span>
                         </button>
                         <div
                             id="timer-container"
@@ -1716,13 +1736,28 @@
         <script>
             // =============================================================================
             // CẤU HÌNH MÔN HỌC & NGÂN HÀNG CÂU HỎI
-            // Mỗi môn: questions riêng, tiến độ/bookmark/review lưu theo subjectId
+            // COURSES = môn (SWT…); SUBJECTS = từng đề/bank — tiến độ lưu theo subjectId
             // =============================================================================
+            const COURSES = {
+                swt: {
+                    id: "swt",
+                    name: "SWT",
+                    subtitle: "Software Testing · đề theo kỳ",
+                    icon: "fa-vial-circle-check",
+                    iconColor: "text-blue-500",
+                    cardBorder: "border-blue-200",
+                    cardHover: "hover:border-blue-300",
+                    cardIconBg: "bg-blue-50",
+                    cardIconColor: "text-blue-500",
+                    bankIds: ["swt_sp26", "swt_fa25", "swt_su25"],
+                },
+            };
+
             const SUBJECTS = {
-                swt_pt1: {
-                    id: "swt_pt1",
-                    name: "Software Testing PT1",
-                    titleLines: ["ĐƯỜNG LÊN ĐỈNH", "SOFTWARE TESTING PT1"],
+                swt_sp26: {
+                    id: "swt_sp26",
+                    name: "SWT SP26",
+                    titleLines: ["ĐƯỜNG LÊN ĐỈNH", "SWT SP26"],
                     icon: "fa-vial-circle-check",
                     iconColor: "text-blue-500",
                     borderColor: "border-blue-50",
@@ -1731,7 +1766,37 @@
                     cardHover: "hover:border-blue-300",
                     cardIconBg: "bg-blue-50",
                     cardIconColor: "text-blue-500",
-                    questionCount: 166,
+                    questionCount: 60,
+                    keywordsEnabled: true,
+                },
+                swt_fa25: {
+                    id: "swt_fa25",
+                    name: "SWT FA25",
+                    titleLines: ["ĐƯỜNG LÊN ĐỈNH", "SWT FA25"],
+                    icon: "fa-flask-vial",
+                    iconColor: "text-indigo-500",
+                    borderColor: "border-indigo-50",
+                    gradient: "from-indigo-600 via-violet-500 to-fuchsia-500",
+                    cardBorder: "border-indigo-200",
+                    cardHover: "hover:border-indigo-300",
+                    cardIconBg: "bg-indigo-50",
+                    cardIconColor: "text-indigo-500",
+                    questionCount: 60,
+                    keywordsEnabled: true,
+                },
+                swt_su25: {
+                    id: "swt_su25",
+                    name: "SWT SU25",
+                    titleLines: ["ĐƯỜNG LÊN ĐỈNH", "SWT SU25"],
+                    icon: "fa-clipboard-check",
+                    iconColor: "text-emerald-500",
+                    borderColor: "border-emerald-50",
+                    gradient: "from-emerald-600 via-teal-500 to-cyan-500",
+                    cardBorder: "border-emerald-200",
+                    cardHover: "hover:border-emerald-300",
+                    cardIconBg: "bg-emerald-50",
+                    cardIconColor: "text-emerald-500",
+                    questionCount: 60,
                     keywordsEnabled: true,
                 },
             };
@@ -1805,11 +1870,64 @@
                     });
                 },
 
-                renderSubjectCards() {
+                renderCourseCards() {
                     const container = document.getElementById("subject-cards");
+                    const titleEl = document.getElementById("subject-screen-title");
+                    const subtitleEl = document.getElementById("subject-screen-subtitle");
+                    const heroIcon = document.getElementById("subject-hero-icon");
+                    const hubBtn = document.getElementById("btn-subject-hub");
+                    const backBtn = document.getElementById("btn-subject-back-courses");
+
+                    titleEl.textContent = "Chọn Môn Học";
+                    subtitleEl.textContent = "Mỗi môn có ngân hàng câu hỏi & tiến độ riêng";
+                    heroIcon.className = "fa-solid fa-layer-group text-4xl text-indigo-400";
+                    hubBtn.classList.remove("hidden");
+                    backBtn.classList.add("hidden");
+
                     container.innerHTML = "";
-                    Object.values(SUBJECTS).forEach((sub) => {
-                        const count = sub.questionCount;
+                    Object.values(COURSES).forEach((course) => {
+                        const totalQ = course.bankIds.reduce((sum, id) => sum + (SUBJECTS[id]?.questionCount || 0), 0);
+                        const bankCount = course.bankIds.length;
+                        const btn = document.createElement("button");
+                        btn.className = `group bg-white border-2 ${course.cardBorder} p-5 md:p-6 rounded-2xl shadow-sm ${course.cardHover} hover:shadow-md transition-all text-left w-full`;
+                        btn.innerHTML = `
+                        <div class="flex items-start gap-4">
+                            <div class="${course.cardIconBg} ${course.cardIconColor} p-3 rounded-xl shrink-0 flex items-center justify-center w-12 h-12">
+                                <i class="fa-solid ${course.icon} text-2xl leading-none"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="font-black text-slate-800 text-base md:text-lg">${course.name}</h3>
+                                <p class="text-xs text-slate-500 mt-1">${course.subtitle}</p>
+                                <p class="text-xs text-slate-400 mt-1">${bankCount} đề · ${totalQ} câu hỏi</p>
+                            </div>
+                        </div>
+                    `;
+                        btn.onclick = () => this.renderBankCards(course.id);
+                        container.appendChild(btn);
+                    });
+                },
+
+                renderBankCards(courseId) {
+                    const course = COURSES[courseId];
+                    if (!course) return;
+
+                    const container = document.getElementById("subject-cards");
+                    const titleEl = document.getElementById("subject-screen-title");
+                    const subtitleEl = document.getElementById("subject-screen-subtitle");
+                    const heroIcon = document.getElementById("subject-hero-icon");
+                    const hubBtn = document.getElementById("btn-subject-hub");
+                    const backBtn = document.getElementById("btn-subject-back-courses");
+
+                    titleEl.textContent = `Chọn đề ${course.name}`;
+                    subtitleEl.textContent = "Mỗi đề 60 câu · tiến độ riêng";
+                    heroIcon.className = `fa-solid ${course.icon} text-4xl ${course.iconColor}`;
+                    hubBtn.classList.add("hidden");
+                    backBtn.classList.remove("hidden");
+
+                    container.innerHTML = "";
+                    course.bankIds.forEach((bankId) => {
+                        const sub = SUBJECTS[bankId];
+                        if (!sub) return;
                         const btn = document.createElement("button");
                         btn.className = `group bg-white border-2 ${sub.cardBorder} p-5 md:p-6 rounded-2xl shadow-sm ${sub.cardHover} hover:shadow-md transition-all text-left w-full`;
                         btn.innerHTML = `
@@ -1819,7 +1937,7 @@
                             </div>
                             <div class="min-w-0">
                                 <h3 class="font-black text-slate-800 text-base md:text-lg">${sub.name}</h3>
-                                <p class="text-xs text-slate-500 mt-1">${count} câu hỏi</p>
+                                <p class="text-xs text-slate-500 mt-1">${sub.questionCount} câu hỏi</p>
                             </div>
                         </div>
                     `;
@@ -1937,10 +2055,14 @@
                 },
             };
 
+            function showCourseCards() {
+                subjectManager.renderCourseCards();
+            }
+
             function showSubjectSelection() {
                 if (currentSubjectId) subjectManager.persistCurrentSubjectState();
                 hideAllScreens();
-                subjectManager.renderSubjectCards();
+                subjectManager.renderCourseCards();
                 document.getElementById("screen-subject").classList.remove("hidden");
                 document.body.classList.add("subject-active");
                 document.body.classList.remove("home-active");
@@ -2499,6 +2621,10 @@
                     document.getElementById("btn-mark-ingame").classList.toggle("hidden", isSRStudy);
                     document.getElementById("btn-flashcard-guide").classList.toggle("hidden", mode !== "flashcard");
                     document.getElementById("btn-flashcard-guide").classList.toggle("flex", mode === "flashcard");
+                    const autoHardBtn = document.getElementById("btn-flashcard-auto-hard");
+                    autoHardBtn.classList.toggle("hidden", mode !== "flashcard");
+                    autoHardBtn.classList.toggle("flex", mode === "flashcard");
+                    if (mode === "flashcard") syncFlashcardAutoHardButton();
                     document.getElementById("flashcard-front-panel").classList.add("hidden");
                     document.getElementById("options-container").classList.remove("flashcard-hidden");
                     resetResultScreen();
@@ -2552,10 +2678,34 @@
             let flashcardInitialCount = 0;
             /** Số thẻ đã Easy — dùng cho progress bar */
             let flashcardEasyCount = 0;
-            /** Chọn đúng — chờ nút Tiếp tục trước khi loại khỏi chặng */
+            /** Chọn đúng / Auto Hard — chờ nút Tiếp tục trước khi advance queue */
             let flashcardAwaitContinue = false;
+            /** Grade khi bấm Tiếp tục: easy (đúng) hoặc hard (Repeat + sai/peek) */
+            let flashcardContinueGrade = "easy";
+            let flashcardAutoHard = localStorage.getItem("quiz_flashcard_auto_hard") === "1";
             const FLASHCARD_REINSERT = { again: 2, hard: 4, good: 8 };
             const GRADE_SHORTCUT_KEYS = ["again", "hard", "good", "easy"];
+
+            function syncFlashcardAutoHardButton() {
+                const btn = document.getElementById("btn-flashcard-auto-hard");
+                if (!btn) return;
+                btn.setAttribute("aria-pressed", flashcardAutoHard ? "true" : "false");
+                btn.title = "Lặp lại câu sai sau ~4 câu";
+                btn.innerHTML = `<i class="fa-solid fa-rotate" aria-hidden="true"></i><span class="hidden sm:inline">Repeat</span>`;
+                if (flashcardAutoHard) {
+                    btn.className =
+                        "h-10 px-2.5 shrink-0 rounded-full flex items-center gap-1.5 text-xs font-bold shadow-sm border transition-colors bg-amber-500 text-white border-amber-500 hover:bg-amber-600";
+                } else {
+                    btn.className =
+                        "h-10 px-2.5 shrink-0 rounded-full flex items-center gap-1.5 text-xs font-bold shadow-sm border transition-colors bg-white/90 text-slate-500 border-slate-200 hover:bg-slate-50";
+                }
+            }
+
+            function toggleFlashcardAutoHard() {
+                flashcardAutoHard = !flashcardAutoHard;
+                localStorage.setItem("quiz_flashcard_auto_hard", flashcardAutoHard ? "1" : "0");
+                syncFlashcardAutoHardButton();
+            }
 
             function isGradeBarVisible() {
                 return !document.getElementById("spaced-grade-bar").classList.contains("hidden");
@@ -2605,6 +2755,7 @@
                 flashcardAwaitContinue = false;
                 reviewUI.showSpacedGradeBar(false);
                 resetAnswerPanel();
+                flashcardContinueGrade = "easy";
 
                 if (flashcardQueue.length === 0) finishFlashcardSession();
                 else loadQuestion();
@@ -2627,6 +2778,7 @@
                     btnElement.classList.add("correct");
                     flashcardFlipped = true;
                     flashcardAwaitContinue = true;
+                    flashcardContinueGrade = "easy";
                     document.getElementById("flashcard-front-panel").classList.add("hidden");
                     document.getElementById("btn-next").classList.remove("hidden");
                     return;
@@ -2639,7 +2791,14 @@
                 flashcardFlipped = true;
                 document.getElementById("flashcard-front-panel").classList.add("hidden");
                 showAnswerPanel(getQuestionKeywords(q));
-                reviewUI.showSpacedGradeBar(true);
+                if (flashcardAutoHard) {
+                    flashcardAwaitContinue = true;
+                    flashcardContinueGrade = "hard";
+                    document.getElementById("btn-next").classList.remove("hidden");
+                    reviewUI.showSpacedGradeBar(false);
+                } else {
+                    reviewUI.showSpacedGradeBar(true);
+                }
             }
 
             function handleSpacedGrade(grade) {
@@ -2654,7 +2813,14 @@
                 renderFlashcardOptions(displayQ, true);
                 document.getElementById("flashcard-front-panel").classList.add("hidden");
                 showAnswerPanel(getQuestionKeywords(q));
-                reviewUI.showSpacedGradeBar(true);
+                if (flashcardAutoHard) {
+                    flashcardAwaitContinue = true;
+                    flashcardContinueGrade = "hard";
+                    document.getElementById("btn-next").classList.remove("hidden");
+                    reviewUI.showSpacedGradeBar(false);
+                } else {
+                    reviewUI.showSpacedGradeBar(true);
+                }
             }
 
             function renderFlashcardOptions(q, revealed = false) {
@@ -3222,6 +3388,7 @@
                 spacedAnswerRevealed = false;
                 flashcardFlipped = false;
                 flashcardAwaitContinue = false;
+                flashcardContinueGrade = "easy";
                 document.getElementById("score").innerText = "0";
                 resetAnswerPanel();
                 reviewUI.setGameModeUI(mode);
@@ -3381,7 +3548,7 @@
 
             function nextQuestion() {
                 if (currentMode === "flashcard" && flashcardAwaitContinue) {
-                    advanceFlashcardQueue("easy");
+                    advanceFlashcardQueue(flashcardContinueGrade || "easy");
                     return;
                 }
                 if (currentMode === "review" && reviewLastCorrect) {

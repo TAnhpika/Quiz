@@ -1,6 +1,6 @@
 /**
  * Apply curated keywords JSON to a bank file.
- * Usage: node scripts/apply-bank-keywords.mjs swt_pt1
+ * Usage: node scripts/apply-bank-keywords.mjs swt_sp26
  */
 import fs from "fs";
 import path from "path";
@@ -17,7 +17,9 @@ const BANK_PATH = path.join(__dirname, "..", "banks", `${bankId}.js`);
 const KEYWORDS_PATH = path.join(__dirname, `${bankId}-keywords.json`);
 
 const BANK_HEADERS = {
-    swt_pt1: (n) => `/** Ngân hàng câu hỏi: Software Testing PT1 (${n} câu) — load on demand */`,
+    swt_sp26: (n) => `/** Ngân hàng câu hỏi: SWT SP26 (${n} câu) — load on demand */`,
+    swt_fa25: (n) => `/** Ngân hàng câu hỏi: SWT FA25 (${n} câu) — load on demand */`,
+    swt_su25: (n) => `/** Ngân hàng câu hỏi: SWT SU25 (${n} câu) — load on demand */`,
 };
 
 function loadBank() {

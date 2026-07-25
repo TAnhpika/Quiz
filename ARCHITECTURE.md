@@ -29,7 +29,9 @@ Quizzy/
 ├── index.html              # Hub + Quizzy UI/logic + Memozy screens (HTML)
 ├── memozy-app.js           # Memozy navigation, study, SRS, TTS
 ├── banks/                  # Ngân hàng Quizzy — load on demand
-│   └── swt_pt1.js
+│   ├── swt_sp26.js
+│   ├── swt_fa25.js
+│   └── swt_su25.js
 ├── banks/memozy/           # Ngân hàng từ vựng IELTS
 │   ├── catalog.js          # Cây Skill → Group → Leaf
 │   ├── reading.js
@@ -52,7 +54,7 @@ index.html
 │   ├── screen-memozy-browse     # Part / dạng (cây catalog)
 │   ├── screen-memozy-study      # Flashcard lật thẻ + grade + audio
 │   ├── screen-memozy-result
-│   ├── screen-subject           # Chọn môn (Quizzy)
+│   ├── screen-subject           # Chọn môn → chọn đề (Quizzy)
 │   ├── screen-home
 │   ├── modal-group / modal-review-hub
 │   ├── screen-game / screen-result / screen-handbook
@@ -122,9 +124,11 @@ SRS grades: Again 1d / Hard 3d / Good 7d / Easy 14d (cùng thuật toán Anki-li
 
 ### Ngân hàng theo môn (`banks/{subjectId}.js`)
 
-| File        | Môn                     | Số câu |
-| ----------- | ----------------------- | ------ |
-| `swt_pt1.js`| Software Testing PT1    | 166    |
+| File          | Môn        | Số câu |
+| ------------- | ---------- | ------ |
+| `swt_sp26.js` | SWT SP26   | 60     |
+| `swt_fa25.js` | SWT FA25   | 60     |
+| `swt_su25.js` | SWT SU25   | 60     |
 
 Thêm môn mới: khai báo trong `SUBJECTS` + tạo `banks/{id}.js` + `questionCount` trong SUBJECTS.
 
@@ -168,7 +172,7 @@ window.onload
   → (Memozy) enterMemozy → account → skills → browse → study
 ```
 
-Chọn môn → `selectSubject(id)` → load state → `screen-home`.
+Chọn môn (`COURSES`) → chọn đề (`SUBJECTS`) → `selectSubject(id)` → load state → `screen-home`.
 
 ---
 
@@ -183,7 +187,7 @@ Không dùng router — điều hướng bằng `hideAllScreens()` / `Memozy.hid
 | Memozy Skills        | `screen-memozy-skills`  | Sau chọn account            |
 | Memozy Browse        | `screen-memozy-browse`  | Chọn skill                  |
 | Memozy Study         | `screen-memozy-study`   | Leaf / Ôn hôm nay           |
-| Chọn môn             | `screen-subject`    | Hub → Quizzy                   |
+| Chọn môn / đề        | `screen-subject`    | Hub → Quizzy (môn rồi bank)    |
 | Trang chủ            | `screen-home`       | Sau chọn môn, sau result/home  |
 | Chơi game            | `screen-game`       | `startGame(mode)`              |
 | Kết quả              | `screen-result`     | `finishGame()`                 |
@@ -357,7 +361,8 @@ flowchart TD
     M2 --> M3[memozy-browse]
     M3 --> M4[memozy-study]
     M2 -->|On Hom Nay| M4
-    B -->|selectSubject| C[screen-home]
+    B -->|chọn môn rồi đề| B2[renderBankCards]
+    B2 -->|selectSubject| C[screen-home]
     C -->|Học Theo Nhóm| D[modal-group]
     D -->|startGame campaign| E[screen-game]
     C -->|Thi Thử| E

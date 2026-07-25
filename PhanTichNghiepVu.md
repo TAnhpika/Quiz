@@ -13,7 +13,7 @@ Quiz là ứng dụng web ôn tập trắc nghiệm dành cho sinh viên, hỗ t
 
 | Nhóm tính năng              | Mô tả ngắn                                      |
 | --------------------------- | ------------------------------------------------- |
-| Chọn môn & ngân hàng câu hỏi | Triết học M-L, Software Testing PT1…      |
+| Chọn môn & ngân hàng câu hỏi | SWT → đề SP26 / FA25 / SU25               |
 | Học theo nhóm (Campaign)    | Chia bank thành chặng 20 câu, theo dõi % lần làm |
 | Thi thử (Exam)              | 50 câu ngẫu nhiên, chấm thang 10, có đếm thời gian |
 | Ôn lại (Review)             | Luyện câu đã bookmark; đúng → chuyển sang Đã Ôn   |
@@ -48,7 +48,7 @@ Hệ thống không có đăng nhập tài khoản truyền thống. Một ngư�
 
 | Tính năng                    | Được phép | Ghi chú                              |
 | ---------------------------- | --------- | ------------------------------------ |
-| Chọn môn học                 | ✅        | Mỗi môn có bank & tiến độ riêng      |
+| Chọn môn học                 | ✅        | Môn → đề; mỗi đề tiến độ riêng       |
 | Học theo nhóm                | ✅        | 20 câu/chặng                         |
 | Thi thử                       | ✅        | 50 câu, 30 phút, điểm /10            |
 | Ôn lại (bookmark)            | ✅        | Cần có câu đã đánh dấu               |
@@ -66,15 +66,16 @@ Hệ thống không có đăng nhập tài khoản truyền thống. Một ngư�
 
 | Use Case    | Luồng chính                                                                 | Dữ liệu              |
 | ----------- | --------------------------------------------------------------------------- | -------------------- |
-| Mở app      | `showSubjectSelection()` → hiển thị thẻ môn + số câu                        | `SUBJECTS`, `QUESTION_BANKS` |
-| Chọn môn    | `selectSubject(id)` → load state → vào Home                                 | `quiz_current_subject` |
-| Đổi môn     | Nút **Đổi môn** → lưu state môn hiện tại → quay màn chọn môn                | Per-subject localStorage |
+| Mở Quizzy   | `showSubjectSelection()` → thẻ môn (`COURSES`)                              | `COURSES`            |
+| Chọn môn    | `renderBankCards(courseId)` → thẻ đề theo kỳ                                | `SUBJECTS`           |
+| Chọn đề     | `selectSubject(id)` → load bank + state → Home                              | `quiz_current_subject` |
+| Đổi môn     | Nút **Đổi môn** → lưu state → về màn chọn môn                               | Per-subject localStorage |
 
-### Môn học hiện có
+### Môn & đề hiện có
 
-| subjectId | Tên môn                  | Số câu (ước tính) |
-| --------- | ------------------------ | ----------------- |
-| `swt_pt1` | Software Testing PT1     | 166               |
+| courseId | Môn | Đề (subjectId)                         |
+| -------- | --- | -------------------------------------- |
+| `swt`    | SWT | `swt_sp26`, `swt_fa25`, `swt_su25` (60 câu/đề) |
 
 ---
 
@@ -213,7 +214,7 @@ Auth: **Anonymous** — không cần email/mật khẩu.
 ## 4.1 Luồng học chặng lần đầu
 
 ```
-Chọn môn → Home → Học Theo Nhóm → Chọn Chặng 1
+Chọn môn → chọn đề → Home → Học Theo Nhóm → Chọn Chặng 1
   → Trả lời 20 câu → Hoàn thành
   → Lưu groupLastResult (vd: 85% 17/20)
   → Modal chặng cập nhật % ngay

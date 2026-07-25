@@ -29,7 +29,6 @@ Quizzy/
 ├── index.html              # Hub + Quizzy UI/logic + Memozy screens (HTML)
 ├── memozy-app.js           # Memozy navigation, study, SRS, TTS
 ├── banks/                  # Ngân hàng Quizzy — load on demand
-│   ├── thml.js
 │   └── swt_pt1.js
 ├── banks/memozy/           # Ngân hàng từ vựng IELTS
 │   ├── catalog.js          # Cây Skill → Group → Leaf
@@ -125,7 +124,6 @@ SRS grades: Again 1d / Hard 3d / Good 7d / Easy 14d (cùng thuật toán Anki-li
 
 | File        | Môn                     | Số câu |
 | ----------- | ----------------------- | ------ |
-| `thml.js`   | Triết học Mác - Lênin   | 361    |
 | `swt_pt1.js`| Software Testing PT1    | 166    |
 
 Thêm môn mới: khai báo trong `SUBJECTS` + tạo `banks/{id}.js` + `questionCount` trong SUBJECTS.

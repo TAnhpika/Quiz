@@ -74,7 +74,6 @@ Hệ thống không có đăng nhập tài khoản truyền thống. Một ngư�
 
 | subjectId | Tên môn                  | Số câu (ước tính) |
 | --------- | ------------------------ | ----------------- |
-| `thml`    | Triết học Mác - Lênin    | 361               |
 | `swt_pt1` | Software Testing PT1     | 166               |
 
 ---

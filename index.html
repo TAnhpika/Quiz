@@ -666,9 +666,11 @@
                     width: 100%;
                     padding: 0.9rem !important;
                 }
-                #screen-result .flex.flex-col.md\:flex-row button {
-                    width: 100%;
-                    padding: 0.8rem 1rem !important;
+                #result-actions button {
+                    flex: 1 1 0;
+                    min-width: 0;
+                    padding: 0.75rem 0.5rem !important;
+                    font-size: 0.7rem !important;
                 }
 
                 #screen-handbook {
@@ -1669,14 +1671,27 @@
                             <div id="result-time" class="text-xl sm:text-2xl font-black text-pink-500 mt-2 sm:mt-4">12:34</div>
                         </div>
                     </div>
-                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center relative z-10">
-                        <button id="btn-result-home" onclick="showHome()" class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-slate-100 text-slate-700 rounded-xl font-bold hover:bg-slate-200 transition-colors">Về trang chủ</button>
+                    <div id="result-actions" class="flex flex-row gap-2 sm:gap-3 items-stretch justify-center relative z-10">
+                        <button
+                            id="btn-result-home"
+                            onclick="showHome()"
+                            class="flex-1 min-w-0 px-2 sm:px-6 py-3 sm:py-4 bg-slate-100 text-slate-700 rounded-xl font-bold text-xs sm:text-sm hover:bg-slate-200 transition-colors"
+                        >
+                            Về trang chủ
+                        </button>
                         <button
                             id="btn-retry"
                             onclick="retryGame()"
-                            class="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-xl font-bold hover:shadow-lg transition-all sm:hover:-translate-y-1"
+                            class="flex-1 min-w-0 px-2 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-orange-400 to-pink-500 text-white rounded-xl font-bold text-xs sm:text-sm hover:shadow-lg transition-all sm:hover:-translate-y-1"
                         >
                             Làm lại
+                        </button>
+                        <button
+                            id="btn-next-level"
+                            onclick="startNextFlashcardLevel()"
+                            class="hidden flex-1 min-w-0 px-2 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white rounded-xl font-bold text-xs sm:text-sm hover:shadow-lg transition-all sm:hover:-translate-y-1"
+                        >
+                            Next level!
                         </button>
                     </div>
                 </div>
@@ -2865,11 +2880,17 @@
                 showResultScreen();
                 document.getElementById("result-title").innerText = `Chặng ${lastGroupIndex + 1}: Done!`;
                 const times = getFlashcardCompletionCount(lastGroupIndex);
-                document.getElementById("result-score-label").innerText = "Vượt lười";
+                document.getElementById("result-score-label").innerText = "Đã chiến";
                 document.getElementById("result-score").innerText = `${times} lần`;
-                document.getElementById("btn-retry").innerText = "Chiến tiếp!";
+                document.getElementById("btn-retry").innerText = "Tái đấu ⚔️";
                 document.getElementById("btn-result-home").innerText = "Quay xe";
                 document.getElementById("result-time-wrap").classList.add("hidden");
+                if (questionBank.length) totalGroups = Math.ceil(questionBank.length / GROUP_SIZE);
+                const nextLevelBtn = document.getElementById("btn-next-level");
+                const hasNextLevel = lastGroupIndex + 1 < totalGroups;
+                if (nextLevelBtn) {
+                    nextLevelBtn.classList.toggle("hidden", !(times >= 2 && hasNextLevel));
+                }
                 const resultGuide = document.getElementById("btn-result-guide");
                 if (times === 1) {
                     resultGuide.classList.remove("hidden");
@@ -2883,6 +2904,13 @@
                 }
             }
 
+            function startNextFlashcardLevel() {
+                if (questionBank.length) totalGroups = Math.ceil(questionBank.length / GROUP_SIZE);
+                const next = lastGroupIndex + 1;
+                if (next >= totalGroups) return;
+                startGame("flashcard", next);
+            }
+
             function resetResultScreen() {
                 document.getElementById("result-title").innerText = "Chúc Mừng!";
                 document.getElementById("result-score-label").innerText = "Điểm số";
@@ -2891,6 +2919,7 @@
                 document.getElementById("btn-retry").classList.remove("hidden");
                 document.getElementById("btn-retry").innerText = "Làm lại";
                 document.getElementById("btn-result-home").innerText = "Về trang chủ";
+                document.getElementById("btn-next-level").classList.add("hidden");
                 const resultGuide = document.getElementById("btn-result-guide");
                 resultGuide.classList.add("hidden");
                 resultGuide.classList.remove("flex");

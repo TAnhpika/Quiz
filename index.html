@@ -2099,6 +2099,14 @@
             }
 
             // --- HỆ THỐNG TOAST MESSAGES TỰ ĐỘNG ---
+            function escapeHtml(text) {
+                return String(text ?? "")
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;");
+            }
+
             function showToast(message, type = "success") {
                 const toast = document.createElement("div");
                 const bgColor = type === "success" ? "bg-gradient-to-r from-green-500 to-emerald-500" : "bg-gradient-to-r from-red-500 to-rose-500";
@@ -2866,7 +2874,7 @@
                             "option-btn w-full text-left rounded-2xl border-2 border-slate-100 bg-white hover:border-blue-200 text-slate-700 font-semibold shadow-sm flex items-center gap-2";
                         el.onclick = isMultiSelect(q) ? () => toggleMultiAnswer(idx, el) : () => selectFlashcardAnswer(idx, el);
                     }
-                    el.innerHTML = `<span class='option-letter bg-blue-50 text-blue-500 rounded-full flex items-center justify-center shrink-0 font-black'>${String.fromCharCode(65 + idx)}</span><span class='line-clamp-4 md:line-clamp-3 min-w-0'>${opt}</span>`;
+                    el.innerHTML = `<span class='option-letter bg-blue-50 text-blue-500 rounded-full flex items-center justify-center shrink-0 font-black'>${String.fromCharCode(65 + idx)}</span><span class='line-clamp-4 md:line-clamp-3 min-w-0'>${escapeHtml(opt)}</span>`;
                     optsContainer.appendChild(el);
                 });
             }
@@ -3605,7 +3613,7 @@
                     const btn = document.createElement("button");
                     btn.className =
                         "option-btn w-full text-left rounded-2xl border-2 border-slate-100 bg-white hover:border-blue-200 text-slate-700 font-semibold shadow-sm flex items-center gap-2";
-                    btn.innerHTML = `<span class='option-letter bg-blue-50 text-blue-500 rounded-full flex items-center justify-center shrink-0 font-black'>${String.fromCharCode(65 + idx)}</span><span class='line-clamp-4 md:line-clamp-3 min-w-0'>${opt}</span>`;
+                    btn.innerHTML = `<span class='option-letter bg-blue-50 text-blue-500 rounded-full flex items-center justify-center shrink-0 font-black'>${String.fromCharCode(65 + idx)}</span><span class='line-clamp-4 md:line-clamp-3 min-w-0'>${escapeHtml(opt)}</span>`;
                     btn.onclick = isMultiSelect(q) ? () => toggleMultiAnswer(idx, btn) : () => selectAnswer(idx, btn);
                     btn.dataset.idx = idx;
                     optsContainer.appendChild(btn);
@@ -3924,7 +3932,7 @@
                         : isMarked
                           ? `<span class='text-xs font-black bg-orange-100 text-orange-700 px-2 py-1 rounded-lg'>📌 Chưa thuộc</span>`
                           : "";
-                    list.innerHTML += `<div class='bg-white rounded-2xl p-4 sm:p-6 shadow-sm border-2 ${isReviewed ? "border-green-100" : "border-slate-100"}'><div class='flex items-center justify-between gap-2 mb-2 sm:mb-3 min-h-[1.75rem]'>${statusBadge || "<span></span>"}<button onclick='toggleMarkHandbook(${q.id}, this)' class='shrink-0 text-xl sm:text-2xl ${isMarked ? "text-orange-500" : "text-slate-200"}'><i class='fa-solid fa-bookmark'></i></button></div><h4 class='font-black mb-3 sm:mb-4 text-sm sm:text-base'>Câu ${q.id}: ${q.text}</h4><div class='text-slate-600 border-l-4 border-pink-200 pl-3 sm:pl-4 text-sm sm:text-base'>${q.options.map((o, i) => `<div class='${correctSet.has(i) ? "text-green-700 font-bold" : ""}'>${String.fromCharCode(65 + i)}. ${o}</div>`).join("")}</div>${isKeywordsEnabled() && getQuestionKeywords(q) ? `<div class='bg-yellow-50 p-3 sm:p-4 rounded-xl text-yellow-800 text-xs sm:text-sm italic mt-3 sm:mt-4'>Keywords: ${getQuestionKeywords(q)}</div>` : ""}</div>`;
+                    list.innerHTML += `<div class='bg-white rounded-2xl p-4 sm:p-6 shadow-sm border-2 ${isReviewed ? "border-green-100" : "border-slate-100"}'><div class='flex items-center justify-between gap-2 mb-2 sm:mb-3 min-h-[1.75rem]'>${statusBadge || "<span></span>"}<button onclick='toggleMarkHandbook(${q.id}, this)' class='shrink-0 text-xl sm:text-2xl ${isMarked ? "text-orange-500" : "text-slate-200"}'><i class='fa-solid fa-bookmark'></i></button></div><h4 class='font-black mb-3 sm:mb-4 text-sm sm:text-base'>Câu ${q.id}: ${escapeHtml(q.text)}</h4><div class='text-slate-600 border-l-4 border-pink-200 pl-3 sm:pl-4 text-sm sm:text-base'>${q.options.map((o, i) => `<div class='${correctSet.has(i) ? "text-green-700 font-bold" : ""}'>${String.fromCharCode(65 + i)}. ${escapeHtml(o)}</div>`).join("")}</div>${isKeywordsEnabled() && getQuestionKeywords(q) ? `<div class='bg-yellow-50 p-3 sm:p-4 rounded-xl text-yellow-800 text-xs sm:text-sm italic mt-3 sm:mt-4'>Keywords: ${escapeHtml(getQuestionKeywords(q))}</div>` : ""}</div>`;
                 });
             }
             function toggleMarkHandbook(id, btn) {

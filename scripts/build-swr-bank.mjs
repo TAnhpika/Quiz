@@ -1,6 +1,8 @@
 /**
- * Convert banks/swr.md → banks/swr.js (Quizzy bank).
- * Usage: node scripts/build-swr-bank.mjs
+ * Convert banks/{id}.md → banks/{id}.js (Quizzy bank).
+ * Usage:
+ *   node scripts/build-swr-bank.mjs           # builds swr + swr_extra
+ *   node scripts/build-swr-bank.mjs swr_extra  # one bank
  */
 import fs from "fs";
 import path from "path";
@@ -8,9 +10,8 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
-const MD_PATH = path.join(ROOT, "banks", "swr.md");
-const OUT_PATH = path.join(ROOT, "banks", "swr.js");
-const BANK_ID = "swr";
+const BANK_IDS = ["swr", "swr_extra"];
+const BANK_LABELS = { swr: "SWR", swr_extra: "SWR Extra" };
 
 const OPTION_RE = /^([A-Fa-f])[\.\)]\s*(.*)$/;
 const ANSWER_RE = /^[A-Fa-f]{1,5}$/;
@@ -108,29 +109,43 @@ function parseMd(text) {
     return { questions, errors };
 }
 
-function writeBank(questions) {
+function writeBank(bankId, questions) {
+    const outPath = path.join(ROOT, "banks", `${bankId}.js`);
+    const label = BANK_LABELS[bankId] || bankId.toUpperCase();
     const json = JSON.stringify(questions, null, 4).replace(/^/gm, "    ").trim();
-    const body = `/** Ngân hàng câu hỏi: SWR (${questions.length} câu) — load on demand */
+    const body = `/** Ngân hàng câu hỏi: ${label} (${questions.length} câu) — load on demand */
 (function (global) {
     const bank = ${json};
     global.QUIZ_BANKS = global.QUIZ_BANKS || {};
-    global.QUIZ_BANKS["${BANK_ID}"] = bank;
+    global.QUIZ_BANKS["${bankId}"] = bank;
 })(typeof window !== "undefined" ? window : globalThis);
 `;
-    fs.writeFileSync(OUT_PATH, body, "utf8");
+    fs.writeFileSync(outPath, body, "utf8");
 }
 
-function main() {
-    const raw = fs.readFileSync(MD_PATH, "utf8");
+function buildOne(bankId) {
+    const mdPath = path.join(ROOT, "banks", `${bankId}.md`);
+    if (!fs.existsSync(mdPath)) {
+        console.error(`${bankId}: missing ${mdPath}`);
+        return false;
+    }
+    const raw = fs.readFileSync(mdPath, "utf8");
     const { questions, errors } = parseMd(raw);
-    writeBank(questions);
-    console.log(`swr: ${questions.length} OK → banks/swr.js`);
+    writeBank(bankId, questions);
+    console.log(`${bankId}: ${questions.length} OK → banks/${bankId}.js`);
     if (errors.length) {
         console.warn(`  ${errors.length} parse skip(s):`);
         for (const e of errors.slice(0, 15)) {
             console.warn(`    #${e.qNum} line ${e.line}: opts=${e.optCount} ans=${e.answerKey} "${e.textQ}"`);
         }
     }
+    return true;
+}
+
+function main() {
+    const arg = process.argv[2];
+    const ids = arg ? [arg] : BANK_IDS;
+    for (const id of ids) buildOne(id);
 }
 
 main();

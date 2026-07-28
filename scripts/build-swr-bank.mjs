@@ -25,6 +25,44 @@ function cue(text, maxWords = 8) {
     return words.slice(0, maxWords).join(" ");
 }
 
+function stripQBoilerplate(textQ) {
+    return String(textQ || "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .replace(/\s*[\(\[]?\s*(Choose|Select)\s+\d+\s+correct\s+answers?\.?\s*[\)\]]?/gi, "")
+        .replace(/\s*[\(\[]?\s*Select\s+(two|all that apply)\.?\s*[\)\]]?/gi, "")
+        .replace(/\s*Choose\s+\d+\s+answers?\.?/gi, "")
+        .replace(
+            /^(Which\s+of\s+the\s+following|Which\s+one\s+of\s+the\s+following|Which\s+of\s+these|Which\s+one|What\s+do|What\s+does|What\s+are|What\s+is|How\s+does|How\s+do|How\s+can|Why\s+is|Why\s+are|Why\s+do|When|Where|Who)\s+/i,
+            ""
+        )
+        .replace(/^of\s+the\s+following\s+/i, "")
+        .replace(/\(\s*\)/g, "")
+        .replace(/\[\s*\]/g, "")
+        .replace(/\s{2,}/g, " ")
+        .replace(/\s+([?.!])/g, "$1")
+        .trim();
+}
+
+function answerSnippet(optionText) {
+    const raw = String(optionText || "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .replace(/\.$/, "");
+    if (!raw) return "";
+    const words = raw.split(" ").filter(Boolean);
+    if (raw.length <= 45 || words.length <= 7) return raw;
+    const comma = raw.indexOf(",");
+    if (comma > 10 && comma <= 50) return raw.slice(0, comma).trim();
+    return cue(raw, 5);
+}
+
+function makeKeywords(textQ, selectedOptionTexts) {
+    const qPart = cue(stripQBoilerplate(textQ), 8) || cue(textQ, 8);
+    const aPart = selectedOptionTexts.map(answerSnippet).filter(Boolean).join(" · ");
+    return `Q: ${qPart} | A: ${aPart}`;
+}
+
 function parseMd(text) {
     const lines = text.replace(/\r\n/g, "\n").split("\n");
     const questions = [];
@@ -99,7 +137,10 @@ function parseMd(text) {
             options: finalOptions,
             answer: answerIndices[0],
             explanation: correct,
-            keywords: `Q: ${cue(textQ)} | A: ${cue(correct, 6)}`,
+            keywords: makeKeywords(
+                textQ,
+                selected.map((o) => o.text)
+            ),
         };
         if (answerIndices.length > 1) qObj.answers = answerIndices;
 

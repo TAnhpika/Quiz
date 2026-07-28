@@ -40,7 +40,7 @@
             ],
             "answer": 0,
             "explanation": "They gather requirements from other members of the user classes they represent, and reconcile inconsistencies. · They serve as the primary interface between members of a single user class and the project's business analyst.",
-            "keywords": "Q: What do product champions do? Choose 2 correct | A: They gather requirements from other members",
+            "keywords": "Q: product champions do? | A: They gather requirements from other · They serve as the primary",
             "answers": [
                 0,
                 1
@@ -57,7 +57,7 @@
             ],
             "answer": 0,
             "explanation": "Defining business requirements and helping project sponsors express the project's vision clearly. · Ensuring that all team members fully understand the requirements being communicated.",
-            "keywords": "Q: Which of the following tasks are typically performed | A: Defining business requirements and helping project",
+            "keywords": "Q: tasks are typically performed by a business analyst? | A: Defining business requirements and helping · Ensuring that all team members",
             "answers": [
                 0,
                 2
@@ -74,7 +74,7 @@
             ],
             "answer": 1,
             "explanation": "All participants in the requirements approval process must understand what signing off implies. · Reaching agreement on requirements ensures that both customers and developers have a shared understanding of project objectives.",
-            "keywords": "Q: Which of the following statements about reaching agreement | A: All participants in the requirements approval",
+            "keywords": "Q: statements about reaching agreement on requirements is accurate? | A: All participants in the requirements · Reaching agreement on requirements ensures",
             "answers": [
                 1,
                 3
@@ -91,7 +91,7 @@
             ],
             "answer": 1,
             "explanation": "It ensures diverse perspectives from management, customers, business analysis, development, and marketing",
-            "keywords": "Q: What is the benefit of having a small | A: It ensures diverse perspectives from management,"
+            "keywords": "Q: the benefit of having a small group representing | A: It ensures diverse perspectives from management"
         },
         {
             "id": 7,
@@ -104,7 +104,7 @@
             ],
             "answer": 1,
             "explanation": "Use a consistent format for documenting requirements to enhance clarity and understanding among all stakeholders. · The software requirements specification (SRS) should be used to formally record the agreed-upon requirements and ensure all stakeholders have a shared understanding.",
-            "keywords": "Q: Which of the following practices should be followed | A: Use a consistent format for documenting",
+            "keywords": "Q: practices should be followed when documenting software requirements? | A: Use a consistent format for · The software requirements specification (SRS)",
             "answers": [
                 1,
                 3
@@ -121,7 +121,7 @@
             ],
             "answer": 1,
             "explanation": "The business analyst primarily focuses on eliciting, analyzing, documenting, and validating the needs of the project stakeholders. · The business analyst plays a central role in collecting and disseminating product information, while the project manager focuses on communicating project information.",
-            "keywords": "Q: Which of the following statements accurately describes the | A: The business analyst primarily focuses on",
+            "keywords": "Q: statements accurately describes the role of a business | A: The business analyst primarily focuses · The business analyst plays a",
             "answers": [
                 1,
                 3
@@ -138,7 +138,7 @@
             ],
             "answer": 0,
             "explanation": "Defining the product vision and project scope early in the project to ensure all stakeholders have a shared understanding. · Identifying user classes and their characteristics to ensure that all user needs are considered.",
-            "keywords": "Q: Which of the following are considered good practices | A: Defining the product vision and project",
+            "keywords": "Q: are considered good practices in requirements elicitation? | A: Defining the product vision and · Identifying user classes and their",
             "answers": [
                 0,
                 2
@@ -155,7 +155,7 @@
             ],
             "answer": 1,
             "explanation": "Reduced rework · Lower development costs",
-            "keywords": "Q: Which of the following are advantages of reusing | A: Reduced rework · Lower development costs",
+            "keywords": "Q: are advantages of reusing requirements? | A: Reduced rework · Lower development costs",
             "answers": [
                 1,
                 2
@@ -172,7 +172,7 @@
             ],
             "answer": 1,
             "explanation": "Project requirements include staff training and infrastructure changes needed in the operating environment. · Product requirements focus on the characteristics and functionalities of the software system being built.",
-            "keywords": "Q: Which of the following statements correctly distinguishes between | A: Project requirements include staff training and",
+            "keywords": "Q: statements correctly distinguishes between product requirements and project | A: Project requirements include staff training · Product requirements focus on the",
             "answers": [
                 1,
                 3
@@ -189,7 +189,7 @@
             ],
             "answer": 1,
             "explanation": "Elicitation, analysis, specification, and validation are iterative activities that may require revisiting earlier stages to ensure accuracy and completeness. · The framework allows for flexibility, with steps often revisited throughout the project to refine and correct requirements as needed.",
-            "keywords": "Q: Which of the following statements about the requirements | A: Elicitation, analysis, specification, and validation are",
+            "keywords": "Q: statements about the requirements development process' framework is | A: Elicitation · The framework allows for flexibility",
             "answers": [
                 1,
                 3
@@ -206,7 +206,7 @@
             ],
             "answer": 0,
             "explanation": "A context diagram visually illustrates the boundary between the system being developed and external entities that interact with it. · The primary purpose of a context diagram is to depict the interactions between the system and external entities without detailing the internal workings of the system.",
-            "keywords": "Q: Which of the following statements accurately describe the | A: A context diagram visually illustrates the",
+            "keywords": "Q: statements accurately describe the use of context diagrams | A: A context diagram visually illustrates · The primary purpose of a",
             "answers": [
                 0,
                 2
@@ -223,7 +223,7 @@
             ],
             "answer": 1,
             "explanation": "Personas are hypothetical, generic users representing a group with similar characteristics, used to understand requirements and design user experiences. · Creating a persona helps bring user classes to life and aids in visualizing how different types of users will interact with the system.",
-            "keywords": "Q: Which of the following statements accurately describes the | A: Personas are hypothetical, generic users representing",
+            "keywords": "Q: statements accurately describes the purpose and use of | A: Personas are hypothetical · Creating a persona helps bring",
             "answers": [
                 1,
                 2
@@ -240,7 +240,7 @@
             ],
             "answer": 0,
             "explanation": "Preconditions define the prerequisites that must be met before the system can begin executing a use case. · Postconditions describe the state of the system after the use case has executed successfully.",
-            "keywords": "Q: Which of the following statements accurately describe preconditions | A: Preconditions define the prerequisites that must",
+            "keywords": "Q: statements accurately describe preconditions and postconditions in the | A: Preconditions define the prerequisites that · Postconditions describe the state of",
             "answers": [
                 0,
                 2
@@ -257,7 +257,7 @@
             ],
             "answer": 0,
             "explanation": "A business rule is a statement that defines or constrains some aspect of the business to control or influence its behavior. · Classifying business rules helps in understanding how they might be applied in a software application, such as using constraints to enforce certain conditions.",
-            "keywords": "Q: Which of the following statements accurately describes a | A: A business rule is a statement",
+            "keywords": "Q: statements accurately describes a business rule? | A: A business rule is a · Classifying business rules helps in",
             "answers": [
                 0,
                 2
@@ -274,7 +274,7 @@
             ],
             "answer": 0,
             "explanation": "A use case describes a sequence of interactions between a system and an external actor that results in an outcome of value to the actor. · Actors in a use case can include both human users and other systems that interact with the system being developed.",
-            "keywords": "Q: Which of the following statements accurately describe the | A: A use case describes a sequence",
+            "keywords": "Q: statements accurately describe the use case approach? | A: A use case describes a · Actors in a use case",
             "answers": [
                 0,
                 2
@@ -291,7 +291,7 @@
             ],
             "answer": 0,
             "explanation": "Each requirement should be complete, meaning it contains all the information necessary for the reader to understand it and for developers to implement it correctly. · Requirements should be prioritized based on their importance to achieving the desired business value, and should be assigned an implementation priority.",
-            "keywords": "Q: Which of the following characteristics should a well-written | A: Each requirement should be complete, meaning",
+            "keywords": "Q: characteristics should a well-written requirement statement exhibit? | A: Each requirement should be complete · Requirements should be prioritized based",
             "answers": [
                 0,
                 2
@@ -308,7 +308,7 @@
             ],
             "answer": 1,
             "explanation": "Functional Requirements.",
-            "keywords": "Q: Which type of requirement best describes the behavior | A: Functional Requirements."
+            "keywords": "Q: Which type of requirement best describes the behavior | A: Functional Requirements"
         },
         {
             "id": 20,
@@ -321,7 +321,7 @@
             ],
             "answer": 0,
             "explanation": "List the product's major features or user capabilities, focusing on those that distinguish it from competitors. · Clearly define the features that will be included in the initial release and those that will be excluded.",
-            "keywords": "Q: When defining the scope and limitations of a | A: List the product's major features or",
+            "keywords": "Q: defining the scope and limitations of a product, | A: List the product's major features · Clearly define the features that",
             "answers": [
                 0,
                 2
@@ -338,7 +338,7 @@
             ],
             "answer": 1,
             "explanation": "More detail should be included when the work is being done for an external client or when system testing will be based on the requirements. · Less detail can be included if the work is being done internally for your company and developers have considerable domain experience.",
-            "keywords": "Q: When specifying the level of detail in software | A: More detail should be included when",
+            "keywords": "Q: specifying the level of detail in software requirements, | A: More detail should be included · Less detail can be included",
             "answers": [
                 1,
                 2
@@ -355,7 +355,7 @@
             ],
             "answer": 0,
             "explanation": "Business process flows can be represented with high-level data flow diagrams or Swimlane diagrams that show roles and responsibilities in the process. · Complex logic can be effectively represented using decision trees or decision tables, which show possible outcomes or unique functional requirements.",
-            "keywords": "Q: When choosing the appropriate representation techniques for analysis | A: Business process flows can be represented",
+            "keywords": "Q: choosing the appropriate representation techniques for analysis models, | A: Business process flows can be · Complex logic can be effectively",
             "answers": [
                 0,
                 2
@@ -372,7 +372,7 @@
             ],
             "answer": 1,
             "explanation": "By identifying keywords such as nouns, verbs, and conditional statements that can be mapped to corresponding analysis model components. · By mapping verbs mentioned by customers to processes, activities, and use cases in the analysis models.",
-            "keywords": "Q: How can a business analyst effectively translate the | A: By identifying keywords such as nouns,",
+            "keywords": "Q: a business analyst effectively translate the voice of | A: By identifying keywords such as nouns · By mapping verbs mentioned by",
             "answers": [
                 1,
                 3
@@ -389,7 +389,7 @@
             ],
             "answer": 1,
             "explanation": "It ensures both parties understand each other's needs and capabilities. · It helps in resolving potential issues early.",
-            "keywords": "Q: Why is clear communication crucial in acquirer-supplier interactions | A: It ensures both parties understand each",
+            "keywords": "Q: clear communication crucial in acquirer-supplier interactions in outsourced | A: It ensures both parties understand · It helps in resolving potential issues early",
             "answers": [
                 1,
                 2
@@ -406,7 +406,7 @@
             ],
             "answer": 2,
             "explanation": "To map requirements to other system elements like design and code · To identify missing or unnecessary requirements",
-            "keywords": "Q: In the context of requirements tracing, what is | A: To map requirements to other system",
+            "keywords": "Q: In the context of requirements tracing, what is | A: To map requirements to other · To identify missing or unnecessary requirements",
             "answers": [
                 2,
                 3
@@ -423,7 +423,7 @@
             ],
             "answer": 0,
             "explanation": "Anyone who reads the requirement comes to the same interpretation as any other reader. · Each reader's interpretation matches what the author intended to communicate.",
-            "keywords": "Q: Two important goals of writing requirements are that: | A: Anyone who reads the requirement comes",
+            "keywords": "Q: Two important goals of writing requirements are that: | A: Anyone who reads the requirement · Each reader's interpretation matches what",
             "answers": [
                 0,
                 1
@@ -440,7 +440,7 @@
             ],
             "answer": 0,
             "explanation": "It is a partial implementation of a proposed new product. · It is a possible implementation of a proposed new product. · It is a preliminary implementation of a proposed new product.",
-            "keywords": "Q: What is true about a software prototype? Choose | A: It is a partial implementation of",
+            "keywords": "Q: true about a software prototype? | A: It is a partial implementation · It is a possible implementation · It is a preliminary implementation",
             "answers": [
                 0,
                 1,
@@ -458,7 +458,7 @@
             ],
             "answer": 0,
             "explanation": "Define business requirements · Identify project stakeholders and user classes · Document requirements",
-            "keywords": "Q: What are the tasks of a business analyst? | A: Define business requirements · Identify project",
+            "keywords": "Q: the tasks of a business analyst? | A: Define business requirements · Identify project stakeholders and user classes · Document requirements",
             "answers": [
                 0,
                 1,
@@ -476,7 +476,7 @@
             ],
             "answer": 0,
             "explanation": "Scope creep · Misaligned Expectations · Cost Overruns and Delays",
-            "keywords": "Q: What potential issues can be prevented by validating | A: Scope creep · Misaligned Expectations ·",
+            "keywords": "Q: What potential issues can be prevented by validating | A: Scope creep · Misaligned Expectations · Cost Overruns and Delays",
             "answers": [
                 0,
                 2,
@@ -494,7 +494,7 @@
             ],
             "answer": 0,
             "explanation": "Define a lightweight, flexible requirements process and adapt it as the project warrants · Help validate that customer needs are accurately represented in the product backlog · Facilitate backlog prioritization",
-            "keywords": "Q: What should a business analyst do in an | A: Define a lightweight, flexible requirements process",
+            "keywords": "Q: What should a business analyst do in an | A: Define a lightweight · Help validate that customer needs · Facilitate backlog prioritization",
             "answers": [
                 0,
                 2,
@@ -512,7 +512,7 @@
             ],
             "answer": 0,
             "explanation": "Modeling the application environment to understand the system's boundaries and interactions with external entities. · Creating prototypes to explore and validate uncertain requirements with stakeholders. · Analyzing data flows to ensure that all interactions between the system and external entities are understood and documented.",
-            "keywords": "Q: Which of the following are considered good practices | A: Modeling the application environment to understand",
+            "keywords": "Q: are considered good practices in requirements analysis? Select | A: Modeling the application environment to · Creating prototypes to explore and · Analyzing data flows to ensure",
             "answers": [
                 0,
                 2,
@@ -530,7 +530,7 @@
             ],
             "answer": 0,
             "explanation": "\"Common knowledge\" from the organization, often collected from individuals who have worked with the business for a long time and know the details of how it operates. · Legacy systems that embed business rules in their requirements and code. · Analysis of existing documentation, including requirements specifications from earlier projects, regulations, industry standards, corporate policy documents, contracts, and business plans.",
-            "keywords": "Q: Which of the following are common places and | A: \"Common knowledge\" from the organization, often",
+            "keywords": "Q: are common places and ways to look for | A: \"Common knowledge\" from the organization · Legacy systems that embed business · Analysis of existing documentation",
             "answers": [
                 0,
                 1,
@@ -548,7 +548,7 @@
             ],
             "answer": 0,
             "explanation": "It is a screen display or printed report. · It uses multiple textual and/or graphical representations of data. · It aims to provide a consolidated, multidimensional view of what is going on in an organization or a process.",
-            "keywords": "Q: Which of the following are true about a | A: It is a screen display or",
+            "keywords": "Q: are true about a dashboard? | A: It is a screen display or printed report · It uses multiple textual and/or · It aims to provide a consolidated",
             "answers": [
                 0,
                 1,
@@ -566,7 +566,7 @@
             ],
             "answer": 0,
             "explanation": "The platform they will be using, such as desktop PCs, laptops, tablets, or smartphones. · The frequency with which they use the product and the tasks they perform during business operations. · Their access privileges or security levels, such as ordinary user, guest user, or administrator.",
-            "keywords": "Q: Which of the following factors should be considered | A: The platform they will be using,",
+            "keywords": "Q: factors should be considered when classifying users? Select | A: The platform they will be using · The frequency with which they · Their access privileges or security levels",
             "answers": [
                 0,
                 2,
@@ -584,7 +584,7 @@
             ],
             "answer": 0,
             "explanation": "Literacy skills for effectively interpreting written material and communicating requirements. · Facilitation skills to manage group discussions and ensure effective participation from all stakeholders. · Analytical skills to break down complex problems and identify feasible solutions.",
-            "keywords": "Q: Which of the following skills are essential for | A: Literacy skills for effectively interpreting written",
+            "keywords": "Q: skills are essential for a business analyst? Select | A: Literacy skills for effectively interpreting · Facilitation skills to manage group · Analytical skills to break down",
             "answers": [
                 0,
                 2,
@@ -602,7 +602,7 @@
             ],
             "answer": 0,
             "explanation": "The specific target customer for whom the product is intended. · The key benefit or compelling reason for the customer to buy or use the product. · A comparison with the primary competitive alternative or current system.",
-            "keywords": "Q: Which of the following elements should be included | A: The specific target customer for whom",
+            "keywords": "Q: elements should be included when crafting a vision | A: The specific target customer for · The key benefit or compelling · A comparison with the primary",
             "answers": [
                 0,
                 2,
@@ -620,7 +620,7 @@
             ],
             "answer": 0,
             "explanation": "Users repeat issues they already covered in previous discussions. · Suggested new features, user requirements, or functional requirements are all deemed to be out of scope. · Proposed new requirements are all low priority.",
-            "keywords": "Q: Which of the following are the signals indicating | A: Users repeat issues they already covered",
+            "keywords": "Q: are the signals indicating that you have completed | A: Users repeat issues they already · Suggested new features · Proposed new requirements are all low priority",
             "answers": [
                 0,
                 1,
@@ -638,7 +638,7 @@
             ],
             "answer": 0,
             "explanation": "It allows us to refer to specific requirements in a change request, modification history, cross-reference, or requirements traceability matrix. · It enables reusing the requirements in multiple projects. · It facilitates collaboration between team members when they're discussing requirements.",
-            "keywords": "Q: Why do we have to label the requirements | A: It allows us to refer to",
+            "keywords": "Q: we have to label the requirements in a | A: It allows us to refer · It enables reusing the requirements · It facilitates collaboration between team",
             "answers": [
                 0,
                 1,
@@ -656,7 +656,7 @@
             ],
             "answer": 1,
             "explanation": "Create a data dictionary that defines the composition, meaning, data type, and allowed values for all data elements the system will handle. · Document any reports that the application will generate, focusing on their logical descriptions and deferring detailed layouts to the design stage. · Describe how data will be acquired, maintained, and protected, including policies for data retention, disposal, and ensuring data integrity.",
-            "keywords": "Q: When documenting data requirements for a system, which | A: Create a data dictionary that defines",
+            "keywords": "Q: documenting data requirements for a system, which of | A: Create a data dictionary that · Document any reports that the · Describe how data will be acquired",
             "answers": [
                 1,
                 2,
@@ -674,7 +674,7 @@
             ],
             "answer": 0,
             "explanation": "expect business analysts to learn about their business and their objectives · describe characteristics that will make the product easy to use · receive a system that meets their functional needs and quality expectations",
-            "keywords": "Q: Customers have the right to: (choose 3 correct | A: expect business analysts to learn about",
+            "keywords": "Q: Customers have the right to: | A: expect business analysts to learn · describe characteristics that will make · receive a system that meets",
             "answers": [
                 0,
                 1,
@@ -710,7 +710,7 @@
             ],
             "answer": 0,
             "explanation": "Project planning · Design and coding · Testing activities",
-            "keywords": "Q: In software development, what do requirements drive? Choose | A: Project planning · Design and coding",
+            "keywords": "Q: In software development, what do requirements drive? | A: Project planning · Design and coding · Testing activities",
             "answers": [
                 0,
                 1,
@@ -728,7 +728,7 @@
             ],
             "answer": 0,
             "explanation": "faster delivery · lower development costs · reduced rework",
-            "keywords": "Q: The benefits of effective requirements reuse include: (choose | A: faster delivery · lower development costs",
+            "keywords": "Q: The benefits of effective requirements reuse include: | A: faster delivery · lower development costs · reduced rework",
             "answers": [
                 0,
                 1,
@@ -746,7 +746,7 @@
             ],
             "answer": 0,
             "explanation": "Feasible · Correct · Verifiable",
-            "keywords": "Q: Requirement statements must be: (Choose 3 correct answers) | A: Feasible · Correct · Verifiable",
+            "keywords": "Q: Requirement statements must be: | A: Feasible · Correct · Verifiable",
             "answers": [
                 0,
                 1,
@@ -764,7 +764,7 @@
             ],
             "answer": 0,
             "explanation": "horizontal, vertical",
-            "keywords": "Q: While a mock-up is called a ... prototype, | A: horizontal, vertical"
+            "keywords": "Q: While a mock-up is called a... prototype, a | A: horizontal, vertical"
         },
         {
             "id": 46,
@@ -790,7 +790,7 @@
             ],
             "answer": 0,
             "explanation": "subset",
-            "keywords": "Q: Customers are a(n) ... of stakeholders. | A: subset"
+            "keywords": "Q: Customers are a(n)... of stakeholders. | A: subset"
         },
         {
             "id": 48,
@@ -829,7 +829,7 @@
             ],
             "answer": 1,
             "explanation": "Data model",
-            "keywords": "Q: Fill in the blank. ... is a visual | A: Data model"
+            "keywords": "Q: Fill in the blank.... is a visual representation | A: Data model"
         },
         {
             "id": 51,
@@ -881,7 +881,7 @@
             ],
             "answer": 1,
             "explanation": "Use case diagrams show the graphical user interface that needs to be implemented.",
-            "keywords": "Q: What is not the purpose of a Use | A: Use case diagrams show the graphical"
+            "keywords": "Q: not the purpose of a Use Case Diagram? | A: Use case diagrams show the"
         },
         {
             "id": 55,
@@ -895,7 +895,7 @@
             ],
             "answer": 3,
             "explanation": "Hardware Manufacturers",
-            "keywords": "Q: Which of the following is NOT an intended | A: Hardware Manufacturers"
+            "keywords": "Q: is NOT an intended audience for a Software | A: Hardware Manufacturers"
         },
         {
             "id": 56,
@@ -908,7 +908,7 @@
             ],
             "answer": 1,
             "explanation": "Reuse frequency, which measures how often a particular requirement has been reused in different projects.",
-            "keywords": "Q: Which of the following is NOT considered a | A: Reuse frequency, which measures how often"
+            "keywords": "Q: is NOT considered a dimension of requirements reuse | A: Reuse frequency"
         },
         {
             "id": 57,
@@ -921,7 +921,7 @@
             ],
             "answer": 3,
             "explanation": "Operational Rules",
-            "keywords": "Q: Which of the following is NOT a type | A: Operational Rules"
+            "keywords": "Q: is NOT a type of business rule according | A: Operational Rules"
         },
         {
             "id": 58,
@@ -934,7 +934,7 @@
             ],
             "answer": 1,
             "explanation": "On-premises deployment",
-            "keywords": "Q: Which of the following is NOT a characteristic | A: On-premises deployment"
+            "keywords": "Q: is NOT a characteristic of Software as a | A: On-premises deployment"
         },
         {
             "id": 59,
@@ -948,7 +948,7 @@
             ],
             "answer": 3,
             "explanation": "$1000",
-            "keywords": "Q: Which of the following is NOT a requirements | A: $1000"
+            "keywords": "Q: is NOT a requirements prioritization technique? | A: $1000"
         },
         {
             "id": 60,
@@ -963,7 +963,7 @@
             ],
             "answer": 5,
             "explanation": "System feature",
-            "keywords": "Q: Which of the following does NOT suggest an | A: System feature"
+            "keywords": "Q: does NOT suggest an overall description of the | A: System feature"
         },
         {
             "id": 61,
@@ -978,7 +978,7 @@
             ],
             "answer": 2,
             "explanation": "Promptly communicate changes to the requirements.",
-            "keywords": "Q: Which of the following is NOT included in | A: Promptly communicate changes to the requirements."
+            "keywords": "Q: is NOT included in the list of Software | A: Promptly communicate changes to the requirements"
         },
         {
             "id": 62,
@@ -991,7 +991,7 @@
             ],
             "answer": 0,
             "explanation": "Developers have little interaction with customers after construction begins on projects.",
-            "keywords": "Q: Which of the following is NOT about Agile | A: Developers have little interaction with customers"
+            "keywords": "Q: is NOT about Agile project? | A: Developers have little interaction with"
         },
         {
             "id": 63,
@@ -1003,7 +1003,7 @@
             ],
             "answer": 0,
             "explanation": "It takes advantage of development skills they have available in-house.",
-            "keywords": "Q: Which of the following is NOT about outsourced | A: It takes advantage of development skills"
+            "keywords": "Q: is NOT about outsourced projects? | A: It takes advantage of development"
         },
         {
             "id": 64,
@@ -1016,7 +1016,7 @@
             ],
             "answer": 0,
             "explanation": "You build systems by using your own staff.",
-            "keywords": "Q: Which of the following is NOT about packaged | A: You build systems by using your"
+            "keywords": "Q: is NOT about packaged solution? | A: You build systems by using your own staff"
         },
         {
             "id": 65,
@@ -1029,7 +1029,7 @@
             ],
             "answer": 1,
             "explanation": "To test architectural feasibility.",
-            "keywords": "Q: Which of the following is NOT a purpose | A: To test architectural feasibility."
+            "keywords": "Q: is NOT a purpose of creating a mock-up? | A: To test architectural feasibility"
         },
         {
             "id": 66,
@@ -1043,7 +1043,7 @@
             ],
             "answer": 3,
             "explanation": "Assure requirements",
-            "keywords": "Q: Which one of these is NOT a Business | A: Assure requirements"
+            "keywords": "Q: of these is NOT a Business analyst's task? | A: Assure requirements"
         },
         {
             "id": 67,
@@ -1057,7 +1057,7 @@
             ],
             "answer": 4,
             "explanation": "Based on risk.",
-            "keywords": "Q: Which of the following is NOT about prioritization | A: Based on risk."
+            "keywords": "Q: is NOT about prioritization techniques? | A: Based on risk"
         },
         {
             "id": 68,
@@ -1070,7 +1070,7 @@
             ],
             "answer": 3,
             "explanation": "Agile methods vary as to their philosophy on this point; there is no single \"correct\" approach.",
-            "keywords": "Q: Which of the following is NOT about Change | A: Agile methods vary as to their"
+            "keywords": "Q: is NOT about Change management on Agile projects? | A: Agile methods vary as to"
         },
         {
             "id": 69,
@@ -1096,7 +1096,7 @@
             ],
             "answer": 2,
             "explanation": "A superset of stakeholders",
-            "keywords": "Q: Which of the following is NOT characteristic of | A: A superset of stakeholders"
+            "keywords": "Q: is NOT characteristic of the user? | A: A superset of stakeholders"
         },
         {
             "id": 71,
@@ -1109,7 +1109,7 @@
             ],
             "answer": 3,
             "explanation": "Use Cases describe the interactions between the system and external entities.",
-            "keywords": "Q: Which of the following statements is TRUE about | A: Use Cases describe the interactions between"
+            "keywords": "Q: statements is TRUE about Use Cases? | A: Use Cases describe the interactions"
         },
         {
             "id": 72,
@@ -1122,7 +1122,7 @@
             ],
             "answer": 2,
             "explanation": "Deterioration of system performance.",
-            "keywords": "Q: What is a potential consequence of adding more | A: Deterioration of system performance."
+            "keywords": "Q: a potential consequence of adding more functionality through | A: Deterioration of system performance"
         },
         {
             "id": 73,
@@ -1135,7 +1135,7 @@
             ],
             "answer": 0,
             "explanation": "Making them too vague or unmeasurable",
-            "keywords": "Q: What is a common pitfall in writing non-functional | A: Making them too vague or unmeasurable"
+            "keywords": "Q: a common pitfall in writing non-functional requirements? | A: Making them too vague or unmeasurable"
         },
         {
             "id": 74,
@@ -1148,7 +1148,7 @@
             ],
             "answer": 2,
             "explanation": "Scope creep",
-            "keywords": "Q: What is the definition of a condition in | A: Scope creep"
+            "keywords": "Q: the definition of a condition in which the | A: Scope creep"
         },
         {
             "id": 75,
@@ -1161,7 +1161,7 @@
             ],
             "answer": 3,
             "explanation": "Baselined requirements",
-            "keywords": "Q: What is the central element that drives all | A: Baselined requirements"
+            "keywords": "Q: the central element that drives all activities in | A: Baselined requirements"
         },
         {
             "id": 76,
@@ -1174,7 +1174,7 @@
             ],
             "answer": 1,
             "explanation": "Written requirements.",
-            "keywords": "Q: What should you not expect a prototype to | A: Written requirements."
+            "keywords": "Q: What should you not expect a prototype to | A: Written requirements"
         },
         {
             "id": 77,
@@ -1188,7 +1188,7 @@
             ],
             "answer": 1,
             "explanation": "Order products.",
-            "keywords": "Q: Which one of the following is a functional | A: Order products."
+            "keywords": "Q: is a functional requirement? | A: Order products"
         },
         {
             "id": 78,
@@ -1201,7 +1201,7 @@
             ],
             "answer": 2,
             "explanation": "Evolutionary prototype",
-            "keywords": "Q: Which one is a kind of prototyping that | A: Evolutionary prototype"
+            "keywords": "Q: is a kind of prototyping that firstly creates | A: Evolutionary prototype"
         },
         {
             "id": 79,
@@ -1215,7 +1215,7 @@
             ],
             "answer": 2,
             "explanation": "Consistent",
-            "keywords": "Q: Which of the following characteristics of excellent requirements | A: Consistent"
+            "keywords": "Q: characteristics of excellent requirements is depicted by the | A: Consistent"
         },
         {
             "id": 80,
@@ -1229,7 +1229,7 @@
             ],
             "answer": 3,
             "explanation": "Design features",
-            "keywords": "Q: Which of the following is not included in | A: Design features"
+            "keywords": "Q: is not included in software requirements specification (SRS) | A: Design features"
         },
         {
             "id": 81,
@@ -1242,7 +1242,7 @@
             ],
             "answer": 3,
             "explanation": "Training courses",
-            "keywords": "Q: Which of the following is not an elicitation | A: Training courses"
+            "keywords": "Q: is not an elicitation technique? | A: Training courses"
         },
         {
             "id": 82,
@@ -1256,7 +1256,7 @@
             ],
             "answer": 2,
             "explanation": "Association",
-            "keywords": "Q: Which of the following is not a component | A: Association"
+            "keywords": "Q: is not a component of an Entity Relationship | A: Association"
         },
         {
             "id": 83,
@@ -1269,7 +1269,7 @@
             ],
             "answer": 0,
             "explanation": "Maximizing user convenience",
-            "keywords": "Q: Which of the following is a likely stakeholder | A: Maximizing user convenience"
+            "keywords": "Q: is a likely stakeholder interest for a retail | A: Maximizing user convenience"
         },
         {
             "id": 84,
@@ -1283,7 +1283,7 @@
             ],
             "answer": 1,
             "explanation": "design",
-            "keywords": "Q: Which one of the following is not a | A: design"
+            "keywords": "Q: is not a step of requirement development? | A: design"
         },
         {
             "id": 85,
@@ -1335,7 +1335,7 @@
             ],
             "answer": 3,
             "explanation": "design",
-            "keywords": "Q: Which one of the following is not step | A: design"
+            "keywords": "Q: is not step of requirement engineering? | A: design"
         },
         {
             "id": 89,
@@ -1374,7 +1374,7 @@
             ],
             "answer": 2,
             "explanation": "Efficiency",
-            "keywords": "Q: When considering software quality attributes, which of the | A: Efficiency"
+            "keywords": "Q: considering software quality attributes, which of the following | A: Efficiency"
         },
         {
             "id": 92,
@@ -1544,7 +1544,7 @@
             ],
             "answer": 1,
             "explanation": "The persona must be representative of their user class",
-            "keywords": "Q: When creating a persona for each user class, | A: The persona must be representative of"
+            "keywords": "Q: creating a persona for each user class, the | A: The persona must be representative"
         },
         {
             "id": 105,
@@ -1557,7 +1557,7 @@
             ],
             "answer": 0,
             "explanation": "To ensure requirements align with business objectives and user needs",
-            "keywords": "Q: Why is stakeholder feedback critical during requirements validation? | A: To ensure requirements align with business"
+            "keywords": "Q: stakeholder feedback critical during requirements validation? | A: To ensure requirements align with"
         },
         {
             "id": 106,
@@ -1570,7 +1570,7 @@
             ],
             "answer": 3,
             "explanation": "Prevent scope creep and ensure project focus",
-            "keywords": "Q: Why is it important to clearly define the | A: Prevent scope creep and ensure project"
+            "keywords": "Q: it important to clearly define the scope of | A: Prevent scope creep and ensure project focus"
         },
         {
             "id": 107,
@@ -1583,7 +1583,7 @@
             ],
             "answer": 2,
             "explanation": "Requirements input is often diverse and unstructured.",
-            "keywords": "Q: Why is it challenging to amalgamate requirements input | A: Requirements input is often diverse and"
+            "keywords": "Q: it challenging to amalgamate requirements input from numerous | A: Requirements input is often diverse and unstructured"
         },
         {
             "id": 108,
@@ -1596,7 +1596,7 @@
             ],
             "answer": 2,
             "explanation": "Elicitation is interwoven with analysis, specification, and validation.",
-            "keywords": "Q: How does the process of elicitation relate to | A: Elicitation is interwoven with analysis, specification,"
+            "keywords": "Q: the process of elicitation relate to the other | A: Elicitation is interwoven with analysis"
         },
         {
             "id": 109,
@@ -1609,7 +1609,7 @@
             ],
             "answer": 0,
             "explanation": "By classifying features into basic, performance, and delight categories",
-            "keywords": "Q: How does the Kano model help analyze user | A: By classifying features into basic, performance,"
+            "keywords": "Q: the Kano model help analyze user requirements? | A: By classifying features into basic"
         },
         {
             "id": 110,
@@ -1622,7 +1622,7 @@
             ],
             "answer": 0,
             "explanation": "By reducing time and effort during the elicitation process",
-            "keywords": "Q: How does requirements reuse improve project efficiency? | A: By reducing time and effort during"
+            "keywords": "Q: requirements reuse improve project efficiency? | A: By reducing time and effort"
         },
         {
             "id": 111,
@@ -1635,7 +1635,7 @@
             ],
             "answer": 1,
             "explanation": "By reducing rework, unnecessary features, and miscommunications.",
-            "keywords": "Q: How can better requirements practices reduce the cost | A: By reducing rework, unnecessary features, and"
+            "keywords": "Q: better requirements practices reduce the cost of development? | A: By reducing rework, unnecessary features, and miscommunications"
         },
         {
             "id": 112,
@@ -1648,7 +1648,7 @@
             ],
             "answer": 0,
             "explanation": "Creating a checklist of required documents and systems.",
-            "keywords": "Q: Develop a method to ensure that all necessary | A: Creating a checklist of required documents"
+            "keywords": "Q: Develop a method to ensure that all necessary | A: Creating a checklist of required"
         },
         {
             "id": 113,
@@ -1674,7 +1674,7 @@
             ],
             "answer": 2,
             "explanation": "To adapt to evolving project needs while maintaining control",
-            "keywords": "Q: In a requirements development process, why is it | A: To adapt to evolving project needs"
+            "keywords": "Q: In a requirements development process, why is it | A: To adapt to evolving project"
         },
         {
             "id": 115,
@@ -1688,7 +1688,7 @@
             ],
             "answer": 1,
             "explanation": "Scope Creep arises from customer-driven changes, while Gold Plating results from the project team adding unnecessary features.",
-            "keywords": "Q: What is the primary distinction between Scope Creep | A: Scope Creep arises from customer-driven changes,"
+            "keywords": "Q: the primary distinction between Scope Creep and Gold | A: Scope Creep arises from customer-driven changes"
         },
         {
             "id": 116,
@@ -1702,7 +1702,7 @@
             ],
             "answer": 3,
             "explanation": "A user is an actual person (or system) using the product, while an actor is an abstraction that represents the role the user plays in a given use case.",
-            "keywords": "Q: What is the distinction between users and actors? | A: A user is an actual person"
+            "keywords": "Q: the distinction between users and actors? | A: A user is an actual"
         },
         {
             "id": 117,
@@ -1715,7 +1715,7 @@
             ],
             "answer": 1,
             "explanation": "Product vision describes the ultimate product, while project scope identifies the portion of that vision to be addressed by the current project.",
-            "keywords": "Q: What is the relationship between \"product vision\" and | A: Product vision describes the ultimate product,"
+            "keywords": "Q: the relationship between \"product vision\" and \"project scope\"? | A: Product vision describes the ultimate product"
         },
         {
             "id": 118,
@@ -1728,7 +1728,7 @@
             ],
             "answer": 0,
             "explanation": "You might reuse just a single functional requirement.",
-            "keywords": "Q: What is Extent of reuse? | A: You might reuse just a single"
+            "keywords": "Q: Extent of reuse? | A: You might reuse just a"
         },
         {
             "id": 119,
@@ -1741,7 +1741,7 @@
             ],
             "answer": 1,
             "explanation": "It is a language with a rich set of keywords that permits precise statements of quality attributes and other project goals.",
-            "keywords": "Q: What is Planguage? | A: It is a language with a"
+            "keywords": "Q: Planguage? | A: It is a language with"
         },
         {
             "id": 120,
@@ -1754,7 +1754,7 @@
             ],
             "answer": 0,
             "explanation": "To ensure all requirements are linked to their design, testing, and implementation phases",
-            "keywords": "Q: What is the value of creating a traceability | A: To ensure all requirements are linked"
+            "keywords": "Q: the value of creating a traceability matrix in | A: To ensure all requirements are"
         },
         {
             "id": 121,
@@ -1767,7 +1767,7 @@
             ],
             "answer": 1,
             "explanation": "It ensures diverse perspectives from management, customers, business analysis, development, and marketing",
-            "keywords": "Q: What is the benefit of having a small | A: It ensures diverse perspectives from management,"
+            "keywords": "Q: the benefit of having a small group representing | A: It ensures diverse perspectives from management"
         },
         {
             "id": 122,
@@ -1780,7 +1780,7 @@
             ],
             "answer": 1,
             "explanation": "To represent the possible states of an object and the transitions between these states based on various events or conditions",
-            "keywords": "Q: What is the primary purpose of a state-transition | A: To represent the possible states of"
+            "keywords": "Q: the primary purpose of a state-transition diagram (STD)? | A: To represent the possible states"
         },
         {
             "id": 123,
@@ -1793,7 +1793,7 @@
             ],
             "answer": 1,
             "explanation": "A condition that must be satisfied or a state the system must be in before a use case can begin",
-            "keywords": "Q: What is the definition of Pre-Condition in Use | A: A condition that must be satisfied"
+            "keywords": "Q: the definition of Pre-Condition in Use case? | A: A condition that must be"
         },
         {
             "id": 124,
@@ -1806,7 +1806,7 @@
             ],
             "answer": 1,
             "explanation": "To align business, technical, and user needs and avoid misunderstandings",
-            "keywords": "Q: What is the main benefit of fostering a | A: To align business, technical, and user"
+            "keywords": "Q: the main benefit of fostering a collaborative relationship | A: To align business"
         },
         {
             "id": 125,
@@ -1819,7 +1819,7 @@
             ],
             "answer": 0,
             "explanation": "It provides a visual tool to clarify ambiguous requirements and gather stakeholder feedback",
-            "keywords": "Q: What is the value of prototyping during requirements | A: It provides a visual tool to"
+            "keywords": "Q: the value of prototyping during requirements elicitation? | A: It provides a visual tool"
         },
         {
             "id": 126,
@@ -1832,7 +1832,7 @@
             ],
             "answer": 0,
             "explanation": "To provide concise, actionable descriptions of features from the user's perspective",
-            "keywords": "Q: What is the role of user stories in | A: To provide concise, actionable descriptions of"
+            "keywords": "Q: the role of user stories in Agile requirements | A: To provide concise"
         },
         {
             "id": 127,
@@ -1845,7 +1845,7 @@
             ],
             "answer": 1,
             "explanation": "To validate requirements by finding errors and omissions, and assessing their accuracy and quality",
-            "keywords": "Q: What is the primary purpose of using a | A: To validate requirements by finding errors"
+            "keywords": "Q: the primary purpose of using a prototype in | A: To validate requirements by finding"
         },
         {
             "id": 128,
@@ -1857,7 +1857,7 @@
             ],
             "answer": 2,
             "explanation": "A set of requirements that stakeholders have agreed to, often defining the contents of a specific planned release or development iteration",
-            "keywords": "Q: What is a requirements baseline? | A: A set of requirements that stakeholders"
+            "keywords": "Q: a requirements baseline? | A: A set of requirements that"
         },
         {
             "id": 129,
@@ -1870,7 +1870,7 @@
             ],
             "answer": 3,
             "explanation": "To improve the quality of your products, reduce maintenance costs, and facilitate reuse",
-            "keywords": "Q: What is the primary motivation for tracing requirements? | A: To improve the quality of your"
+            "keywords": "Q: the primary motivation for tracing requirements? | A: To improve the quality of your products"
         },
         {
             "id": 130,
@@ -1883,7 +1883,7 @@
             ],
             "answer": 1,
             "explanation": "An evolutionary prototype is designed to be gradually refined into the final product, while a throwaway prototype is created to answer specific questions and then discarded.",
-            "keywords": "Q: What is a key difference between a throwaway | A: An evolutionary prototype is designed to"
+            "keywords": "Q: a key difference between a throwaway prototype and | A: An evolutionary prototype is designed"
         },
         {
             "id": 131,
@@ -1896,7 +1896,7 @@
             ],
             "answer": 1,
             "explanation": "Validation ensures the product satisfies customer needs, while verification ensures the product meets its specifications.",
-            "keywords": "Q: What is the primary distinction between requirements validation | A: Validation ensures the product satisfies customer"
+            "keywords": "Q: the primary distinction between requirements validation and verification? | A: Validation ensures the product satisfies"
         },
         {
             "id": 132,
@@ -1909,7 +1909,7 @@
             ],
             "answer": 1,
             "explanation": "To visually depict the steps involved in a business process or the operations of a proposed software system, subdivided into lanes that represent different systems or actors.",
-            "keywords": "Q: What is the primary purpose of a Swimlane | A: To visually depict the steps involved"
+            "keywords": "Q: the primary purpose of a Swimlane diagram? | A: To visually depict the steps"
         },
         {
             "id": 133,
@@ -1922,7 +1922,7 @@
             ],
             "answer": 2,
             "explanation": "Version control, change control, requirements status tracking, and requirements tracing",
-            "keywords": "Q: What are the major activities involved in requirements | A: Version control, change control, requirements status"
+            "keywords": "Q: the major activities involved in requirements management? | A: Version control"
         },
         {
             "id": 134,
@@ -1935,7 +1935,7 @@
             ],
             "answer": 1,
             "explanation": "Conduct a formal peer review meeting where participants compare their understanding of each requirement and discuss any ambiguities.",
-            "keywords": "Q: What steps would you include in a peer | A: Conduct a formal peer review meeting"
+            "keywords": "Q: What steps would you include in a peer | A: Conduct a formal peer review"
         },
         {
             "id": 135,
@@ -1948,7 +1948,7 @@
             ],
             "answer": 3,
             "explanation": "To save money, or to accelerate development and access specialized expertise.",
-            "keywords": "Q: What are the reasons for companies to contract | A: To save money, or to accelerate"
+            "keywords": "Q: the reasons for companies to contract with software | A: To save money"
         },
         {
             "id": 136,
@@ -1961,7 +1961,7 @@
             ],
             "answer": 3,
             "explanation": "The user story contains simplified and short descriptions. A use case contains complete and lengthy descriptions",
-            "keywords": "Q: What's the difference between Use Cases and User | A: The user story contains simplified and"
+            "keywords": "Q: What's the difference between Use Cases and User | A: The user story contains simplified"
         },
         {
             "id": 137,
@@ -1974,7 +1974,7 @@
             ],
             "answer": 3,
             "explanation": "Quality attributes describe the system's functional behaviors in terms of user interactions.",
-            "keywords": "Q: Which of the following statements INCORRECTLY describes types | A: Quality attributes describe the system's functional"
+            "keywords": "Q: statements INCORRECTLY describes types of software requirements? | A: Quality attributes describe the system's"
         },
         {
             "id": 138,
@@ -1987,7 +1987,7 @@
             ],
             "answer": 2,
             "explanation": "Requirements are a specification of what should be implemented. They are descriptions of how the system should behave, or a system property or attribute. They may be a constraint on the development process of the system.",
-            "keywords": "Q: Which of the following is the most precise | A: Requirements are a specification of what"
+            "keywords": "Q: is the most precise definition of \"requirement(s)\"? | A: Requirements are a specification of"
         },
         {
             "id": 139,
@@ -2000,7 +2000,7 @@
             ],
             "answer": 1,
             "explanation": "To collect business requirements into a single deliverable for subsequent development work.",
-            "keywords": "Q: Which of the following best describes the primary | A: To collect business requirements into a"
+            "keywords": "Q: best describes the primary purpose of a vision | A: To collect business requirements into"
         },
         {
             "id": 140,
@@ -2142,7 +2142,7 @@
             ],
             "answer": 3,
             "explanation": "To establish an initial set of agreed-upon requirements",
-            "keywords": "Q: What is the main purpose of a requirements | A: To establish an initial set of"
+            "keywords": "Q: the main purpose of a requirements baseline? | A: To establish an initial set"
         },
         {
             "id": 151,
@@ -2155,7 +2155,7 @@
             ],
             "answer": 3,
             "explanation": "Name each process using a concise verb-object action",
-            "keywords": "Q: What is one guideline for naming processes in | A: Name each process using a concise"
+            "keywords": "Q: one guideline for naming processes in a DFD? | A: Name each process using a"
         },
         {
             "id": 152,
@@ -2168,7 +2168,7 @@
             ],
             "answer": 0,
             "explanation": "To represent complex Boolean logic and decisions in a tabular format",
-            "keywords": "Q: What is the function of decision tables in | A: To represent complex Boolean logic and"
+            "keywords": "Q: the function of decision tables in requirements modeling? | A: To represent complex Boolean logic"
         },
         {
             "id": 153,
@@ -2181,7 +2181,7 @@
             ],
             "answer": 1,
             "explanation": "It makes the subject and action of the sentence clear, ensuring clarity.",
-            "keywords": "Q: What is the main advantage of using the | A: It makes the subject and action"
+            "keywords": "Q: the main advantage of using the active voice | A: It makes the subject and"
         },
         {
             "id": 154,
@@ -2194,7 +2194,7 @@
             ],
             "answer": 2,
             "explanation": "To clarify user interface designs early",
-            "keywords": "Q: What is a key benefit of using mock-ups | A: To clarify user interface designs early"
+            "keywords": "Q: a key benefit of using mock-ups in prototyping? | A: To clarify user interface designs early"
         },
         {
             "id": 155,
@@ -2207,7 +2207,7 @@
             ],
             "answer": 0,
             "explanation": "Reducing time and effort during the elicitation process",
-            "keywords": "Q: What is the primary advantage of requirements reuse | A: Reducing time and effort during the"
+            "keywords": "Q: the primary advantage of requirements reuse in software | A: Reducing time and effort during"
         },
         {
             "id": 156,
@@ -2220,7 +2220,7 @@
             ],
             "answer": 1,
             "explanation": "What reports are currently used?",
-            "keywords": "Q: What is one of the first questions to | A: What reports are currently used?"
+            "keywords": "Q: one of the first questions to ask when | A: What reports are currently used?"
         },
         {
             "id": 157,
@@ -2233,7 +2233,7 @@
             ],
             "answer": 0,
             "explanation": "As a <type of user>, I want <some goal> so that <some reason>.",
-            "keywords": "Q: What is the most popular form of user | A: As a <type of user>, I"
+            "keywords": "Q: the most popular form of user stories? | A: As a <type of user>"
         },
         {
             "id": 158,
@@ -2246,7 +2246,7 @@
             ],
             "answer": 0,
             "explanation": "They are often subjective and difficult to measure accurately",
-            "keywords": "Q: What is the primary challenge of validating non-functional | A: They are often subjective and difficult"
+            "keywords": "Q: the primary challenge of validating non-functional requirements? | A: They are often subjective and"
         },
         {
             "id": 159,
@@ -2259,7 +2259,7 @@
             ],
             "answer": 0,
             "explanation": "To define the boundaries and objectives of the project",
-            "keywords": "Q: What is the main purpose of a Vision | A: To define the boundaries and objectives"
+            "keywords": "Q: the main purpose of a Vision and Scope | A: To define the boundaries and"
         },
         {
             "id": 160,
@@ -2272,7 +2272,7 @@
             ],
             "answer": 0,
             "explanation": "Through an apprenticeship program with mentoring",
-            "keywords": "Q: What is a potential way for someone to | A: Through an apprenticeship program with mentoring"
+            "keywords": "Q: a potential way for someone to transition into | A: Through an apprenticeship program with mentoring"
         },
         {
             "id": 161,
@@ -2285,7 +2285,7 @@
             ],
             "answer": 0,
             "explanation": "To ensure that all requirements are measurable and testable",
-            "keywords": "Q: What is the advantage of using acceptance tests | A: To ensure that all requirements are"
+            "keywords": "Q: the advantage of using acceptance tests during validation? | A: To ensure that all requirements"
         },
         {
             "id": 162,
@@ -2298,7 +2298,7 @@
             ],
             "answer": 0,
             "explanation": "To save time, improve consistency, and reduce risks",
-            "keywords": "Q: What is the primary purpose of requirements reuse? | A: To save time, improve consistency, and"
+            "keywords": "Q: the primary purpose of requirements reuse? | A: To save time"
         },
         {
             "id": 163,
@@ -2311,7 +2311,7 @@
             ],
             "answer": 0,
             "explanation": "It is the process of examining a project to identify potential threats.",
-            "keywords": "Q: What is Risk assessment? | A: It is the process of examining"
+            "keywords": "Q: Risk assessment? | A: It is the process of"
         },
         {
             "id": 164,
@@ -2324,7 +2324,7 @@
             ],
             "answer": 0,
             "explanation": "To link requirements to design, development, and testing artifacts",
-            "keywords": "Q: What is the primary objective of creating a | A: To link requirements to design, development,"
+            "keywords": "Q: the primary objective of creating a requirements traceability | A: To link requirements to design"
         },
         {
             "id": 165,
@@ -2337,7 +2337,7 @@
             ],
             "answer": 0,
             "explanation": "Ensuring clarity, consistency, and avoiding ambiguities",
-            "keywords": "Q: What is the primary challenge of documenting requirements | A: Ensuring clarity, consistency, and avoiding ambiguities"
+            "keywords": "Q: the primary challenge of documenting requirements for complex | A: Ensuring clarity, consistency, and avoiding ambiguities"
         },
         {
             "id": 166,
@@ -2350,7 +2350,7 @@
             ],
             "answer": 2,
             "explanation": "Use a word processor or a simple catalog",
-            "keywords": "Q: What is the simplest way to initially manage | A: Use a word processor or a"
+            "keywords": "Q: the simplest way to initially manage business rules | A: Use a word processor or a simple catalog"
         },
         {
             "id": 167,
@@ -2363,7 +2363,7 @@
             ],
             "answer": 0,
             "explanation": "To prioritize high-value requirements for early implementation",
-            "keywords": "Q: What is the purpose of categorizing requirements into | A: To prioritize high-value requirements for early"
+            "keywords": "Q: the purpose of categorizing requirements into \"Must-have\" and | A: To prioritize high-value requirements for early implementation"
         },
         {
             "id": 168,
@@ -2376,7 +2376,7 @@
             ],
             "answer": 1,
             "explanation": "Regular adaptation to changing requirements and priorities",
-            "keywords": "Q: What is a key characteristic of Agile projects? | A: Regular adaptation to changing requirements and"
+            "keywords": "Q: a key characteristic of Agile projects? | A: Regular adaptation to changing requirements and priorities"
         },
         {
             "id": 169,
@@ -2389,7 +2389,7 @@
             ],
             "answer": 2,
             "explanation": "A more desirable performance objective than the minimum goal",
-            "keywords": "Q: What does the \"STRETCH\" keyword in Planguage represent? | A: A more desirable performance objective than"
+            "keywords": "Q: the \"STRETCH\" keyword in Planguage represent? | A: A more desirable performance objective"
         },
         {
             "id": 170,
@@ -2402,7 +2402,7 @@
             ],
             "answer": 1,
             "explanation": "Must, Should, Could, and Won't categories",
-            "keywords": "Q: What does the MOSCOW method classify in requirements | A: Must, Should, Could, and Won't categories"
+            "keywords": "Q: the MOSCOW method classify in requirements prioritization? | A: Must, Should, Could, and Won't categories"
         },
         {
             "id": 171,
@@ -2415,7 +2415,7 @@
             ],
             "answer": 0,
             "explanation": "The process of gathering requirements from stakeholders",
-            "keywords": "Q: What does the term \"elicitation\" primarily refer to | A: The process of gathering requirements from"
+            "keywords": "Q: the term \"elicitation\" primarily refer to in requirements | A: The process of gathering requirements from stakeholders"
         },
         {
             "id": 172,
@@ -2428,7 +2428,7 @@
             ],
             "answer": 1,
             "explanation": "A requirements effort estimation spreadsheet.",
-            "keywords": "Q: What tool did Seilevel develop to assist with | A: A requirements effort estimation spreadsheet."
+            "keywords": "Q: What tool did Seilevel develop to assist with | A: A requirements effort estimation spreadsheet"
         },
         {
             "id": 173,
@@ -2442,7 +2442,7 @@
             ],
             "answer": 0,
             "explanation": "Select an appropriate software development life cycle.",
-            "keywords": "Q: What activities is not included in a representative | A: Select an appropriate software development life"
+            "keywords": "Q: What activities is not included in a representative | A: Select an appropriate software development life cycle"
         },
         {
             "id": 174,
@@ -2455,7 +2455,7 @@
             ],
             "answer": 2,
             "explanation": "What happens when an error occurs?",
-            "keywords": "Q: Which of the following is a recommended question | A: What happens when an error occurs?"
+            "keywords": "Q: is a recommended question to ask when probing | A: What happens when an error occurs?"
         },
         {
             "id": 175,
@@ -2468,7 +2468,7 @@
             ],
             "answer": 2,
             "explanation": "Guaranteeing the project will stay on budget",
-            "keywords": "Q: Which of the following is not a benefit | A: Guaranteeing the project will stay on"
+            "keywords": "Q: is not a benefit of having a clear | A: Guaranteeing the project will stay on budget"
         },
         {
             "id": 176,
@@ -2481,7 +2481,7 @@
             ],
             "answer": 2,
             "explanation": "Not engaging in the risky activity at all",
-            "keywords": "Q: Which of the following is an example of | A: Not engaging in the risky activity"
+            "keywords": "Q: is an example of a risk avoidance strategy? | A: Not engaging in the risky activity at all"
         },
         {
             "id": 177,
@@ -2496,7 +2496,7 @@
             ],
             "answer": 5,
             "explanation": "All of the mentioned",
-            "keywords": "Q: Which of the following are essential analyst skills | A: All of the mentioned"
+            "keywords": "Q: are essential analyst skills required from the Business | A: All of the mentioned"
         },
         {
             "id": 178,
@@ -2522,7 +2522,7 @@
             ],
             "answer": 1,
             "explanation": "To represent a high-level user need or business requirement that can be broken down into smaller, more manageable user stories",
-            "keywords": "Q: Which statement best describes the purpose of an | A: To represent a high-level user need"
+            "keywords": "Q: Which statement best describes the purpose of an | A: To represent a high-level user"
         },
         {
             "id": 180,
@@ -2535,7 +2535,7 @@
             ],
             "answer": 0,
             "explanation": "To track changes and ensure alignment with project goals",
-            "keywords": "Q: Why is traceability essential for managing changing requirements? | A: To track changes and ensure alignment"
+            "keywords": "Q: traceability essential for managing changing requirements? | A: To track changes and ensure"
         },
         {
             "id": 181,
@@ -2548,7 +2548,7 @@
             ],
             "answer": 1,
             "explanation": "Performance requirements include the responsiveness of the system to user inquiries, such as the number of seconds to display a webpage.",
-            "keywords": "Q: Which of the following statements best describes a | A: Performance requirements include the responsiveness of"
+            "keywords": "Q: statements best describes a key aspect of performance | A: Performance requirements include the responsiveness"
         },
         {
             "id": 182,
@@ -2561,7 +2561,7 @@
             ],
             "answer": 2,
             "explanation": "you might prefer to call it a releasable prototype",
-            "keywords": "Q: Which of the following statements are incorrect about | A: you might prefer to call it"
+            "keywords": "Q: statements are incorrect about throwaway prototypes? | A: you might prefer to call"
         },
         {
             "id": 183,
@@ -2574,7 +2574,7 @@
             ],
             "answer": 3,
             "explanation": "It is a spreadsheet that maps requirements to other project artifacts such as design documents, test cases, and source code",
-            "keywords": "Q: Which of the following best describes the structure | A: It is a spreadsheet that maps"
+            "keywords": "Q: best describes the structure of the Requirements Traceability | A: It is a spreadsheet that"
         },
         {
             "id": 184,
@@ -2587,7 +2587,7 @@
             ],
             "answer": 2,
             "explanation": "Consistency, ensuring that requirements do not conflict with other requirements or higher-level business, user, or system requirements.",
-            "keywords": "Q: Which of the following characteristics should a collection | A: Consistency, ensuring that requirements do not"
+            "keywords": "Q: characteristics should a collection of requirements exhibit? | A: Consistency"
         },
         {
             "id": 185,
@@ -2600,7 +2600,7 @@
             ],
             "answer": 2,
             "explanation": "Version control, change control, requirements status tracking, and requirements tracing.",
-            "keywords": "Q: Which of the following activities fall under the | A: Version control, change control, requirements status"
+            "keywords": "Q: activities fall under the core activities of requirements | A: Version control"
         },
         {
             "id": 186,
@@ -2613,7 +2613,7 @@
             ],
             "answer": 0,
             "explanation": "Individual instances of an entity will have the same attribute values",
-            "keywords": "Q: Which of the following statements is incorrect about | A: Individual instances of an entity will"
+            "keywords": "Q: statements is incorrect about ERD? | A: Individual instances of an entity"
         },
         {
             "id": 187,
@@ -2626,7 +2626,7 @@
             ],
             "answer": 1,
             "explanation": "It dives into all the architectural layers or into detailed functionality",
-            "keywords": "Q: Which of the following statements is incorrect about | A: It dives into all the architectural"
+            "keywords": "Q: statements is incorrect about mockup? | A: It dives into all the"
         },
         {
             "id": 188,
@@ -2639,7 +2639,7 @@
             ],
             "answer": 3,
             "explanation": "Requirements written in natural language are ambiguities, missing information, and hidden assumptions",
-            "keywords": "Q: Which of the following factors can act as | A: Requirements written in natural language are"
+            "keywords": "Q: factors can act as a barrier to requirements | A: Requirements written in natural language"
         },
         {
             "id": 189,
@@ -2652,7 +2652,7 @@
             ],
             "answer": 0,
             "explanation": "A horizontal prototype focuses on the user interface, allowing exploration of specific behaviors without diving into detailed functionality or architectural layers.",
-            "keywords": "Q: Which of the following statements best describes a | A: A horizontal prototype focuses on the"
+            "keywords": "Q: statements best describes a \"horizontal prototype\" in the | A: A horizontal prototype focuses on"
         },
         {
             "id": 190,
@@ -2665,7 +2665,7 @@
             ],
             "answer": 1,
             "explanation": "Some COTS packages can be used out of the box with little to no modification",
-            "keywords": "Q: Which statement accurately describes the implementation of a | A: Some COTS packages can be used"
+            "keywords": "Q: Which statement accurately describes the implementation of a | A: Some COTS packages can be"
         },
         {
             "id": 191,
@@ -2678,7 +2678,7 @@
             ],
             "answer": 2,
             "explanation": "There are matters that should be, but are not, elicited through the elicitation process. They exist, but they are not realized.",
-            "keywords": "Q: How can you explain the statement \"Implicit requirements | A: There are matters that should be,"
+            "keywords": "Q: you explain the statement \"Implicit requirements can also | A: There are matters that should be"
         },
         {
             "id": 192,
@@ -2691,7 +2691,7 @@
             ],
             "answer": 0,
             "explanation": "By providing stakeholders with a visual representation to validate ambiguous requirements",
-            "keywords": "Q: How does prototyping mitigate risks in requirements engineering? | A: By providing stakeholders with a visual"
+            "keywords": "Q: prototyping mitigate risks in requirements engineering? | A: By providing stakeholders with a"
         },
         {
             "id": 193,
@@ -2704,7 +2704,7 @@
             ],
             "answer": 0,
             "explanation": "By categorizing requirements as Must-have, Should-have, Could-have, and Won't-have",
-            "keywords": "Q: How does the MOSCOW method assist in prioritizing | A: By categorizing requirements as Must-have, Should-have,"
+            "keywords": "Q: the MOSCOW method assist in prioritizing requirements? | A: By categorizing requirements as Must-have"
         },
         {
             "id": 194,
@@ -2717,7 +2717,7 @@
             ],
             "answer": 2,
             "explanation": "Through a process bubble, not directly between data stores or between external entities and data stores.",
-            "keywords": "Q: How should data flows be represented between processes, | A: Through a process bubble, not directly"
+            "keywords": "Q: How should data flows be represented between processes, | A: Through a process bubble"
         },
         {
             "id": 195,
@@ -2730,7 +2730,7 @@
             ],
             "answer": 2,
             "explanation": "By linking to them from a shared location such as a database or a requirements management tool.",
-            "keywords": "Q: How can reusable requirements be stored for easy | A: By linking to them from a"
+            "keywords": "Q: reusable requirements be stored for easy reference? | A: By linking to them from"
         },
         {
             "id": 196,
@@ -2743,7 +2743,7 @@
             ],
             "answer": 1,
             "explanation": "The average time required for an untrained user to successfully complete the installation process.",
-            "keywords": "Q: When defining installability requirements, which of the following | A: The average time required for an"
+            "keywords": "Q: defining installability requirements, which of the following factors | A: The average time required for"
         },
         {
             "id": 197,
@@ -2756,7 +2756,7 @@
             ],
             "answer": 1,
             "explanation": "To facilitate ongoing collaboration and ensure the team understands the requirements.",
-            "keywords": "Q: Why is it crucial for a business analyst | A: To facilitate ongoing collaboration and ensure"
+            "keywords": "Q: it crucial for a business analyst to communicate | A: To facilitate ongoing collaboration and"
         },
         {
             "id": 198,
@@ -2769,7 +2769,7 @@
             ],
             "answer": 2,
             "explanation": "It provides an optional alternative flow for requesting chemicals from a vendor.",
-            "keywords": "Q: Consider the use case diagram for the Chemical | A: It provides an optional alternative flow"
+            "keywords": "Q: Consider the use case diagram for the Chemical | A: It provides an optional alternative"
         },
         {
             "id": 199,
@@ -2782,7 +2782,7 @@
             ],
             "answer": 2,
             "explanation": "It deals with preventing information loss and preserving the correctness of data entered into the system.",
-            "keywords": "Q: External quality attributes describe characteristics that are observed | A: It deals with preventing information loss"
+            "keywords": "Q: External quality attributes describe characteristics that are observed | A: It deals with preventing information"
         },
         {
             "id": 200,
@@ -2795,7 +2795,7 @@
             ],
             "answer": 1,
             "explanation": "It helps identify rules affecting each process step, including constraints and triggering events.",
-            "keywords": "Q: Evaluate the effectiveness of using business process modeling | A: It helps identify rules affecting each"
+            "keywords": "Q: Evaluate the effectiveness of using business process modeling | A: It helps identify rules affecting"
         },
         {
             "id": 201,
@@ -2808,7 +2808,7 @@
             ],
             "answer": 1,
             "explanation": "By maintaining a dynamic product backlog where new tasks are prioritized based on business value, and lower-priority tasks can be deferred or removed.",
-            "keywords": "Q: In the context of change management on agile | A: By maintaining a dynamic product backlog"
+            "keywords": "Q: In the context of change management on agile | A: By maintaining a dynamic product"
         },
         {
             "id": 202,
@@ -2821,7 +2821,7 @@
             ],
             "answer": 3,
             "explanation": "The data dictionary should contain information about each data element, including its data type, length, and any associated constraints.",
-            "keywords": "Q: In the context of a data dictionary, which | A: The data dictionary should contain information"
+            "keywords": "Q: In the context of a data dictionary, which | A: The data dictionary should contain"
         },
         {
             "id": 203,
@@ -2834,7 +2834,7 @@
             ],
             "answer": 1,
             "explanation": "Collaborate with multiple business analysts and product champions to gather comprehensive requirements.",
-            "keywords": "Q: Propose a solution for a scenario where a | A: Collaborate with multiple business analysts and"
+            "keywords": "Q: Propose a solution for a scenario where a | A: Collaborate with multiple business analysts"
         }
     ];
     global.QUIZ_BANKS = global.QUIZ_BANKS || {};

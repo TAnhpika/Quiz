@@ -89,6 +89,12 @@
                 top: 0.3rem;
                 right: 0.15rem;
             }
+            #screen-game #multi-select-hint {
+                top: 0.45rem;
+                right: 2.75rem;
+                line-height: 1;
+                pointer-events: none;
+            }
             #screen-game #question-text {
                 display: -webkit-box;
                 -webkit-line-clamp: 5;
@@ -1544,6 +1550,7 @@
                             <h3 id="question-text" class="text-sm md:text-base lg:text-lg font-black text-slate-800 text-center leading-snug tracking-tight">
                                 Đang tải câu hỏi...
                             </h3>
+                            <p id="multi-select-hint" class="hidden absolute text-[10px] md:text-xs font-bold text-blue-500 tabular-nums"></p>
                         </div>
 
                         <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 px-3 md:px-4"></div>
@@ -1736,67 +1743,37 @@
         <script>
             // =============================================================================
             // CẤU HÌNH MÔN HỌC & NGÂN HÀNG CÂU HỎI
-            // COURSES = môn (SWT…); SUBJECTS = từng đề/bank — tiến độ lưu theo subjectId
+            // COURSES = môn; SUBJECTS = từng đề/bank — tiến độ lưu theo subjectId
             // =============================================================================
             const COURSES = {
-                swt: {
-                    id: "swt",
-                    name: "SWT",
-                    subtitle: "Software Testing · đề theo kỳ",
-                    icon: "fa-vial-circle-check",
-                    iconColor: "text-blue-500",
-                    cardBorder: "border-blue-200",
-                    cardHover: "hover:border-blue-300",
-                    cardIconBg: "bg-blue-50",
-                    cardIconColor: "text-blue-500",
-                    bankIds: ["swt_sp26", "swt_fa25", "swt_su25"],
+                swr: {
+                    id: "swr",
+                    name: "SWR",
+                    subtitle: "Software Requirements · SWR302",
+                    icon: "fa-diagram-project",
+                    iconColor: "text-violet-500",
+                    cardBorder: "border-violet-200",
+                    cardHover: "hover:border-violet-300",
+                    cardIconBg: "bg-violet-50",
+                    cardIconColor: "text-violet-500",
+                    bankIds: ["swr"],
                 },
             };
 
             const SUBJECTS = {
-                swt_sp26: {
-                    id: "swt_sp26",
-                    name: "SWT SP26",
-                    titleLines: ["ĐƯỜNG LÊN ĐỈNH", "SWT SP26"],
-                    icon: "fa-vial-circle-check",
-                    iconColor: "text-blue-500",
-                    borderColor: "border-blue-50",
-                    gradient: "from-blue-600 via-cyan-500 to-teal-500",
-                    cardBorder: "border-blue-200",
-                    cardHover: "hover:border-blue-300",
-                    cardIconBg: "bg-blue-50",
-                    cardIconColor: "text-blue-500",
-                    questionCount: 60,
-                    keywordsEnabled: true,
-                },
-                swt_fa25: {
-                    id: "swt_fa25",
-                    name: "SWT FA25",
-                    titleLines: ["ĐƯỜNG LÊN ĐỈNH", "SWT FA25"],
-                    icon: "fa-flask-vial",
-                    iconColor: "text-indigo-500",
-                    borderColor: "border-indigo-50",
-                    gradient: "from-indigo-600 via-violet-500 to-fuchsia-500",
-                    cardBorder: "border-indigo-200",
-                    cardHover: "hover:border-indigo-300",
-                    cardIconBg: "bg-indigo-50",
-                    cardIconColor: "text-indigo-500",
-                    questionCount: 60,
-                    keywordsEnabled: true,
-                },
-                swt_su25: {
-                    id: "swt_su25",
-                    name: "SWT SU25",
-                    titleLines: ["ĐƯỜNG LÊN ĐỈNH", "SWT SU25"],
-                    icon: "fa-clipboard-check",
-                    iconColor: "text-emerald-500",
-                    borderColor: "border-emerald-50",
-                    gradient: "from-emerald-600 via-teal-500 to-cyan-500",
-                    cardBorder: "border-emerald-200",
-                    cardHover: "hover:border-emerald-300",
-                    cardIconBg: "bg-emerald-50",
-                    cardIconColor: "text-emerald-500",
-                    questionCount: 60,
+                swr: {
+                    id: "swr",
+                    name: "SWR",
+                    titleLines: ["ĐƯỜNG LÊN ĐỈNH", "SWR302"],
+                    icon: "fa-diagram-project",
+                    iconColor: "text-violet-500",
+                    borderColor: "border-violet-50",
+                    gradient: "from-violet-600 via-purple-500 to-fuchsia-500",
+                    cardBorder: "border-violet-200",
+                    cardHover: "hover:border-violet-300",
+                    cardIconBg: "bg-violet-50",
+                    cardIconColor: "text-violet-500",
+                    questionCount: 203,
                     keywordsEnabled: true,
                 },
             };
@@ -1879,7 +1856,10 @@
                     const backBtn = document.getElementById("btn-subject-back-courses");
 
                     titleEl.textContent = "Chọn Môn Học";
+                    titleEl.classList.remove("mb-6");
+                    titleEl.classList.add("mb-2");
                     subtitleEl.textContent = "Mỗi môn có ngân hàng câu hỏi & tiến độ riêng";
+                    subtitleEl.classList.remove("hidden");
                     heroIcon.className = "fa-solid fa-layer-group text-4xl text-indigo-400";
                     hubBtn.classList.remove("hidden");
                     backBtn.classList.add("hidden");
@@ -1919,7 +1899,9 @@
                     const backBtn = document.getElementById("btn-subject-back-courses");
 
                     titleEl.textContent = `Chọn đề ${course.name}`;
-                    subtitleEl.textContent = "Mỗi đề 60 câu · tiến độ riêng";
+                    titleEl.classList.remove("mb-2");
+                    titleEl.classList.add("mb-6");
+                    subtitleEl.classList.add("hidden");
                     heroIcon.className = `fa-solid ${course.icon} text-4xl ${course.iconColor}`;
                     hubBtn.classList.add("hidden");
                     backBtn.classList.remove("hidden");
@@ -2771,10 +2753,12 @@
 
                 const q = flashcardQueue[0];
                 const displayQ = prepareDisplayQuestion(q);
+                if (isMultiSelect(q)) return;
+
                 const btns = document.querySelectorAll("#options-container .option-btn");
                 btns.forEach((b) => (b.disabled = true));
 
-                if (selectedIndex === displayQ.answer) {
+                if (isAnswerCorrect(displayQ, [selectedIndex])) {
                     btnElement.classList.add("correct");
                     flashcardFlipped = true;
                     flashcardAwaitContinue = true;
@@ -2785,9 +2769,11 @@
                 }
 
                 btnElement.classList.add("wrong");
-                btns.forEach((b) => {
-                    if (parseInt(b.dataset.idx, 10) === displayQ.answer) b.classList.add("correct");
-                });
+                highlightAnswerResult(displayQ, [selectedIndex]);
+                finishFlashcardAnswerReveal(q);
+            }
+
+            function finishFlashcardAnswerReveal(q) {
                 flashcardFlipped = true;
                 document.getElementById("flashcard-front-panel").classList.add("hidden");
                 showAnswerPanel(getQuestionKeywords(q));
@@ -2807,9 +2793,14 @@
 
             function flipFlashcard() {
                 if (currentMode !== "flashcard" || flashcardFlipped || flashcardQueue.length === 0) return;
-                flashcardFlipped = true;
                 const q = flashcardQueue[0];
                 const displayQ = prepareDisplayQuestion(q);
+                if (isMultiSelect(q)) {
+                    renderFlashcardOptions(displayQ, true);
+                    finishFlashcardAnswerReveal(q);
+                    return;
+                }
+                flashcardFlipped = true;
                 renderFlashcardOptions(displayQ, true);
                 document.getElementById("flashcard-front-panel").classList.add("hidden");
                 showAnswerPanel(getQuestionKeywords(q));
@@ -2827,18 +2818,19 @@
                 const optsContainer = document.getElementById("options-container");
                 optsContainer.classList.remove("flashcard-hidden");
                 optsContainer.innerHTML = "";
+                const correctSet = new Set(getCorrectAnswers(q));
                 q.options.forEach((opt, idx) => {
                     const el = document.createElement("button");
                     el.dataset.idx = idx;
                     if (revealed) {
                         el.className =
                             "option-btn flashcard-readonly w-full text-left rounded-2xl border-2 border-slate-100 bg-white text-slate-700 font-semibold shadow-sm flex items-center gap-2";
-                        if (idx === q.answer) el.classList.add("correct");
+                        if (correctSet.has(idx)) el.classList.add("correct");
                         el.disabled = true;
                     } else {
                         el.className =
                             "option-btn w-full text-left rounded-2xl border-2 border-slate-100 bg-white hover:border-blue-200 text-slate-700 font-semibold shadow-sm flex items-center gap-2";
-                        el.onclick = () => selectFlashcardAnswer(idx, el);
+                        el.onclick = isMultiSelect(q) ? () => toggleMultiAnswer(idx, el) : () => selectFlashcardAnswer(idx, el);
                     }
                     el.innerHTML = `<span class='option-letter bg-blue-50 text-blue-500 rounded-full flex items-center justify-center shrink-0 font-black'>${String.fromCharCode(65 + idx)}</span><span class='line-clamp-4 md:line-clamp-3 min-w-0'>${opt}</span>`;
                     optsContainer.appendChild(el);
@@ -3096,16 +3088,69 @@
             let timeLeft = 0;
             let helps = { 5050: true, freeze: true, hint: true };
             let currentDisplay = null;
+            let multiSelectedIndices = new Set();
 
-            function shuffleOptions(options, answerIndex) {
+            function isMultiSelect(q) {
+                return Array.isArray(q.answers) && q.answers.length > 1;
+            }
+
+            function getCorrectAnswers(q) {
+                if (isMultiSelect(q)) return q.answers;
+                return typeof q.answer === "number" ? [q.answer] : [];
+            }
+
+            function isAnswerCorrect(q, selectedIndices) {
+                const correct = getCorrectAnswers(q)
+                    .slice()
+                    .sort((a, b) => a - b);
+                const picked = selectedIndices.slice().sort((a, b) => a - b);
+                return correct.length === picked.length && correct.every((v, i) => v === picked[i]);
+            }
+
+            function resetMultiSelectState() {
+                multiSelectedIndices = new Set();
+                document.getElementById("multi-select-hint")?.classList.add("hidden");
+            }
+
+            function getRequiredMultiCount(q) {
+                return getCorrectAnswers(q).length;
+            }
+
+            function updateMultiSelectHint(q) {
+                const hint = document.getElementById("multi-select-hint");
+                if (!hint || !q || !isMultiSelect(q)) return;
+                const n = getRequiredMultiCount(q);
+                hint.innerText = `${multiSelectedIndices.size}/${n}`;
+            }
+
+            function updateMultiSelectUI(q) {
+                const hint = document.getElementById("multi-select-hint");
+                const btn5050 = document.getElementById("btn-help-5050");
+                if (isMultiSelect(q)) {
+                    updateMultiSelectHint(q);
+                    hint.classList.remove("hidden");
+                    btn5050.disabled = true;
+                    btn5050.classList.add("opacity-50", "cursor-not-allowed");
+                } else {
+                    hint.classList.add("hidden");
+                    if (helps["5050"]) {
+                        btn5050.disabled = false;
+                        btn5050.classList.remove("opacity-50", "cursor-not-allowed");
+                    }
+                }
+            }
+
+            function shuffleOptions(options, correctIndices) {
                 const order = options.map((_, i) => i);
                 for (let i = order.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
                     [order[i], order[j]] = [order[j], order[i]];
                 }
+                const answers = correctIndices.map((idx) => order.indexOf(idx)).sort((a, b) => a - b);
                 return {
                     options: order.map((i) => options[i]),
-                    answer: order.indexOf(answerIndex),
+                    answers,
+                    answer: answers[0],
                 };
             }
 
@@ -3116,14 +3161,20 @@
             function prepareDisplayQuestion(q) {
                 if (!shouldShuffleAnswers()) return q;
                 if (!currentDisplay || currentDisplay.questionId !== q.id) {
-                    const shuffled = shuffleOptions(q.options, q.answer);
+                    const shuffled = shuffleOptions(q.options, getCorrectAnswers(q));
                     currentDisplay = {
                         questionId: q.id,
                         options: shuffled.options,
+                        answers: shuffled.answers,
                         answer: shuffled.answer,
                     };
                 }
-                return { ...q, options: currentDisplay.options, answer: currentDisplay.answer };
+                return {
+                    ...q,
+                    options: currentDisplay.options,
+                    answers: isMultiSelect(q) ? currentDisplay.answers : q.answers,
+                    answer: currentDisplay.answer,
+                };
             }
 
             function clearDisplayQuestion() {
@@ -3221,7 +3272,9 @@
             }
 
             function getQuestionKeywords(q) {
-                const correct = (q.options[q.answer] || "").replace(/\.$/, "").trim();
+                const correct = isMultiSelect(q)
+                    ? (q.explanation || "").replace(/\.$/, "").trim()
+                    : (q.options[q.answer] || "").replace(/\.$/, "").trim();
                 const raw = q.keywords?.trim();
                 if (raw) {
                     if (/^Q:\s/i.test(raw)) return raw;
@@ -3449,6 +3502,7 @@
                         return;
                     }
                     resetAnswerPanel();
+                    resetMultiSelectState();
                     const q = flashcardQueue[0];
                     clearDisplayQuestion();
                     const displayQ = prepareDisplayQuestion(q);
@@ -3459,6 +3513,7 @@
                     document.getElementById("btn-mark-ingame").style.color = markedQuestions.includes(q.id) ? "#f97316" : "#cbd5e1";
                     if (!flashcardFlipped) {
                         renderFlashcardOptions(displayQ, false);
+                        updateMultiSelectUI(q);
                         document.getElementById("flashcard-front-panel").classList.remove("hidden");
                         return;
                     }
@@ -3474,6 +3529,7 @@
                     return;
                 }
                 resetAnswerPanel();
+                resetMultiSelectState();
                 clearDisplayQuestion();
                 const q = currentQuestions[currentQuestionIndex];
                 const displayQ = prepareDisplayQuestion(q);
@@ -3492,30 +3548,56 @@
 
                 optsContainer.classList.remove("flashcard-hidden");
                 optsContainer.innerHTML = "";
+                updateMultiSelectUI(q);
                 displayQ.options.forEach((opt, idx) => {
                     const btn = document.createElement("button");
                     btn.className =
                         "option-btn w-full text-left rounded-2xl border-2 border-slate-100 bg-white hover:border-blue-200 text-slate-700 font-semibold shadow-sm flex items-center gap-2";
                     btn.innerHTML = `<span class='option-letter bg-blue-50 text-blue-500 rounded-full flex items-center justify-center shrink-0 font-black'>${String.fromCharCode(65 + idx)}</span><span class='line-clamp-4 md:line-clamp-3 min-w-0'>${opt}</span>`;
-                    btn.onclick = () => selectAnswer(idx, btn);
+                    btn.onclick = isMultiSelect(q) ? () => toggleMultiAnswer(idx, btn) : () => selectAnswer(idx, btn);
                     btn.dataset.idx = idx;
                     optsContainer.appendChild(btn);
                 });
             }
 
-            function toggleMarkCurrentQuestion() {
-                toggleMark(currentQuestions[currentQuestionIndex].id);
-                document.getElementById("btn-mark-ingame").style.color = markedQuestions.includes(currentQuestions[currentQuestionIndex].id) ? "#f97316" : "#cbd5e1";
+            function getActiveMultiQuestion() {
+                if (currentMode === "flashcard") return flashcardQueue[0] ? prepareDisplayQuestion(flashcardQueue[0]) : null;
+                const q = currentQuestions[currentQuestionIndex];
+                return q ? prepareDisplayQuestion(q) : null;
             }
 
-            function selectAnswer(selectedIndex, btnElement) {
-                const q = currentQuestions[currentQuestionIndex];
-                const displayQ = prepareDisplayQuestion(q);
-                const isCorrect = selectedIndex === displayQ.answer;
-                const btns = document.querySelectorAll("#options-container .option-btn");
-                btns.forEach((b) => (b.disabled = true));
+            function toggleMultiAnswer(selectedIndex, btnElement) {
+                if (btnElement.disabled) return;
+                const q = getActiveMultiQuestion();
+                if (!q || !isMultiSelect(q)) return;
+                const needed = getRequiredMultiCount(q);
+
+                if (multiSelectedIndices.has(selectedIndex)) {
+                    multiSelectedIndices.delete(selectedIndex);
+                    btnElement.classList.remove("selected");
+                } else {
+                    if (multiSelectedIndices.size >= needed) return;
+                    multiSelectedIndices.add(selectedIndex);
+                    btnElement.classList.add("selected");
+                }
+                updateMultiSelectHint(q);
+                if (multiSelectedIndices.size === needed) submitMultiAnswer();
+            }
+
+            function highlightAnswerResult(displayQ, selectedIndices) {
+                const correctSet = new Set(getCorrectAnswers(displayQ));
+                const selectedSet = new Set(selectedIndices);
+                document.querySelectorAll("#options-container .option-btn").forEach((b) => {
+                    const idx = parseInt(b.dataset.idx, 10);
+                    b.disabled = true;
+                    b.classList.remove("selected");
+                    if (correctSet.has(idx)) b.classList.add("correct");
+                    else if (selectedSet.has(idx)) b.classList.add("wrong");
+                });
+            }
+
+            function processAnswerResult(q, isCorrect) {
                 if (isCorrect) {
-                    btnElement.classList.add("correct");
                     if (currentMode === "exam") {
                         score += 1;
                         document.getElementById("score").innerText = ((score / currentQuestions.length) * 10).toFixed(1);
@@ -3523,13 +3605,9 @@
                     if (currentMode === "campaign" && campaignRun) campaignRun.correctIds.add(q.id);
                     if (currentMode === "review") reviewLastCorrect = true;
                 } else {
-                    btnElement.classList.add("wrong");
                     reviewLastCorrect = false;
                     if (currentMode === "campaign" && campaignRun) campaignRun.correctIds.delete(q.id);
                     if (currentMode !== "spaced" && currentMode !== "review" && !markedQuestions.includes(q.id)) toggleMarkCurrentQuestion();
-                    btns.forEach((b) => {
-                        if (parseInt(b.dataset.idx) === displayQ.answer) b.classList.add("correct");
-                    });
                 }
 
                 if (currentMode === "spaced") {
@@ -3546,6 +3624,63 @@
                 else document.getElementById("btn-next").classList.remove("hidden");
             }
 
+            function submitMultiAnswer() {
+                const q = currentMode === "flashcard" ? flashcardQueue[0] : currentQuestions[currentQuestionIndex];
+                if (!q || !isMultiSelect(q)) return;
+                const displayQ = prepareDisplayQuestion(q);
+                const needed = getRequiredMultiCount(displayQ);
+                if (multiSelectedIndices.size !== needed) return;
+
+                const selected = [...multiSelectedIndices];
+                const isCorrect = isAnswerCorrect(displayQ, selected);
+
+                highlightAnswerResult(displayQ, selected);
+
+                if (currentMode === "flashcard") {
+                    flashcardFlipped = true;
+                    document.getElementById("flashcard-front-panel").classList.add("hidden");
+                    if (isCorrect) {
+                        flashcardAwaitContinue = true;
+                        flashcardContinueGrade = "easy";
+                        document.getElementById("btn-next").classList.remove("hidden");
+                        reviewUI.showSpacedGradeBar(false);
+                    } else {
+                        showAnswerPanel(getQuestionKeywords(q));
+                        if (flashcardAutoHard) {
+                            flashcardAwaitContinue = true;
+                            flashcardContinueGrade = "hard";
+                            document.getElementById("btn-next").classList.remove("hidden");
+                            reviewUI.showSpacedGradeBar(false);
+                        } else {
+                            reviewUI.showSpacedGradeBar(true);
+                        }
+                    }
+                    return;
+                }
+
+                processAnswerResult(q, isCorrect);
+            }
+
+            function toggleMarkCurrentQuestion() {
+                toggleMark(currentQuestions[currentQuestionIndex].id);
+                document.getElementById("btn-mark-ingame").style.color = markedQuestions.includes(currentQuestions[currentQuestionIndex].id) ? "#f97316" : "#cbd5e1";
+            }
+
+            function selectAnswer(selectedIndex, btnElement) {
+                const q = currentQuestions[currentQuestionIndex];
+                const displayQ = prepareDisplayQuestion(q);
+                const isCorrect = isAnswerCorrect(displayQ, [selectedIndex]);
+                const btns = document.querySelectorAll("#options-container .option-btn");
+                btns.forEach((b) => (b.disabled = true));
+                if (isCorrect) {
+                    btnElement.classList.add("correct");
+                } else {
+                    btnElement.classList.add("wrong");
+                    highlightAnswerResult(displayQ, [selectedIndex]);
+                }
+                processAnswerResult(q, isCorrect);
+            }
+
             function nextQuestion() {
                 if (currentMode === "flashcard" && flashcardAwaitContinue) {
                     advanceFlashcardQueue(flashcardContinueGrade || "easy");
@@ -3559,9 +3694,25 @@
                 loadQuestion();
             }
 
+            function getCurrentOptionCount() {
+                if (currentMode === "flashcard" && flashcardQueue.length > 0) {
+                    return prepareDisplayQuestion(flashcardQueue[0]).options.length;
+                }
+                if (currentQuestions[currentQuestionIndex]) {
+                    return prepareDisplayQuestion(currentQuestions[currentQuestionIndex]).options.length;
+                }
+                return 4;
+            }
+
+            function getCurrentGameQuestion() {
+                if (currentMode === "flashcard" && flashcardQueue.length > 0) return flashcardQueue[0];
+                return currentQuestions[currentQuestionIndex];
+            }
+
             function getAnswerIndexFromKey(e) {
-                if (e.key >= "1" && e.key <= "4") return parseInt(e.key, 10) - 1;
-                const digit = e.code?.match(/^(?:Digit|Numpad)([1-4])$/)?.[1];
+                const max = Math.min(getCurrentOptionCount(), 9);
+                if (e.key >= "1" && e.key <= String(max)) return parseInt(e.key, 10) - 1;
+                const digit = e.code?.match(new RegExp(`^(?:Digit|Numpad)([1-${max}])$`))?.[1];
                 return digit ? parseInt(digit, 10) - 1 : -1;
             }
 
@@ -3607,17 +3758,24 @@
                         handleGrade(GRADE_SHORTCUT_KEYS[answerIdx]);
                         return;
                     }
+                    const q = getCurrentGameQuestion();
+                    const btns = document.querySelectorAll("#options-container .option-btn");
+                    const btn = btns[answerIdx];
+                    if (isMultiSelect(q)) {
+                        if (currentMode === "flashcard" && flashcardFlipped) return;
+                        if (btn && !btn.disabled) {
+                            e.preventDefault();
+                            toggleMultiAnswer(answerIdx, btn);
+                        }
+                        return;
+                    }
                     if (currentMode === "flashcard") {
                         if (!flashcardFlipped) {
                             e.preventDefault();
-                            const btns = document.querySelectorAll("#options-container .option-btn");
-                            const btn = btns[answerIdx];
                             if (btn && !btn.disabled) selectFlashcardAnswer(answerIdx, btn);
                         }
                         return;
                     }
-                    const btns = document.querySelectorAll("#options-container .option-btn");
-                    const btn = btns[answerIdx];
                     if (btn && !btn.disabled && !btn.classList.contains("hidden-option")) {
                         e.preventDefault();
                         selectAnswer(answerIdx, btn);
@@ -3708,12 +3866,13 @@
                 data.forEach((q) => {
                     const isMarked = markedQuestions.includes(q.id);
                     const isReviewed = reviewedQuestions.includes(q.id);
+                    const correctSet = new Set(getCorrectAnswers(q));
                     const statusBadge = isReviewed
                         ? `<span class='text-xs font-black bg-green-100 text-green-700 px-2 py-1 rounded-lg'>✅ Đã Ôn</span>`
                         : isMarked
                           ? `<span class='text-xs font-black bg-orange-100 text-orange-700 px-2 py-1 rounded-lg'>📌 Chưa thuộc</span>`
                           : "";
-                    list.innerHTML += `<div class='bg-white rounded-2xl p-4 sm:p-6 shadow-sm border-2 ${isReviewed ? "border-green-100" : "border-slate-100"}'><div class='flex items-center justify-between gap-2 mb-2 sm:mb-3 min-h-[1.75rem]'>${statusBadge || "<span></span>"}<button onclick='toggleMarkHandbook(${q.id}, this)' class='shrink-0 text-xl sm:text-2xl ${isMarked ? "text-orange-500" : "text-slate-200"}'><i class='fa-solid fa-bookmark'></i></button></div><h4 class='font-black mb-3 sm:mb-4 text-sm sm:text-base'>Câu ${q.id}: ${q.text}</h4><div class='text-slate-600 border-l-4 border-pink-200 pl-3 sm:pl-4 text-sm sm:text-base'>${q.options.map((o, i) => `<div class='${i === q.answer ? "text-green-700 font-bold" : ""}'>${String.fromCharCode(65 + i)}. ${o}</div>`).join("")}</div>${isKeywordsEnabled() && getQuestionKeywords(q) ? `<div class='bg-yellow-50 p-3 sm:p-4 rounded-xl text-yellow-800 text-xs sm:text-sm italic mt-3 sm:mt-4'>Keywords: ${getQuestionKeywords(q)}</div>` : ""}</div>`;
+                    list.innerHTML += `<div class='bg-white rounded-2xl p-4 sm:p-6 shadow-sm border-2 ${isReviewed ? "border-green-100" : "border-slate-100"}'><div class='flex items-center justify-between gap-2 mb-2 sm:mb-3 min-h-[1.75rem]'>${statusBadge || "<span></span>"}<button onclick='toggleMarkHandbook(${q.id}, this)' class='shrink-0 text-xl sm:text-2xl ${isMarked ? "text-orange-500" : "text-slate-200"}'><i class='fa-solid fa-bookmark'></i></button></div><h4 class='font-black mb-3 sm:mb-4 text-sm sm:text-base'>Câu ${q.id}: ${q.text}</h4><div class='text-slate-600 border-l-4 border-pink-200 pl-3 sm:pl-4 text-sm sm:text-base'>${q.options.map((o, i) => `<div class='${correctSet.has(i) ? "text-green-700 font-bold" : ""}'>${String.fromCharCode(65 + i)}. ${o}</div>`).join("")}</div>${isKeywordsEnabled() && getQuestionKeywords(q) ? `<div class='bg-yellow-50 p-3 sm:p-4 rounded-xl text-yellow-800 text-xs sm:text-sm italic mt-3 sm:mt-4'>Keywords: ${getQuestionKeywords(q)}</div>` : ""}</div>`;
                 });
             }
             function toggleMarkHandbook(id, btn) {
@@ -3734,9 +3893,11 @@
                 const q = currentQuestions[currentQuestionIndex];
                 const displayQ = prepareDisplayQuestion(q);
                 if (type === "5050") {
+                    if (isMultiSelect(q)) return;
+                    const correctSet = new Set(getCorrectAnswers(displayQ));
                     let count = 0;
                     document.querySelectorAll("#options-container .option-btn").forEach((b, i) => {
-                        if (i !== displayQ.answer && count < 2) {
+                        if (!correctSet.has(i) && count < 2) {
                             b.classList.add("hidden-option");
                             count++;
                         }

@@ -13,7 +13,7 @@ Quiz là ứng dụng web ôn tập trắc nghiệm dành cho sinh viên, hỗ t
 
 | Nhóm tính năng              | Mô tả ngắn                                      |
 | --------------------------- | ------------------------------------------------- |
-| Chọn môn & ngân hàng câu hỏi | SWT → đề SP26 / FA25 / SU25               |
+| Chọn môn & ngân hàng câu hỏi | SWR (SWR302)                              |
 | Học theo nhóm (Campaign)    | Chia bank thành chặng 20 câu, theo dõi % lần làm |
 | Thi thử (Exam)              | 50 câu ngẫu nhiên, chấm thang 10, có đếm thời gian |
 | Ôn lại (Review)             | Luyện câu đã bookmark; đúng → chuyển sang Đã Ôn   |
@@ -73,9 +73,9 @@ Hệ thống không có đăng nhập tài khoản truyền thống. Một ngư�
 
 ### Môn & đề hiện có
 
-| courseId | Môn | Đề (subjectId)                         |
-| -------- | --- | -------------------------------------- |
-| `swt`    | SWT | `swt_sp26`, `swt_fa25`, `swt_su25` (60 câu/đề) |
+| courseId | Môn | Đề (subjectId) |
+| -------- | --- | -------------- |
+| `swr`    | SWR | `swr` (203 câu) |
 
 ---
 

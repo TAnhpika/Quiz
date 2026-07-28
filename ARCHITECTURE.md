@@ -29,9 +29,7 @@ Quizzy/
 ├── index.html              # Hub + Quizzy UI/logic + Memozy screens (HTML)
 ├── memozy-app.js           # Memozy navigation, study, SRS, TTS
 ├── banks/                  # Ngân hàng Quizzy — load on demand
-│   ├── swt_sp26.js
-│   ├── swt_fa25.js
-│   └── swt_su25.js
+│   └── swr.js
 ├── banks/memozy/           # Ngân hàng từ vựng IELTS
 │   ├── catalog.js          # Cây Skill → Group → Leaf
 │   ├── reading.js
@@ -124,11 +122,9 @@ SRS grades: Again 1d / Hard 3d / Good 7d / Easy 14d (cùng thuật toán Anki-li
 
 ### Ngân hàng theo môn (`banks/{subjectId}.js`)
 
-| File          | Môn        | Số câu |
-| ------------- | ---------- | ------ |
-| `swt_sp26.js` | SWT SP26   | 60     |
-| `swt_fa25.js` | SWT FA25   | 60     |
-| `swt_su25.js` | SWT SU25   | 60     |
+| File     | Môn | Số câu |
+| -------- | --- | ------ |
+| `swr.js` | SWR | 203    |
 
 Thêm môn mới: khai báo trong `SUBJECTS` + tạo `banks/{id}.js` + `questionCount` trong SUBJECTS.
 

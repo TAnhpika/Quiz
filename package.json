@@ -1,0 +1,11 @@
+{
+  "name": "quizzy",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "extract:swr": "node scripts/extract-swr-pdf.mjs"
+  },
+  "dependencies": {
+    "tesseract.js": "^6.0.1"
+  }
+}

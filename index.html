@@ -2699,6 +2699,8 @@
             let flashcardFlipped = false;
             /** Hàng đợi thẻ trong phiên Flashcard (có thể trùng id khi reinsert) */
             let flashcardQueue = [];
+            /** Layout đáp án đã đảo theo id câu — tạo lại mỗi lần mở / Tái đấu */
+            let flashcardOptionCache = {};
             let flashcardInitialCount = 0;
             /** Số thẻ đã Easy — dùng cho progress bar */
             let flashcardEasyCount = 0;
@@ -3200,6 +3202,15 @@
                 }
             }
 
+            function shuffleArray(arr) {
+                const order = [...arr];
+                for (let i = order.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [order[i], order[j]] = [order[j], order[i]];
+                }
+                return order;
+            }
+
             function shuffleOptions(options, correctIndices) {
                 const order = options.map((_, i) => i);
                 for (let i = order.length - 1; i > 0; i--) {
@@ -3214,11 +3225,31 @@
                 };
             }
 
+            function rebuildFlashcardOptionCache(questions) {
+                flashcardOptionCache = {};
+                for (const q of questions) {
+                    flashcardOptionCache[q.id] = shuffleOptions(q.options, getCorrectAnswers(q));
+                }
+            }
+
             function shouldShuffleAnswers() {
                 return currentMode !== "campaign";
             }
 
             function prepareDisplayQuestion(q) {
+                if (currentMode === "flashcard") {
+                    let cached = flashcardOptionCache[q.id];
+                    if (!cached) {
+                        cached = shuffleOptions(q.options, getCorrectAnswers(q));
+                        flashcardOptionCache[q.id] = cached;
+                    }
+                    return {
+                        ...q,
+                        options: cached.options,
+                        answers: isMultiSelect(q) ? cached.answers : q.answers,
+                        answer: cached.answer,
+                    };
+                }
                 if (!shouldShuffleAnswers()) return q;
                 if (!currentDisplay || currentDisplay.questionId !== q.id) {
                     const shuffled = shuffleOptions(q.options, getCorrectAnswers(q));
@@ -3484,7 +3515,12 @@
             }
 
             function retryGame() {
-                if (lastGameMode) startGame(lastGameMode, lastGroupIndex);
+                if (!lastGameMode) return;
+                if (lastGameMode === "flashcard") {
+                    flashcardOptionCache = {};
+                    clearDisplayQuestion();
+                }
+                startGame(lastGameMode, lastGroupIndex);
             }
 
             function startGame(mode, groupIndex = 0) {
@@ -3521,7 +3557,8 @@
                 } else if (mode === "flashcard") {
                     document.getElementById("game-mode-title").innerText = `🃏 Flashcards · Chặng ${groupIndex + 1}`;
                     currentQuestions = questionBank.slice(groupIndex * GROUP_SIZE, groupIndex * GROUP_SIZE + GROUP_SIZE);
-                    flashcardQueue = [...currentQuestions];
+                    rebuildFlashcardOptionCache(currentQuestions);
+                    flashcardQueue = shuffleArray([...currentQuestions]);
                     flashcardInitialCount = currentQuestions.length;
                     flashcardEasyCount = 0;
                 } else if (mode === "campaign") {
@@ -3564,7 +3601,6 @@
                     resetAnswerPanel();
                     resetMultiSelectState();
                     const q = flashcardQueue[0];
-                    clearDisplayQuestion();
                     const displayQ = prepareDisplayQuestion(q);
                     document.getElementById("game-progress").innerText = `Còn ${flashcardQueue.length} thẻ · Chặng ${flashcardInitialCount} câu`;
                     document.getElementById("progress-bar").style.width =

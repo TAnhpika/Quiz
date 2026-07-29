@@ -126,7 +126,7 @@ SRS grades: Again 1d / Hard 3d / Good 7d / Easy 14d (cùng thuật toán Anki-li
 | File           | Môn / đề   | Số câu |
 | -------------- | ---------- | ------ |
 | `swr.js`       | SWR        | 203    |
-| `swr_extra.js` | SWR Extra  | 183    |
+| `swr_extra.js` | SWR Extra  | 97     |
 
 Thêm môn mới: khai báo trong `SUBJECTS` + tạo `banks/{id}.js` + `questionCount` trong SUBJECTS.
 

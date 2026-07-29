@@ -75,7 +75,7 @@ Hệ thống không có đăng nhập tài khoản truyền thống. Một ngư�
 
 | courseId | Môn | Đề (subjectId) |
 | -------- | --- | -------------- |
-| `swr`    | SWR | `swr` (203 câu), `swr_extra` (183 câu) |
+| `swr`    | SWR | `swr` (203 câu), `swr_extra` (97 câu) |
 
 ---
 

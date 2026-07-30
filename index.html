@@ -334,6 +334,20 @@
                 font-size: clamp(0.8rem, 2vw, 1.05rem);
                 margin-bottom: 1rem;
             }
+            @keyframes retry-attract {
+                0%,
+                100% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.35);
+                }
+                50% {
+                    transform: scale(1.03);
+                    box-shadow: 0 0 0 10px rgba(249, 115, 22, 0);
+                }
+            }
+            #btn-retry.retry-attract {
+                animation: retry-attract 1.6s ease-in-out infinite;
+            }
             #screen-result .glass-panel {
                 overflow: hidden;
                 max-height: 100%;
@@ -736,8 +750,7 @@
                 background:
                     radial-gradient(1200px 600px at 10% -10%, rgba(45, 212, 191, 0.35), transparent 55%),
                     radial-gradient(900px 500px at 95% 5%, rgba(56, 189, 248, 0.28), transparent 50%),
-                    radial-gradient(800px 500px at 50% 110%, rgba(167, 243, 208, 0.4), transparent 45%),
-                    linear-gradient(160deg, #f0fdfa 0%, #e0f2fe 45%, #ecfeff 100%) !important;
+                    radial-gradient(800px 500px at 50% 110%, rgba(167, 243, 208, 0.4), transparent 45%), linear-gradient(160deg, #f0fdfa 0%, #e0f2fe 45%, #ecfeff 100%) !important;
             }
             .mz-brand {
                 font-family: "Sora", "Nunito", sans-serif;
@@ -760,7 +773,9 @@
                 font-size: 0.75rem;
                 font-weight: 800;
                 box-shadow: 0 4px 14px rgba(13, 148, 136, 0.08);
-                transition: background 0.15s ease, transform 0.15s ease;
+                transition:
+                    background 0.15s ease,
+                    transform 0.15s ease;
             }
             .mz-back:hover {
                 background: #fff;
@@ -779,7 +794,10 @@
                 padding: 1.25rem;
                 text-align: left;
                 box-shadow: 0 8px 20px rgba(15, 118, 110, 0.05);
-                transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+                transition:
+                    transform 0.2s ease,
+                    box-shadow 0.2s ease,
+                    border-color 0.2s ease;
             }
             .mz-skill-tile:hover {
                 transform: translateY(-2px);
@@ -798,7 +816,10 @@
                 align-items: center;
                 justify-content: space-between;
                 gap: 0.75rem;
-                transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+                transition:
+                    border-color 0.15s ease,
+                    background 0.15s ease,
+                    transform 0.15s ease;
             }
             .mz-leaf-row:hover {
                 border-color: rgba(13, 148, 136, 0.4);
@@ -814,7 +835,10 @@
                 display: flex;
                 align-items: center;
                 gap: 1rem;
-                transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+                transition:
+                    border-color 0.15s ease,
+                    box-shadow 0.15s ease,
+                    transform 0.15s ease;
             }
             .mz-account-row:hover {
                 transform: translateY(-1px);
@@ -952,7 +976,9 @@
                 border-radius: 0.85rem;
                 font-weight: 800;
                 font-size: 0.8rem;
-                transition: transform 0.15s ease, filter 0.15s ease;
+                transition:
+                    transform 0.15s ease,
+                    filter 0.15s ease;
             }
             #memozy-grade-bar .grade-btn:hover:not(:disabled) {
                 transform: translateY(-1px);
@@ -1002,7 +1028,10 @@
                 align-items: center;
                 gap: 0.5rem;
                 box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
-                transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+                transition:
+                    border-color 0.15s ease,
+                    background 0.15s ease,
+                    transform 0.15s ease;
             }
             .mz-opt-btn:hover:not(:disabled) {
                 border-color: #99f6e4;
@@ -1083,9 +1112,7 @@
 
             <!-- Memozy: chọn account -->
             <div id="screen-memozy-account" class="hidden flex-1 flex flex-col items-center justify-center text-center animate-fade-in w-full relative">
-                <button type="button" onclick="Memozy.backFromAccount()" class="mz-back">
-                    <i class="fa-solid fa-arrow-left"></i> Hub
-                </button>
+                <button type="button" onclick="Memozy.backFromAccount()" class="mz-back"><i class="fa-solid fa-arrow-left"></i> Hub</button>
                 <div class="mz-panel rounded-3xl w-full max-w-lg mx-auto p-6 md:p-10">
                     <p class="mz-brand text-teal-600 text-sm mb-1">Memozy</p>
                     <h1 class="text-2xl md:text-3xl font-black text-slate-800 mb-2">Chọn Account</h1>
@@ -1096,9 +1123,7 @@
 
             <!-- Memozy: chọn skill -->
             <div id="screen-memozy-skills" class="hidden flex-1 flex flex-col items-center text-center animate-fade-in w-full relative">
-                <button type="button" onclick="Memozy.backFromSkills()" class="mz-back">
-                    <i class="fa-solid fa-arrow-left"></i> Account
-                </button>
+                <button type="button" onclick="Memozy.backFromSkills()" class="mz-back"><i class="fa-solid fa-arrow-left"></i> Account</button>
                 <button
                     id="btn-memozy-due"
                     type="button"
@@ -1107,7 +1132,9 @@
                     disabled
                 >
                     <i class="fa-solid fa-fire"></i> Ôn hôm nay
-                    <span id="memozy-due-badge" class="hidden bg-white text-orange-600 text-[10px] font-black min-w-[1.1rem] h-4 px-1 rounded-full flex items-center justify-center">0</span>
+                    <span id="memozy-due-badge" class="hidden bg-white text-orange-600 text-[10px] font-black min-w-[1.1rem] h-4 px-1 rounded-full flex items-center justify-center"
+                        >0</span
+                    >
                 </button>
                 <div class="mz-panel rounded-3xl w-full max-w-4xl mx-auto p-6 md:p-8 mt-14 md:mt-6">
                     <p class="mz-brand text-sm mb-1"><span class="text-teal-600">Memozy</span> · <span id="memozy-skills-account" class="text-teal-600">—</span></p>
@@ -1119,9 +1146,7 @@
 
             <!-- Memozy: browse part/dạng -->
             <div id="screen-memozy-browse" class="hidden flex-1 flex flex-col items-center animate-fade-in w-full relative">
-                <button type="button" onclick="Memozy.backFromBrowse()" class="mz-back">
-                    <i class="fa-solid fa-arrow-left"></i> Skills
-                </button>
+                <button type="button" onclick="Memozy.backFromBrowse()" class="mz-back"><i class="fa-solid fa-arrow-left"></i> Skills</button>
                 <div class="mz-panel rounded-3xl w-full max-w-2xl mx-auto p-6 md:p-8 mt-14 md:mt-6 text-left">
                     <p class="mz-brand text-teal-600 text-sm mb-1">Memozy</p>
                     <h1 id="memozy-browse-title" class="text-2xl md:text-3xl font-black text-slate-800 mb-1">Skill</h1>
@@ -1236,8 +1261,20 @@
                     <h2 id="memozy-result-title" class="text-2xl md:text-3xl font-black text-slate-800 mb-2">Hoàn thành!</h2>
                     <p id="memozy-result-detail" class="text-sm text-slate-500 mb-8">—</p>
                     <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                        <button type="button" onclick="Memozy.exitStudyToBrowse()" class="px-6 py-3.5 bg-white border border-slate-200 text-slate-700 rounded-xl font-bold hover:bg-slate-50">Quay lại</button>
-                        <button type="button" onclick="Memozy.showSkills()" class="px-6 py-3.5 bg-gradient-to-r from-teal-600 to-cyan-500 text-white rounded-xl font-bold shadow-sm">Skills</button>
+                        <button
+                            type="button"
+                            onclick="Memozy.exitStudyToBrowse()"
+                            class="px-6 py-3.5 bg-white border border-slate-200 text-slate-700 rounded-xl font-bold hover:bg-slate-50"
+                        >
+                            Quay lại
+                        </button>
+                        <button
+                            type="button"
+                            onclick="Memozy.showSkills()"
+                            class="px-6 py-3.5 bg-gradient-to-r from-teal-600 to-cyan-500 text-white rounded-xl font-bold shadow-sm"
+                        >
+                            Skills
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1482,7 +1519,7 @@
                         >
                             <i class="fa-regular fa-circle-question text-lg"></i>
                             <span id="flashcard-guide-tip" class="flashcard-guide-tip pointer-events-none" role="tooltip">
-                                <span class="flashcard-guide-tip-label"><i class="fa-regular fa-lightbulb mr-1"></i>Hướng dẫn</span> 
+                                <span class="flashcard-guide-tip-label"><i class="fa-regular fa-lightbulb mr-1"></i>Hướng dẫn</span>
                                 Lần đầu hãy nhấn <kbd>Space</kbd> để ghi nhớ keywords. Lần sau hãy thử tự trả lời nha!
                             </span>
                         </button>
@@ -1563,7 +1600,10 @@
 
                         <!-- Flashcard: nút lật thẻ (dưới 4 lựa chọn, chế độ flashcard) -->
                         <div id="flashcard-front-panel" class="hidden px-4 pb-2 text-center">
-                            <p id="flashcard-space-hint" class="text-xs text-slate-400 mb-2">Chọn đáp án hoặc <kbd class="px-1.5 py-0.5 bg-slate-100 rounded text-slate-500 font-mono text-[10px]">Space</kbd> <span id="flashcard-space-hint-text">để xem đáp án</span></p>
+                            <p id="flashcard-space-hint" class="text-xs text-slate-400 mb-2">
+                                Chọn đáp án hoặc <kbd class="px-1.5 py-0.5 bg-slate-100 rounded text-slate-500 font-mono text-[10px]">Space</kbd>
+                                <span id="flashcard-space-hint-text">để xem đáp án</span>
+                            </p>
                             <button
                                 id="btn-flip-card"
                                 onclick="flipFlashcard()"
@@ -2026,9 +2066,7 @@
                     reviewedQuestions = JSON.parse(localStorage.getItem(this.storageKey(subjectId, "reviewed")) || "[]");
                     groupMastery = JSON.parse(localStorage.getItem(this.storageKey(subjectId, "group_mastery")) || "{}");
                     groupLastResult = JSON.parse(localStorage.getItem(this.storageKey(subjectId, "group_last_result")) || "{}");
-                    flashcardGroupCompletions = JSON.parse(
-                        localStorage.getItem(this.storageKey(subjectId, "flashcard_completions")) || "{}",
-                    );
+                    flashcardGroupCompletions = JSON.parse(localStorage.getItem(this.storageKey(subjectId, "flashcard_completions")) || "{}");
                     reviewStorage.loadLocal(subjectId);
                     migrateGroupLastResultFromMastery();
                 },
@@ -2039,10 +2077,7 @@
                     localStorage.setItem(subjectManager.storageKey(currentSubjectId, "reviewed"), JSON.stringify(reviewedQuestions));
                     localStorage.setItem(subjectManager.storageKey(currentSubjectId, "group_mastery"), JSON.stringify(groupMastery));
                     localStorage.setItem(subjectManager.storageKey(currentSubjectId, "group_last_result"), JSON.stringify(groupLastResult));
-                    localStorage.setItem(
-                        subjectManager.storageKey(currentSubjectId, "flashcard_completions"),
-                        JSON.stringify(flashcardGroupCompletions),
-                    );
+                    localStorage.setItem(subjectManager.storageKey(currentSubjectId, "flashcard_completions"), JSON.stringify(flashcardGroupCompletions));
                     reviewStorage.saveLocal(currentSubjectId);
                 },
 
@@ -2065,9 +2100,7 @@
                         reviewedQuestions: JSON.parse(localStorage.getItem(this.storageKey(subjectId, "reviewed")) || "[]"),
                         groupMastery: JSON.parse(localStorage.getItem(this.storageKey(subjectId, "group_mastery")) || "{}"),
                         groupLastResult: JSON.parse(localStorage.getItem(this.storageKey(subjectId, "group_last_result")) || "{}"),
-                        flashcardGroupCompletions: JSON.parse(
-                            localStorage.getItem(this.storageKey(subjectId, "flashcard_completions")) || "{}",
-                        ),
+                        flashcardGroupCompletions: JSON.parse(localStorage.getItem(this.storageKey(subjectId, "flashcard_completions")) || "{}"),
                         reviewMeta: JSON.parse(localStorage.getItem(this.storageKey(subjectId, "review_meta")) || '{"streak":0,"lastReviewDay":null}'),
                     };
                 },
@@ -2087,10 +2120,7 @@
                         localStorage.setItem(this.storageKey(subjectId, "group_last_result"), JSON.stringify(data.groupLastResult));
                     }
                     if (data.flashcardGroupCompletions) {
-                        localStorage.setItem(
-                            this.storageKey(subjectId, "flashcard_completions"),
-                            JSON.stringify(data.flashcardGroupCompletions),
-                        );
+                        localStorage.setItem(this.storageKey(subjectId, "flashcard_completions"), JSON.stringify(data.flashcardGroupCompletions));
                     }
                     if (data.reviewMeta) {
                         localStorage.setItem(this.storageKey(subjectId, "review_meta"), JSON.stringify(data.reviewMeta));
@@ -2221,10 +2251,7 @@
 
             function saveFlashcardGroupCompletions() {
                 if (!currentSubjectId) return;
-                localStorage.setItem(
-                    subjectManager.storageKey(currentSubjectId, "flashcard_completions"),
-                    JSON.stringify(flashcardGroupCompletions),
-                );
+                localStorage.setItem(subjectManager.storageKey(currentSubjectId, "flashcard_completions"), JSON.stringify(flashcardGroupCompletions));
                 if (typeof window.saveUserData === "function") {
                     window.saveUserData(window.getAppDataForCloud());
                 }
@@ -2724,6 +2751,8 @@
 
             let spacedAnswerRevealed = false;
             let flashcardFlipped = false;
+            /** Space trên màn Done gọi Tái đấu — chỉ khi Đã chiến = 1 lần */
+            let flashcardRetrySpaceArmed = false;
             /** Hàng đợi thẻ trong phiên Flashcard (có thể trùng id khi reinsert) */
             let flashcardQueue = [];
             /** Layout đáp án đã đảo theo lượt hiện tại; xóa khi thẻ advance; rebuild khi mở chặng / Tái đấu */
@@ -2920,7 +2949,7 @@
                 const times = getFlashcardCompletionCount(lastGroupIndex);
                 document.getElementById("result-score-label").innerText = "Đã chiến";
                 document.getElementById("result-score").innerText = `${times} lần`;
-                document.getElementById("btn-retry").innerText = "Tái đấu ⚔️";
+                const btnRetry = document.getElementById("btn-retry");
                 document.getElementById("btn-result-home").innerText = "Quay xe";
                 document.getElementById("result-time-wrap").classList.add("hidden");
                 if (questionBank.length) totalGroups = Math.ceil(questionBank.length / GROUP_SIZE);
@@ -2931,12 +2960,17 @@
                 }
                 const resultGuide = document.getElementById("btn-result-guide");
                 if (times === 1) {
+                    flashcardRetrySpaceArmed = true;
+                    btnRetry.classList.add("retry-attract");
+                    btnRetry.innerHTML =
+                        'Tái đấu ⚔️ <kbd class="ml-1 px-1.5 py-0.5 bg-white/20 rounded text-[10px] font-mono">Space</kbd>';
                     resultGuide.classList.remove("hidden");
                     resultGuide.classList.add("flex");
-                    requestAnimationFrame(() =>
-                        openGuideTip("result-guide-tip", { autoCloseMs: 3000, closeOnButtonClick: true })
-                    );
+                    requestAnimationFrame(() => openGuideTip("result-guide-tip", { autoCloseMs: 3000, closeOnButtonClick: true }));
                 } else {
+                    flashcardRetrySpaceArmed = false;
+                    btnRetry.classList.remove("retry-attract");
+                    btnRetry.innerText = "Tái đấu ⚔️";
                     resultGuide.classList.add("hidden");
                     resultGuide.classList.remove("flex");
                 }
@@ -2950,12 +2984,14 @@
             }
 
             function resetResultScreen() {
+                flashcardRetrySpaceArmed = false;
                 document.getElementById("result-title").innerText = "Chúc Mừng!";
                 document.getElementById("result-score-label").innerText = "Điểm số";
                 document.getElementById("result-stats-wrap").classList.remove("hidden");
                 document.getElementById("result-time-wrap").classList.remove("hidden");
-                document.getElementById("btn-retry").classList.remove("hidden");
-                document.getElementById("btn-retry").innerText = "Làm lại";
+                const btnRetry = document.getElementById("btn-retry");
+                btnRetry.classList.remove("hidden", "retry-attract");
+                btnRetry.innerText = "Làm lại";
                 document.getElementById("btn-result-home").innerText = "Về trang chủ";
                 document.getElementById("btn-next-level").classList.add("hidden");
                 const resultGuide = document.getElementById("btn-result-guide");
@@ -3352,6 +3388,7 @@
                 spacedAnswerRevealed = false;
                 flashcardFlipped = false;
                 flashcardAwaitContinue = false;
+                flashcardRetrySpaceArmed = false;
                 flashcardQueue = [];
                 flashcardInitialCount = 0;
                 flashcardEasyCount = 0;
@@ -3391,9 +3428,7 @@
             }
 
             function getQuestionKeywords(q) {
-                const correct = isMultiSelect(q)
-                    ? (q.explanation || "").replace(/\.$/, "").trim()
-                    : (q.options[q.answer] || "").replace(/\.$/, "").trim();
+                const correct = isMultiSelect(q) ? (q.explanation || "").replace(/\.$/, "").trim() : (q.options[q.answer] || "").replace(/\.$/, "").trim();
                 const raw = q.keywords?.trim();
                 if (raw) {
                     if (/^Q:\s/i.test(raw)) return raw;
@@ -3613,9 +3648,7 @@
                 }
                 loadQuestion();
                 if (mode === "flashcard" && getFlashcardCompletionCount(groupIndex) === 0) {
-                    requestAnimationFrame(() =>
-                        openGuideTip("flashcard-guide-tip", { autoCloseMs: 3000, closeOnButtonClick: true })
-                    );
+                    requestAnimationFrame(() => openGuideTip("flashcard-guide-tip", { autoCloseMs: 3000, closeOnButtonClick: true }));
                 }
             }
 
@@ -3873,6 +3906,18 @@
                     return;
                 }
 
+                if (e.key === " " || e.code === "Space") {
+                    if (
+                        !document.getElementById("screen-result").classList.contains("hidden") &&
+                        flashcardRetrySpaceArmed
+                    ) {
+                        if (e.repeat) return;
+                        e.preventDefault();
+                        retryGame();
+                        return;
+                    }
+                }
+
                 if (document.getElementById("screen-game").classList.contains("hidden")) return;
 
                 const answerIdx = getAnswerIndexFromKey(e);
@@ -3973,9 +4018,7 @@
                 updateHomeReviewButton();
                 showResultScreen();
                 document.getElementById("result-score").innerText =
-                    currentMode === "exam"
-                        ? `${((score / currentQuestions.length) * 10).toFixed(1)}/10`
-                        : campaignResultText || "Đạt";
+                    currentMode === "exam" ? `${((score / currentQuestions.length) * 10).toFixed(1)}/10` : campaignResultText || "Đạt";
                 document.getElementById("result-time").innerText = document.getElementById("timer").innerText;
             }
 

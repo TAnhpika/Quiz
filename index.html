@@ -2726,7 +2726,7 @@
             let flashcardFlipped = false;
             /** Hàng đợi thẻ trong phiên Flashcard (có thể trùng id khi reinsert) */
             let flashcardQueue = [];
-            /** Layout đáp án đã đảo theo id câu — tạo lại mỗi lần mở / Tái đấu */
+            /** Layout đáp án đã đảo theo lượt hiện tại; xóa khi thẻ advance; rebuild khi mở chặng / Tái đấu */
             let flashcardOptionCache = {};
             let flashcardInitialCount = 0;
             /** Số thẻ đã Easy — dùng cho progress bar */
@@ -2796,6 +2796,7 @@
                 if (currentMode !== "flashcard" || flashcardQueue.length === 0) return;
 
                 const card = flashcardQueue.shift();
+                delete flashcardOptionCache[card.id];
                 if (grade === "easy") {
                     flashcardEasyCount++;
                 } else {

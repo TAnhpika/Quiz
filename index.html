@@ -348,6 +348,20 @@
             #btn-retry.retry-attract {
                 animation: retry-attract 1.6s ease-in-out infinite;
             }
+            @keyframes next-level-attract {
+                0%,
+                100% {
+                    transform: scale(1);
+                    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.4);
+                }
+                50% {
+                    transform: scale(1.03);
+                    box-shadow: 0 0 0 10px rgba(217, 70, 239, 0);
+                }
+            }
+            #btn-next-level.retry-attract {
+                animation: next-level-attract 1.6s ease-in-out infinite;
+            }
             #screen-result .glass-panel {
                 overflow: hidden;
                 max-height: 100%;
@@ -2753,6 +2767,8 @@
             let flashcardFlipped = false;
             /** Space trên màn Done gọi Tái đấu — chỉ khi Đã chiến = 1 lần */
             let flashcardRetrySpaceArmed = false;
+            /** Space trên màn Done gọi Next level — khi Đã chiến >= 2 và còn chặng */
+            let flashcardNextLevelSpaceArmed = false;
             /** Hàng đợi thẻ trong phiên Flashcard (có thể trùng id khi reinsert) */
             let flashcardQueue = [];
             /** Layout đáp án đã đảo theo lượt hiện tại; xóa khi thẻ advance; rebuild khi mở chặng / Tái đấu */
@@ -2956,7 +2972,18 @@
                 const nextLevelBtn = document.getElementById("btn-next-level");
                 const hasNextLevel = lastGroupIndex + 1 < totalGroups;
                 if (nextLevelBtn) {
-                    nextLevelBtn.classList.toggle("hidden", !(times >= 2 && hasNextLevel));
+                    const showNext = times >= 2 && hasNextLevel;
+                    nextLevelBtn.classList.toggle("hidden", !showNext);
+                    if (showNext) {
+                        flashcardNextLevelSpaceArmed = true;
+                        nextLevelBtn.classList.add("retry-attract");
+                        nextLevelBtn.innerHTML =
+                            'Next level! <kbd class="ml-1 px-1.5 py-0.5 bg-white/20 rounded text-[10px] font-mono">Space</kbd>';
+                    } else {
+                        flashcardNextLevelSpaceArmed = false;
+                        nextLevelBtn.classList.remove("retry-attract");
+                        nextLevelBtn.innerText = "Next level!";
+                    }
                 }
                 const resultGuide = document.getElementById("btn-result-guide");
                 if (times === 1) {
@@ -2985,6 +3012,7 @@
 
             function resetResultScreen() {
                 flashcardRetrySpaceArmed = false;
+                flashcardNextLevelSpaceArmed = false;
                 document.getElementById("result-title").innerText = "Chúc Mừng!";
                 document.getElementById("result-score-label").innerText = "Điểm số";
                 document.getElementById("result-stats-wrap").classList.remove("hidden");
@@ -2993,7 +3021,10 @@
                 btnRetry.classList.remove("hidden", "retry-attract");
                 btnRetry.innerText = "Làm lại";
                 document.getElementById("btn-result-home").innerText = "Về trang chủ";
-                document.getElementById("btn-next-level").classList.add("hidden");
+                const nextLevelBtn = document.getElementById("btn-next-level");
+                nextLevelBtn.classList.remove("retry-attract");
+                nextLevelBtn.innerText = "Next level!";
+                nextLevelBtn.classList.add("hidden");
                 const resultGuide = document.getElementById("btn-result-guide");
                 resultGuide.classList.add("hidden");
                 resultGuide.classList.remove("flex");
@@ -3389,6 +3420,7 @@
                 flashcardFlipped = false;
                 flashcardAwaitContinue = false;
                 flashcardRetrySpaceArmed = false;
+                flashcardNextLevelSpaceArmed = false;
                 flashcardQueue = [];
                 flashcardInitialCount = 0;
                 flashcardEasyCount = 0;
@@ -3907,14 +3939,18 @@
                 }
 
                 if (e.key === " " || e.code === "Space") {
-                    if (
-                        !document.getElementById("screen-result").classList.contains("hidden") &&
-                        flashcardRetrySpaceArmed
-                    ) {
+                    if (!document.getElementById("screen-result").classList.contains("hidden")) {
                         if (e.repeat) return;
-                        e.preventDefault();
-                        retryGame();
-                        return;
+                        if (flashcardNextLevelSpaceArmed) {
+                            e.preventDefault();
+                            startNextFlashcardLevel();
+                            return;
+                        }
+                        if (flashcardRetrySpaceArmed) {
+                            e.preventDefault();
+                            retryGame();
+                            return;
+                        }
                     }
                 }
 

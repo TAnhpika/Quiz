@@ -31,7 +31,8 @@ Quizzy/
 ├── banks/                  # Ngân hàng Quizzy — load on demand
 │   ├── swr.js
 │   ├── swr_extra.js
-│   └── fer.js
+│   ├── fer.js
+│   └── swt.js
 ├── banks/memozy/           # Ngân hàng từ vựng IELTS
 │   ├── catalog.js          # Cây Skill → Group → Leaf
 │   ├── reading.js
@@ -129,6 +130,7 @@ SRS grades: Again 1d / Hard 3d / Good 7d / Easy 14d (cùng thuật toán Anki-li
 | `swr.js`       | SWR        | 203    |
 | `swr_extra.js` | SWR Extra  | 97     |
 | `fer.js`       | FER        | 287    |
+| `swt.js`       | SWT        | 332    |
 
 Thêm môn mới: khai báo trong `SUBJECTS` + tạo `banks/{id}.js` + `questionCount` trong SUBJECTS.
 

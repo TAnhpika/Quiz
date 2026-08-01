@@ -1650,9 +1650,9 @@ Match the following:
 1. Test estimation
 2. Test control
 3. Test monitoring
-a. Measures of tracking process
-b. Effort required to perform activities
-c. Reallocation of resources
+a - Measures of tracking process
+b - Effort required to perform activities
+c - Reallocation of resources
 A. 1-b, 2-c, 3-a
 B. 1-b, 2-a, 3-c
 C. 1-c, 2-a, 3-b

@@ -2712,19 +2712,16 @@
         },
         {
             "id": 209,
-            "text": "Match the following: 1. Test estimation 2. Test control 3. Test monitoring",
+            "text": "Match the following: 1. Test estimation 2. Test control 3. Test monitoring a - Measures of tracking process b - Effort required to perform activities c - Reallocation of resources",
             "options": [
-                "Measures of tracking process",
-                "Effort required to perform activities",
-                "Reallocation of resources",
                 "1-b, 2-c, 3-a",
                 "1-b, 2-a, 3-c",
                 "1-c, 2-a, 3-b",
                 "1-a, 2-b, 3-c"
             ],
             "answer": 0,
-            "explanation": "Measures of tracking process",
-            "keywords": "Q: Match the following: 1. Test estimation 2. Test | A: Measures of tracking process"
+            "explanation": "1-b, 2-c, 3-a",
+            "keywords": "Q: Match the following: 1. Test estimation 2. Test | A: 1-b, 2-c, 3-a"
         },
         {
             "id": 210,

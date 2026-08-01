@@ -2488,20 +2488,16 @@
         },
         {
             "id": 192,
-            "text": "Match every stage of the software Development Life cycle with the Testing Life cycle: i. Hi-level design ii. Code iii. Low-level design iv. Business requirements",
+            "text": "Match every stage of the software Development Life cycle with the Testing Life cycle: i. Hi-level design ii. Code iii. Low-level design iv. Business requirements a - Unit tests b - Acceptance tests c - System tests d - Integration tests",
             "options": [
-                "Unit tests",
-                "Acceptance tests",
-                "System tests",
-                "Integration tests",
                 "i-d, ii-a, iii-c, iv-b",
                 "i-c, ii-d, iii-a, iv-b",
                 "i-b, ii-a, iii-d, iv-c",
                 "i-c, ii-a, iii-d, iv-b"
             ],
             "answer": 3,
-            "explanation": "Integration tests",
-            "keywords": "Q: Match every stage of the software Development Life | A: Integration tests"
+            "explanation": "i-c, ii-a, iii-d, iv-b",
+            "keywords": "Q: Match every stage of the software Development Life | A: i-c, ii-a, iii-d, iv-b"
         },
         {
             "id": 193,

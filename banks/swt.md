@@ -1453,10 +1453,10 @@ i. Hi-level design
 ii. Code
 iii. Low-level design
 iv. Business requirements
-a. Unit tests
-b. Acceptance tests
-c. System tests
-d. Integration tests
+a - Unit tests
+b - Acceptance tests
+c - System tests
+d - Integration tests
 A. i-d, ii-a, iii-c, iv-b
 B. i-c, ii-d, iii-a, iv-b
 C. i-b, ii-a, iii-d, iv-c

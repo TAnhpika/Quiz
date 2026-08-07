@@ -30,7 +30,6 @@ Quizzy/
 ├── memozy-app.js           # Memozy navigation, study, SRS, TTS
 ├── banks/                  # Ngân hàng Quizzy — load on demand
 │   ├── swr.js
-│   ├── swr_extra.js
 │   ├── fer.js
 │   ├── swt.js
 │   └── ktct.js
@@ -128,8 +127,7 @@ SRS grades: Again 1d / Hard 3d / Good 7d / Easy 14d (cùng thuật toán Anki-li
 
 | File           | Môn / đề   | Số câu |
 | -------------- | ---------- | ------ |
-| `swr.js`       | SWR        | 203    |
-| `swr_extra.js` | SWR Extra  | 97     |
+| `swr.js`       | SWR        | 300    |
 | `fer.js`       | FER        | 287    |
 | `swt.js`       | SWT        | 332    |
 | `ktct.js`      | Kinh tế chính trị | 300 |
@@ -365,8 +363,7 @@ flowchart TD
     M2 --> M3[memozy-browse]
     M3 --> M4[memozy-study]
     M2 -->|On Hom Nay| M4
-    B -->|chọn môn rồi đề| B2[renderBankCards]
-    B2 -->|selectSubject| C[screen-home]
+    B -->|chọn môn| C[screen-home]
     C -->|Học Theo Nhóm| D[modal-group]
     D -->|startGame campaign| E[screen-game]
     C -->|Thi Thử| E

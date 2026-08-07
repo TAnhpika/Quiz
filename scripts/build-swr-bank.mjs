@@ -1,8 +1,8 @@
 /**
  * Convert banks/{id}.md → banks/{id}.js (Quizzy bank).
  * Usage:
- *   node scripts/build-swr-bank.mjs           # builds swr + swr_extra
- *   node scripts/build-swr-bank.mjs swr_extra  # one bank
+ *   node scripts/build-swr-bank.mjs           # builds all BANK_IDS
+ *   node scripts/build-swr-bank.mjs swr       # one bank
  */
 import fs from "fs";
 import path from "path";
@@ -10,8 +10,8 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
-const BANK_IDS = ["swr", "swr_extra", "fer", "swt", "ktct"];
-const BANK_LABELS = { swr: "SWR", swr_extra: "SWR Extra", fer: "FER", swt: "SWT", ktct: "Kinh tế chính trị" };
+const BANK_IDS = ["swr", "fer", "swt", "ktct"];
+const BANK_LABELS = { swr: "SWR", fer: "FER", swt: "SWT", ktct: "Kinh tế chính trị" };
 
 const OPTION_RE = /^([A-Fa-f])[\.\)]\s*(.*)$/;
 const ANSWER_RE = /^[A-Fa-f]{1,5}$/;

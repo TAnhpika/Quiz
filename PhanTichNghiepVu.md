@@ -67,15 +67,14 @@ Hệ thống không có đăng nhập tài khoản truyền thống. Một ngư�
 | Use Case    | Luồng chính                                                                 | Dữ liệu              |
 | ----------- | --------------------------------------------------------------------------- | -------------------- |
 | Mở Quizzy   | `showSubjectSelection()` → thẻ môn (`COURSES`)                              | `COURSES`            |
-| Chọn môn    | `renderBankCards(courseId)` → thẻ đề theo kỳ                                | `SUBJECTS`           |
-| Chọn đề     | `selectSubject(id)` → load bank + state → Home                              | `quiz_current_subject` |
+| Chọn môn    | `selectSubject(bankIds[0])` → load bank + state → Home                      | `quiz_current_subject` |
 | Đổi môn     | Nút **Đổi môn** → lưu state → về màn chọn môn                               | Per-subject localStorage |
 
-### Môn & đề hiện có
+### Môn hiện có
 
-| courseId | Môn | Đề (subjectId) |
-| -------- | --- | -------------- |
-| `swr`    | SWR | `swr` (203 câu), `swr_extra` (97 câu) |
+| courseId | Môn | subjectId |
+| -------- | --- | --------- |
+| `swr`    | SWR | `swr` (300 câu) |
 | `fer`    | FER | `fer` (287 câu) |
 | `swt`    | SWT | `swt` (332 câu) |
 | `ktct`   | Kinh tế chính trị | `ktct` (300 câu) |

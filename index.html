@@ -1346,14 +1346,6 @@
                 >
                     <i class="fa-solid fa-arrow-left"></i> Hub
                 </button>
-                <button
-                    type="button"
-                    id="btn-subject-back-courses"
-                    onclick="showCourseCards()"
-                    class="hidden fixed top-5 left-5 z-30 px-3 py-2 rounded-xl bg-white/90 border border-slate-200 text-slate-600 text-xs font-bold hover:bg-white shadow-sm flex items-center gap-1.5"
-                >
-                    <i class="fa-solid fa-arrow-left"></i> Môn
-                </button>
                 <div class="glass-panel rounded-3xl shadow-xl w-full max-w-3xl mx-auto p-6 md:p-10">
                     <div class="inline-block p-4 bg-white rounded-full shadow-sm mb-4 border border-slate-100">
                         <i id="subject-hero-icon" class="fa-solid fa-layer-group text-4xl text-indigo-400"></i>
@@ -1897,7 +1889,7 @@
                     cardHover: "hover:border-violet-300",
                     cardIconBg: "bg-violet-50",
                     cardIconColor: "text-violet-500",
-                    bankIds: ["swr", "swr_extra"],
+                    bankIds: ["swr"],
                     hidden: true,
                 },
                 fer: {
@@ -1928,22 +1920,7 @@
                     cardHover: "hover:border-violet-300",
                     cardIconBg: "bg-violet-50",
                     cardIconColor: "text-violet-500",
-                    questionCount: 203,
-                    keywordsEnabled: true,
-                },
-                swr_extra: {
-                    id: "swr_extra",
-                    name: "SWR Extra",
-                    titleLines: ["ĐƯỜNG LÊN ĐỈNH", "SWR Extra"],
-                    icon: "fa-diagram-project",
-                    iconColor: "text-fuchsia-500",
-                    borderColor: "border-fuchsia-50",
-                    gradient: "from-fuchsia-600 via-violet-500 to-purple-500",
-                    cardBorder: "border-fuchsia-200",
-                    cardHover: "hover:border-fuchsia-300",
-                    cardIconBg: "bg-fuchsia-50",
-                    cardIconColor: "text-fuchsia-500",
-                    questionCount: 97,
+                    questionCount: 300,
                     keywordsEnabled: true,
                 },
                 fer: {
@@ -2068,7 +2045,6 @@
                     const subtitleEl = document.getElementById("subject-screen-subtitle");
                     const heroIcon = document.getElementById("subject-hero-icon");
                     const hubBtn = document.getElementById("btn-subject-hub");
-                    const backBtn = document.getElementById("btn-subject-back-courses");
 
                     titleEl.textContent = "Chọn Môn Học";
                     titleEl.classList.remove("mb-6");
@@ -2077,12 +2053,10 @@
                     subtitleEl.classList.remove("hidden");
                     heroIcon.className = "fa-solid fa-layer-group text-4xl text-indigo-400";
                     hubBtn.classList.remove("hidden");
-                    backBtn.classList.add("hidden");
 
                     container.innerHTML = "";
                     Object.values(COURSES).filter((course) => !course.hidden).forEach((course) => {
                         const totalQ = course.bankIds.reduce((sum, id) => sum + (SUBJECTS[id]?.questionCount || 0), 0);
-                        const bankCount = course.bankIds.length;
                         const btn = document.createElement("button");
                         btn.className = `group bg-white border-2 ${course.cardBorder} p-5 md:p-6 rounded-2xl shadow-sm ${course.cardHover} hover:shadow-md transition-all text-left w-full`;
                         btn.innerHTML = `
@@ -2093,52 +2067,11 @@
                             <div class="min-w-0">
                                 <h3 class="font-black text-slate-800 text-base md:text-lg">${course.name}</h3>
                                 <p class="text-xs text-slate-500 mt-1">${course.subtitle}</p>
-                                <p class="text-xs text-slate-400 mt-1">${bankCount} đề · ${totalQ} câu hỏi</p>
+                                <p class="text-xs text-slate-400 mt-1">${totalQ} câu hỏi</p>
                             </div>
                         </div>
                     `;
-                        btn.onclick = () => this.renderBankCards(course.id);
-                        container.appendChild(btn);
-                    });
-                },
-
-                renderBankCards(courseId) {
-                    const course = COURSES[courseId];
-                    if (!course) return;
-
-                    const container = document.getElementById("subject-cards");
-                    const titleEl = document.getElementById("subject-screen-title");
-                    const subtitleEl = document.getElementById("subject-screen-subtitle");
-                    const heroIcon = document.getElementById("subject-hero-icon");
-                    const hubBtn = document.getElementById("btn-subject-hub");
-                    const backBtn = document.getElementById("btn-subject-back-courses");
-
-                    titleEl.textContent = `Chọn đề ${course.name}`;
-                    titleEl.classList.remove("mb-2");
-                    titleEl.classList.add("mb-6");
-                    subtitleEl.classList.add("hidden");
-                    heroIcon.className = `fa-solid ${course.icon} text-4xl ${course.iconColor}`;
-                    hubBtn.classList.add("hidden");
-                    backBtn.classList.remove("hidden");
-
-                    container.innerHTML = "";
-                    course.bankIds.forEach((bankId) => {
-                        const sub = SUBJECTS[bankId];
-                        if (!sub) return;
-                        const btn = document.createElement("button");
-                        btn.className = `group bg-white border-2 ${sub.cardBorder} p-5 md:p-6 rounded-2xl shadow-sm ${sub.cardHover} hover:shadow-md transition-all text-left w-full`;
-                        btn.innerHTML = `
-                        <div class="flex items-start gap-4">
-                            <div class="${sub.cardIconBg} ${sub.cardIconColor} p-3 rounded-xl shrink-0 flex items-center justify-center w-12 h-12">
-                                <i class="fa-solid ${sub.icon} text-2xl leading-none"></i>
-                            </div>
-                            <div class="min-w-0">
-                                <h3 class="font-black text-slate-800 text-base md:text-lg">${sub.name}</h3>
-                                <p class="text-xs text-slate-500 mt-1">${sub.questionCount} câu hỏi</p>
-                            </div>
-                        </div>
-                    `;
-                        btn.onclick = () => this.selectSubject(sub.id);
+                        btn.onclick = () => this.selectSubject(course.bankIds[0]);
                         container.appendChild(btn);
                     });
                 },
@@ -2241,10 +2174,6 @@
                     }
                 },
             };
-
-            function showCourseCards() {
-                subjectManager.renderCourseCards();
-            }
 
             function showSubjectSelection() {
                 if (currentSubjectId) subjectManager.persistCurrentSubjectState();

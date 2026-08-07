@@ -1873,6 +1873,19 @@
                     cardIconBg: "bg-amber-50",
                     cardIconColor: "text-amber-500",
                     bankIds: ["swt"],
+                    hidden: true,
+                },
+                ktct: {
+                    id: "ktct",
+                    name: "Kinh tế chính trị",
+                    subtitle: "Mác – Lênin",
+                    icon: "fa-landmark",
+                    iconColor: "text-emerald-500",
+                    cardBorder: "border-emerald-200",
+                    cardHover: "hover:border-emerald-300",
+                    cardIconBg: "bg-emerald-50",
+                    cardIconColor: "text-emerald-500",
+                    bankIds: ["ktct"],
                 },
                 swr: {
                     id: "swr",
@@ -1885,6 +1898,7 @@
                     cardIconBg: "bg-violet-50",
                     cardIconColor: "text-violet-500",
                     bankIds: ["swr", "swr_extra"],
+                    hidden: true,
                 },
                 fer: {
                     id: "fer",
@@ -1897,6 +1911,7 @@
                     cardIconBg: "bg-cyan-50",
                     cardIconColor: "text-cyan-500",
                     bankIds: ["fer"],
+                    hidden: true,
                 },
             };
 
@@ -1959,6 +1974,21 @@
                     cardIconBg: "bg-amber-50",
                     cardIconColor: "text-amber-500",
                     questionCount: 332,
+                    keywordsEnabled: true,
+                },
+                ktct: {
+                    id: "ktct",
+                    name: "Kinh tế chính trị",
+                    titleLines: ["ĐƯỜNG LÊN ĐỈNH", "KINH TẾ CHÍNH TRỊ"],
+                    icon: "fa-landmark",
+                    iconColor: "text-emerald-500",
+                    borderColor: "border-emerald-50",
+                    gradient: "from-emerald-600 via-green-500 to-teal-500",
+                    cardBorder: "border-emerald-200",
+                    cardHover: "hover:border-emerald-300",
+                    cardIconBg: "bg-emerald-50",
+                    cardIconColor: "text-emerald-500",
+                    questionCount: 300,
                     keywordsEnabled: true,
                 },
             };
@@ -2050,7 +2080,7 @@
                     backBtn.classList.add("hidden");
 
                     container.innerHTML = "";
-                    Object.values(COURSES).forEach((course) => {
+                    Object.values(COURSES).filter((course) => !course.hidden).forEach((course) => {
                         const totalQ = course.bankIds.reduce((sum, id) => sum + (SUBJECTS[id]?.questionCount || 0), 0);
                         const bankCount = course.bankIds.length;
                         const btn = document.createElement("button");

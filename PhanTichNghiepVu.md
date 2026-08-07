@@ -78,6 +78,7 @@ Hệ thống không có đăng nhập tài khoản truyền thống. Một ngư�
 | `swr`    | SWR | `swr` (203 câu), `swr_extra` (97 câu) |
 | `fer`    | FER | `fer` (287 câu) |
 | `swt`    | SWT | `swt` (332 câu) |
+| `ktct`   | Kinh tế chính trị | `ktct` (300 câu) |
 
 ---
 

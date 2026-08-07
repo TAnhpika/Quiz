@@ -10,8 +10,8 @@ import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
-const BANK_IDS = ["swr", "swr_extra", "fer", "swt"];
-const BANK_LABELS = { swr: "SWR", swr_extra: "SWR Extra", fer: "FER", swt: "SWT" };
+const BANK_IDS = ["swr", "swr_extra", "fer", "swt", "ktct"];
+const BANK_LABELS = { swr: "SWR", swr_extra: "SWR Extra", fer: "FER", swt: "SWT", ktct: "Kinh tế chính trị" };
 
 const OPTION_RE = /^([A-Fa-f])[\.\)]\s*(.*)$/;
 const ANSWER_RE = /^[A-Fa-f]{1,5}$/;
